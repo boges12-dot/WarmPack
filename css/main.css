@@ -9,38 +9,56 @@ body {
   background: #07090c;
   color: #eaeaea;
   font-family: system-ui, -apple-system, sans-serif;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
-/* ===== 상단 비주얼 ===== */
+/* ===== 상단 텍스트 비주얼 ===== */
 .top-visual {
-  padding: 40px 0 30px;
+  padding: 100px 20px 70px;
+  text-align: center;
   background:
-    radial-gradient(circle at top, rgba(240,195,122,.15), transparent 60%),
+    radial-gradient(circle at top, rgba(240,195,122,.18), transparent 60%),
     #07090c;
   border-bottom: 1px solid rgba(255,255,255,.08);
 }
 
 .visual-wrap {
-  max-width: 720px;     /* 🔴 로고/배너/로고 동일 가로 기준 */
+  max-width: 720px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 18px;
 }
 
-/* 공통 이미지 */
-.visual-image {
-  width: 100%;          /* 🔴 동일 가로 사이즈 */
-  max-width: 720px;
-  height: auto;
-  display: block;
+.site-title {
+  font-size: 4rem;
+  color: #f0c37a;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+.site-subtitle {
+  font-size: 1.2rem;
+  opacity: .9;
+}
+
+.divider {
+  width: 120px;
+  height: 2px;
+  margin: 28px auto;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #f0c37a,
+    transparent
+  );
+}
+
+.site-note {
+  font-size: 0.9rem;
+  opacity: .7;
 }
 
 /* ===== 섹션 ===== */
 .section {
-  padding: 60px 20px;
+  padding: 70px 20px;
 }
 
 .container {
@@ -51,7 +69,7 @@ body {
 .section h2 {
   font-size: 1.8rem;
   color: #f0c37a;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 /* ===== 푸터 ===== */
@@ -64,7 +82,7 @@ body {
 
 /* ===== 모바일 ===== */
 @media (max-width: 600px) {
-  .visual-wrap {
-    max-width: 90%;
+  .site-title {
+    font-size: 3rem;
   }
 }
