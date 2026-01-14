@@ -1,54 +1,41 @@
 (function(){
   const nav = document.getElementById('mainNav');
-  const toggle = document.getElementById('menuToggle');
-  const isMobile = () => window.matchMedia('(max-width: 980px)').matches;
-
-  if(toggle && nav){
-    toggle.addEventListener('click', ()=>{
-      const open = nav.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', String(open));
-      if(!open){
-        nav.querySelectorAll('.nav-item.open').forEach(x=>x.classList.remove('open'));
-        nav.querySelectorAll('.nav-btn[aria-expanded="true"]').forEach(b=>b.setAttribute('aria-expanded','false'));
-      }
-    });
+  if(nav){
+    nav.addEventListener('wheel', (e)=>{
+      if(e.shiftKey) return;
+      const dx = (Math.abs(e.deltaY) > Math.abs(e.deltaX)) ? e.deltaY : e.deltaX;
+      if(dx === 0) return;
+      nav.scrollLeft += dx;
+      e.preventDefault();
+    }, {passive:false});
   }
 
-  document.querySelectorAll('.nav-item.has-sub > .nav-btn').forEach(btn=>{
-    btn.addEventListener('click', (e)=>{
-      if(!isMobile()) return;
-      e.preventDefault();
-      const item = btn.closest('.nav-item');
-      const expanded = btn.getAttribute('aria-expanded') === 'true';
+  function alignDropdown(item){
+    const sub = item.querySelector('.sub');
+    if(!sub) return;
+    sub.classList.remove('align-right');
 
-      document.querySelectorAll('.nav-item.open').forEach(x=>{
-        if(x!==item) x.classList.remove('open');
-      });
-      document.querySelectorAll('.nav-btn[aria-expanded="true"]').forEach(b=>{
-        if(b!==btn) b.setAttribute('aria-expanded','false');
-      });
+    const wasHidden = getComputedStyle(sub).display === 'none';
+    if(wasHidden) sub.style.display = 'block';
 
-      item.classList.toggle('open', !expanded);
-      btn.setAttribute('aria-expanded', String(!expanded));
-    });
-  });
+    const rect = sub.getBoundingClientRect();
+    const overflowRight = rect.right > window.innerWidth - 8;
+    const overflowLeft  = rect.left < 8;
+    if(overflowRight && !overflowLeft) sub.classList.add('align-right');
 
-  document.addEventListener('click', (e)=>{
-    if(!isMobile()) return;
-    if(!nav || !toggle) return;
-    if(nav.contains(e.target) || toggle.contains(e.target)) return;
-    nav.classList.remove('open');
-    toggle.setAttribute('aria-expanded','false');
-    nav.querySelectorAll('.nav-item.open').forEach(x=>x.classList.remove('open'));
+    if(wasHidden) sub.style.display = '';
+  }
+
+  const items = [...document.querySelectorAll('.nav-item.has-sub')];
+  items.forEach(item=>{
+    item.addEventListener('mouseenter', ()=>alignDropdown(item));
+    item.addEventListener('focusin', ()=>alignDropdown(item));
   });
 
   window.addEventListener('resize', ()=>{
-    if(!nav || !toggle) return;
-    if(!isMobile()){
-      nav.classList.remove('open');
-      toggle.setAttribute('aria-expanded','false');
-      nav.querySelectorAll('.nav-item.open').forEach(x=>x.classList.remove('open'));
-      nav.querySelectorAll('.nav-btn[aria-expanded="true"]').forEach(b=>b.setAttribute('aria-expanded','false'));
-    }
+    items.forEach(item=>{
+      const sub = item.querySelector('.sub');
+      if(sub) sub.classList.remove('align-right');
+    });
   });
 })();
