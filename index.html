@@ -1,127 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>홈</title>
-  <link rel="stylesheet" href="./css/main.css?v=22">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HYBRID</title>
+  <link rel="stylesheet" href="/css/main.css" />
 </head>
 <body>
+  <div id="site-header"></div>
 
-<section class="top-strip" aria-label="Top Banner">
-  <div class="container">
-    <div class="banner-row">
-      <div class="logo-card"><img src="logo.png" alt="logo"></div>
-      <div class="banner-center"><img src="banner.gif" alt="banner"></div>
-      <div class="logo-card"><img src="logo.png" alt="logo"></div>
-    </div>
+  <main class="container">
+    <nav class="breadcrumb" id="breadcrumb"></nav>
+    <h1 class="page-title">HYBRID</h1>
+    <p class="lead">데스크탑 구조 안정화(v2_3) — 메뉴/위치/뼈대 확정용</p>
+
+<div class="kv">
+  <div>
+    <div style="font-weight:900; font-size:16px;">현재 버전: hybrid_site_v2_3</div>
+    <div style="color:var(--muted); font-size:13px; margin-top:4px;">상단 메뉴는 공통 스크립트로 자동 삽입됩니다.</div>
   </div>
-</section>
+  <span class="badge">DESKTOP</span>
+</div>
 
-<section class="menu-wrap" aria-label="Main Menu">
-  <div class="container">
-    <nav class="main-nav" id="mainNav" aria-label="Main Menu">
-      <a class="nav-link" href="index.html">홈</a>
+<div style="height:14px;"></div>
 
-      <div class="nav-item has-sub">
-        <button class="nav-btn" type="button">공지사항 <span class="chev">▾</span></button>
-        <div class="sub" role="menu">
-          <a href="pages/notice.html#rule">서버규정</a>
-          <a href="pages/notice.html#check">서버점검</a>
-          <a href="pages/notice.html#update">업데이트</a>
-          <a href="pages/notice.html#event">이벤트</a>
-        </div>
-      </div>
+<div class="grid cols-3">
+  <a class="card" href="/pages/news/index.html"><strong>소식</strong><div class="lead" style="margin:8px 0 0;">공지/업데이트/이벤트/규정</div></a>
+  <a class="card" href="/pages/guide/index.html"><strong>가이드</strong><div class="lead" style="margin:8px 0 0;">입문/시스템 이해</div></a>
+  <a class="card" href="/pages/craft/index.html"><strong>제작</strong><div class="lead" style="margin:8px 0 0;">인형/부적/아이템 제작</div></a>
+  <a class="card" href="/pages/class/index.html"><strong>클래스</strong><div class="lead" style="margin:8px 0 0;">직업/특징</div></a>
+  <a class="card" href="/pages/skill/index.html"><strong>스킬</strong><div class="lead" style="margin:8px 0 0;">스킬 정보</div></a>
+  <a class="card" href="/pages/item/index.html"><strong>아이템</strong><div class="lead" style="margin:8px 0 0;">아이템 정보</div></a>
+  <a class="card" href="/pages/hunt/index.html"><strong>사냥터</strong><div class="lead" style="margin:8px 0 0;">사냥터/드랍</div></a>
+  <a class="card" href="/pages/download/index.html"><strong>다운로드</strong><div class="lead" style="margin:8px 0 0;">클라이언트</div></a>
+  <a class="card" href="/pages/community/index.html"><strong>커뮤니티</strong><div class="lead" style="margin:8px 0 0;">게시판/규칙</div></a>
+</div>
 
-      <div class="nav-item has-sub">
-        <button class="nav-btn" type="button">서버가이드 <span class="chev">▾</span></button>
-        <div class="sub" role="menu">
-          <a href="pages/guide.html#server">서버가이드</a>
-          <a href="pages/guide.html#fishing">낚시가이드</a>
-          <a href="pages/guide.html#book">도감가이드</a>
-        </div>
-      </div>
+  </main>
 
-      <!-- 제작: 인형/오만/아이템 제작을 여기로 이동 완료 -->
-      <div class="nav-item has-sub">
-        <button class="nav-btn" type="button">제작 <span class="chev">▾</span></button>
-        <div class="sub" role="menu">
-          <a href="pages/craft.html#doll">인형 제작</a>
-          <a href="pages/craft.html#oman">오만의탑 이동 부적</a>
-          <a href="pages/craft.html#item">아이템 제작</a>
-        </div>
-      </div>
-
-      <div class="nav-item has-sub">
-        <button class="nav-btn" type="button">클래스 <span class="chev">▾</span></button>
-        <div class="sub" role="menu">
-          <a href="pages/classes.html#prince">군주</a>
-          <a href="pages/classes.html#knight">기사</a>
-          <a href="pages/classes.html#mage">마법사</a>
-          <a href="pages/classes.html#elf">요정</a>
-        </div>
-      </div>
-
-      <div class="nav-item has-sub">
-        <button class="nav-btn" type="button">스킬 <span class="chev">▾</span></button>
-        <div class="sub" role="menu">
-          <a href="pages/skills.html#prince">군주 스킬</a>
-          <a href="pages/skills.html#knight">기사 스킬</a>
-          <a href="pages/skills.html#mage">마법사 스킬</a>
-          <a href="pages/skills.html#elf">요정 스킬</a>
-        </div>
-      </div>
-
-      <div class="nav-item has-sub">
-        <button class="nav-btn" type="button">아이템 <span class="chev">▾</span></button>
-        <div class="sub" role="menu">
-          <a href="pages/items.html#weapon">무기</a>
-          <a href="pages/items.html#armor">방어구</a>
-          <a href="pages/items.html#accessory">악세사리</a>
-          <a href="pages/items.html#doll">인형</a>
-          <a href="pages/items.html#eye">마안</a>
-          <a href="pages/items.html#scroll">주문서</a>
-        </div>
-      </div>
-
-      <div class="nav-item has-sub">
-        <button class="nav-btn" type="button">사냥터 <span class="chev">▾</span></button>
-        <div class="sub" role="menu">
-          <a href="pages/hunting.html#field">필드 사냥터</a>
-          <a href="pages/hunting.html#dungeon">던전</a>
-          <a href="pages/hunting.html#rotation">로테이션 던전</a>
-        </div>
-      </div>
-
-      <a class="nav-link" href="pages/download.html#client">다운로드</a>
-
-      <div class="nav-item has-sub">
-        <button class="nav-btn" type="button">홍보 <span class="chev">▾</span></button>
-        <div class="sub" role="menu">
-          <a href="pages/promo.html#post">홍보글</a>
-          <a href="pages/promo.html#reward">홍보보상받기</a>
-        </div>
-      </div>
-
-      <div class="nav-item has-sub">
-        <button class="nav-btn" type="button">커뮤니티 <span class="chev">▾</span></button>
-        <div class="sub" role="menu">
-          <a href="pages/community.html#kakao">카카오톡 오픈방</a>
-          <a href="pages/community.html#telegram">텔레그램 문의방</a>
-          <a href="pages/community.html#qa">질문 또는 답변</a>
-          <a href="pages/community.html#support">고객지원</a>
-        </div>
-      </div>
-    </nav>
-  </div>
-</section>
-
-<main class="container page">
-  <h1>홈</h1>
-  <div class="section-card">
-    <p>요청 반영 완료: <strong>가이드</strong> 하위에서 <strong>인형/오만/아이템 제작</strong>을 제거하고, <strong>제작</strong> 하위로 이동했습니다.</p>
-  </div>
-</main>
-<script defer src="./js/main.js?v=22"></script>
+  <div id="site-footer"></div>
+  <script src="/js/main.js"></script>
 </body>
 </html>
