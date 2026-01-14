@@ -1,4 +1,4 @@
-/* ===== Clean Homepage CSS (lowercase-only) ===== */
+/* ===== Clean Homepage CSS (lowercase-only) v3 ===== */
 :root{
   color-scheme:dark;
   --bg:#0b0f14;
@@ -7,9 +7,7 @@
   --stroke2:rgba(255,255,255,.08);
   --text:#fff;
 }
-
 *{box-sizing:border-box}
-html,body{height:100%}
 body{
   margin:0;
   font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
@@ -56,14 +54,11 @@ button{font:inherit;color:inherit}
   padding:18px;
   display:block;
 }
-.banner-center{
-  padding:0;
-}
-/* 중앙 배너: 기본은 '안 짤리게' (contain) */
+/* 중앙 배너: '안 짤리게' 강제 */
 .banner-center img{
   width:100%;
   height:100%;
-  object-fit:contain;
+  object-fit:contain !important;
   display:block;
   background:#000;
 }
@@ -86,14 +81,13 @@ button{font:inherit;color:inherit}
   padding:12px 0 16px;
 }
 .nav-link, .nav-btn{
-  appearance:none;
   border:1px solid var(--stroke);
   background:var(--panel);
   padding:10px 14px;
   border-radius:14px;
   font-weight:750;
   letter-spacing:.1px;
-  line-height:1;            /* 글자 틀어짐 방지 */
+  line-height:1;
   display:inline-flex;
   align-items:center;
   gap:6px;
@@ -104,7 +98,6 @@ button{font:inherit;color:inherit}
 .is-active{background:rgba(255,255,255,.12)}
 .chev{opacity:.8;font-size:.95em}
 
-/* Dropdown: hover/focus로 유지되게 + 안전 영역 추가 */
 .nav-item{position:relative; display:inline-flex; align-items:center}
 .sub{
   position:absolute;
@@ -121,8 +114,8 @@ button{font:inherit;color:inherit}
 .sub::before{
   content:"";
   position:absolute;
-  top:-10px; left:0; right:0;
-  height:10px;              /* 마우스 이동할 때 끊기는 구간 제거 */
+  top:-12px; left:0; right:0;
+  height:12px;
 }
 .sub a{
   display:block;
@@ -133,13 +126,11 @@ button{font:inherit;color:inherit}
 }
 .sub a:hover{background:rgba(255,255,255,.08)}
 
-/* 데스크탑: hover + focus-within 모두 유지 */
 @media (min-width: 981px){
   .nav-item.has-sub:hover .sub,
   .nav-item.has-sub:focus-within .sub{display:block}
 }
 
-/* 모바일 토글 버튼 */
 .menu-toggle{
   display:none;
   width:44px;height:44px;
@@ -150,7 +141,6 @@ button{font:inherit;color:inherit}
 }
 .menu-toggle span{display:block;height:2px;margin:7px 10px;background:#fff}
 
-/* 모바일: 햄버거로 열고/닫기, 드롭다운은 클릭으로 */
 @media (max-width: 980px){
   .banner-row{grid-template-columns:92px 1fr 92px; gap:12px}
   .logo-card, .banner-center{height:92px}
@@ -159,12 +149,10 @@ button{font:inherit;color:inherit}
     display:none;
     flex-direction:column;
     align-items:stretch;
-    justify-content:flex-start;
     padding:0 0 16px;
   }
   .main-nav.open{display:flex}
   .menu-toggle{display:block}
-
   .nav-item{display:flex; flex-direction:column; align-items:stretch}
   .sub{
     position:static;
