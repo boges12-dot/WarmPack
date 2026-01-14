@@ -1,17 +1,3 @@
-/* 기본 초기화 */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background: #07090c;
-  color: #eaeaea;
-  font-family: system-ui, -apple-system, sans-serif;
-  line-height: 1.6;
-}
-
 /* 상단 비주얼 */
 .top-visual {
   padding: 40px 0 30px;
@@ -22,7 +8,7 @@ body {
 }
 
 .visual-wrap {
-  max-width: 720px;      /* 🔴 세 이미지 가로 기준 */
+  max-width: 720px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -31,37 +17,30 @@ body {
 }
 
 .visual-image {
-  width: 100%;           /* 🔴 동일 가로 사이즈 */
+  width: 100%;
   height: auto;
   display: block;
 }
 
-/* 본문 */
-.section {
-  padding: 60px 20px;
-}
-
-.container {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.section h2 {
-  color: #f0c37a;
-  margin-bottom: 16px;
-}
-
-/* 푸터 */
-.footer {
-  padding: 40px 0;
+/* 텍스트 히어 */
+.hero-text {
   text-align: center;
-  opacity: .6;
-  border-top: 1px solid rgba(255,255,255,.08);
+  padding: 80px 20px 60px;
 }
 
-/* 모바일 */
-@media (max-width: 600px) {
-  .visual-wrap {
-    max-width: 90%;
-  }
+.hero-title {
+  font-size: 3.5rem;
+  color: #f0c37a;
+  margin-bottom: 20px;
+}
+
+.hero-sub {
+  font-size: 1.2rem;
+  opacity: .9;
+}
+
+.hero-note {
+  margin-top: 30px;
+  font-size: .9rem;
+  opacity: .6;
 }
