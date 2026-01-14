@@ -1,7 +1,10 @@
-/* ===== Header / Nav ===== */
+/* ===== Base ===== */
 :root{color-scheme:dark;}
+*{box-sizing:border-box}
 body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#0b0b0d;color:#fff}
 a{color:inherit}
+
+/* ===== Header / Nav ===== */
 .site-header{
   position:sticky;top:0;z-index:999;
   background:rgba(10,10,12,.92);
@@ -10,10 +13,12 @@ a{color:inherit}
 }
 .container{max-width:1200px;margin:0 auto;padding:0 16px}
 .header-row{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff;white-space:nowrap}
-.brand-logo{height:40px;width:auto;display:block}
+.brand-logo{height:44px;width:auto;display:block;object-fit:contain}
 .brand-text{font-weight:800;letter-spacing:.2px}
 
+/* Nav */
 .site-nav .nav-list{list-style:none;display:flex;gap:6px;padding:0;margin:0;align-items:center;flex-wrap:wrap}
 .nav-item{position:relative}
 .site-nav a,.nav-btn{
@@ -64,3 +69,21 @@ a{color:inherit}
   .sub-menu{position:static;display:none;margin-top:6px;min-width:auto}
   .nav-item.open>.sub-menu{display:block}
 }
+
+/* ===== Banner ===== */
+.top-banner{
+  width:100%;
+  height:260px;
+  overflow:hidden;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  background:#000;
+}
+.top-banner img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* Main content should start under banner */
+.main-wrap{padding:28px 0 80px}
