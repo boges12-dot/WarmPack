@@ -5,130 +5,97 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Server Home</title>
 
-  <!-- 대소문자/경로 이슈 방어: 둘 중 하나만 살아도 적용됨 -->
+  <!-- 대소문자/경로 방어 -->
   <link rel="stylesheet" href="./css/main.css">
   <link rel="stylesheet" href="./CSS/main.css">
 </head>
 <body>
 
-<header class="site-header">
-  <div class="container header-row">
-    <a class="brand" href="./" aria-label="홈으로">
-      <!-- 로고 파일명은 반드시 repo에 'logo.png'로 존재해야 함 -->
-      <img src="./logo.png" alt="logo" class="brand-logo">
-      <span class="brand-text">서버이름</span>
-    </a>
+<!-- 1) 배너(상단 이미지 영역) -->
+<section class="top-strip" aria-label="Top Banner">
+  <div class="container">
+    <div class="banner-row">
+      <div class="card">
+        <img src="./logo.png" alt="logo left">
+      </div>
 
-    <button class="menu-toggle" id="menuToggle" aria-label="메뉴 열기" aria-expanded="false">
+      <div class="banner-center">
+        <img src="./banner.gif" alt="banner">
+      </div>
+
+      <div class="card">
+        <img src="./logo.png" alt="logo right">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2) 배너 아래 메인 메뉴 -->
+<section class="main-menu-wrap sticky-under-banner" aria-label="Main Menu">
+  <div class="container">
+    <button class="menu-toggle" id="menuToggle" aria-label="메뉴 열기/닫기">
       <span></span><span></span><span></span>
     </button>
 
-    <nav class="site-nav" id="siteNav" aria-label="Main Navigation">
-      <ul class="nav-list">
-        <li class="nav-item"><a href="#home">홈</a></li>
+    <nav class="main-nav" id="mainNav">
+      <a class="active" href="#home">홈</a>
 
-        <li class="nav-item has-sub">
-          <button class="nav-btn" type="button" aria-expanded="false">공지사항 ▾</button>
-          <ul class="sub-menu">
-            <li><a href="#notice-rule">서버규정</a></li>
-            <li><a href="#notice-check">서버점검</a></li>
-            <li><a href="#notice-update">업데이트</a></li>
-            <li><a href="#notice-event">이벤트</a></li>
-          </ul>
-        </li>
+      <div class="nav-item">
+        <button type="button" data-dropdown>공지사항 ▾</button>
+        <ul class="sub">
+          <li><a href="#notice-rule">서버규정</a></li>
+          <li><a href="#notice-check">서버점검</a></li>
+          <li><a href="#notice-update">업데이트</a></li>
+          <li><a href="#notice-event">이벤트</a></li>
+        </ul>
+      </div>
 
-        <li class="nav-item has-sub">
-          <button class="nav-btn" type="button" aria-expanded="false">서버가이드 ▾</button>
-          <ul class="sub-menu">
-            <li><a href="#guide-server">서버가이드</a></li>
-            <li><a href="#guide-fishing">낚시가이드</a></li>
-            <li><a href="#guide-book">도감가이드</a></li>
-            <li><a href="#guide-doll">인형 제작 가이드</a></li>
-            <li><a href="#guide-oman">오만의탑 이동 부적 가이드</a></li>
-            <li><a href="#guide-craft">아이템 제작 가이드</a></li>
-          </ul>
-        </li>
+      <div class="nav-item">
+        <button type="button" data-dropdown>서버 가이드 ▾</button>
+        <ul class="sub">
+          <li><a href="#guide-server">서버가이드</a></li>
+          <li><a href="#guide-fishing">낚시가이드</a></li>
+          <li><a href="#guide-book">도감가이드</a></li>
+          <li><a href="#guide-doll">인형 제작 가이드</a></li>
+          <li><a href="#guide-oman">오만의탑 이동 부적 가이드</a></li>
+          <li><a href="#guide-craft">아이템 제작 가이드</a></li>
+        </ul>
+      </div>
 
-        <li class="nav-item has-sub">
-          <button class="nav-btn" type="button" aria-expanded="false">클래스 소개 ▾</button>
-          <ul class="sub-menu">
-            <li><a href="#class-prince">군주</a></li>
-            <li><a href="#class-knight">기사</a></li>
-            <li><a href="#class-mage">마법사</a></li>
-            <li><a href="#class-elf">요정</a></li>
-          </ul>
-        </li>
+      <div class="nav-item">
+        <button type="button" data-dropdown>아이템 ▾</button>
+        <ul class="sub">
+          <li><a href="#item-weapon">무기</a></li>
+          <li><a href="#item-armor">방어구</a></li>
+          <li><a href="#item-accessory">악세사리</a></li>
+          <li><a href="#item-doll">인형</a></li>
+          <li><a href="#item-eye">마안</a></li>
+          <li><a href="#item-scroll">주문서</a></li>
+        </ul>
+      </div>
 
-        <li class="nav-item has-sub">
-          <button class="nav-btn" type="button" aria-expanded="false">클래스별 스킬 ▾</button>
-          <ul class="sub-menu">
-            <li><a href="#skill-prince">군주 스킬</a></li>
-            <li><a href="#skill-knight">기사 스킬</a></li>
-            <li><a href="#skill-mage">마법사 스킬</a></li>
-            <li><a href="#skill-elf">요정 스킬</a></li>
-          </ul>
-        </li>
+      <div class="nav-item">
+        <button type="button" data-dropdown>클래스 소개 ▾</button>
+        <ul class="sub">
+          <li><a href="#class-prince">군주</a></li>
+          <li><a href="#class-knight">기사</a></li>
+          <li><a href="#class-mage">마법사</a></li>
+          <li><a href="#class-elf">요정</a></li>
+        </ul>
+      </div>
 
-        <li class="nav-item has-sub">
-          <button class="nav-btn" type="button" aria-expanded="false">아이템 ▾</button>
-          <ul class="sub-menu">
-            <li><a href="#item-weapon">무기</a></li>
-            <li><a href="#item-armor">방어구</a></li>
-            <li><a href="#item-accessory">악세사리</a></li>
-            <li><a href="#item-doll">인형</a></li>
-            <li><a href="#item-eye">마안</a></li>
-            <li><a href="#item-scroll">주문서</a></li>
-          </ul>
-        </li>
-
-        <li class="nav-item has-sub">
-          <button class="nav-btn" type="button" aria-expanded="false">사냥터 ▾</button>
-          <ul class="sub-menu">
-            <li><a href="#hunt-field">필드 사냥터</a></li>
-            <li><a href="#hunt-dungeon">던전</a></li>
-            <li><a href="#hunt-rotation">로테이션 던전</a></li>
-          </ul>
-        </li>
-
-        <li class="nav-item"><a href="#download">다운로드</a></li>
-
-        <li class="nav-item has-sub">
-          <button class="nav-btn" type="button" aria-expanded="false">홍보 ▾</button>
-          <ul class="sub-menu">
-            <li><a href="#promo-post">홍보글</a></li>
-            <li><a href="#promo-reward">홍보보상받기</a></li>
-          </ul>
-        </li>
-
-        <li class="nav-item has-sub">
-          <button class="nav-btn" type="button" aria-expanded="false">커뮤니티 ▾</button>
-          <ul class="sub-menu">
-            <li><a href="#comm-kakao">카카오톡 오픈방</a></li>
-            <li><a href="#comm-telegram">텔래그램 문의방</a></li>
-            <li><a href="#comm-qa">질문 또는 답변</a></li>
-            <li><a href="#comm-support">고객지원</a></li>
-          </ul>
-        </li>
-      </ul>
+      <a href="#community">커뮤니티</a>
+      <a href="#download">다운로드</a>
+      <a href="#support">고객지원</a>
     </nav>
   </div>
-</header>
-
-<!-- 배너는 메인메뉴(헤더) 바로 아래에 위치 -->
-<section class="top-banner" aria-label="Top Banner">
-  <!-- 배너 파일명은 반드시 repo에 'banner.gif'로 존재해야 함 -->
-  <img src="./banner.gif" alt="banner">
 </section>
 
-<!-- 메인 메뉴 섹션/본문은 배너 아래에서 시작 -->
-<main class="main-wrap">
-  <div class="container">
-    <h1 id="home" style="margin:0 0 10px">홈</h1>
-    <p style="opacity:.85;margin:0">메뉴 섹션은 배너 아래에 배치되어 있습니다. 각 항목 클릭하면 해당 id로 이동합니다.</p>
-  </div>
+<main class="container" style="padding:28px 0 80px">
+  <h1 id="home" style="margin:0 0 8px">홈</h1>
+  <p style="opacity:.85;margin:0">요청하신 형태: 배너 위(로고/배너/로고) + 배너 아래 메인 메뉴 구성.</p>
 </main>
 
-<!-- JS 대소문자/경로 이슈 방어 -->
 <script defer src="./js/main.js"></script>
 <script defer src="./JS/main.js"></script>
 </body>
