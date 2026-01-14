@@ -1,4 +1,4 @@
-/* ===== Hybrid Site Base CSS v2 ===== */
+/* ===== Hybrid Site Base CSS v2.2 ===== */
 :root{
   color-scheme:dark;
   --bg:#0b0f14;
@@ -23,7 +23,7 @@ button{font:inherit;color:inherit}
 
 .container{max-width:1200px;margin:0 auto;padding:0 18px}
 
-/* ===== Banner ===== */
+/* Banner */
 .top-strip{
   padding:18px 0 14px;
   background:
@@ -35,16 +35,16 @@ button{font:inherit;color:inherit}
 }
 .banner-row{
   display:grid;
-  grid-template-columns: 160px 1fr 160px;
+  grid-template-columns:160px 1fr 160px;
   gap:22px;
   align-items:center;
 }
-.logo-card, .banner-center{
+.logo-card,.banner-center{
   height:120px;
   border-radius:18px;
   background:rgba(255,255,255,.05);
   border:1px solid rgba(255,255,255,.10);
-  box-shadow: 0 10px 40px rgba(0,0,0,.45);
+  box-shadow:0 10px 40px rgba(0,0,0,.45);
   overflow:hidden;
   display:flex;
   align-items:center;
@@ -65,11 +65,9 @@ button{font:inherit;color:inherit}
   background:#000;
 }
 
-/* ===== Main Menu (under banner) ===== */
+/* Menu */
 .menu-wrap{
-  position:sticky;
-  top:0;
-  z-index:900;
+  position:sticky;top:0;z-index:900;
   border-bottom:1px solid var(--stroke2);
   background:rgba(10,10,12,.72);
   backdrop-filter: blur(10px);
@@ -107,14 +105,9 @@ button{font:inherit;color:inherit}
 }
 .nav-link:hover,.nav-btn:hover{background:rgba(255,255,255,.10)}
 .chev{opacity:.8;font-size:.95em}
-.is-active{
-  background:rgba(255,255,255,.12);
-  border-color:rgba(170,200,255,.45);
-  box-shadow:0 0 0 3px rgba(120,160,255,.10), 0 8px 24px rgba(0,0,0,.25);
-}
 
 /* Dropdown */
-.nav-item{position:relative; display:inline-flex; align-items:center}
+.nav-item{position:relative;display:inline-flex;align-items:center}
 .sub{
   position:absolute;
   top:calc(100% + 10px);
@@ -144,15 +137,15 @@ button{font:inherit;color:inherit}
 }
 .sub a:hover{background:rgba(255,255,255,.08)}
 
-@media (min-width: 981px){
+@media (min-width:981px){
   .nav-item.has-sub:hover .sub,
   .nav-item.has-sub:focus-within .sub{display:block}
 }
 
-/* ===== Page content ===== */
+/* Page */
 .page{padding:26px 0 90px}
 .page h1{margin:0 0 10px;font-size:28px}
-.page h2{margin:28px 0 10px;font-size:20px}
+.page h2{margin:24px 0 8px;font-size:20px}
 .page p{margin:0 0 10px;opacity:.85;line-height:1.6}
 .section-card{
   border:1px solid rgba(255,255,255,.10);
@@ -162,8 +155,8 @@ button{font:inherit;color:inherit}
 }
 
 /* Responsive */
-@media (max-width: 980px){
-  .banner-row{grid-template-columns:92px 1fr 92px; gap:12px}
-  .logo-card, .banner-center{height:92px}
+@media (max-width:980px){
+  .banner-row{grid-template-columns:92px 1fr 92px;gap:12px}
+  .logo-card,.banner-center{height:92px}
   .logo-card img{padding:12px}
 }
