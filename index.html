@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>홈페이지</title>
-  <link rel="stylesheet" href="./css/main.css">
+  <!-- 캐시 방지용 버전 파라미터 -->
+  <link rel="stylesheet" href="./css/main.css?v=3">
 </head>
 <body>
 
-<!-- 상단 배너: 로고 / 배너 / 로고 -->
 <section class="top-strip" aria-label="Top Banner">
   <div class="container">
     <div class="banner-row">
@@ -17,7 +17,6 @@
       </div>
 
       <div class="banner-center">
-        <!-- 중앙 배너가 '짤림'이 싫으면 CSS에서 object-fit: contain 으로 되어 있음 -->
         <img src="./banner.gif" alt="banner">
       </div>
 
@@ -28,7 +27,6 @@
   </div>
 </section>
 
-<!-- 배너 아래 메인 메뉴 -->
 <section class="menu-wrap" aria-label="Main Menu">
   <div class="container">
     <button class="menu-toggle" id="menuToggle" type="button" aria-label="메뉴 열기" aria-expanded="false">
@@ -42,11 +40,11 @@
         <button class="nav-btn" type="button" aria-expanded="false">
           공지사항 <span class="chev">▾</span>
         </button>
-        <div class="sub" role="menu" aria-label="공지사항 하위메뉴">
-          <a href="#notice-rule" role="menuitem">서버규정</a>
-          <a href="#notice-check" role="menuitem">서버점검</a>
-          <a href="#notice-update" role="menuitem">업데이트</a>
-          <a href="#notice-event" role="menuitem">이벤트</a>
+        <div class="sub">
+          <a href="#notice-rule">서버규정</a>
+          <a href="#notice-check">서버점검</a>
+          <a href="#notice-update">업데이트</a>
+          <a href="#notice-event">이벤트</a>
         </div>
       </div>
 
@@ -54,27 +52,13 @@
         <button class="nav-btn" type="button" aria-expanded="false">
           서버가이드 <span class="chev">▾</span>
         </button>
-        <div class="sub" role="menu" aria-label="서버가이드 하위메뉴">
+        <div class="sub">
           <a href="#guide-server">서버가이드</a>
           <a href="#guide-fishing">낚시가이드</a>
           <a href="#guide-book">도감가이드</a>
           <a href="#guide-doll">인형 제작 가이드</a>
           <a href="#guide-oman">오만의탑 이동 부적 가이드</a>
           <a href="#guide-craft">아이템 제작 가이드</a>
-        </div>
-      </div>
-
-      <div class="nav-item has-sub">
-        <button class="nav-btn" type="button" aria-expanded="false">
-          아이템 <span class="chev">▾</span>
-        </button>
-        <div class="sub" role="menu" aria-label="아이템 하위메뉴">
-          <a href="#item-weapon">무기</a>
-          <a href="#item-armor">방어구</a>
-          <a href="#item-accessory">악세사리</a>
-          <a href="#item-doll">인형</a>
-          <a href="#item-eye">마안</a>
-          <a href="#item-scroll">주문서</a>
         </div>
       </div>
 
@@ -86,9 +70,9 @@
 
 <main class="container main-content">
   <h1 id="home">홈</h1>
-  <p>배너는 안 짤리게(Contain) / 드롭다운은 커서 올려도 안 사라지게 / 글자 정렬을 깔끔하게 정리했습니다.</p>
+  <p>CSS 캐시 방지(v=3) + 중앙 배너는 contain 강제(!important)로 짤림 방지.</p>
 </main>
 
-<script defer src="./js/main.js"></script>
+<script defer src="./js/main.js?v=3"></script>
 </body>
 </html>
