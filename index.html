@@ -1,152 +1,117 @@
-<!doctype html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>핫팩 서버</title>
-  <meta name="description" content="핫팩 서버 랜딩 페이지 (GitHub Pages 정적 HTML)">
+<header class="site-header">
+  <div class="container header-row">
+    <a class="brand" href="./">
+      <img src="logo.png" alt="logo" class="brand-logo">
+      <span class="brand-text">서버이름</span>
+    </a>
 
-  
-  <link rel="stylesheet" href="CSS/main.css">
-</head>
-<body>
-<a class="skip-link" href="#main-content">본문 바로가기</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="메뉴 열기" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
 
-<header class="header" id="top">
-  <div class="banner-row">
-    <div class="side-logo">
-      <img src="logo.png" alt="핫팩 서버 로고">
-    </div>
+    <nav class="site-nav" id="siteNav" aria-label="Main Navigation">
+      <ul class="nav-list">
+        <li class="nav-item"><a class="nav-link" href="#home">홈</a></li>
 
-    <div class="banner">
-      <img src="banner.gif" alt="핫팩 서버 배너">
-    </div>
+        <li class="nav-item has-sub">
+          <button class="nav-link nav-btn" type="button" aria-expanded="false">
+            공지사항 <span class="chev">▾</span>
+          </button>
+          <ul class="sub-menu">
+            <li><a href="#notice-rule">서버규정</a></li>
+            <li><a href="#notice-check">서버점검</a></li>
+            <li><a href="#notice-update">업데이트</a></li>
+            <li><a href="#notice-event">이벤트</a></li>
+          </ul>
+        </li>
 
-    <div class="side-logo">
-      <img src="logo.png" alt="핫팩 서버 로고">
-    </div>
-  </div>
+        <li class="nav-item has-sub">
+          <button class="nav-link nav-btn" type="button" aria-expanded="false">
+            서버가이드 <span class="chev">▾</span>
+          </button>
+          <ul class="sub-menu">
+            <li><a href="#guide-server">서버가이드</a></li>
+            <li><a href="#guide-fishing">낚시가이드</a></li>
+            <li><a href="#guide-book">도감가이드</a></li>
+            <li><a href="#guide-doll">인형 제작 가이드</a></li>
+            <li><a href="#guide-oman">오만의탑 이동 부적 가이드</a></li>
+            <li><a href="#guide-craft">아이템 제작 가이드</a></li>
+          </ul>
+        </li>
 
-  <div class="nav-wrap">
-    <div style="display:flex; gap:10px; align-items:center;">
-      <button class="menu-toggle" id="menu-toggle" type="button"><span>&#9776;</span> 메뉴</button>
-    </div>
+        <li class="nav-item has-sub">
+          <button class="nav-link nav-btn" type="button" aria-expanded="false">
+            클래스 소개 <span class="chev">▾</span>
+          </button>
+          <ul class="sub-menu">
+            <li><a href="#class-prince">군주</a></li>
+            <li><a href="#class-knight">기사</a></li>
+            <li><a href="#class-mage">마법사</a></li>
+            <li><a href="#class-elf">요정</a></li>
+          </ul>
+        </li>
 
-    <ul class="nav" id="main-nav">
-      <li><a href="#top">홈</a></li>
-      <li><a href="#notice">공지사항</a></li>
+        <li class="nav-item has-sub">
+          <button class="nav-link nav-btn" type="button" aria-expanded="false">
+            클래스별 스킬 <span class="chev">▾</span>
+          </button>
+          <ul class="sub-menu">
+            <li><a href="#skill-prince">군주 스킬</a></li>
+            <li><a href="#skill-knight">기사 스킬</a></li>
+            <li><a href="#skill-mage">마법사 스킬</a></li>
+            <li><a href="#skill-elf">요정 스킬</a></li>
+          </ul>
+        </li>
 
-      <li class="has-sub">
-        <a href="#guide">서버 가이드</a>
-        <ul class="submenu">
-          <li><a href="#guide">서버 가이드</a></li>
-          <li><a href="#video">가이드 영상</a></li>
-        </ul>
-      </li>
+        <li class="nav-item has-sub">
+          <button class="nav-link nav-btn" type="button" aria-expanded="false">
+            아이템 <span class="chev">▾</span>
+          </button>
+          <ul class="sub-menu">
+            <li><a href="#item-weapon">무기</a></li>
+            <li><a href="#item-armor">방어구</a></li>
+            <li><a href="#item-accessory">악세사리</a></li>
+            <li><a href="#item-doll">인형</a></li>
+            <li><a href="#item-eye">마안</a></li>
+            <li><a href="#item-scroll">주문서</a></li>
+          </ul>
+        </li>
 
-      <li class="has-sub">
-        <a href="#items">아이템</a>
-        <ul class="submenu">
-          <li><a href="#items-weapon">무기</a></li>
-          <li><a href="#items-armor">방어구</a></li>
-          <li><a href="#items-accessory">악세</a></li>
-          <li><a href="#items-scroll">주문서</a></li>
-          <li><a href="#items-box">상자</a></li>
-        </ul>
-      </li>
+        <li class="nav-item has-sub">
+          <button class="nav-link nav-btn" type="button" aria-expanded="false">
+            사냥터 <span class="chev">▾</span>
+          </button>
+          <ul class="sub-menu">
+            <li><a href="#hunt-field">필드 사냥터</a></li>
+            <li><a href="#hunt-dungeon">던전</a></li>
+            <li><a href="#hunt-rotation">로테이션 던전</a></li>
+          </ul>
+        </li>
 
-      <li><a href="#download">다운로드</a></li>
-      <li><a href="#about">소개</a></li>
-      <li><a href="#links">바로가기</a></li>
-    </ul>
+        <li class="nav-item"><a class="nav-link" href="#download">다운로드</a></li>
+
+        <li class="nav-item has-sub">
+          <button class="nav-link nav-btn" type="button" aria-expanded="false">
+            홍보 <span class="chev">▾</span>
+          </button>
+          <ul class="sub-menu">
+            <li><a href="#promo-post">홍보글</a></li>
+            <li><a href="#promo-reward">홍보보상받기</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item has-sub">
+          <button class="nav-link nav-btn" type="button" aria-expanded="false">
+            커뮤니티 <span class="chev">▾</span>
+          </button>
+          <ul class="sub-menu">
+            <li><a href="#comm-kakao">카카오톡 오픈방</a></li>
+            <li><a href="#comm-telegram">텔래그램 문의방</a></li>
+            <li><a href="#comm-qa">질문 또는 답변</a></li>
+            <li><a href="#comm-support">고객지원</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
   </div>
 </header>
-
-<main id="main-content" class="main">
-  <section id="notice" class="section">
-    <div class="wrap">
-      <h2>공지사항</h2>
-      <div class="card">
-        <p><strong>공지</strong> : 이 페이지는 GitHub Pages용 랜딩(정적 HTML) 버전입니다.</p>
-        <p class="muted">다운로드/가이드/아이템 정보는 아래 섹션에 정리합니다. (내용은 추후 채워 넣으면 됩니다)</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="guide" class="section">
-    <div class="wrap">
-      <h2>서버 가이드</h2>
-      <div class="card">
-        <ul>
-          <li>서버 기본 정보</li>
-          <li>시작/육성 가이드</li>
-          <li>사냥터/퀘스트/보상 구조</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="video" class="section">
-    <div class="wrap">
-      <h2>가이드 영상</h2>
-      <div class="card">
-        <p class="muted">유튜브 링크를 넣을 자리입니다.</p>
-        <ul>
-          <li><a href="#" onclick="return false;">영상 1</a></li>
-          <li><a href="#" onclick="return false;">영상 2</a></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="items" class="section">
-    <div class="wrap">
-      <h2>아이템</h2>
-      <div class="grid">
-        <div class="card" id="items-weapon"><strong>무기</strong><p class="muted">내용 채우기</p></div>
-        <div class="card" id="items-armor"><strong>방어구</strong><p class="muted">내용 채우기</p></div>
-        <div class="card" id="items-accessory"><strong>악세</strong><p class="muted">내용 채우기</p></div>
-        <div class="card" id="items-scroll"><strong>주문서</strong><p class="muted">내용 채우기</p></div>
-        <div class="card" id="items-box"><strong>상자</strong><p class="muted">내용 채우기</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="download" class="section">
-    <div class="wrap">
-      <h2>다운로드</h2>
-      <div class="card">
-        <p class="muted">다운로드는 추후 외부 링크로 연결하세요.</p>
-        <p><a class="btn" href="#" onclick="return false;">다운로드 준비중</a></p>
-      </div>
-    </div>
-  </section>
-
-  <section id="about" class="section">
-    <div class="wrap">
-      <h2>소개</h2>
-      <div class="card">
-        <p>블로그용 커스텀 템플릿의 분위기/메뉴/레이아웃을 유지하면서 GitHub Pages에서 동작하도록 정적 HTML로 변환했습니다.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="links" class="section">
-    <div class="wrap">
-      <h2>바로가기</h2>
-      <div class="card">
-        <ul>
-          <li><a href="#" onclick="return false;">디스코드(예시)</a></li>
-          <li><a href="#" onclick="return false;">카페/커뮤니티(예시)</a></li>
-          <li><a href="#top">맨 위로</a></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-</main>
-
-<button id="back-to-top" class="back-to-top" type="button" aria-label="맨 위로">↑ TOP</button>
-
-  <script src="js/main.js" defer></script>
-</body>
-</html>
