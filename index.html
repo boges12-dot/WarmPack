@@ -1,43 +1,163 @@
 <!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>WarmPack</title>
+  <meta name="description" content="클래식 RPG의 감성을 오래 즐길 수 있도록 설계된 커뮤니티 프로젝트 WarmPack" />
 
-  <!-- 🔴 이 줄이 가장 중요 -->
-  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/main.css" />
 </head>
 
 <body>
+  <!-- 상단 고정 메뉴 (GNB 느낌) -->
+  <header class="gnb">
+    <div class="wrap gnb__inner">
+      <a class="brand" href="./">
+        <span class="brand__mark"></span>
+        <span class="brand__name">WarmPack</span>
+      </a>
 
-<header class="header">
-  <div class="container">
-    <h1 class="logo">WarmPack</h1>
-    <p class="subtitle">
-      클래식 RPG의 감성을,<br>
-      오래 즐길 수 있도록
-    </p>
-  </div>
-</header>
+      <nav class="nav">
+        <a class="nav__link" href="#about">소개</a>
+        <a class="nav__link" href="#features">특징</a>
+        <a class="nav__link" href="#roadmap">진행</a>
+        <a class="nav__link" href="#notice">안내</a>
+      </nav>
+    </div>
+  </header>
 
-<section class="section">
-  <div class="container">
-    <h2>프로젝트 소개</h2>
-    <p>
-      WarmPack은 과거 RPG 특유의 분위기와 플레이 감각을 유지하면서,<br>
-      장기적인 플레이에 적합하도록 구조와 밸런스를 개선한<br>
-      커뮤니티 기반 프로젝트입니다.
-    </p>
-  </div>
-</section>
+  <!-- 메인 히어로 -->
+  <main class="page">
+    <section class="hero">
+      <div class="wrap hero__inner">
+        <p class="hero__kicker">Community Project</p>
+        <h1 class="hero__title">WarmPack</h1>
+        <p class="hero__desc">
+          클래식 RPG의 감성을,<br />
+          오래 즐길 수 있도록
+        </p>
 
-<footer class="footer">
-  <div class="container">
-    <p>© WarmPack</p>
-  </div>
-</footer>
+        <div class="hero__chips">
+          <span class="chip">장기 플레이</span>
+          <span class="chip">밸런스 개선</span>
+          <span class="chip">커뮤니티 기반</span>
+        </div>
 
+        <!-- 다운로드는 나중: 자리만 "소식/공지" 느낌으로 -->
+        <div class="hero__bar">
+          <span class="dot"></span>
+          <span class="hero__barText">본 페이지는 프로젝트 안내용 정보 페이지입니다. (배포/다운로드는 추후 공지)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 콘텐츠 -->
+    <section class="section" id="about">
+      <div class="wrap">
+        <div class="section__head">
+          <h2 class="section__title">프로젝트 소개</h2>
+          <p class="section__sub">리니지 스타일처럼 “한 눈에 목적이 보이게” 정리</p>
+        </div>
+
+        <div class="panel">
+          <p>
+            WarmPack은 과거 RPG 특유의 분위기와 플레이 감각을 유지하면서,<br />
+            장기적인 플레이에 적합하도록 구조와 밸런스를 개선한 커뮤니티 기반 프로젝트입니다.
+          </p>
+          <p class="muted">
+            단기적인 소비가 아닌, 오랫동안 즐길 수 있는 환경을 목표로 합니다.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="features">
+      <div class="wrap">
+        <div class="section__head">
+          <h2 class="section__title">핵심 특징</h2>
+          <p class="section__sub">기능을 “카드”로 쪼개서 가독성 강화</p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <h3 class="card__title">클래식 감성 유지</h3>
+            <p class="card__desc">원작의 분위기/플레이 감각을 해치지 않는 방향을 우선합니다.</p>
+          </article>
+
+          <article class="card">
+            <h3 class="card__title">장기 플레이 밸런스</h3>
+            <p class="card__desc">오래 할수록 불합리해지는 구간을 줄이고, 성장 동선을 정리합니다.</p>
+          </article>
+
+          <article class="card">
+            <h3 class="card__title">커뮤니티 피드백</h3>
+            <p class="card__desc">의견을 모아 개선하고, 변경 사항을 투명하게 공유합니다.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="roadmap">
+      <div class="wrap">
+        <div class="section__head">
+          <h2 class="section__title">진행 방향</h2>
+          <p class="section__sub">로드맵도 “게임 공식 사이트 공지”처럼 깔끔하게</p>
+        </div>
+
+        <div class="panel">
+          <ol class="steps">
+            <li class="steps__item">
+              <span class="steps__badge">01</span>
+              <div class="steps__body">
+                <strong>기본 시스템 안정화 및 정비</strong>
+                <p class="muted">기본 동작/구조 정리, 유지보수 가능한 형태로 고정</p>
+              </div>
+            </li>
+
+            <li class="steps__item">
+              <span class="steps__badge">02</span>
+              <div class="steps__body">
+                <strong>콘텐츠 구조 개선 및 확장</strong>
+                <p class="muted">동선/보상/반복 플레이 구조를 정리하면서 확장</p>
+              </div>
+            </li>
+
+            <li class="steps__item">
+              <span class="steps__badge">03</span>
+              <div class="steps__body">
+                <strong>커뮤니티 의견 반영 및 지속 업데이트</strong>
+                <p class="muted">변경 로그/공지 체계를 만들고 점진적 개선</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="notice">
+      <div class="wrap">
+        <div class="section__head">
+          <h2 class="section__title">안내</h2>
+          <p class="section__sub">공지 박스 (리니지 감성 포인트)</p>
+        </div>
+
+        <div class="notice">
+          <div class="notice__title">공지</div>
+          <ul class="notice__list">
+            <li>본 페이지는 프로젝트 소개용입니다.</li>
+            <li>다운로드/배포는 추후 외부 저장소 및 공지로 안내됩니다.</li>
+            <li>문의/제안 채널은 준비 중입니다.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="wrap footer__inner">
+        <p class="muted">© WarmPack · Information Page Only</p>
+      </div>
+    </footer>
+  </main>
 </body>
 </html>
