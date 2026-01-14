@@ -1,10 +1,81 @@
-/* 테스트용 기본 스타일 */
-body {
-  background: #0b0d10;
-  color: #eaeaea;
-  font-family: system-ui, -apple-system, sans-serif;
+/* 기본 초기화 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-h1, h2 {
+/* 전체 배경/글꼴 */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #0b0d10;
+  color: #eaeaea;
+  line-height: 1.6;
+}
+
+/* 공통 레이아웃 */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+/* 상단 히어 */
+.header {
+  text-align: center;
+  padding: 120px 20px;
+  background: radial-gradient(circle at top, #1a1f2b, #0b0d10);
+}
+
+.logo {
+  font-size: 3.5rem;
   color: #f5c77a;
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  opacity: 0.85;
+}
+
+/* 섹션 */
+.section {
+  background: #0b0d10;
+}
+
+.section.dark {
+  background: #11141a;
+}
+
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #f5c77a;
+}
+
+/* 특징 리스트 */
+.features {
+  list-style: none;
+}
+
+.features li {
+  padding: 10px 0;
+  border-bottom: 1px solid #222;
+}
+
+/* 로드맵 */
+.roadmap {
+  padding-left: 20px;
+}
+
+.roadmap li {
+  margin-bottom: 10px;
+}
+
+/* 하단 */
+.footer {
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 0.9rem;
+  opacity: 0.6;
 }
