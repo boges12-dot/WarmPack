@@ -1,117 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Server Home</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
 <header class="site-header">
   <div class="container header-row">
     <a class="brand" href="./">
-      <img src="logo.png" alt="logo" class="brand-logo">
+      <img src="logo.png" class="brand-logo">
       <span class="brand-text">서버이름</span>
     </a>
 
-    <button class="menu-toggle" id="menuToggle" aria-label="메뉴 열기" aria-expanded="false">
+    <button class="menu-toggle" id="menuToggle">
       <span></span><span></span><span></span>
     </button>
 
-    <nav class="site-nav" id="siteNav" aria-label="Main Navigation">
+    <nav class="site-nav" id="siteNav">
       <ul class="nav-list">
-        <li class="nav-item"><a class="nav-link" href="#home">홈</a></li>
-
+        <li class="nav-item"><a href="#home">홈</a></li>
         <li class="nav-item has-sub">
-          <button class="nav-link nav-btn" type="button" aria-expanded="false">
-            공지사항 <span class="chev">▾</span>
-          </button>
+          <button class="nav-btn">공지사항 ▾</button>
           <ul class="sub-menu">
-            <li><a href="#notice-rule">서버규정</a></li>
-            <li><a href="#notice-check">서버점검</a></li>
-            <li><a href="#notice-update">업데이트</a></li>
-            <li><a href="#notice-event">이벤트</a></li>
+            <li><a href="#">서버규정</a></li>
+            <li><a href="#">서버점검</a></li>
+            <li><a href="#">업데이트</a></li>
+            <li><a href="#">이벤트</a></li>
           </ul>
         </li>
-
         <li class="nav-item has-sub">
-          <button class="nav-link nav-btn" type="button" aria-expanded="false">
-            서버가이드 <span class="chev">▾</span>
-          </button>
+          <button class="nav-btn">서버가이드 ▾</button>
           <ul class="sub-menu">
-            <li><a href="#guide-server">서버가이드</a></li>
-            <li><a href="#guide-fishing">낚시가이드</a></li>
-            <li><a href="#guide-book">도감가이드</a></li>
-            <li><a href="#guide-doll">인형 제작 가이드</a></li>
-            <li><a href="#guide-oman">오만의탑 이동 부적 가이드</a></li>
-            <li><a href="#guide-craft">아이템 제작 가이드</a></li>
+            <li><a href="#">서버가이드</a></li>
+            <li><a href="#">낚시가이드</a></li>
+            <li><a href="#">도감가이드</a></li>
+            <li><a href="#">인형 제작 가이드</a></li>
+            <li><a href="#">오만의탑 이동 부적 가이드</a></li>
+            <li><a href="#">아이템 제작 가이드</a></li>
           </ul>
         </li>
-
-        <li class="nav-item has-sub">
-          <button class="nav-link nav-btn" type="button" aria-expanded="false">
-            클래스 소개 <span class="chev">▾</span>
-          </button>
-          <ul class="sub-menu">
-            <li><a href="#class-prince">군주</a></li>
-            <li><a href="#class-knight">기사</a></li>
-            <li><a href="#class-mage">마법사</a></li>
-            <li><a href="#class-elf">요정</a></li>
-          </ul>
-        </li>
-
-        <li class="nav-item has-sub">
-          <button class="nav-link nav-btn" type="button" aria-expanded="false">
-            클래스별 스킬 <span class="chev">▾</span>
-          </button>
-          <ul class="sub-menu">
-            <li><a href="#skill-prince">군주 스킬</a></li>
-            <li><a href="#skill-knight">기사 스킬</a></li>
-            <li><a href="#skill-mage">마법사 스킬</a></li>
-            <li><a href="#skill-elf">요정 스킬</a></li>
-          </ul>
-        </li>
-
-        <li class="nav-item has-sub">
-          <button class="nav-link nav-btn" type="button" aria-expanded="false">
-            아이템 <span class="chev">▾</span>
-          </button>
-          <ul class="sub-menu">
-            <li><a href="#item-weapon">무기</a></li>
-            <li><a href="#item-armor">방어구</a></li>
-            <li><a href="#item-accessory">악세사리</a></li>
-            <li><a href="#item-doll">인형</a></li>
-            <li><a href="#item-eye">마안</a></li>
-            <li><a href="#item-scroll">주문서</a></li>
-          </ul>
-        </li>
-
-        <li class="nav-item has-sub">
-          <button class="nav-link nav-btn" type="button" aria-expanded="false">
-            사냥터 <span class="chev">▾</span>
-          </button>
-          <ul class="sub-menu">
-            <li><a href="#hunt-field">필드 사냥터</a></li>
-            <li><a href="#hunt-dungeon">던전</a></li>
-            <li><a href="#hunt-rotation">로테이션 던전</a></li>
-          </ul>
-        </li>
-
-        <li class="nav-item"><a class="nav-link" href="#download">다운로드</a></li>
-
-        <li class="nav-item has-sub">
-          <button class="nav-link nav-btn" type="button" aria-expanded="false">
-            홍보 <span class="chev">▾</span>
-          </button>
-          <ul class="sub-menu">
-            <li><a href="#promo-post">홍보글</a></li>
-            <li><a href="#promo-reward">홍보보상받기</a></li>
-          </ul>
-        </li>
-
-        <li class="nav-item has-sub">
-          <button class="nav-link nav-btn" type="button" aria-expanded="false">
-            커뮤니티 <span class="chev">▾</span>
-          </button>
-          <ul class="sub-menu">
-            <li><a href="#comm-kakao">카카오톡 오픈방</a></li>
-            <li><a href="#comm-telegram">텔래그램 문의방</a></li>
-            <li><a href="#comm-qa">질문 또는 답변</a></li>
-            <li><a href="#comm-support">고객지원</a></li>
-          </ul>
-        </li>
+        <li class="nav-item"><a href="#download">다운로드</a></li>
       </ul>
     </nav>
   </div>
 </header>
+
+<script src="js/main.js"></script>
+</body>
+</html>
