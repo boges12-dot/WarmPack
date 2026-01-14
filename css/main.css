@@ -1,81 +1,233 @@
-/* 기본 초기화 */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-/* 전체 배경/글꼴 */
+/* ===== Base ===== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: #0b0d10;
-  color: #eaeaea;
-  line-height: 1.6;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: #07090c;
+  color: #e9eaee;
+  line-height: 1.65;
 }
 
-/* 공통 레이아웃 */
-.container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 60px 20px;
+a { color: inherit; text-decoration: none; }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 22px; }
+.muted { opacity: .78; }
+
+:root{
+  --gold: #f0c37a;
+  --gold2: #caa05e;
+  --line: rgba(255,255,255,.10);
+  --panel: rgba(255,255,255,.06);
+  --panel2: rgba(255,255,255,.04);
+  --shadow: 0 20px 60px rgba(0,0,0,.35);
 }
 
-/* 상단 히어 */
-.header {
-  text-align: center;
-  padding: 120px 20px;
-  background: radial-gradient(circle at top, #1a1f2b, #0b0d10);
+/* ===== GNB (리니지 느낌: 어두운 상단바 + 라인) ===== */
+.gnb {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(7,9,12,.75);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.gnb__inner {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.logo {
-  font-size: 3.5rem;
-  color: #f5c77a;
-  margin-bottom: 20px;
+.brand { display: inline-flex; align-items: center; gap: 10px; }
+.brand__mark{
+  width: 10px; height: 10px;
+  border-radius: 999px;
+  background: var(--gold);
+  box-shadow: 0 0 18px rgba(240,195,122,.5);
+}
+.brand__name{
+  font-weight: 800;
+  letter-spacing: .6px;
 }
 
-.subtitle {
-  font-size: 1.1rem;
-  opacity: 0.85;
+.nav { display: flex; gap: 18px; }
+.nav__link{
+  opacity: .82;
+  font-size: 14px;
+  letter-spacing: .3px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+}
+.nav__link:hover{
+  opacity: 1;
+  border-color: rgba(240,195,122,.25);
+  background: rgba(240,195,122,.08);
 }
 
-/* 섹션 */
-.section {
-  background: #0b0d10;
+/* ===== Hero ===== */
+.page { min-height: 100vh; }
+
+.hero{
+  position: relative;
+  padding: 74px 0 56px;
+  border-bottom: 1px solid var(--line);
+  background:
+    radial-gradient(1200px 520px at 30% 10%, rgba(240,195,122,.12), transparent 55%),
+    radial-gradient(900px 480px at 70% 30%, rgba(120,160,255,.10), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,.03), transparent 40%),
+    #07090c;
+}
+.hero__inner{ padding-top: 16px; }
+
+.hero__kicker{
+  font-size: 12px;
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+  opacity: .75;
+}
+.hero__title{
+  margin-top: 10px;
+  font-size: 64px;
+  line-height: 1.05;
+  color: var(--gold);
+  letter-spacing: .5px;
+  text-shadow: 0 12px 40px rgba(0,0,0,.5);
+}
+.hero__desc{
+  margin-top: 14px;
+  font-size: 18px;
+  opacity: .92;
 }
 
-.section.dark {
-  background: #11141a;
+.hero__chips{
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.chip{
+  font-size: 13px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.10);
 }
 
-.section h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #f5c77a;
+.hero__bar{
+  margin-top: 22px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(240,195,122,.18);
+}
+.dot{
+  width: 8px; height: 8px;
+  border-radius: 999px;
+  background: var(--gold);
+  box-shadow: 0 0 14px rgba(240,195,122,.55);
+}
+.hero__barText{ font-size: 13px; opacity: .9; }
+
+/* ===== Sections ===== */
+.section{ padding: 56px 0; }
+.section--alt{
+  background: rgba(255,255,255,.02);
+  border-top: 1px solid rgba(255,255,255,.06);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.section__head{ margin-bottom: 18px; }
+.section__title{
+  font-size: 28px;
+  color: var(--gold);
+  letter-spacing: .3px;
+}
+.section__sub{
+  margin-top: 6px;
+  font-size: 14px;
+  opacity: .72;
 }
 
-/* 특징 리스트 */
-.features {
+.panel{
+  padding: 22px;
+  border-radius: 16px;
+  background: var(--panel2);
+  border: 1px solid rgba(255,255,255,.10);
+  box-shadow: var(--shadow);
+}
+.panel p + p { margin-top: 12px; }
+
+/* ===== Cards ===== */
+.grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.card{
+  padding: 18px;
+  border-radius: 16px;
+  background: var(--panel);
+  border: 1px solid rgba(255,255,255,.10);
+  box-shadow: var(--shadow);
+}
+.card__title{
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.card__desc{ font-size: 14px; opacity: .78; }
+
+/* ===== Roadmap steps ===== */
+.steps{
   list-style: none;
+  display: grid;
+  gap: 14px;
 }
+.steps__item{
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 14px;
+  align-items: start;
+  padding: 14px;
+  border-radius: 14px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.08);
+}
+.steps__badge{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  border-radius: 12px;
+  color: #0b0d10;
+  background: var(--gold);
+  font-weight: 900;
+  letter-spacing: .6px;
+}
+.steps__body strong{
+  display: block;
+  font-size: 15px;
+}
+.steps__body p{ margin-top: 6px; font-size: 13px; }
 
-.features li {
-  padding: 10px 0;
-  border-bottom: 1px solid #222;
+/* ===== Notice box ===== */
+.notice{
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(240,195,122,.20);
+  box-shadow: var(--shadow);
 }
-
-/* 로드맵 */
-.roadmap {
-  padding-left: 20px;
+.notice__title{
+  padding: 12px 16px;
+  background: rgba(240,195,122,.12);
+  border-bottom: 1px solid rgba(240,195,122,.20);
+  font-weight: 800;
+  color: var(--gold);
+  letter-spacing: .4px;
 }
-
-.roadmap li {
-  margin-bottom: 10px;
-}
-
-/* 하단 */
-.footer {
-  text-align: center;
-  padding: 40px 20px;
-  font-size: 0.9rem;
-  opacity: 0.6;
-}
+.notice__list{
+  list-style: none;
+  padding: 16px;
+  background: rgba(255,255,255,.03);
