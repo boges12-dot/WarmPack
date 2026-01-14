@@ -3,7 +3,6 @@
   const toggle = document.getElementById('menuToggle');
   const isMobile = () => window.matchMedia('(max-width: 980px)').matches;
 
-  // mobile nav open/close
   if(toggle && nav){
     toggle.addEventListener('click', ()=>{
       const open = nav.classList.toggle('open');
@@ -15,15 +14,13 @@
     });
   }
 
-  // mobile dropdown click
   document.querySelectorAll('.nav-item.has-sub > .nav-btn').forEach(btn=>{
     btn.addEventListener('click', (e)=>{
-      if(!isMobile()) return; // desktop는 hover로 유지
+      if(!isMobile()) return;
       e.preventDefault();
       const item = btn.closest('.nav-item');
       const expanded = btn.getAttribute('aria-expanded') === 'true';
 
-      // close others
       document.querySelectorAll('.nav-item.open').forEach(x=>{
         if(x!==item) x.classList.remove('open');
       });
@@ -36,7 +33,6 @@
     });
   });
 
-  // close on outside click (mobile)
   document.addEventListener('click', (e)=>{
     if(!isMobile()) return;
     if(!nav || !toggle) return;
