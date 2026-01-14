@@ -1,21 +1,20 @@
-/* ===== 기본 ===== */
+/* 기본 초기화 */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   background: #07090c;
   color: #eaeaea;
   font-family: system-ui, -apple-system, sans-serif;
-  line-height: 1.7;
+  line-height: 1.6;
 }
 
-/* ===== 상단 텍스트 비주얼 ===== */
+/* 상단 비주얼 */
 .top-visual {
-  padding: 100px 20px 70px;
-  text-align: center;
+  padding: 40px 0 30px;
   background:
     radial-gradient(circle at top, rgba(240,195,122,.18), transparent 60%),
     #07090c;
@@ -23,42 +22,23 @@ body {
 }
 
 .visual-wrap {
-  max-width: 720px;
+  max-width: 720px;      /* 🔴 세 이미지 가로 기준 */
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
 }
 
-.site-title {
-  font-size: 4rem;
-  color: #f0c37a;
-  letter-spacing: 1px;
-  margin-bottom: 16px;
+.visual-image {
+  width: 100%;           /* 🔴 동일 가로 사이즈 */
+  height: auto;
+  display: block;
 }
 
-.site-subtitle {
-  font-size: 1.2rem;
-  opacity: .9;
-}
-
-.divider {
-  width: 120px;
-  height: 2px;
-  margin: 28px auto;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    #f0c37a,
-    transparent
-  );
-}
-
-.site-note {
-  font-size: 0.9rem;
-  opacity: .7;
-}
-
-/* ===== 섹션 ===== */
+/* 본문 */
 .section {
-  padding: 70px 20px;
+  padding: 60px 20px;
 }
 
 .container {
@@ -67,22 +47,21 @@ body {
 }
 
 .section h2 {
-  font-size: 1.8rem;
   color: #f0c37a;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
-/* ===== 푸터 ===== */
+/* 푸터 */
 .footer {
-  padding: 40px 20px;
+  padding: 40px 0;
   text-align: center;
   opacity: .6;
   border-top: 1px solid rgba(255,255,255,.08);
 }
 
-/* ===== 모바일 ===== */
+/* 모바일 */
 @media (max-width: 600px) {
-  .site-title {
-    font-size: 3rem;
+  .visual-wrap {
+    max-width: 90%;
   }
 }
