@@ -1,90 +1,2707 @@
-<!doctype html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>WarmPack</title>
-  <meta name="description" content="WarmPack 프로젝트 안내 페이지">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:responsive='true' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
 
-  <link rel="stylesheet" href="css/main.css">
+<head>
+  <b:include data='blog' name='all-head-content'/>
+  <meta content='width=device-width, initial-scale=1' name='viewport'/>
+
+  <!-- Performance hints -->
+  <link href='https://blogger.googleusercontent.com' rel='preconnect'/>
+  <link href='https://blogger.googleusercontent.com' rel='dns-prefetch'/>
+  <link href='https://resources.blogblog.com' rel='preconnect'/>
+  <link href='https://resources.blogblog.com' rel='dns-prefetch'/>
+
+  <title><data:blog.pageTitle/></title>
+
+  
+
+  <!-- SEO / Social -->
+  
+  <meta content='https://blogger.googleusercontent.com/img/a/AVvXsEgl-vbf6igv4iFcSSf_I7SQNjqvYjLfzzJ15GuFBDsKACayawA0gIsLN5JNe0SV3grCzzhSf9N5aeFb0H-j-E0-X0wA_aixPfvxmvdmvdGz-HlohaUyK5zAFUcinvQJf9M9KogeaKVcwPXq3ttfRnEHOo4eGGuNxd2PWemsxdUBKkjunW7mnL9767UA4yk=s911' property='og:image'/>
+<meta expr:content='data:blog.metaDescription ? data:blog.metaDescription : data:blog.title' name='description'/>
+  <link expr:href='data:blog.canonicalUrl' rel='canonical'/>
+
+  <meta expr:content='data:blog.pageTitle' property='og:title'/>
+  <meta expr:content='data:blog.canonicalUrl' property='og:url'/>
+  <meta expr:content='data:blog.metaDescription ? data:blog.metaDescription : data:blog.title' property='og:description'/>
+  <meta content='website' property='og:type'/>
+
+  <meta expr:content='data:blog.pageTitle' name='twitter:title'/>
+  <meta expr:content='data:blog.metaDescription ? data:blog.metaDescription : data:blog.title' name='twitter:description'/>
+  <meta content='summary' name='twitter:card'/>
+
+<b:skin><![CDATA[
+body{
+  margin:0;
+  background:#0b0f16;
+  color:#e5e7eb;
+  font-family:system-ui,"Noto Sans KR",sans-serif;
+}
+
+:root{--top-banner-h: clamp(64px, 9vw, 110px);} 
+a{text-decoration:none;color:inherit}
+*{box-sizing:border-box}
+
+/* Header */
+.header{
+  text-align:center;
+  padding:20px 16px 26px;
+  border-bottom:1px solid #1f2937;
+}  position:relative;
+}
+
+/* Banner row */
+.banner-row{
+  max-width:1200px;
+  margin:0 auto 18px;
+  padding:0 16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:16px;
+}
+
+/* Side logos (fixed by original image size, shrink safely on small screens) */
+.side-logo{
+  width:160px;
+  flex:0 0 160px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.side-logo img{
+  width:177px;           /* original logo width */
+  max-width:100%;
+  height:auto;
+  display:block;
+}
+
+/* Center banner (keeps original ratio, does NOT stretch) */
+.banner{
+  flex:1 1 auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px 12px;
+  border-radius:16px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+}
+.banner img{
+  width:320px;           /* original banner width */
+  max-width:100%;
+  height:auto;
+  display:block;
+}
+
+/* Responsive: stack on narrow screens */
+@media (max-width: 900px){
+  .banner-row{flex-direction:column; gap:12px}
+  .side-logo{flex:0 0 auto; width:auto}
+}
+
+
+/* Home-only blocks */
+.home-top{margin-bottom:18px}
+.notice-box{
+  border:1px solid #1f2937;
+  background:rgba(255,255,255,.03);
+  border-radius:16px;
+  padding:14px 14px;
+  text-align:left;
+}
+.notice-title{
+  font-weight:900;
+  margin:0 0 10px 0;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.notice-title .dot{width:10px;height:10px;border-radius:99px;background:#fbbf24;display:inline-block}
+.notice-list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+.notice-list a{
+  display:block;
+  padding:10px 12px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(0,0,0,.15);
+}
+.notice-list a:hover{background:rgba(255,255,255,.06)}
+.home-grid{display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:14px}
+@media(max-width:1000px){.home-grid{grid-template-columns:repeat(2, minmax(0, 1fr))}}
+@media(max-width:640px){.home-grid{grid-template-columns:1fr}}
+
+/* Mobile nav */
+@media(max-width:768px){
+  .menu-toggle{display:block}
+  .nav{display:none;flex-direction:column;align-items:stretch;gap:6px;margin-top:10px;padding:8px;border:1px solid #1f2937;border-radius:12px;background:rgba(255,255,255,.02)}
+  .nav.open{display:flex}
+  .nav a{width:100%;text-align:left}
+  .nav li:hover>.submenu{display:none}
+  .submenu{position:static;display:none;min-width:0;padding:6px;margin:4px 0 0;border-radius:12px}
+  .nav li.open>.submenu{display:block}
+}
+
+.nav{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  flex-wrap:wrap;
+  padding:0;
+  margin:0;
+  list-style:none;
+}
+.nav li{position:relative; list-style:none}
+.nav a{
+  padding:10px 14px;
+  font-weight:700;
+  border-radius:10px;
+}
+.nav a:hover{background:rgba(255,255,255,.08)}
+
+/* Dropdown */
+.submenu{
+  display:none;
+  position:absolute;
+  top:100%;
+  left:0;
+  min-width:180px;
+  background:#121826;
+  border:1px solid #1f2937;
+  border-radius:10px;
+  padding:8px;
+  z-index:1000;
+}
+.submenu li{list-style:none}
+.submenu a{
+  display:block;
+  padding:8px;
+  border-radius:8px;
+}
+.submenu a:hover{background:rgba(255,255,255,.1)}
+.nav li:hover>.submenu{display:block}
+
+/* Main */
+.main{
+  max-width:1200px;
+  margin:40px auto;
+  padding:0 16px;
+}
+.content{
+  border:1px solid #1f2937;
+  border-radius:16px;
+  background:rgba(255,255,255,.02);
+  padding:18px;
+}
+
+/* Footer */
+.footer{
+  text-align:center;
+  padding:30px;
+  border-top:1px solid #1f2937;
+  color:#9ca3af;
+  font-size:13px;
+}
+  
+/* Notice header */
+.notice-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:10px;
+}
+.notice-more{
+  font-size:12px;
+  font-weight:800;
+  color:#9ca3af;
+  padding:8px 10px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:12px;
+  background:rgba(255,255,255,.03);
+}
+.notice-more:hover{background:rgba(255,255,255,.07)}
+/* Mobile menu overlay feel */
+body.nav-locked{overflow:hidden}
+
+  
+/* Posts (card look) */
+.post-outer{
+  border:1px solid #1f2937;
+  border-radius:16px;
+  background:rgba(0,0,0,.18);
+  padding:14px;
+  margin:12px 0;
+}
+.post-title{margin:0 0 10px 0}
+.post-title a{display:block}
+.post-body{color:#d1d5db; line-height:1.7}
+.post-body img{max-width:100%;height:auto;border-radius:14px}
+
+/* Home-only: cleaner list */
+body.is-home .date-header{display:none}
+body.is-home .date-outer{margin:0}
+body.is-home .date-posts{margin:0}
+body.is-home .post-outer{margin:0}
+body.is-home .post-title{font-size:16px}
+body.is-home .post-body{font-size:14px}
+
+  
+/* Notice loading */
+.notice-list .loading{
+  opacity:.8;
+  padding:10px 12px;
+  border-radius:12px;
+  border:1px dashed rgba(255,255,255,.15);
+  color:#9ca3af;
+}
+
+  
+/* Notice item */
+.notice-list li{margin:0}
+.notice-list .notice-item{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  align-items:center;
+}
+.notice-badge{
+  font-size:11px;
+  font-weight:900;
+  padding:4px 8px;
+  border-radius:999px;
+  border:1px solid rgba(251,191,36,.35);
+  color:#fbbf24;
+  background:rgba(251,191,36,.08);
+  flex-shrink:0;
+}
+
+  
+/* Notice fade-in */
+.notice-list{opacity:1; transition:opacity .2s ease}
+.notice-list.is-loading{opacity:.65}
+
+  
+/* Accessibility */
+.skip-link{
+  position:absolute;
+  top:-60px; left:12px;
+  background:#111827;
+  border:1px solid #1f2937;
+  color:#e5e7eb;
+  padding:10px 12px;
+  border-radius:12px;
+  z-index:2000;
+}
+.skip-link:focus{top:12px}
+.nav a:focus-visible,
+.menu-toggle:focus-visible,
+.notice-more:focus-visible,
+.notice-list a:focus-visible{
+  outline:2px solid rgba(251,191,36,.8);
+  outline-offset:2px;
+}
+
+  
+/* Sticky header */
+.header{
+  position:sticky;
+  top:0;
+  z-index:1500;
+  background:rgba(11,15,22,.92);
+  backdrop-filter:saturate(140%) blur(10px);
+}
+.header.scrolled{
+  box-shadow:0 10px 30px rgba(0,0,0,.35);
+}
+
+/* Back to top */
+.back-to-top{
+  position:fixed;
+  right:16px;
+  bottom:16px;
+  z-index:1600;
+  display:none;
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.16);
+  background:rgba(17,24,39,.85);
+  color:#e5e7eb;
+  font-weight:900;
+  cursor:pointer;
+}
+.back-to-top.show{display:inline-flex; align-items:center; gap:8px}
+.back-to-top:hover{background:rgba(255,255,255,.08)}
+
+  
+/* Home cards: thumbnail + clamp */
+body.is-home .post-outer{padding:0;overflow:hidden}
+body.is-home .post-card{display:flex;flex-direction:column;gap:10px}
+.post-card-thumb{width:100%;aspect-ratio:16/9;background-size:cover;background-position:center;border-bottom:1px solid #1f2937}
+.post-card-inner{padding:14px}
+.post-card-meta{display:flex;justify-content:space-between;gap:10px;align-items:center;color:#9ca3af;font-size:12px}
+body.is-home .post-title{margin:6px 0 6px 0;font-size:16px}
+body.is-home .post-snippet{color:#cbd5e1;font-size:13px;line-height:1.6;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.post-card-actions{margin-top:10px}
+.post-readmore{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:12px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.03);font-weight:900}
+.post-readmore:hover{background:rgba(255,255,255,.08)}
+
+  
+body.theme-light .menu-toggle{background:rgba(17,24,39,.03)}
+body.theme-light .post-readmore{background:rgba(17,24,39,.03)}
+body.theme-light .back-to-top{background:rgba(255,255,255,.9); color:#111827}
+
+  
+/* Theme toggle visible on desktop */
+#theme-toggle{display:inline-flex; align-items:center; justify-content:center}
+@media(max-width:768px){
+  #theme-toggle{display:inline-flex}
+}
+
+  
+/* Theme toggle in main nav */
+.theme-nav-item{list-style:none}
+.theme-toggle{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  user-select:none;
+}
+.theme-nav-item a{
+  font-weight:800;
+  padding:10px 14px;
+  border-radius:10px;
+}
+.theme-nav-item a:hover{background:rgba(255,255,255,.08)}
+body.theme-light .theme-nav-item a:hover{background:rgba(0,0,0,.06)}
+
+  
+
+  
+/* Pinned notice */
+.notice-pin{
+  font-size:11px;
+  font-weight:900;
+  padding:4px 8px;
+  border-radius:999px;
+  border:1px solid rgba(96,165,250,.35);
+  color:#60a5fa;
+  background:rgba(96,165,250,.10);
+  flex-shrink:0;
+}
+
+  
+/* Admin-only menu (shown only when logged in as admin) */
+.admin-only{display:none !important}
+body.is-admin .admin-only{display:list-item !important}
+body.is-admin .admin-only > a::after{
+  content:'ADMIN';
+  margin-left:8px;
+  font-size:10px;
+  font-weight:900;
+  padding:3px 7px;
+  border-radius:999px;
+  border:1px solid rgba(16,185,129,.35);
+  background:rgba(16,185,129,.10);
+  color:#10b981;
+}
+
+  
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  *{scroll-behavior:auto !important; transition:none !important; animation:none !important}
+}
+
+  
+/* ===== Theme images ===== */
+:root{
+  --theme-bg-image:none; /* url('...') */
+  --header-bg-image:none; /* url('...') */
+}
+
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:var(--theme-bg-image);
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  opacity:var(--theme-bg-opacity, .18);
+  pointer-events:none;
+  z-index:-1;
+}
+
+.header{
+  background-image:var(--header-bg-image);
+  background-size:cover;
+  background-position:center;
+}
+
+  
+@media(max-width:768px){
+  body::before{background-image:none !important}
+}
+
+  
+/* Header overlay for readability */
+.header::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:rgba(11,15,22,var(--header-overlay-opacity,.35));
+  pointer-events:none;
+  z-index:0;
+}
+.header > *{position:relative; z-index:1}
+
+/* Background blur (optional) */
+body::before{
+  filter:blur(var(--theme-bg-blur, 0px));
+  transform:scale(1.03);
+}
+
+  
+
+/* ===== Banner/logo symmetry fix v26 (grid + same containers) ===== */
+.banner-row{
+  max-width:1200px;
+  margin:0 auto 18px;
+  display:grid !important;
+  grid-template-columns:160px 1fr 160px;
+  gap:16px;
+  align-items:stretch;
+}
+.side-logo, .banner{
+  height:var(--top-banner-h);
+  border:1px solid #1f2937;
+  border-radius:16px;
+  overflow:hidden;
+  background:rgba(255,255,255,.02);
+}
+.side-logo{width:auto; flex-shrink:0}
+.side-logo img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+}
+.banner img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+@media(max-width:900px){
+  .banner-row{grid-template-columns:1fr}
+  .side-logo{display:none}
+}
+
+  
+/* Prevent text clipping in header when banner is small */
+.header{
+  padding-top:12px;
+  padding-bottom:16px;
+}
+.nav a{
+  line-height:1.2;
+  white-space:nowrap;
+}
+
+  
+/* ===== Force banner height (override) ===== */
+.banner-row{align-items:stretch !important}
+.banner-row .side-logo,
+.banner-row .banner{
+  height:var(--top-banner-h) !important;
+  max-height:var(--top-banner-h) !important;
+}
+.banner-row .side-logo img,
+.banner-row .banner img{
+  height:100% !important;
+  width:100% !important;
+}
+
+  
+/* Header spacing tightened for smaller banner */
+.header{padding:18px 16px 22px !important}
+.nav{gap:10px !important}
+.nav a{padding:8px 12px !important; font-size:14px !important; line-height:1.15 !important}
+@media(max-width:420px){
+  .nav a{padding:7px 10px !important; font-size:13px !important}
+}
+
+  
+/* ===== Sticky header (banner+logo+menu fixed on scroll) ===== */
+.header{
+  position:sticky;
+  top:0;
+  z-index:9999;
+  background:rgba(11,15,22,.92);
+  backdrop-filter:saturate(140%) blur(10px);
+}
+/* Optional: subtle shadow when scrolled (works with existing JS adding .scrolled) */
+.header.scrolled{
+  box-shadow:0 12px 30px rgba(0,0,0,.28);
+}
+
+  
+@media(max-width:768px){
+  .header{background:rgba(11,15,22,.96)}
+}
+
+  
+/* ===== Banner size + no-crop (v34) ===== */
+/* 목표: 글씨가 절대 안 잘리게 (cover 금지) */
+.banner-row{align-items:stretch !important}
+.banner-row .side-logo,
+.banner-row .banner{
+  height:var(--top-banner-h) !important;
+  max-height:var(--top-banner-h) !important;
+}
+.banner-row .side-logo img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:contain !important;
+  display:block !important;
+}
+/* 배너는 contain으로 전체 보이게(위/아래 잘림 방지) */
+.banner-row .banner{
+  background:rgba(0,0,0,.15) !important;
+}
+.banner-row .banner img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:contain !important;
+  object-position:center center !important;
+  display:block !important;
+}
+
+  
+/* ===== Slim sticky header on scroll (v35) ===== */
+/* 기본 배너 높이(확정) */
+.header{--top-banner-h: clamp(64px, 9vw, 110px);}
+
+/* 스크롤 내리면 배너만 슬림하게 */
+.header.scrolled{
+  --top-banner-h: clamp(40px, 6vw, 64px);
+  padding:12px 16px 14px !important;
+}
+.header.scrolled .banner-row{margin-bottom:10px !important}
+.header.scrolled .nav a{padding:8px 12px !important}
+@media(max-width:420px){
+  .header.scrolled .nav a{padding:7px 10px !important}
+}
+
+  
+/* ===== Clickable top banner/logo links ===== */
+.top-media-link{display:block;height:100%}
+.top-media-link img{display:block}
+.sr-only{
+  position:absolute;
+  width:1px;height:1px;
+  padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0,0,0,0);
+  white-space:nowrap;border:0;
+}
+
+  
+/* ===== Mobile menu (v38) ===== */
+.nav-bar{
+  max-width:1200px;
+  margin:0 auto;
+  padding:0 16px;
+  position:relative;
+}
+
+/* hamburger button */
+.nav-toggle{
+  display:none;
+  position:absolute;
+  left:16px;
+  top:50%;
+  transform:translateY(-50%);
+  width:44px;
+  height:44px;
+  border-radius:12px;
+  border:1px solid #1f2937;
+  background:rgba(255,255,255,.04);
+  cursor:pointer;
+}
+.nav-toggle:hover{background:rgba(255,255,255,.08)}
+.nav-toggle-icon{
+  display:block;
+  width:18px;
+  height:2px;
+  margin:0 auto;
+  background:#e5e7eb;
+  position:relative;
+}
+.nav-toggle-icon::before,
+.nav-toggle-icon::after{
+  content:'';
+  position:absolute;
+  left:0;
+  width:18px;
+  height:2px;
+  background:#e5e7eb;
+}
+.nav-toggle-icon::before{top:-6px}
+.nav-toggle-icon::after{top:6px}
+
+/* open state -> X */
+body.nav-open .nav-toggle-icon{background:transparent}
+body.nav-open .nav-toggle-icon::before{top:0; transform:rotate(45deg)}
+body.nav-open .nav-toggle-icon::after{top:0; transform:rotate(-45deg)}
+
+/* overlay (click to close) */
+.nav-overlay{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  z-index:9998;
+}
+body.nav-open .nav-overlay{display:block}
+
+/* mobile drawer */
+@media(max-width:900px){
+  .nav-toggle{display:block}
+  /* keep nav centered on desktop, but on mobile we use drawer */
+  .nav{display:none}
+  body.nav-open .nav{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    position:fixed;
+    top:0; left:0; right:0; bottom:0;
+    padding:88px 16px 18px;
+    background:#0b0f16;
+    z-index:9999;
+    overflow:auto;
+  }
+  body.nav-open .nav a{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:12px 14px;
+    border:1px solid #1f2937;
+    border-radius:12px;
+    background:rgba(255,255,255,.02);
+  }
+  body.nav-open .nav a:hover{background:rgba(255,255,255,.06)}
+  /* dropdowns on mobile */
+  .nav li{width:100%}
+  .nav li:hover>.submenu{display:none} /* disable hover on mobile */
+  .submenu{
+    position:static;
+    display:none;
+    margin:6px 0 10px;
+    padding:8px;
+    border-radius:12px;
+  }
+  .nav li.submenu-open>.submenu{display:block}
+  .submenu a{
+    border:0;
+    background:transparent;
+    padding:10px 12px;
+  }
+  .submenu-toggle{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:36px;
+    height:36px;
+    margin-left:8px;
+    border-radius:10px;
+    border:1px solid #1f2937;
+    background:rgba(255,255,255,.03);
+    cursor:pointer;
+    flex-shrink:0;
+  }
+  .submenu-toggle:hover{background:rgba(255,255,255,.08)}
+  .submenu-toggle span{font-size:16px; line-height:1}
+}
+
+/* hide submenu toggle on desktop */
+.submenu-toggle{display:none}
+
+  
+/* ===== Home layout (v39) ===== */
+.home-top{margin-bottom:18px}
+.home-grid{
+  display:grid;
+  grid-template-columns: 1.38fr .62fr;
+  gap:16px;
+}
+.quick-box{
+  border:1px solid #1f2937;
+  background:rgba(255,255,255,.03);
+  border-radius:16px;
+  padding:14px 14px;
+  text-align:left;
+}
+.quick-title{
+  margin:0 0 10px 0;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.quick-title .dot{width:10px;height:10px;border-radius:99px;background:#60a5fa;display:inline-block}
+.quick-links{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:10px;
+}
+.quick-links a{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:12px 12px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(0,0,0,.15);
+}
+.quick-links a:hover{background:rgba(255,255,255,.06)}
+.quick-links .label{font-weight:900}
+.quick-links .hint{font-size:12px;color:#9ca3af;white-space:nowrap}
+
+@media(max-width:900px){
+  .home-grid{grid-template-columns:1fr}
+  .quick-links{grid-template-columns:1fr}
+}
+
+  
+/* ===== Home quick menu sticky (v42) ===== */
+/* PC에서만: 공지 스크롤 내려도 오른쪽 바로가기 따라오게 */
+@media(min-width:901px){
+  .home-grid .quick-box{
+    position:sticky;
+    top:var(--home-quick-sticky-top, 16px);
+    align-self:start;
+  }
+}
+
+  
+/* ===== Layout editable top menu (v45) ===== */
+.top-menu{display:none}
+
+  
+
+/* ===== FIX: duplicate label message & feed links ===== */
+
+/* 1) 라벨 결과 메시지 중복 제거
+   - Blogger가 동일 메시지를 두 번 렌더링하는 경우가 있어
+   - 첫 번째는 유지, 이후 메시지는 숨김 */
+.status-msg-wrap + .status-msg-wrap {
+  display: none !important;
+}
+
+/* 일부 테마 변형 대응 */
+.status-msg-body + .status-msg-body {
+  display: none !important;
+}
+
+/* 2) 피드 구독하기(Atom/RSS) 영역 제거 */
+.blog-feeds,
+.feed-links,
+.post-feeds,
+.comments-feeds,
+a.feed-link {
+  display: none !important;
+}
+
+
+
+/* ===== STEP NEXT: clean label footer bits & minimal footer ===== */
+
+/* (A) 하단에 단독으로 뜨는 '홈' 링크(기본 페이저/브레드크럼) 숨김
+   - 상단 메뉴가 있으니 중복 제거 목적 */
+.home-link,
+a.home-link,
+.blog-pager .home-link,
+.breadcrumbs,
+#breadcrumbs {
+  display: none !important;
+}
+
+/* (B) Blogger 기본 저작권/Powered by/Attribution 숨김 (있을 때만) */
+.blogger,
+.attribution,
+.attribution-container,
+.widget.Attribution,
+.widget.Attribution .widget-content {
+  display: none !important;
+}
+
+/* (C) 우리가 넣는 최소 푸터 스타일 */
+.site-footer {
+  margin-top: 32px;
+  padding: 18px 0;
+  border-top: 1px solid rgba(0,0,0,.08);
+  font-size: 14px;
+  opacity: .9;
+}
+.site-footer .footer-inner{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+  display:flex;
+  flex-wrap:wrap;
+  gap: 10px 16px;
+  align-items:center;
+  justify-content: space-between;
+}
+.site-footer a { text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
+
+
+
+/* ===== FIX: duplicate '글이 없습니다' (no posts) messages ===== */
+.no-posts-message + .no-posts-message,
+.no-posts + .no-posts,
+.empty-message + .empty-message,
+.blog-posts .no-posts-message + .no-posts-message,
+.blog-posts .no-posts + .no-posts {
+  display: none !important;
+}
+
+
+
+/* ===== FIX3: duplicate '글이 없습니다' / status message (robust sibling-based) ===== */
+#posts-wrap .status-msg-wrap ~ .status-msg-wrap,
+#posts-wrap .status-msg-body ~ .status-msg-body,
+.blog-posts .status-msg-wrap ~ .status-msg-wrap,
+.blog-posts .status-msg-body ~ .status-msg-body {
+  display: none !important;
+}
+
+
+
+/* =========================
+   HOMEPAGE PANELS (NOTICE/UPDATE/EVENT)
+   ========================= */
+.home-panels{ margin: 18px 0 14px; }
+.panel-grid{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+@media (min-width: 900px){
+  .panel-grid{ grid-template-columns: 1fr 1fr 1fr; }
+}
+.panel-card{
+  background: rgba(14,17,26,.72);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 14px;
+  padding: 14px 14px 10px;
+  box-shadow: 0 12px 26px rgba(0,0,0,.55);
+}
+.panel-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.panel-head h3{
+  margin:0;
+  font-size: 18px;
+  font-weight: 700;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  gap: 10px;
+}
+.panel-head .dot{
+  width: 10px; height: 10px;
+  border-radius: 999px;
+  background: var(--accent, #f4bc4f);
+  display:inline-block;
+  box-shadow: 0 0 0 4px rgba(244,188,79,.12);
+}
+.panel-more{
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.04);
+  color: var(--text, #d7dbe6) !important;
+  text-decoration:none !important;
+  font-size: 13px;
+}
+.panel-more:hover{
+  border-color: rgba(244,188,79,.55);
+  color: var(--accent2, #ffdd8a) !important;
+}
+
+.panel-list{
+  list-style:none;
+  margin:0;
+  padding:0;
+  min-height: 90px;
+}
+.panel-list li{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 10px;
+  padding: 9px 2px;
+  border-top: 1px solid rgba(255,255,255,.07);
+}
+.panel-list li:first-child{ border-top:0; }
+.panel-list a{
+  color:#fff !important;
+  text-decoration:none !important;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.panel-list a:hover{ color: var(--accent2, #ffdd8a) !important; }
+.panel-list .date{
+  color: rgba(255,255,255,.55);
+  font-size: 12px;
+  flex: 0 0 auto;
+}
+.panel-empty{
+  color: rgba(255,255,255,.55);
+  padding: 10px 2px;
+  border-top: 0 !important;
+}
+
+
+
+/* =========================
+   HIDE LEGACY LANDING (prevent duplicate notice box)
+   ========================= */
+#home-top{ display:none !important; }
+
+
+
+/* =========================
+   LANDING GRID (공지/업데이트/이벤트) + (바로가기/공성전 달력)
+   ========================= */
+.home-grid{
+  display:grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap:14px !important;
+  align-items:stretch;
+}
+#notice-box{ grid-column:1; grid-row:1; }
+#update-box{ grid-column:2; grid-row:1; }
+#event-box{ grid-column:3; grid-row:1; }
+#quick-box{ grid-column:1 / span 2; grid-row:2; }
+#siege-box{ grid-column:3; grid-row:2; }
+
+/* dropdown next to 전체보기 */
+.notice-actions{ display:flex; align-items:center; gap:8px; }
+.notice-dd{ position:relative; }
+.dd-btn{
+  width:32px; height:32px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.04);
+  color: rgba(255,255,255,.9);
+  cursor:pointer;
+}
+.dd-btn:hover{ border-color: rgba(244,188,79,.55); }
+.dd-menu{
+  display:none;
+  position:absolute;
+  right:0;
+  top:38px;
+  min-width: 150px;
+  padding: 8px;
+  border-radius: 14px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(10,12,18,.92);
+  box-shadow: 0 18px 40px rgba(0,0,0,.55);
+  z-index: 50;
+}
+.notice-dd:hover .dd-menu{ display:block; }
+.dd-menu a{
+  display:block;
+  padding: 9px 10px;
+  border-radius: 10px;
+  color: rgba(255,255,255,.88) !important;
+  text-decoration:none !important;
+  font-weight: 800;
+  font-size: 13px;
+}
+.dd-menu a:hover{
+  background: rgba(244,188,79,.12);
+  color: #fff !important;
+}
+
+/* Siege hint */
+.siege-hint{
+  margin-top:10px;
+  font-size:12px;
+  color:rgba(255,255,255,.55);
+  line-height:1.5;
+}
+
+/* Responsive */
+@media(max-width:1000px){
+  .home-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  #event-box{ grid-column:1 / span 2; grid-row:2; }
+  #quick-box{ grid-column:1 / span 2; grid-row:3; }
+  #siege-box{ grid-column:1 / span 2; grid-row:4; }
+}
+@media(max-width:640px){
+  .home-grid{ grid-template-columns: 1fr !important; }
+  #notice-box,#update-box,#event-box,#quick-box,#siege-box{ grid-column:auto; grid-row:auto; }
+}
+
+
+
+/* =========================
+   TABLE STYLE LISTS (clean board look)
+   ========================= */
+.table-head{
+  display:grid;
+  grid-template-columns: 1fr 88px;
+  gap: 10px;
+  padding: 10px 12px;
+  margin-top: 8px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(0,0,0,.18);
+  color: rgba(255,255,255,.70);
+  font-weight: 900;
+  font-size: 12px;
+  letter-spacing: .02em;
+}
+.table-head .th-date{ text-align:right; }
+
+.notice-list{
+  margin-top: 10px !important;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(0,0,0,.10);
+}
+.notice-list li{
+  display:grid !important;
+  grid-template-columns: 1fr 88px;
+  gap: 10px;
+  align-items:center;
+  padding: 11px 12px !important;
+  border-top: 1px solid rgba(255,255,255,.06) !important;
+}
+.notice-list li:first-child{ border-top: 0 !important; }
+.notice-list li .date{
+  text-align:right;
+  font-variant-numeric: tabular-nums;
+}
+.notice-list a{
+  padding: 0 !important;
+  background: transparent !important;
+}
+.notice-list a:hover{
+  background: transparent !important;
+  color: rgba(255,221,138,.95) !important;
+}
+.notice-list li.loading{
+  color: rgba(255,255,255,.55);
+}
+
+
+
+/* =========================
+   REMOVE CUSTOM BACKGROUND IMAGE (user-provided)
+   ========================= */
+:root{
+  --theme-bg-image:none !important;
+  --header-bg-image:none !important;
+}
+body::before{
+  background-image: none !important;
+}
+
+]]></b:skin>
 </head>
 
 <body>
+<a class='skip-link' href='#main-content'>본문 바로가기</a>
 
-  <!-- 상단: 로고 - 배너 - 로고 -->
-  <header class="top-visual">
-    <div class="visual-row">
+<b:section class='navbar' id='navbar' maxwidgets='1' name='Navbar' showaddelement='no'>
+  <b:widget id='Navbar1' locked='true' title='Navbar' type='Navbar' version='1'>
+    <b:includable id='main'>&lt;script type=&quot;text/javascript&quot;&gt;
+    function setAttributeOnload(object, attribute, val) {
+      if(window.addEventListener) {
+        window.addEventListener(&#39;load&#39;,
+          function(){ object[attribute] = val; }, false);
+      } else {
+        window.attachEvent(&#39;onload&#39;, function(){ object[attribute] = val; });
+      }
+    }
+  &lt;/script&gt;
+&lt;div id=&quot;navbar-iframe-container&quot;&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://apis.google.com/js/platform.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+      gapi.load(&quot;gapi.iframes:gapi.iframes.style.bubble&quot;, function() {
+        if (gapi.iframes &amp;&amp; gapi.iframes.getContext) {
+          gapi.iframes.getContext().openChild({
+              url: &#39;https://www.blogger.com/navbar/6139352889667073311?origin\x3dhttps://www.blogger.com&#39;,
+              where: document.getElementById(&quot;navbar-iframe-container&quot;),
+              id: &quot;navbar-iframe&quot;
+          });
+        }
+      });
+    &lt;/script&gt;&lt;script type=&quot;text/javascript&quot;&gt;
+(function() {
+var script = document.createElement(&#39;script&#39;);
+script.type = &#39;text/javascript&#39;;
+script.src = &#39;//pagead2.googlesyndication.com/pagead/js/google_top_exp.js&#39;;
+var head = document.getElementsByTagName(&#39;head&#39;)[0];
+if (head) {
+head.appendChild(script);
+}})();
+&lt;/script&gt;
+</b:includable>
+  </b:widget>
+</b:section>
+<b:section class='header' id='header' maxwidgets='5' name='Header (Layout editable)' showaddelement='yes'>
+  <b:widget id='HTML1' locked='false' title='Header/Menu (편집 가능)' type='HTML' version='1'>
+    <b:widget-settings>
+      <b:widget-setting name='content'><![CDATA[<!-- ✅ 여기에 메뉴/로고 HTML을 넣으면 레이아웃에서 편집 가능 -->
+<!-- 예: <div class="topbar">...</div> -->]]></b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main'>
+      <div class='widget-content'>
+        <data:content/>
+      </div>
+    </b:includable>
+  </b:widget>
+</b:section>
+<b:section class='crosscol' id='crosscol' maxwidgets='5' name='Home Sections (Layout editable)' showaddelement='yes'>
+  <b:widget id='HTML2' locked='false' title='Home Blocks (편집 가능)' type='HTML' version='1'>
+    <b:widget-settings>
+      <b:widget-setting name='content'><![CDATA[<!-- ✅ 홈 전용 섹션을 여기 넣기 (공지/바로가기/배너 등) -->]]></b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main'>
+      <div class='widget-content'>
+        <data:content/>
+      </div>
+    </b:includable>
+  </b:widget>
+</b:section>
 
-      <!-- 왼쪽 로고 -->
-      <div class="logo-box">
-        <img src="logo.png" alt="WarmPack Logo">
+
+
+<header class='header'>
+
+  <div class='banner-row'>
+      <div class='side-logo'>
+        <img src='logo.png' alt='Logo' width='177' height='158'/>
       </div>
 
-      <!-- 가운데 배너 -->
-      <div class="banner-box">
-        <img src="banner.gif" alt="WarmPack Banner">
+      <div class='banner'>
+        <img src='banner.gif' alt='Banner' width='320' height='32'/>
       </div>
 
-      <!-- 오른쪽 로고 -->
-      <div class="logo-box">
-        <img src="logo.png" alt="WarmPack Logo">
+      <div class='side-logo'>
+        <img src='logo.png' alt='Logo' width='177' height='158'/>
       </div>
-
     </div>
-  </header>
 
-  <!-- 본문 -->
-  <main class="content">
-    <section class="section">
-      <div class="container">
-        <h2>프로젝트 소개</h2>
-        <p>
-          WarmPack은 과거 RPG 특유의 분위기와 플레이 감각을 유지하면서,<br>
-          장기적인 플레이에 적합하도록 구조와 밸런스를 개선한<br>
-          커뮤니티 기반 프로젝트입니다.
-        </p>
-        <p class="muted">
-          단기적인 소비가 아닌, 오랫동안 즐길 수 있는 환경을 목표로 합니다.
-        </p>
+<div class='home-top' id='home-top' style='display:none;'>
+      <div class='home-grid'>
+
+        <!-- ROW 1: Notice / Update / Event (like official homepage panels) -->
+        <div class='notice-box' id='notice-box'>
+          <div class='notice-head'>
+            <h3 class='notice-title'><span class='dot'/> 공지사항</h3>
+
+            <div class='notice-actions'>
+              <a class='notice-more' href='/search/label/%EA%B3%B5%EC%A7%80%EC%82%AC%ED%95%AD' target='_top'>전체보기</a>
+              <div class='notice-dd'>
+                <button aria-haspopup='true' aria-label='공지 하위 메뉴' class='dd-btn' type='button'>&#9662;</button>
+                <div class='dd-menu'>
+                  <a href='/search/label/%EA%B3%B5%EC%A7%80%EC%82%AC%ED%95%AD' target='_top'>공지사항</a>
+                  <a href='/search/label/%EC%84%9C%EB%B2%84%20%EA%B7%9C%EC%A0%95' target='_top'>서버 규정</a>
+                  <a href='/search/label/%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8' target='_top'>업데이트</a>
+                  <a href='/search/label/%EC%9D%B4%EB%B2%A4%ED%8A%B8' target='_top'>이벤트</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class='table-head' data-table-head='notice-box'><span>제목</span><span class='th-date'>날짜</span></div>
+<ul class='notice-list is-loading' id='notice-list'>
+            <li class='loading'>공지 불러오는 중...</li>
+          </ul>
+        </div>
+
+        <div class='notice-box' id='update-box'>
+          <div class='notice-head'>
+            <h3 class='notice-title'><span class='dot'/> 업데이트</h3>
+            <a class='notice-more' href='/search/label/%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8' target='_top'>전체보기</a>
+          </div>
+          <div class='table-head' data-table-head='update-box'><span>제목</span><span class='th-date'>날짜</span></div>
+<ul class='notice-list is-loading' id='update-list'>
+            <li class='loading'>업데이트 불러오는 중...</li>
+          </ul>
+        </div>
+
+        <div class='notice-box' id='event-box'>
+          <div class='notice-head'>
+            <h3 class='notice-title'><span class='dot'/> 이벤트</h3>
+            <a class='notice-more' href='/search/label/%EC%9D%B4%EB%B2%A4%ED%8A%B8' target='_top'>전체보기</a>
+          </div>
+          <div class='table-head' data-table-head='event-box'><span>제목</span><span class='th-date'>날짜</span></div>
+<ul class='notice-list is-loading' id='event-list'>
+            <li class='loading'>이벤트 불러오는 중...</li>
+          </ul>
+        </div>
+
+        <!-- ROW 2: Quick links (span 2 cols) + Siege calendar -->
+        <div class='quick-box' id='quick-box'>
+          <h3 class='quick-title'><span class='dot'/> 바로가기</h3>
+          <div class='quick-links'>
+            <a href='/p/download.html' target='_top'><span class='label'>다운로드</span><span class='hint'>파일 받기 &#8594;</span></a>
+            <a href='/p/server-guide.html' target='_top'><span class='label'>서버 가이드</span><span class='hint'>시작하기 &#8594;</span></a>
+            <a href='/p/siege-guide.html' target='_top'><span class='label'>공성 가이드</span><span class='hint'>참여/보상 &#8594;</span></a>
+            <a href='/p/community.html' target='_top'><span class='label'>커뮤니티</span><span class='hint'>소통하기 &#8594;</span></a>
+          </div>
+        </div>
+
+        <div class='notice-box' id='siege-box'>
+          <div class='notice-head'>
+            <h3 class='notice-title'><span class='dot'/> 공성전 달력</h3>
+            <a class='notice-more' href='/search/label/%EA%B3%B5%EC%84%B1%EC%A0%84' target='_top'>전체보기</a>
+          </div>
+          <div class='table-head' data-table-head='siege-box'><span>제목</span><span class='th-date'>날짜</span></div>
+<ul class='notice-list is-loading' id='siege-list'>
+            <li class='loading'>공성전 일정 불러오는 중...</li>
+          </ul>
+          <div class='siege-hint'>&#8251; 공성전 관련 글에 라벨 <b>공성전</b>을 달면 여기에 자동 표시됩니다.</div>
+        </div>
+
       </div>
-    </section>
+    </div>
+<b:section id='main' showaddelement='yes'>
+  <b:widget id='Blog1' locked='false' title='블로그 게시물' type='Blog' version='1'>
+    <b:widget-settings>
+      <b:widget-setting name='showDateHeader'>true</b:widget-setting>
+      <b:widget-setting name='commentLabel'>Comments</b:widget-setting>
+      <b:widget-setting name='style.textcolor'>#ffffff</b:widget-setting>
+      <b:widget-setting name='showShareButtons'>false</b:widget-setting>
+      <b:widget-setting name='authorLabel'>By</b:widget-setting>
+      <b:widget-setting name='showCommentLink'>true</b:widget-setting>
+      <b:widget-setting name='style.urlcolor'>#ffffff</b:widget-setting>
+      <b:widget-setting name='showAuthor'>true</b:widget-setting>
+      <b:widget-setting name='style.linkcolor'>#ffffff</b:widget-setting>
+      <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
+      <b:widget-setting name='style.bgcolor'>#ffffff</b:widget-setting>
+      <b:widget-setting name='timestampLabel'>-</b:widget-setting>
+      <b:widget-setting name='reactionsLabel'/>
+      <b:widget-setting name='showAuthorProfile'>false</b:widget-setting>
+      <b:widget-setting name='style.layout'>1x1</b:widget-setting>
+      <b:widget-setting name='showLabels'>true</b:widget-setting>
+      <b:widget-setting name='showLocation'>false</b:widget-setting>
+      <b:widget-setting name='postLabelsLabel'>Tags:</b:widget-setting>
+      <b:widget-setting name='showTimestamp'>true</b:widget-setting>
+      <b:widget-setting name='postsPerAd'>1</b:widget-setting>
+      <b:widget-setting name='showBacklinks'>false</b:widget-setting>
+      <b:widget-setting name='style.bordercolor'>#ffffff</b:widget-setting>
+      <b:widget-setting name='showInlineAds'>false</b:widget-setting>
+      <b:widget-setting name='showReactions'>false</b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main' var='top'>
+  <b:if cond='!data:mobile'>
+    <!-- posts -->
+    <div class='blog-posts hfeed' id='posts-wrap'>
 
-    <section class="section section--alt">
-      <div class="container">
-        <h2>핵심 특징</h2>
-        <ul class="list">
-          <li>클래식 RPG 감성을 유지한 설계</li>
-          <li>장기 플레이를 고려한 밸런스 구조</li>
-          <li>커뮤니티 피드백 기반 개선</li>
-        </ul>
+      <b:include data='top' name='status-message'/>
+
+      <b:loop values='data:posts' var='post'>
+        <b:if cond='data:post.isDateStart and not data:post.isFirstPost'>
+          &lt;/div&gt;&lt;/div&gt;
+        </b:if>
+        <b:if cond='data:post.isDateStart'>
+          &lt;div class=&quot;date-outer&quot;&gt;
+        </b:if>
+        <b:if cond='data:post.dateHeader'>
+          <h2 class='date-header'><span><data:post.dateHeader/></span></h2>
+        </b:if>
+        <b:if cond='data:post.isDateStart'>
+          &lt;div class=&quot;date-posts&quot;&gt;
+        </b:if>
+        <div class='post-outer'>
+          <b:include data='post' name='post'/>
+          <b:include cond='data:blog.pageType in {&quot;static_page&quot;,&quot;item&quot;}' data='post' name='comment_picker'/>
+        </div>
+
+        <!-- Ad -->
+        <b:if cond='data:post.includeAd'>
+          <div class='inline-ad'>
+            <data:adCode/>
+          </div>
+        </b:if>
+      </b:loop>
+      <b:if cond='data:numPosts != 0'>
+        &lt;/div&gt;&lt;/div&gt;
+      </b:if>
+    </div>
+
+    <!-- navigation -->
+    <b:include name='nextprev'/>
+
+    <!-- feed links -->
+    <b:include name='feedLinks'/>
+
+  <b:else/>
+    <b:include name='mobile-main'/>
+  </b:if>
+</b:includable>
+    <b:includable id='backlinkDeleteIcon' var='backlink'/>
+    <b:includable id='backlinks' var='post'/>
+    <b:includable id='comment-form' var='post'>
+  <div class='comment-form'>
+    <a name='comment-form'/>
+    <b:if cond='data:mobile'>
+      <h4 id='comment-post-message'>
+        <a expr:id='data:widget.instanceId + &quot;_comment-editor-toggle-link&quot;' href='javascript:void(0)'><data:postCommentMsg/></a></h4>
+      <p><data:blogCommentMessage/></p>
+      <data:blogTeamBlogMessage/>
+      <a expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'/>
+      <iframe allowtransparency='true' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight' frameborder='0' id='comment-editor' name='comment-editor' src='' style='display: none' width='100%'/>
+    <b:else/>
+      <h4 id='comment-post-message'><data:postCommentMsg/></h4>
+      <p><data:blogCommentMessage/></p>
+      <data:blogTeamBlogMessage/>
+      <a expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'/>
+      <iframe allowtransparency='true' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight' frameborder='0' id='comment-editor' name='comment-editor' src='' width='100%'/>
+    </b:if>
+    <data:post.cmtfpIframe/>
+    <script type='text/javascript'>
+<![CDATA[
+
+      BLOG_CMT_createIframe(&#39;<data:post.appRpcRelayPath/>&#39;);
+    
+]]>
+</script>
+  </div>
+</b:includable>
+    <b:includable id='commentDeleteIcon' var='comment'>
+  <span expr:class='&quot;item-control &quot; + data:comment.adminClass'>
+    <b:if cond='data:showCmtPopup'>
+      <div class='goog-toggle-button'>
+        <div class='goog-inline-block comment-action-icon'/>
       </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <h2>진행 방향</h2>
-        <ol class="list">
-          <li>기본 시스템 안정화 및 정비</li>
-          <li>콘텐츠 구조 개선 및 확장</li>
-          <li>커뮤니티 의견 반영 및 지속 업데이트</li>
-        </ol>
+    <b:else/>
+      <a class='comment-delete' expr:href='data:comment.deleteUrl' expr:title='data:top.deleteCommentMsg'>
+        <img decoding='async' loading='lazy' src='https://resources.blogblog.com/img/icon_delete13.gif'/>
+      </a>
+    </b:if>
+  </span>
+</b:includable>
+    <b:includable id='comment_count_picker' var='post'>
+  <a class='comment-link' expr:href='data:post.addCommentUrl' expr:onclick='data:post.addCommentOnclick'>
+    <data:post.commentLabelFull/>:
+  </a>
+</b:includable>
+    <b:includable id='comment_picker' var='post'>
+  <b:if cond='data:post.showThreadedComments'>
+    <b:include data='post' name='threaded_comments'/>
+  <b:else/>
+    <b:include data='post' name='comments'/>
+  </b:if>
+</b:includable>
+    <b:includable id='comments' var='post'>
+  <div class='comments' id='comments'>
+    <a name='comments'/>
+    <b:if cond='data:post.allowComments'>
+      <h4><data:post.commentLabelFull/>:</h4>
+      <div expr:id='data:widget.instanceId + &quot;_comments-block-wrapper&quot;'>
+        <dl expr:class='data:post.avatarIndentClass' id='comments-block'>
+          <b:loop values='data:post.comments' var='comment'>
+            <dt expr:class='&quot;comment-author &quot; + data:comment.authorClass' expr:id='data:comment.anchorName'>
+              <a expr:name='data:comment.anchorName'/>
+              <b:if cond='data:blog.enabledCommentProfileImages'>
+                <data:comment.authorAvatarImage/>
+              </b:if>
+              <b:if cond='data:comment.authorUrl'>
+                <a expr:href='data:comment.authorUrl' rel='nofollow'><data:comment.author/></a>
+              <b:else/>
+                <data:comment.author/>
+              </b:if>
+              <data:commentPostedByMsg/>
+            </dt>
+            <dd class='comment-body' expr:id='data:widget.instanceId + data:comment.cmtBodyIdPostfix'>
+              <b:if cond='data:comment.isDeleted'>
+                <span class='deleted-comment'><data:comment.body/></span>
+              <b:else/>
+                <p>
+                  <data:comment.body/>
+                </p>
+              </b:if>
+            </dd>
+            <dd class='comment-footer'>
+              <span class='comment-timestamp'>
+                <a expr:href='data:comment.url' title='comment permalink'>
+                  <data:comment.timestamp/>
+                </a>
+                <b:include data='comment' name='commentDeleteIcon'/>
+              </span>
+            </dd>
+          </b:loop>
+        </dl>
       </div>
-    </section>
-
-    <section class="section section--alt">
-      <div class="container">
-        <h2>안내</h2>
-        <p class="muted">
-          본 페이지는 프로젝트 안내용 정보 페이지입니다.<br>
-          다운로드 및 배포는 추후 별도로 안내될 예정입니다.
-        </p>
+    </b:if>
+  </div>
+</b:includable>
+    <b:includable id='feedLinks'>
+  <b:if cond='data:blog.pageType != &quot;item&quot;'> <!-- Blog feed links -->
+    <b:if cond='data:feedLinks'>
+      <div class='blog-feeds'>
+        <b:include data='feedLinks' name='feedLinksBody'/>
       </div>
-    </section>
-  </main>
+    </b:if>
+  <b:else/> <!--Post feed links -->
+    <div class='post-feeds'>
+      <b:loop values='data:posts' var='post'>
+        <b:include cond='data:post.allowComments and data:post.feedLinks' data='post.feedLinks' name='feedLinksBody'/>
+      </b:loop>
+    </div>
+  </b:if>
+</b:includable>
+    <b:includable id='feedLinksBody' var='links'>
+  <div class='feed-links'>
+  <data:feedLinksMsg/>
+  <b:loop values='data:links' var='f'>
+     <a class='feed-link' expr:href='data:f.url' expr:type='data:f.mimeType' target='_blank'><data:f.name/> (<data:f.feedType/>)</a>
+  </b:loop>
+  </div>
+</b:includable>
+    <b:includable id='iframe_comments' var='post'>
+  <!-- G+ comments, no longer available. The includable is retained for backwards-compatibility. -->
+</b:includable>
+    <b:includable id='mobile-index-post' var='post'>
+  <div class='mobile-date-outer date-outer'>
+    <b:if cond='data:post.dateHeader'>
+      <div class='date-header'>
+        <span><data:post.dateHeader/></span>
+      </div>
+    </b:if>
 
-  <footer class="footer">
-    <p>© WarmPack</p>
-  </footer>
+    <div class='mobile-post-outer'>
+      <a expr:href='data:post.url'>
+        <h3 class='mobile-index-title entry-title' itemprop='name'>
+          <data:post.title/>
+        </h3>
+
+        <div class='mobile-index-arrow'>&amp;rsaquo;</div>
+
+        <div class='mobile-index-contents'>
+          <b:if cond='data:post.thumbnailUrl'>
+            <div class='mobile-index-thumbnail'>
+              <div class='Image'>
+                <img expr:src='data:post.thumbnailUrl'/>
+              </div>
+            </div>
+          </b:if>
+
+          <div class='post-body'>
+            <b:if cond='data:post.snippet'><data:post.snippet/></b:if>
+          </div>
+        </div>
+
+        <div style='clear: both;'/>
+      </a>
+
+      <div class='mobile-index-comment'>
+        <b:include cond='data:blog.pageType != &quot;static_page&quot;                          and data:post.allowComments                          and data:post.numComments != 0' data='post' name='comment_count_picker'/>
+      </div>
+    </div>
+  </div>
+</b:includable>
+    <b:includable id='mobile-main' var='top'>
+    <!-- posts -->
+    <div class='blog-posts hfeed'>
+      <b:include data='top' name='status-message'/>
+      <b:if cond='data:blog.pageType == &quot;index&quot;'>
+        <b:loop values='data:posts' var='post'>
+          <b:include data='post' name='mobile-index-post'/>
+        </b:loop>
+      <b:else/>
+        <b:loop values='data:posts' var='post'>
+          <b:include data='post' name='mobile-post'/>
+        </b:loop>
+      </b:if>
+    </div>
+   <b:include name='mobile-nextprev'/>
+</b:includable>
+    <b:includable id='mobile-nextprev'>
+  <div class='blog-pager' id='blog-pager'>
+    <b:if cond='data:newerPageUrl'>
+      <div class='mobile-link-button' id='blog-pager-newer-link'>
+      <a class='blog-pager-newer-link' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:newerPageTitle'>&amp;lsaquo;</a>
+      </div>
+    </b:if>
+
+    <b:if cond='data:olderPageUrl'>
+      <div class='mobile-link-button' id='blog-pager-older-link'>
+      <a class='blog-pager-older-link' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:olderPageTitle'>&amp;rsaquo;</a>
+      </div>
+    </b:if>
+
+    <div class='mobile-link-button' id='blog-pager-home-link'>
+    <a class='home-link' expr:href='data:blog.homepageUrl'><data:homeMsg/></a>
+    </div>
+
+    <div class='mobile-desktop-link'>
+      <a class='home-link' expr:href='data:desktopLinkUrl'><data:desktopLinkMsg/></a>
+    </div>
+
+  </div>
+  <div class='clear'/>
+</b:includable>
+    <b:includable id='mobile-post' var='post'>
+  <div class='date-outer'>
+    <b:if cond='data:post.dateHeader'>
+      <h2 class='date-header'><span><data:post.dateHeader/></span></h2>
+    </b:if>
+    <div class='date-posts'>
+      <div class='post-outer'>
+
+        <div class='post hentry uncustomized-post-template' itemscope='itemscope' itemtype='http://schema.org/BlogPosting'>
+          <b:if cond='data:post.thumbnailUrl'>
+            <meta expr:content='data:post.thumbnailUrl' itemprop='image_url'/>
+          </b:if>
+          <meta expr:content='data:blog.blogId' itemprop='blogId'/>
+          <meta expr:content='data:post.id' itemprop='postId'/>
+
+          <a expr:name='data:post.id'/>
+          <b:if cond='data:post.title'>
+            <h3 class='post-title entry-title' itemprop='name'>
+              <b:if cond='data:post.link'>
+                <a expr:href='data:post.link'><data:post.title/></a>
+              <b:elseif cond='data:post.url and data:blog.url != data:post.url'/>
+                <a expr:href='data:post.url'><data:post.title/></a>
+              <b:else/>
+                <data:post.title/>
+              </b:if>
+            </h3>
+          </b:if>
+
+          <div class='post-header'>
+            <div class='post-header-line-1'/>
+          </div>
+
+          <div class='post-body entry-content' expr:id='&quot;post-body-&quot; + data:post.id' itemprop='articleBody'>
+            <data:post.body/>
+            <div style='clear: both;'/> <!-- clear for photos floats -->
+          </div>
+
+          <div class='post-footer'>
+            <div class='post-footer-line post-footer-line-1'>
+              <span class='post-author vcard'>
+                <b:if cond='data:top.showAuthor'>
+                  <b:if cond='data:post.authorProfileUrl'>
+                    <span class='fn' itemprop='author' itemscope='itemscope' itemtype='http://schema.org/Person'>
+                      <meta expr:content='data:post.authorProfileUrl' itemprop='url'/>
+                      <a expr:href='data:post.authorProfileUrl' rel='author' title='author profile'>
+                        <span itemprop='name'><data:post.author/></span>
+                      </a>
+                    </span>
+                  <b:else/>
+                    <span class='fn' itemprop='author' itemscope='itemscope' itemtype='http://schema.org/Person'>
+                      <span itemprop='name'><data:post.author/></span>
+                    </span>
+                  </b:if>
+                </b:if>
+              </span>
+
+              <span class='post-timestamp'>
+                <b:if cond='data:top.showTimestamp'>
+                  <data:top.timestampLabel/>
+                  <b:if cond='data:post.url'>
+                    <meta expr:content='data:post.url.canonical' itemprop='url'/>
+                    <a class='timestamp-link' expr:href='data:post.url' rel='bookmark' title='permanent link'><abbr class='published' expr:title='data:post.timestampISO8601' itemprop='datePublished'><data:post.timestamp/></abbr></a>
+                  </b:if>
+                </b:if>
+              </span>
+
+              <span class='post-comment-link'>
+                <b:include cond='data:blog.pageType not in {&quot;item&quot;,&quot;static_page&quot;}                                  and data:post.allowComments' data='post' name='comment_count_picker'/>
+              </span>
+            </div>
+
+            <div class='post-footer-line post-footer-line-2'>
+              <b:if cond='data:top.showMobileShare'>
+                <div class='mobile-link-button goog-inline-block' id='mobile-share-button'>
+                  <a href='javascript:void(0);'><data:shareMsg/></a>
+                </div>
+              </b:if>
+            </div>
+
+          </div>
+        </div>
+
+        <b:include cond='data:blog.pageType in {&quot;static_page&quot;,&quot;item&quot;}' data='post' name='comment_picker'/>
+      </div>
+    </div>
+  </div>
+</b:includable>
+    <b:includable id='nextprev'>
+  <div class='blog-pager' id='blog-pager'>
+    <a class='home-link' expr:href='data:blog.homepageUrl'><data:homeMsg/></a>
+  </div>
+  <div class='clear'/>
+</b:includable>
+    <b:includable id='post' var='post'>
+  <div class='post hentry uncustomized-post-template' itemprop='blogPost' itemscope='itemscope' itemtype='http://schema.org/BlogPosting'>
+    <a expr:name='data:post.id'/>
+    <b:if cond='data:post.title'>
+      <h3 class='post-title entry-title' itemprop='name'>
+      <b:if cond='data:post.link or (data:post.url and data:blog.url != data:post.url)'>
+        <a expr:href='data:post.link ? data:post.link : data:post.url'><data:post.title/></a>
+      <b:else/>
+        <data:post.title/>
+      </b:if>
+      </h3>
+    </b:if>
+    <div class='post-body entry-content' expr:id='&quot;post-body-&quot; + data:post.id' expr:itemprop='(data:blog.metaDescription ? &quot;&quot; : &quot;description &quot;) + &quot;articleBody&quot;'>
+      <data:post.body/>
+      <div style='clear: both;'/> 
+    </div>
+  </div>
+</b:includable>
+    <b:includable id='postQuickEdit' var='post'>
+  <b:if cond='data:post.editUrl'>
+    <span expr:class='&quot;item-control &quot; + data:post.adminClass'>
+      <a expr:href='data:post.editUrl' expr:title='data:top.editPostMsg'>
+        <img alt='' class='icon-action' height='18' src='https://resources.blogblog.com/img/icon18_edit_allbkg.gif' width='18'/>
+      </a>
+    </span>
+  </b:if>
+</b:includable>
+    <b:includable id='shareButtons' var='post'>
+  <b:if cond='data:top.showEmailButton'><a class='goog-inline-block share-button sb-email' expr:href='data:post.sharePostUrl + &quot;&amp;target=email&quot;' expr:title='data:top.emailThisMsg' target='_blank'><span class='share-button-link-text'><data:top.emailThisMsg/></span></a></b:if><b:if cond='data:top.showBlogThisButton'><a class='goog-inline-block share-button sb-blog' expr:href='data:post.sharePostUrl + &quot;&amp;target=blog&quot;' expr:onclick='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=270,width=475\&quot;); return false;&quot;' expr:title='data:top.blogThisMsg' target='_blank'><span class='share-button-link-text'><data:top.blogThisMsg/></span></a></b:if><b:if cond='data:top.showTwitterButton'><a class='goog-inline-block share-button sb-twitter' expr:href='data:post.sharePostUrl + &quot;&amp;target=twitter&quot;' expr:title='data:top.shareToTwitterMsg' target='_blank'><span class='share-button-link-text'><data:top.shareToTwitterMsg/></span></a></b:if><b:if cond='data:top.showFacebookButton'><a class='goog-inline-block share-button sb-facebook' expr:href='data:post.sharePostUrl + &quot;&amp;target=facebook&quot;' expr:onclick='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=430,width=640\&quot;); return false;&quot;' expr:title='data:top.shareToFacebookMsg' target='_blank'><span class='share-button-link-text'><data:top.shareToFacebookMsg/></span></a></b:if><b:if cond='data:top.showPinterestButton'><a class='goog-inline-block share-button sb-pinterest' expr:href='data:post.sharePostUrl + &quot;&amp;target=pinterest&quot;' expr:title='data:top.shareToPinterestMsg' target='_blank'><span class='share-button-link-text'><data:top.shareToPinterestMsg/></span></a></b:if>
+</b:includable>
+    <b:includable id='status-message'>
+  <b:if cond='data:navMessage'>
+  <div class='status-msg-wrap'>
+    <div class='status-msg-body'>
+      <data:navMessage/>
+    </div>
+    <div class='status-msg-border'>
+      <div class='status-msg-bg'>
+        <div class='status-msg-hidden'><data:navMessage/></div>
+      </div>
+    </div>
+  </div>
+  <div style='clear: both;'/>
+  </b:if>
+</b:includable>
+    <b:includable id='threaded-comment-form' var='post'>
+  <div class='comment-form'>
+    <a name='comment-form'/>
+    <b:if cond='data:mobile'>
+      <p><data:blogCommentMessage/></p>
+      <data:blogTeamBlogMessage/>
+      <a expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'/>
+      <iframe allowtransparency='true' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight' frameborder='0' id='comment-editor' name='comment-editor' src='' style='display: none' width='100%'/>
+    <b:else/>
+      <p><data:blogCommentMessage/></p>
+      <data:blogTeamBlogMessage/>
+      <a expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'/>
+      <iframe allowtransparency='true' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight' frameborder='0' id='comment-editor' name='comment-editor' src='' width='100%'/>
+    </b:if>
+    <data:post.cmtfpIframe/>
+    <script type='text/javascript'>
+      BLOG_CMT_createIframe(&#39;<data:post.appRpcRelayPath/>&#39;);
+    </script>
+  </div>
+</b:includable>
+    <b:includable id='threaded_comment_js' var='post'>
+  <script async='async' expr:src='data:post.commentSrc' type='text/javascript'/>
+
+  <script type='text/javascript'>
+    (function() {
+      var items = <data:post.commentJso/>;
+      var msgs = <data:post.commentMsgs/>;
+      var config = <data:post.commentConfig/>;
+
+// <![CDATA[
+      var cursor = null;
+      if (items && items.length > 0) {
+        cursor = parseInt(items[items.length - 1].timestamp) + 1;
+      }
+
+      var bodyFromEntry = function(entry) {
+        var text = (entry &&
+                    ((entry.content && entry.content.$t) ||
+                     (entry.summary && entry.summary.$t))) ||
+            '';
+        if (entry && entry.gd$extendedProperty) {
+          for (var k in entry.gd$extendedProperty) {
+            if (entry.gd$extendedProperty[k].name == 'blogger.contentRemoved') {
+              return '<span class="deleted-comment">' + text + '</span>';
+            }
+          }
+        }
+        return text;
+      }
+
+      var parse = function(data) {
+        cursor = null;
+        var comments = [];
+        if (data && data.feed && data.feed.entry) {
+          for (var i = 0, entry; entry = data.feed.entry[i]; i++) {
+            var comment = {};
+            // comment ID, parsed out of the original id format
+            var id = /blog-(\d+).post-(\d+)/.exec(entry.id.$t);
+            comment.id = id ? id[2] : null;
+            comment.body = bodyFromEntry(entry);
+            comment.timestamp = Date.parse(entry.published.$t) + '';
+            if (entry.author && entry.author.constructor === Array) {
+              var auth = entry.author[0];
+              if (auth) {
+                comment.author = {
+                  name: (auth.name ? auth.name.$t : undefined),
+                  profileUrl: (auth.uri ? auth.uri.$t : undefined),
+                  avatarUrl: (auth.gd$image ? auth.gd$image.src : undefined)
+                };
+              }
+            }
+            if (entry.link) {
+              if (entry.link[2]) {
+                comment.link = comment.permalink = entry.link[2].href;
+              }
+              if (entry.link[3]) {
+                var pid = /.*comments\/default\/(\d+)\?.*/.exec(entry.link[3].href);
+                if (pid && pid[1]) {
+                  comment.parentId = pid[1];
+                }
+              }
+            }
+            comment.deleteclass = 'item-control blog-admin';
+            if (entry.gd$extendedProperty) {
+              for (var k in entry.gd$extendedProperty) {
+                if (entry.gd$extendedProperty[k].name == 'blogger.itemClass') {
+                  comment.deleteclass += ' ' + entry.gd$extendedProperty[k].value;
+                } else if (entry.gd$extendedProperty[k].name == 'blogger.displayTime') {
+                  comment.displayTime = entry.gd$extendedProperty[k].value;
+                }
+              }
+            }
+            comments.push(comment);
+          }
+        }
+        return comments;
+      };
+
+      var paginator = function(callback) {
+        if (hasMore()) {
+          var url = config.feed + '?alt=json&v=2&orderby=published&reverse=false&max-results=50';
+          if (cursor) {
+            url += '&published-min=' + new Date(cursor).toISOString();
+          }
+          window.bloggercomments = function(data) {
+            var parsed = parse(data);
+            cursor = parsed.length < 50 ? null
+                : parseInt(parsed[parsed.length - 1].timestamp) + 1
+            callback(parsed);
+            window.bloggercomments = null;
+          }
+          url += '&callback=bloggercomments';
+          var script = document.createElement('script');
+          script.type = 'text/javascript';
+          script.src = url;
+          document.getElementsByTagName('head')[0].appendChild(script);
+        }
+      };
+      var hasMore = function() {
+        return !!cursor;
+      };
+      var getMeta = function(key, comment) {
+        if ('iswriter' == key) {
+          var matches = !!comment.author
+              && comment.author.name == config.authorName
+              && comment.author.profileUrl == config.authorUrl;
+          return matches ? 'true' : '';
+        } else if ('deletelink' == key) {
+          return config.baseUri + '/comment/delete/'
+               + config.blogId + '/' + comment.id;
+        } else if ('deleteclass' == key) {
+          return comment.deleteclass;
+        }
+        return '';
+      };
+
+      var replybox = null;
+      var replyUrlParts = null;
+      var replyParent = undefined;
+
+      var onReply = function(commentId, domId) {
+        if (replybox == null) {
+          // lazily cache replybox, and adjust to suit this style:
+          replybox = document.getElementById('comment-editor');
+          if (replybox != null) {
+            replybox.height = '250px';
+            replybox.style.display = 'block';
+            replyUrlParts = replybox.src.split('#');
+          }
+        }
+        if (replybox && (commentId !== replyParent)) {
+          replybox.src = '';
+          document.getElementById(domId).insertBefore(replybox, null);
+          replybox.src = replyUrlParts[0]
+              + (commentId ? '&parentID=' + commentId : '')
+              + '#' + replyUrlParts[1];
+          replyParent = commentId;
+        }
+      };
+
+      var hash = (window.location.hash || '#').substring(1);
+      var startThread, targetComment;
+      if (/^comment-form_/.test(hash)) {
+        startThread = hash.substring('comment-form_'.length);
+      } else if (/^c[0-9]+$/.test(hash)) {
+        targetComment = hash.substring(1);
+      }
+
+      // Configure commenting API:
+      var configJso = {
+        'maxDepth': config.maxThreadDepth
+      };
+      var provider = {
+        'id': config.postId,
+        'data': items,
+        'loadNext': paginator,
+        'hasMore': hasMore,
+        'getMeta': getMeta,
+        'onReply': onReply,
+        'rendered': true,
+        'initComment': targetComment,
+        'initReplyThread': startThread,
+        'config': configJso,
+        'messages': msgs
+      };
+
+      var render = function() {
+        if (window.goog && window.goog.comments) {
+          var holder = document.getElementById('comment-holder');
+          window.goog.comments.render(holder, provider);
+        }
+      };
+
+      // render now, or queue to render when library loads:
+      if (window.goog && window.goog.comments) {
+        render();
+      } else {
+        window.goog = window.goog || {};
+        window.goog.comments = window.goog.comments || {};
+        window.goog.comments.loadQueue = window.goog.comments.loadQueue || [];
+        window.goog.comments.loadQueue.push(render);
+      }
+    })();
+// ]]>
+  </script>
+</b:includable>
+    <b:includable id='threaded_comments' var='post'>
+  <div class='comments' id='comments'>
+    <a name='comments'/>
+    <h4><data:post.commentLabelFull/>:</h4>
+
+    <div class='comments-content'>
+      <b:include cond='data:post.embedCommentForm' data='post' name='threaded_comment_js'/>
+      <div id='comment-holder'>
+         <data:post.commentHtml/>
+      </div>
+    </div>
+
+    <p class='comment-footer'>
+      <b:if cond='data:post.allowNewComments'>
+        <b:include data='post' name='threaded-comment-form'/>
+      <b:else/>
+        <data:post.noNewCommentsText/>
+      </b:if>
+    </p>
+
+    <b:if cond='data:showCmtPopup'>
+      <div id='comment-popup'>
+        <iframe allowtransparency='true' frameborder='0' id='comment-actions' name='comment-actions' scrolling='no'>
+        </iframe>
+      </div>
+    </b:if>
+
+    <div id='backlinks-container'>
+    <div expr:id='data:widget.instanceId + &quot;_backlinks-container&quot;'>
+    </div>
+    </div>
+  </div>
+</b:includable>
+  </b:widget>
+</b:section>
+  </div>
+</main>
+
+<footer class='footer'>
+  &#169; <data:blog.title/>. All rights reserved.
+</footer>
+
+
+<script>
+/*<![CDATA[*/
+(function () {
+
+  // ===== (v45) Layout에서 수정한 '상단 메뉴'를 실제 메뉴로 반영 =====
+  // 레이아웃 > '상단 메뉴(레이아웃에서 수정)' 링크 목록에서
+  //  - 상위: "서버 가이드"
+  //  - 하위: "서버 가이드 > 가이드 영상"  또는  "서버 가이드 :: 가이드 영상"
+  (function(){
+    try{
+      var sec = document.getElementById('TopMenu');
+      var nav = document.getElementById('main-nav');
+      if (!sec || !nav) return;
+
+      var list = sec.querySelector('.LinkList ul');
+      if (!list) return;
+
+      var links = list.querySelectorAll('li a');
+      if (!links || !links.length) return; // 비어있으면 기존(코드) 메뉴 유지
+
+      // 메뉴 초기화 후 재구성
+      nav.innerHTML = '';
+
+      var parents = {}; // name -> {li,a,sub}
+      var topItems = [];
+
+      for (var i=0;i<links.length;i++){
+        var a0 = links[i];
+        var text = (a0.textContent || '').trim();
+        var href = a0.getAttribute('href') || '#';
+        var m = text.match(/^(.+?)\s*(?:>|::)\s*(.+)$/);
+        if (!m){
+          topItems.push({type:'top', t:text, h:href});
+        }else{
+          topItems.push({type:'sub', p:m[1].trim(), c:m[2].trim(), h:href});
+        }
+      }
+
+      var makeTop = function(name, href){
+        var li = document.createElement('li');
+        var a = document.createElement('a');
+        a.textContent = name;
+        a.setAttribute('href', href || '#');
+        li.appendChild(a);
+        nav.appendChild(li);
+      };
+
+      var ensureParent = function(name){
+        if (parents[name]) return parents[name];
+        var li = document.createElement('li');
+        li.className = 'has-sub';
+        var a = document.createElement('a');
+        a.textContent = name;
+        a.setAttribute('href', '#');
+        li.appendChild(a);
+        var sub = document.createElement('ul');
+        sub.className = 'submenu';
+        li.appendChild(sub);
+        nav.appendChild(li);
+        parents[name] = {li:li, a:a, sub:sub};
+        return parents[name];
+      };
+
+      // 1) 빌드
+      for (var j=0;j<topItems.length;j++){
+        var it = topItems[j];
+        if (it.type === 'top'){
+          makeTop(it.t, it.h);
+        }else{
+          var pobj = ensureParent(it.p);
+          var cli = document.createElement('li');
+          var ca = document.createElement('a');
+          ca.textContent = it.c;
+          ca.setAttribute('href', it.h);
+          cli.appendChild(ca);
+          pobj.sub.appendChild(cli);
+        }
+      }
+
+      // 2) 부모 항목(상위) 단독 링크가 있으면 href 승격 + 중복 제거
+      var topLinks = nav.querySelectorAll(':scope > li > a');
+      for (var k=0;k<topLinks.length;k++){
+        var a1 = topLinks[k];
+        var t1 = (a1.textContent || '').trim();
+        if (parents[t1]){
+          parents[t1].a.setAttribute('href', a1.getAttribute('href') || '#');
+          // remove standalone duplicate li
+          a1.parentNode.parentNode.removeChild(a1.parentNode);
+        }
+      }
+
+      // 3) 드롭다운 표시용 caret(PC)
+      var ps = nav.querySelectorAll('li.has-sub > a');
+      for (var x=0;x<ps.length;x++){
+        if (ps[x].textContent.indexOf('▾') === -1){
+          ps[x].insertAdjacentText('beforeend', ' ▾');
+        }
+      }
+
+      // 4) 모바일용 서브메뉴 토글 버튼 재생성(중복 방지)
+      // 기존 토글 제거
+      var oldToggles = nav.querySelectorAll('.submenu-toggle');
+      for (var y=0;y<oldToggles.length;y++) oldToggles[y].remove();
+
+      var items = nav.querySelectorAll('li');
+      for (var z=0;z<items.length;z++){
+        var li0 = items[z];
+        var submenu = li0.querySelector(':scope > ul.submenu');
+        var link = li0.querySelector(':scope > a');
+        if (!submenu || !link) continue;
+
+        var t = document.createElement('button');
+        t.type = 'button';
+        t.className = 'submenu-toggle';
+        t.setAttribute('aria-label', '하위 메뉴 열기/닫기');
+        t.innerHTML = '<span aria-hidden="true">▾</span>';
+        link.insertAdjacentElement('afterend', t);
+
+        t.addEventListener('click', (function(liRef){
+          return function(ev){
+            ev.preventDefault();
+            ev.stopPropagation();
+            liRef.classList.toggle('submenu-open');
+          };
+        })(li0));
+      }
+    }catch(e){}
+  })();
+
+
+  // 1) 메뉴 활성 표시
+  var path = location.pathname;
+  var links = document.querySelectorAll('#main-nav a[href]');
+  for (var i = 0; i < links.length; i++) {
+    var a = links[i];
+    var href = a.getAttribute('href');
+    if (!href || href === '#' || href.indexOf('javascript:') === 0) continue;
+    var linkPath = (new URL(a.href, location.origin)).pathname;
+    if (linkPath === '/' && path === '/') a.classList.add('active');
+    if (linkPath !== '/' && (path === linkPath || path.indexOf(linkPath) === 0)) a.classList.add('active');
+  }
+
+  // 2) 모바일 메뉴 토글 + 서브메뉴 토글
+  var toggleBtn = document.getElementById('menu-toggle');
+  var nav = document.getElementById('main-nav');
+  if (toggleBtn && nav) {
+    toggleBtn.addEventListener('click', function () {
+      nav.classList.toggle('open');
+    });
+    var subLinks = nav.querySelectorAll('li.has-sub > a');
+    
+    // 접근성: 드롭다운 부모 ARIA
+    for (var s = 0; s < subLinks.length; s++) {
+      subLinks[s].setAttribute('aria-haspopup', 'true');
+      subLinks[s].setAttribute('aria-expanded', 'false');
+    }
+for (var j = 0; j < subLinks.length; j++) {
+      subLinks[j].addEventListener('click', function (e) {
+        if (window.matchMedia('(max-width: 768px)').matches) {
+          e.preventDefault();
+          this.parentElement.classList.toggle('open');
+          this.setAttribute('aria-expanded', this.parentElement.classList.contains('open') ? 'true' : 'false');
+        }
+      });
+    }
+  }
+
+  // 3) 홈 전용 레이아웃 + 4) 공지 자동 출력
+  var isHome = (path === '/' || path === '/index.html');
+  if (isHome) {
+    document.body.classList.add('is-home');
+    var homeTop = document.getElementById('home-top');
+    if (homeTop) homeTop.style.display = 'none';
+
+    var postsWrap = document.getElementById('posts-wrap');
+    if (postsWrap) postsWrap.classList.add('home-grid');
+
+    
+
+    // 홈 카드 강화: 첫 이미지 썸네일 + 본문 요약
+    (function enhanceHomeCards(){
+      var container = document.getElementById('posts-wrap');
+      if (!container) return;
+
+      var postOuters = container.querySelectorAll('.post-outer');
+      for (var i = 0; i < postOuters.length; i++) {
+        var po = postOuters[i];
+        if (po.getAttribute('data-cardified') === '1') continue;
+
+        var titleEl = po.querySelector('.post-title');
+        var bodyEl = po.querySelector('.post-body');
+        if (!titleEl || !bodyEl) continue;
+
+        // 썸네일: 본문 첫 img
+        var img = bodyEl.querySelector('img');
+        var thumbUrl = img ? (img.getAttribute('src') || img.src) : '';
+
+        // 텍스트 요약: 본문 텍스트만 추출
+        var text = (bodyEl.textContent || '').replace(/\s+/g, ' ').trim();
+        if (text.length > 140) text = text.slice(0, 140) + '…';
+
+        // wrapper 구성
+        var card = document.createElement('div');
+        card.className = 'post-card';
+
+        if (thumbUrl) {
+          var thumb = document.createElement('div');
+          thumb.className = 'post-card-thumb';
+          // 따옴표 문제 회피
+          thumb.style.backgroundImage = 'url(' + thumbUrl.replace(/["\']/g,'') + ')';
+          card.appendChild(thumb);
+        }
+
+        var inner = document.createElement('div');
+        inner.className = 'post-card-inner';
+
+        // meta (작성자/시간이 있으면 표시)
+        var meta = document.createElement('div');
+        meta.className = 'post-card-meta';
+        var author = po.querySelector('.post-author');
+        var time = po.querySelector('.post-timestamp');
+        meta.innerHTML = '<span>' + (author ? author.textContent.trim() : '') + '</span>'
+                       + '<span>' + (time ? time.textContent.trim() : '') + '</span>';
+        inner.appendChild(meta);
+
+        // 제목(원본 제목 노드 이동)
+        inner.appendChild(titleEl);
+
+        // 요약
+        var snip = document.createElement('div');
+        snip.className = 'post-snippet';
+        snip.textContent = text;
+        inner.appendChild(snip);
+
+        // 더보기 버튼
+        var link = po.querySelector('.post-title a');
+        var href = link ? link.getAttribute('href') : '';
+        if (href) {
+          var actions = document.createElement('div');
+          actions.className = 'post-card-actions';
+          actions.innerHTML = '<a class="post-readmore" href="' + href + '">자세히 보기 →</a>';
+          inner.appendChild(actions);
+        }
+
+        card.appendChild(inner);
+
+        // 기존 본문은 홈에서는 숨김(카드 형태만 노출)
+        bodyEl.style.display = 'none';
+
+        // 카드 삽입
+        po.insertBefore(card, po.firstChild);
+        po.setAttribute('data-cardified', '1');
+      }
+    })();
+// XML 템플릿이라 & 는 반드시 &amp;
+    var noticeFeedUrl = '/feeds/posts/default/-/%EA%B3%B5%EC%A7%80%EC%82%AC%ED%95%AD?alt=json&amp;max-results=5';
+
+    (function(){
+    var list = document.getElementById('notice-list');
+    if (!list) return;
+
+    var CACHE_KEY = 'notice_cache_v1';
+    var TTL_MS = 10 * 60 * 1000; // 10분
+
+    var render = function (data) {
+      // 로딩 표시 해제
+      list.classList.remove('is-loading');
+
+      var entries = (data && data.feed && data.feed.entry) ? data.feed.entry : [];
+      
+      // 공지 고정 규칙:
+      //  - 라벨에 '고정' 포함(예: '공지고정', '고정') 또는
+      //  - 제목에 '[필독]' 또는 '필독' 포함
+      var isPinned = function(entry){
+        try{
+          var t = (entry.title && entry.title.$t) ? entry.title.$t : '';
+          if (t.indexOf('[필독]') !== -1 || t.indexOf('필독') !== -1) return true;
+          var cats = entry.category || [];
+          for (var i=0;i<cats.length;i++){
+            var term = cats[i].term || '';
+            if (term.indexOf('고정') !== -1) return true;
+          }
+        }catch(e){}
+        return false;
+      };
+      // 고정 먼저, 그 다음 원래 순서 유지(안정적 정렬)
+      entries = entries.map(function(e, idx){ return {e:e, idx:idx, p:isPinned(e)}; })
+                     .sort(function(a,b){
+                       if (a.p === b.p) return a.idx - b.idx;
+                       return a.p ? -1 : 1;
+                     })
+                     .map(function(o){ return o.e; });
+
+      var html = '';
+      for (var k = 0; k < entries.length; k++) {
+        var entry = entries[k];
+        var title = (entry.title && entry.title.$t) ? entry.title.$t : '공지';
+
+        var url = '#';
+        if (entry.link && entry.link.length) {
+          for (var m = 0; m < entry.link.length; m++) {
+            if (entry.link[m].rel === 'alternate') { url = entry.link[m].href; break; }
+          }
+        }
+
+        var dateText = fmt(entry.published && entry.published.$t ? entry.published.$t : '');
+
+        var isNew = false;
+        try {
+          var now = Date.now();
+          var pub = (entry.published && entry.published.$t) ? Date.parse(entry.published.$t) : 0;
+          if (pub && (now - pub) <= (3 * 24 * 60 * 60 * 1000)) isNew = true;
+        } catch (e) {}
+
+        html += ''
+          + '<li>'
+          +   '<a href=\"' + url + '\">'
+          +     '<div class=\"notice-item\">'
+          +       '<span style=\"font-weight:800; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;\">' + title + '</span>'
+          +       '<span style=\"display:flex; gap:8px; align-items:center; flex-shrink:0;\">'
+          +         (isPinned(entry) ? '<span class=\"notice-pin\">PIN</span>' : '') + (isNew ? '<span class=\"notice-badge\">NEW</span>' : '')
+          +         '<span style=\"font-size:12px; color:#9ca3af;\">' + dateText + '</span>'
+          +       '</span>'
+          +     '</div>'
+          +   '</a>'
+          + '</li>';
+      }
+      list.innerHTML = html;
+    };
+
+    // 캐시 먼저 시도
+    try {
+      var cached = sessionStorage.getItem(CACHE_KEY);
+      if (cached) {
+        var obj = JSON.parse(cached);
+        if (obj && obj.t && (Date.now() - obj.t) < TTL_MS && obj.data) {
+          render(obj.data);
+          return;
+        }
+      }
+    } catch (e) {}
+
+    // 캐시 없으면 네트워크
+    fetch(noticeFeedUrl)
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        try {
+          sessionStorage.setItem(CACHE_KEY, JSON.stringify({t: Date.now(), data: data}));
+        } catch (e) {}
+        render(data);
+      })
+      .catch(function () {
+        list.classList.remove('is-loading');
+        list.innerHTML = '<li>공지 로딩 실패</li>';
+      });
+  })();
+  }
+
+  // ===== 5) 스크롤 UI (헤더 그림자 + 맨 위로) =====
+  var header = document.querySelector('header.header');
+  var topBtn = document.getElementById('back-to-top');
+
+  var ticking = false;
+  var onScroll = function () {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){
+      var y = window.scrollY || document.documentElement.scrollTop || 0;
+      if (header) {
+        if (y > 10) header.classList.add('scrolled');
+        else header.classList.remove('scrolled');
+      }
+      if (topBtn) {
+        if (y > 500) topBtn.classList.add('show');
+        else topBtn.classList.remove('show');
+      }
+      ticking = false;
+    });
+  };
+
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  if (topBtn) {
+    topBtn.addEventListener('click', function () {
+      try {
+        window.scrollTo({top:0, behavior:'smooth'});
+      } catch (e) {
+        window.scrollTo(0,0);
+      }
+    });
+  }
+
+
+  
+
+  // ===== Admin detect (로그인 관리자에게만 메뉴 노출) =====
+  (function(){
+    try{
+      // Blogger는 관리자 로그인 시 'item-control' (빠른편집/삭제 등) 요소가 렌더링됨
+      var adminEl = document.querySelector('.item-control, .quickedit, a.g-profile[href*="drafts"], a[href*="blogger.com/blog/post"]');
+      if (adminEl) document.body.classList.add('is-admin');
+    }catch(e){}
+  })();
+
+
+  // ===== Theme image config =====
+  // 여기 URL/값만 바꾸면 바로 적용됨
+  // 기본값(매칭 없을 때)
+  var THEME_BG_IMAGE = '';        // 전체 배경 이미지 URL
+  var HEADER_BG_IMAGE = '';       // 헤더 배경 이미지 URL
+  var THEME_BG_OPACITY = 0.18;    // 배경 진하기(0.00 ~ 0.40 추천)
+  var THEME_BG_BLUR_PX = 0;       // 배경 블러(px) 0~10 추천
+  var HEADER_OVERLAY_OPACITY = 0.35; // 헤더 오버레이(0.0~0.7)
+
+  // 옵션: 모바일에서는 배경 이미지 자동 OFF (true 추천)
+  var THEME_BG_MOBILE_OFF = true;
+
+  // ===== 페이지별 분기 규칙 =====
+  // 위에서부터 먼저 매칭되는 규칙이 적용됨.
+  // match:
+  //   - 'home' : 홈(/ 또는 /index.html)
+  //   - 'pathPrefix' : pathname이 prefix로 시작하면 매칭
+  //   - 'pathRegex' : pathname 정규식 매칭 (문자열로 작성)
+  //   - 'fullRegex' : (pathname+search) 정규식 매칭 (문자열로 작성)
+  //
+  // 예시 URL 넣는 곳:
+  //  bg / header : ''(미사용) 또는 'https://.../image.jpg'
+  var PAGE_BACKGROUNDS = [
+    // 홈 전용 배경 예시
+    { match:'home', bg:'', header:'', opacity:0.18, blur:0, overlay:0.35 },
+
+    // 공지/라벨 페이지 (/search/label/...) 전용 배경 예시
+    { match:'pathPrefix', value:'/search/label/', bg:'', header:'', opacity:0.16, blur:0, overlay:0.35 },
+
+    // 정적 페이지(/p/...) 전용 배경 예시
+    { match:'pathPrefix', value:'/p/', bg:'', header:'', opacity:0.14, blur:0, overlay:0.35 },
+
+    // 개별 글(/YYYY/MM/...html) 전용 배경 예시
+    { match:'pathRegex', value:'^/\\d{4}/\\d{2}/', bg:'', header:'', opacity:0.12, blur:0, overlay:0.35 }
+  ];
+
+  (function(){
+    try{
+      var path = location.pathname || '/';
+      var full = path + (location.search || '');
+      var isHome = (path === '/' || path === '/index.html');
+
+      var isMobile = false;
+      try { isMobile = window.matchMedia && window.matchMedia('(max-width: 768px)').matches; } catch(e) {}
+
+      var pickRule = function(){
+        for (var i=0;i<PAGE_BACKGROUNDS.length;i++){
+          var r = PAGE_BACKGROUNDS[i];
+          if (!r || !r.match) continue;
+          if (r.match === 'home' && isHome) return r;
+          if (r.match === 'pathPrefix' && r.value && path.indexOf(r.value) === 0) return r;
+          if (r.match === 'pathRegex' && r.value) {
+            try { if (new RegExp(r.value).test(path)) return r; } catch(e) {}
+          }
+          if (r.match === 'fullRegex' && r.value) {
+            try { if (new RegExp(r.value).test(full)) return r; } catch(e) {}
+          }
+        }
+        return null;
+      };
+
+      var rule = pickRule();
+
+      // 최종 값(규칙이 있으면 규칙 우선, 없으면 기본값)
+      var bg = rule && typeof rule.bg === 'string' ? rule.bg : THEME_BG_IMAGE;
+      var header = rule && typeof rule.header === 'string' ? rule.header : HEADER_BG_IMAGE;
+      var opacity = rule && typeof rule.opacity === 'number' ? rule.opacity : THEME_BG_OPACITY;
+      var blur = rule && typeof rule.blur === 'number' ? rule.blur : THEME_BG_BLUR_PX;
+      var overlay = rule && typeof rule.overlay === 'number' ? rule.overlay : HEADER_OVERLAY_OPACITY;
+
+      // 모바일 OFF
+      if (THEME_BG_MOBILE_OFF && isMobile) bg = '';
+
+      // 적용
+      if (bg) document.documentElement.style.setProperty('--theme-bg-image', 'url(' + bg + ')');
+      else document.documentElement.style.setProperty('--theme-bg-image', 'none');
+
+      if (header) document.documentElement.style.setProperty('--header-bg-image', 'url(' + header + ')');
+      else document.documentElement.style.setProperty('--header-bg-image', 'none');
+
+      document.documentElement.style.setProperty('--theme-bg-opacity', String(opacity));
+      document.documentElement.style.setProperty('--theme-bg-blur', blur + 'px');
+      document.documentElement.style.setProperty('--header-overlay-opacity', String(overlay));
+    }catch(e){}
+  })();
+(function(){
+    try{
+      if (THEME_BG_IMAGE) document.documentElement.style.setProperty('--theme-bg-image', 'url(' + THEME_BG_IMAGE + ')');
+      if (HEADER_BG_IMAGE) document.documentElement.style.setProperty('--header-bg-image', 'url(' + HEADER_BG_IMAGE + ')');
+    }catch(e){}
+  })();
+
+  // ===== Mobile nav behavior =====
+  (function(){
+    try{
+      var btn = document.querySelector('.nav-toggle');
+      var nav = document.getElementById('siteNav');
+      var overlay = document.querySelector('.nav-overlay');
+      if (!btn || !nav) return;
+
+      var setOpen = function(open){
+        document.body.classList.toggle('nav-open', !!open);
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        btn.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
+        if (!open){
+          // close all submenus
+          var opened = nav.querySelectorAll('li.submenu-open');
+          for (var i=0;i<opened.length;i++) opened[i].classList.remove('submenu-open');
+        }
+      };
+
+      btn.addEventListener('click', function(){
+        setOpen(!document.body.classList.contains('nav-open'));
+      });
+
+      if (overlay){
+        overlay.addEventListener('click', function(){ setOpen(false); }, {passive:true});
+      }
+
+      // ESC to close
+      window.addEventListener('keydown', function(e){
+        if (e.key === 'Escape') setOpen(false);
+      });
+
+      // Close when clicking a link (mobile)
+      nav.addEventListener('click', function(e){
+        var a = e.target.closest('a');
+        if (!a) return;
+        // if inside submenu, allow navigation and close
+        if (document.body.classList.contains('nav-open')) setOpen(false);
+      });
+
+      // Build submenu toggles (mobile)
+      var items = nav.querySelectorAll('li');
+      for (var i=0;i<items.length;i++){
+        var li = items[i];
+        var submenu = li.querySelector(':scope > ul.submenu');
+        var link = li.querySelector(':scope > a');
+        if (!submenu || !link) continue;
+
+        // create toggle button
+        var t = document.createElement('button');
+        t.type = 'button';
+        t.className = 'submenu-toggle';
+        t.setAttribute('aria-label', '하위 메뉴 열기/닫기');
+        t.innerHTML = '<span aria-hidden="true">▾</span>';
+
+        // insert after link
+        link.insertAdjacentElement('afterend', t);
+
+        t.addEventListener('click', (function(liRef){
+          return function(ev){
+            ev.preventDefault();
+            ev.stopPropagation();
+            liRef.classList.toggle('submenu-open');
+          };
+        })(li));
+      }
+
+      // Close drawer when resizing to desktop
+      window.addEventListener('resize', function(){
+        try{
+          if (window.matchMedia && window.matchMedia('(min-width: 901px)').matches){
+            setOpen(false);
+          }
+        }catch(e){}
+      });
+    }catch(e){}
+  })();
+
+
+  // ===== Home quick sticky top sync =====
+  (function(){
+    try{
+      var header = document.querySelector('header.header');
+      if (!header) return;
+
+      var raf = 0;
+      var update = function(){
+        try{
+          // 헤더가 slim/scrolled 상태든 항상 현재 높이 기준으로 계산
+          var h = header.getBoundingClientRect().height || header.offsetHeight || 0;
+          var top = Math.max(12, Math.round(h + 12));
+          document.documentElement.style.setProperty('--home-quick-sticky-top', top + 'px');
+        }catch(e){}
+      };
+
+      var onScroll = function(){
+        if (raf) return;
+        raf = window.requestAnimationFrame(function(){
+          raf = 0;
+          update();
+        });
+      };
+
+      update();
+      window.addEventListener('resize', update, {passive:true});
+      window.addEventListener('scroll', onScroll, {passive:true});
+      // 모바일/PC 전환 시 한 번 더
+      window.addEventListener('orientationchange', update, {passive:true});
+    }catch(e){}
+  })();
+
+})();
+/*]]>*/
+</script>
+
+<button aria-label='맨 위로' class='back-to-top' id='back-to-top' type='button'>&#8593; 맨 위로</button>
+
+
+<!-- ===== Minimal Footer (STEP NEXT) ===== -->
+<footer class='site-footer' role='contentinfo'>
+  <div class='footer-inner'>
+    <div class='footer-left'>
+      <span>&#169; <span class='footer-year'/> <b:eval expr='data:blog.title'/></span>
+    </div>
+    <div class='footer-right'>
+      <a expr:href='data:blog.homepageUrl'>Home</a>
+    </div>
+  </div>
+</footer>
+
+<script type='text/javascript'>
+//<![CDATA[
+(function(){
+  try{
+    var y = new Date().getFullYear();
+    var el = document.querySelector('.footer-year');
+    if (el) el.textContent = y;
+  }catch(e){}
+})();
+//]]>
+</script>
+
+
+<b:section class='footer' id='footer-1' maxwidgets='5' name='Footer (Layout editable)' showaddelement='yes'/>
+<b:section class='footer' id='footer-3' maxwidgets='5' name='Footer Extra (Layout editable)' showaddelement='yes'/>
+
+
+<script type='text/javascript'>
+<![CDATA[
+
+(function(){
+  function esc(s){ return (s||'').replace(/[&<>"']/g,function(c){return({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]);});}
+  function fmtDate(iso){
+    try{
+      var d=new Date(iso);
+      if(isNaN(d.getTime())) return '';
+      var y=d.getFullYear(), m=('0'+(d.getMonth()+1)).slice(-2), da=('0'+d.getDate()).slice(-2);
+      return y+'.'+m+'.'+da;
+    }catch(e){ return '';}
+  }
+  function fetchLabel(label, ul){
+    var base = window.location.origin + window.location.pathname;
+    base = base.replace(/\/$/, '');
+    var url = base + '/feeds/posts/default/-/' + encodeURIComponent(label) + '?alt=json&max-results=4';
+    fetch(url).then(function(r){return r.json();}).then(function(j){
+      var entries = (j && j.feed && j.feed.entry) ? j.feed.entry : [];
+      ul.innerHTML = '';
+      if(!entries.length){
+        var li=document.createElement('li'); li.className='panel-empty'; li.textContent= label + ' 글이 없습니다.';
+        ul.appendChild(li); return;
+      }
+      entries.forEach(function(e){
+        var title = e.title && e.title.$t ? e.title.$t : '제목 없음';
+        var link = '';
+        if(e.link && e.link.length){
+          for(var i=0;i<e.link.length;i++){
+            if(e.link[i].rel==='alternate'){ link = e.link[i].href; break; }
+          }
+        }
+        var published = e.published && e.published.$t ? e.published.$t : '';
+        var li=document.createElement('li');
+        li.innerHTML = "<a href='"+esc(link)+"'>"+esc(title)+"</a><span class='date'>"+esc(fmtDate(published))+"</span>";
+        ul.appendChild(li);
+      });
+    }).catch(function(){ /* keep empty */ });
+  }
+  document.addEventListener('DOMContentLoaded', function(){
+    var lists = document.querySelectorAll('.panel-list[data-feed]');
+    for(var i=0;i<lists.length;i++){
+      var ul = lists[i];
+      var label = ul.getAttribute('data-feed');
+      if(label) fetchLabel(label, ul);
+    }
+  });
+})();
+
+]]>
+</script>
+
+
+
+<script type='text/javascript'>
+<![CDATA[
+(function(){
+  function esc(s){
+    return (s||'').replace(/[&<>"']/g, function(c){
+      return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c];
+    });
+  }
+  function fmt(iso){
+    try{
+      var d=new Date(iso);
+      if(isNaN(d.getTime())) return '';
+      var y=d.getFullYear(), m=('0'+(d.getMonth()+1)).slice(-2), da=('0'+d.getDate()).slice(-2);
+      return y+'.'+m+'.'+da;
+    }catch(e){ return ''; }
+  }
+  function loadLabel(labelEnc, listId, emptyText){
+    var list = document.getElementById(listId);
+    if(!list) return;
+    var url = '/feeds/posts/default/-/' + labelEnc + '?alt=json&amp;max-results=5';
+    fetch(url).then(function(r){return r.json();}).then(function(data){
+      list.classList.remove('is-loading');
+      var entries = (data && data.feed && data.feed.entry) ? data.feed.entry : [];
+      list.innerHTML = '';
+      if(!entries.length){
+        list.innerHTML = '<li>' + esc(emptyText) + '</li>';
+        return;
+      }
+      for(var i=0;i<entries.length;i++){
+        var e = entries[i];
+        var title = (e.title && e.title.$t) ? e.title.$t : '제목 없음';
+        var link = '#';
+        if(e.link && e.link.length){
+          for(var k=0;k<e.link.length;k++){
+            if(e.link[k].rel === 'alternate'){ link = e.link[k].href; break; }
+          }
+        }
+        var pub = (e.published && e.published.$t) ? e.published.$t : '';
+        var li = document.createElement('li');
+        li.innerHTML = "<a href='" + esc(link) + "' target='_top'>" + esc(title) + "</a><span class='date'>" + esc(fmt(pub)) + "</span>";
+        list.appendChild(li);
+      }
+    }).catch(function(){
+      list.classList.remove('is-loading');
+      list.innerHTML = '<li>' + esc(emptyText) + '</li>';
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    loadLabel('%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8', 'update-list', '업데이트 글이 없습니다.');
+    loadLabel('%EC%9D%B4%EB%B2%A4%ED%8A%B8', 'event-list', '이벤트가 없습니다.');
+    loadLabel('%EA%B3%B5%EC%84%B1%EC%A0%84', 'siege-list', '공성전 일정이 없습니다.');
+  });
+})();
+]]>
+</script>
 
 </body>
 </html>
