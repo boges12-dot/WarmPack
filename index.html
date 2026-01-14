@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Server Home</title>
 
-  <!-- 둘 중 하나만 있어도 CSS 적용되게(대소문자 이슈 방어) -->
+  <!-- 대소문자/경로 이슈 방어: 둘 중 하나만 살아도 적용됨 -->
   <link rel="stylesheet" href="./css/main.css">
   <link rel="stylesheet" href="./CSS/main.css">
 </head>
@@ -13,7 +13,8 @@
 
 <header class="site-header">
   <div class="container header-row">
-    <a class="brand" href="./">
+    <a class="brand" href="./" aria-label="홈으로">
+      <!-- 로고 파일명은 반드시 repo에 'logo.png'로 존재해야 함 -->
       <img src="./logo.png" alt="logo" class="brand-logo">
       <span class="brand-text">서버이름</span>
     </a>
@@ -113,12 +114,21 @@
   </div>
 </header>
 
-<main class="container" style="padding:28px 16px 60px">
-  <h1 id="home" style="margin:0 0 12px">홈</h1>
-  <p style="opacity:.85;margin:0">메뉴 테스트용 섹션. 각 항목 클릭하면 해당 id로 이동합니다.</p>
+<!-- 배너는 메인메뉴(헤더) 바로 아래에 위치 -->
+<section class="top-banner" aria-label="Top Banner">
+  <!-- 배너 파일명은 반드시 repo에 'banner.gif'로 존재해야 함 -->
+  <img src="./banner.gif" alt="banner">
+</section>
+
+<!-- 메인 메뉴 섹션/본문은 배너 아래에서 시작 -->
+<main class="main-wrap">
+  <div class="container">
+    <h1 id="home" style="margin:0 0 10px">홈</h1>
+    <p style="opacity:.85;margin:0">메뉴 섹션은 배너 아래에 배치되어 있습니다. 각 항목 클릭하면 해당 id로 이동합니다.</p>
+  </div>
 </main>
 
-<!-- 둘 중 하나만 있어도 JS 적용되게(대소문자 이슈 방어) -->
+<!-- JS 대소문자/경로 이슈 방어 -->
 <script defer src="./js/main.js"></script>
 <script defer src="./JS/main.js"></script>
 </body>
