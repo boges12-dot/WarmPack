@@ -1,13 +1,32 @@
-/* HYBRID SITE v2_3 (Portable)
-   - Works on file:// and when hosted in a subfolder
-   - Uses window.__SITE_ROOT__ set by the portable loader snippet in HTML
+/* HYBRID SITE v2_3 (RelPaths)
+   - No inline loader needed
+   - Works on file://, subfolder hosting, and normal hosting
+   - ROOT is derived from this script's URL (…/js/main.js)
 */
 
 (function(){
-  const ROOT = (window.__SITE_ROOT__ || "").replace(/\/+$/,"");
-  const U = (path) => ROOT + path; // path must start with "/"
+  function getRoot(){
+    // Prefer currentScript (modern browsers)
+    var cs = document.currentScript && document.currentScript.src ? document.currentScript.src : "";
+    if (!cs){
+      // Fallback: find last script that ends with /js/main.js
+      var scripts = document.getElementsByTagName("script");
+      for (var i=scripts.length-1; i>=0; i--){
+        var s = scripts[i].src || "";
+        if (s.indexOf("/js/main.js") !== -1 || s.endsWith("js/main.js")){
+          cs = s; break;
+        }
+      }
+    }
+    // cs example: file:///C:/.../hybrid_site/js/main.js or https://domain/sub/hybrid_site/js/main.js
+    // Remove trailing "/js/main.js"
+    return cs ? cs.replace(/\/js\/main\.js(?:\?.*)?$/i, "").replace(/\/js\/main\.js$/i, "") : "";
+  }
 
-  const NAV = [
+  var ROOT = getRoot(); // no trailing slash
+  function U(path){ return ROOT + path; } // path must start with "/"
+
+  var NAV = [
     {
       label: "소식",
       href: U("/pages/news/index.html"),
@@ -30,7 +49,7 @@
     { label: "커뮤니티", href: U("/pages/community/index.html"), key: "community" }
   ];
 
-  const BREADCRUMB_MAP = {
+  var BREADCRUMB_MAP = {
     "news": "소식",
     "notice": "공지사항",
     "notice_rules": "서버 규정",
@@ -57,12 +76,18 @@
   function pathStartsWith(path, prefix){
     return path === prefix || path.startsWith(prefix + "/");
   }
-
   function detectActive(pathname){
-    const p = normalizePath(pathname);
-    const rel = ROOT && p.startsWith(ROOT) ? p.slice(ROOT.length) : p;
+    var p = normalizePath(pathname);
 
-    if (rel === "" || rel === "/" || rel === "/index.html") return { topKey: "home", subKey: null };
+    // Make it relative to ROOT if possible (works on file:// too)
+    // ROOT might be "file:///C:/.../hybrid_site_v2_3_full_relpaths"
+    // pathname might be "/C:/.../hybrid_site_v2_3_full_relpaths/pages/news/index.html"
+    // We'll just search for "/pages/" segment.
+    var rel = p;
+    var idx = p.indexOf("/pages/");
+    if (idx >= 0) rel = p.slice(idx);
+
+    if (rel === "" || rel === "/" || rel.endsWith("/index.html") && idx < 0) return { topKey: "home", subKey: null };
 
     if (pathStartsWith(rel, "/pages/news")){
       if (rel.includes("/notice_rules")) return { topKey: "news", subKey: "news-rules" };
@@ -72,7 +97,7 @@
       return { topKey: "news", subKey: null };
     }
 
-    const rules = [
+    var rules = [
       ["guide", "/pages/guide"],
       ["craft", "/pages/craft"],
       ["class", "/pages/class"],
@@ -83,79 +108,79 @@
       ["promo", "/pages/promo"],
       ["community", "/pages/community"]
     ];
-    for (const [k, pre] of rules){
+    for (var i=0; i<rules.length; i++){
+      var k = rules[i][0], pre = rules[i][1];
       if (pathStartsWith(rel, pre)) return { topKey: k, subKey: null };
     }
     return { topKey: null, subKey: null };
   }
 
   function buildHeader(){
-    const host = document.getElementById("site-header");
+    var host = document.getElementById("site-header");
     if (!host) return;
 
-    const navHtml = NAV.map(item => {
+    var navHtml = NAV.map(function(item){
       if (item.dropdown && item.dropdown.length){
-        const dd = item.dropdown
-          .map(s => `<a class="dd-link" data-nav-key="${s.key}" href="${s.href}">${s.label}</a>`)
-          .join("");
-        return `
-          <div class="nav-item" data-nav-key="${item.key}">
-            <a href="${item.href}" class="nav-link" data-nav-key="${item.key}" aria-haspopup="menu" aria-expanded="false">
-              ${item.label}<span class="caret" aria-hidden="true"></span>
-            </a>
-            <div class="dropdown" role="menu" aria-label="${item.label} 하위 메뉴">
-              ${dd}
-            </div>
-          </div>
-        `;
+        var dd = item.dropdown.map(function(s){
+          return '<a class="dd-link" data-nav-key="'+s.key+'" href="'+s.href+'">'+s.label+'</a>';
+        }).join("");
+        return ''
+          + '<div class="nav-item" data-nav-key="'+item.key+'">'
+          + '  <a href="'+item.href+'" class="nav-link" data-nav-key="'+item.key+'" aria-haspopup="menu" aria-expanded="false">'
+          + '    '+item.label+'<span class="caret" aria-hidden="true"></span>'
+          + '  </a>'
+          + '  <div class="dropdown" role="menu" aria-label="'+item.label+' 하위 메뉴">'
+          +       dd
+          + '  </div>'
+          + '</div>';
       }
-      return `<div class="nav-item"><a class="nav-link" data-nav-key="${item.key}" href="${item.href}">${item.label}</a></div>`;
+      return '<div class="nav-item"><a class="nav-link" data-nav-key="'+item.key+'" href="'+item.href+'">'+item.label+'</a></div>';
     }).join("");
 
-    host.innerHTML = `
-      <header class="site-header">
-        <div class="container">
-          <div class="navbar">
-            <a class="brand" href="${U("/index.html")}" aria-label="홈으로">HYBRID</a>
-            <nav class="nav" aria-label="주요 메뉴">
-              ${navHtml}
-            </nav>
-          </div>
-        </div>
-      </header>
-    `;
+    host.innerHTML = ''
+      + '<header class="site-header">'
+      + '  <div class="container">'
+      + '    <div class="navbar">'
+      + '      <a class="brand" href="'+U('/index.html')+'" aria-label="홈으로">HYBRID</a>'
+      + '      <nav class="nav" aria-label="주요 메뉴">'+navHtml+'</nav>'
+      + '    </div>'
+      + '  </div>'
+      + '</header>';
   }
 
   function setActiveStates(){
-    const { topKey, subKey } = detectActive(location.pathname);
-    if (!topKey) return;
+    var a = detectActive(location.pathname);
+    if (!a.topKey) return;
 
-    const topEl = document.querySelector(`.nav-link[data-nav-key="${topKey}"]`);
+    var topEl = document.querySelector('.nav-link[data-nav-key="'+a.topKey+'"]');
     if (topEl){
       topEl.classList.add("is-active");
       topEl.setAttribute("aria-current", "page");
     }
-    if (subKey){
-      const subEl = document.querySelector(`.dd-link[data-nav-key="${subKey}"]`);
+    if (a.subKey){
+      var subEl = document.querySelector('.dd-link[data-nav-key="'+a.subKey+'"]');
       if (subEl) subEl.classList.add("is-active");
     }
   }
 
   function initDropdown(){
-    const parents = Array.from(document.querySelectorAll(".nav-item")).filter(el => el.querySelector(".dropdown"));
+    var parents = Array.prototype.slice.call(document.querySelectorAll(".nav-item")).filter(function(el){
+      return el.querySelector(".dropdown");
+    });
+
     function closeAll(){
-      parents.forEach(p => {
+      parents.forEach(function(p){
         p.classList.remove("is-open");
-        const link = p.querySelector(".nav-link[aria-expanded]");
+        var link = p.querySelector(".nav-link[aria-expanded]");
         if (link) link.setAttribute("aria-expanded", "false");
       });
     }
 
-    parents.forEach(p => {
-      const link = p.querySelector(".nav-link");
+    parents.forEach(function(p){
+      var link = p.querySelector(".nav-link");
       if (!link) return;
 
-      link.addEventListener("click", (e) => {
+      link.addEventListener("click", function(e){
         if (p.classList.contains("is-open")) return; // second click navigates
         e.preventDefault();
         closeAll();
@@ -163,7 +188,7 @@
         link.setAttribute("aria-expanded", "true");
       });
 
-      link.addEventListener("keydown", (e) => {
+      link.addEventListener("keydown", function(e){
         if (e.key === "Enter" || e.key === " "){
           if (!p.classList.contains("is-open")){
             e.preventDefault();
@@ -178,81 +203,80 @@
         }
       });
 
-      p.addEventListener("mouseenter", () => {
+      p.addEventListener("mouseenter", function(){
         closeAll();
         p.classList.add("is-open");
         link.setAttribute("aria-expanded", "true");
       });
 
-      p.addEventListener("mouseleave", () => {
+      p.addEventListener("mouseleave", function(){
         p.classList.remove("is-open");
         link.setAttribute("aria-expanded", "false");
       });
     });
 
-    document.addEventListener("click", (e) => {
+    document.addEventListener("click", function(e){
       if (!e.target.closest(".nav-item")) closeAll();
     });
-
-    document.addEventListener("keydown", (e) => {
+    document.addEventListener("keydown", function(e){
       if (e.key === "Escape") closeAll();
     });
   }
 
   function buildBreadcrumb(){
-    const host = document.getElementById("breadcrumb");
+    var host = document.getElementById("breadcrumb");
     if (!host) return;
 
-    const p = normalizePath(location.pathname);
-    const rel = ROOT && p.startsWith(ROOT) ? p.slice(ROOT.length) : p;
+    var p = normalizePath(location.pathname);
+    var idx = p.indexOf("/pages/");
+    var rel = idx >= 0 ? p.slice(idx) : p;
 
-    if (rel === "" || rel === "/" || rel === "/index.html"){
+    if (rel === "" || rel === "/" || rel.endsWith("/index.html") && idx < 0){
       host.textContent = "";
       return;
     }
 
-    const parts = rel.split("/").filter(Boolean);
-    const crumbs = [{ label: "홈", href: U("/index.html") }];
-    let acc = "";
+    var parts = rel.split("/").filter(Boolean);
+    var crumbs = [{ label: "홈", href: U("/index.html") }];
+    var acc = "";
 
-    for (let i=0; i<parts.length; i++){
-      const raw = parts[i];
+    for (var i=0; i<parts.length; i++){
+      var raw = parts[i];
       acc += "/" + raw;
 
-      const key = raw.replace(/\.html$/i, "");
-      const label = BREADCRUMB_MAP[key] || key;
+      var key = raw.replace(/\.html$/i, "");
+      var label = BREADCRUMB_MAP[key] || key;
 
       if (raw === "pages") continue;
 
-      const isLast = (i === parts.length - 1);
-      const href = isLast ? null : U(acc + (raw.endsWith(".html") ? "" : "/"));
-      crumbs.push({ label, href });
+      var isLast = (i === parts.length - 1);
+      var href = isLast ? null : U(acc + (raw.endsWith(".html") ? "" : "/"));
+      crumbs.push({ label: label, href: href });
     }
 
-    host.innerHTML = crumbs.map((c, idx) => {
-      const sep = idx === 0 ? "" : `<span class="sep">›</span>`;
-      if (!c.href) return `${sep}<span>${escapeHtml(c.label)}</span>`;
-      return `${sep}<a href="${c.href}">${escapeHtml(c.label)}</a>`;
+    host.innerHTML = crumbs.map(function(c, idx2){
+      var sep = idx2 === 0 ? "" : '<span class="sep">›</span>';
+      if (!c.href) return sep + "<span>" + escapeHtml(c.label) + "</span>";
+      return sep + '<a href="'+c.href+'">' + escapeHtml(c.label) + "</a>";
     }).join("");
   }
 
   function initFooter(){
-    const host = document.getElementById("site-footer");
+    var host = document.getElementById("site-footer");
     if (!host) return;
-    host.innerHTML = `
-      <footer class="footer">
-        <div class="container">
-          <div class="links">
-            <a href="${U("/pages/news/notice_rules.html")}">서버 규정</a>
-            <span aria-hidden="true">|</span>
-            <a href="${U("/pages/legal/terms.html")}">이용약관</a>
-            <span aria-hidden="true">|</span>
-            <a href="${U("/pages/legal/privacy.html")}">개인정보 처리방침</a>
-          </div>
-          <div style="margin-top:10px;">© HYBRID</div>
-        </div>
-      </footer>
-    `;
+    host.innerHTML = ''
+      + '<footer class="footer">'
+      + '  <div class="container">'
+      + '    <div class="links">'
+      + '      <a href="'+U('/pages/news/notice_rules.html')+'">서버 규정</a>'
+      + '      <span aria-hidden="true">|</span>'
+      + '      <a href="'+U('/pages/legal/terms.html')+'">이용약관</a>'
+      + '      <span aria-hidden="true">|</span>'
+      + '      <a href="'+U('/pages/legal/privacy.html')+'">개인정보 처리방침</a>'
+      + '    </div>'
+      + '    <div style="margin-top:10px;">© HYBRID</div>'
+      + '  </div>'
+      + '</footer>';
   }
 
   function escapeHtml(str){
