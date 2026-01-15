@@ -1,32 +1,33 @@
-/* HYBRID SITE v2_3 (Desktop-first skeleton)
-   - Unified header/footer injection
-   - Active menu + dropdown active
-   - Breadcrumb auto (#breadcrumb 존재 시)
-   - Dropdown UX: hover + click toggle, outside click close, ESC close
+/* HYBRID SITE v2_3 (Portable)
+   - Works on file:// and when hosted in a subfolder
+   - Uses window.__SITE_ROOT__ set by the portable loader snippet in HTML
 */
 
 (function(){
+  const ROOT = (window.__SITE_ROOT__ || "").replace(/\/+$/,"");
+  const U = (path) => ROOT + path; // path must start with "/"
+
   const NAV = [
     {
       label: "소식",
-      href: "/pages/news/index.html",
+      href: U("/pages/news/index.html"),
       key: "news",
       dropdown: [
-        { label: "공지사항", href: "/pages/news/notice.html", key: "news-notice" },
-        { label: "서버 규정", href: "/pages/news/notice_rules.html", key: "news-rules" },
-        { label: "업데이트", href: "/pages/news/update.html", key: "news-update" },
-        { label: "이벤트", href: "/pages/news/event.html", key: "news-event" }
+        { label: "공지사항", href: U("/pages/news/notice.html"), key: "news-notice" },
+        { label: "서버 규정", href: U("/pages/news/notice_rules.html"), key: "news-rules" },
+        { label: "업데이트", href: U("/pages/news/update.html"), key: "news-update" },
+        { label: "이벤트", href: U("/pages/news/event.html"), key: "news-event" }
       ]
     },
-    { label: "가이드", href: "/pages/guide/index.html", key: "guide" },
-    { label: "제작", href: "/pages/craft/index.html", key: "craft" },
-    { label: "클래스", href: "/pages/class/index.html", key: "class" },
-    { label: "스킬", href: "/pages/skill/index.html", key: "skill" },
-    { label: "아이템", href: "/pages/item/index.html", key: "item" },
-    { label: "사냥터", href: "/pages/hunt/index.html", key: "hunt" },
-    { label: "다운로드", href: "/pages/download/index.html", key: "download" },
-    { label: "홍보", href: "/pages/promo/index.html", key: "promo" },
-    { label: "커뮤니티", href: "/pages/community/index.html", key: "community" }
+    { label: "가이드", href: U("/pages/guide/index.html"), key: "guide" },
+    { label: "제작", href: U("/pages/craft/index.html"), key: "craft" },
+    { label: "클래스", href: U("/pages/class/index.html"), key: "class" },
+    { label: "스킬", href: U("/pages/skill/index.html"), key: "skill" },
+    { label: "아이템", href: U("/pages/item/index.html"), key: "item" },
+    { label: "사냥터", href: U("/pages/hunt/index.html"), key: "hunt" },
+    { label: "다운로드", href: U("/pages/download/index.html"), key: "download" },
+    { label: "홍보", href: U("/pages/promo/index.html"), key: "promo" },
+    { label: "커뮤니티", href: U("/pages/community/index.html"), key: "community" }
   ];
 
   const BREADCRUMB_MAP = {
@@ -53,20 +54,21 @@
   function normalizePath(p){
     return (p || "/").split("?")[0].split("#")[0].replace(/\/+$/, "");
   }
-
   function pathStartsWith(path, prefix){
     return path === prefix || path.startsWith(prefix + "/");
   }
 
   function detectActive(pathname){
     const p = normalizePath(pathname);
-    if (p === "" || p === "/" || p === "/index.html") return { topKey: "home", subKey: null };
+    const rel = ROOT && p.startsWith(ROOT) ? p.slice(ROOT.length) : p;
 
-    if (pathStartsWith(p, "/pages/news")){
-      if (p.includes("/notice_rules")) return { topKey: "news", subKey: "news-rules" };
-      if (p.includes("/notice")) return { topKey: "news", subKey: "news-notice" };
-      if (p.includes("/update")) return { topKey: "news", subKey: "news-update" };
-      if (p.includes("/event")) return { topKey: "news", subKey: "news-event" };
+    if (rel === "" || rel === "/" || rel === "/index.html") return { topKey: "home", subKey: null };
+
+    if (pathStartsWith(rel, "/pages/news")){
+      if (rel.includes("/notice_rules")) return { topKey: "news", subKey: "news-rules" };
+      if (rel.includes("/notice")) return { topKey: "news", subKey: "news-notice" };
+      if (rel.includes("/update")) return { topKey: "news", subKey: "news-update" };
+      if (rel.includes("/event")) return { topKey: "news", subKey: "news-event" };
       return { topKey: "news", subKey: null };
     }
 
@@ -82,7 +84,7 @@
       ["community", "/pages/community"]
     ];
     for (const [k, pre] of rules){
-      if (pathStartsWith(p, pre)) return { topKey: k, subKey: null };
+      if (pathStartsWith(rel, pre)) return { topKey: k, subKey: null };
     }
     return { topKey: null, subKey: null };
   }
@@ -114,7 +116,7 @@
       <header class="site-header">
         <div class="container">
           <div class="navbar">
-            <a class="brand" href="/index.html" aria-label="홈으로">HYBRID</a>
+            <a class="brand" href="${U("/index.html")}" aria-label="홈으로">HYBRID</a>
             <nav class="nav" aria-label="주요 메뉴">
               ${navHtml}
             </nav>
@@ -202,16 +204,17 @@
     if (!host) return;
 
     const p = normalizePath(location.pathname);
-    if (p === "" || p === "/" || p === "/index.html"){
+    const rel = ROOT && p.startsWith(ROOT) ? p.slice(ROOT.length) : p;
+
+    if (rel === "" || rel === "/" || rel === "/index.html"){
       host.textContent = "";
       return;
     }
 
-    const parts = p.split("/").filter(Boolean);
-    const crumbs = [{ label: "홈", href: "/index.html" }];
+    const parts = rel.split("/").filter(Boolean);
+    const crumbs = [{ label: "홈", href: U("/index.html") }];
     let acc = "";
 
-    // Skip leading "pages" in label output but keep URL accumulation.
     for (let i=0; i<parts.length; i++){
       const raw = parts[i];
       acc += "/" + raw;
@@ -222,7 +225,7 @@
       if (raw === "pages") continue;
 
       const isLast = (i === parts.length - 1);
-      const href = isLast ? null : acc + (raw.endsWith(".html") ? "" : "/");
+      const href = isLast ? null : U(acc + (raw.endsWith(".html") ? "" : "/"));
       crumbs.push({ label, href });
     }
 
@@ -240,11 +243,11 @@
       <footer class="footer">
         <div class="container">
           <div class="links">
-            <a href="/pages/news/notice_rules.html">서버 규정</a>
+            <a href="${U("/pages/news/notice_rules.html")}">서버 규정</a>
             <span aria-hidden="true">|</span>
-            <a href="/pages/legal/terms.html">이용약관</a>
+            <a href="${U("/pages/legal/terms.html")}">이용약관</a>
             <span aria-hidden="true">|</span>
-            <a href="/pages/legal/privacy.html">개인정보 처리방침</a>
+            <a href="${U("/pages/legal/privacy.html")}">개인정보 처리방침</a>
           </div>
           <div style="margin-top:10px;">© HYBRID</div>
         </div>
