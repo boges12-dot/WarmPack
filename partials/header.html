@@ -1,1 +1,32 @@
-<div id="siteHeader"></div>
+<header class="site-header" aria-label="Header">
+  <div class="container nav-wrap">
+    <a class="brand" href="{{BASE}}index.html" aria-label="홈으로">HYBRID</a>
+
+    <nav id="mainNav" class="main-nav" aria-label="메인 메뉴">
+      <ul class="nav-list">
+        <li class="nav-item"><a class="nav-link nav-btn" href="{{BASE}}pages/notice.html">공지</a></li>
+        <li class="nav-item"><a class="nav-link nav-btn" href="{{BASE}}pages/guide.html">가이드</a></li>
+
+        <li class="nav-item has-sub">
+          <button class="nav-btn" type="button" aria-haspopup="true" aria-expanded="false">
+            제작 <span class="chev" aria-hidden="true">▾</span>
+          </button>
+          <div class="sub" role="menu" aria-label="제작 하위 메뉴">
+            <a href="{{BASE}}pages/craft.html">제작 전체</a>
+            <a href="{{BASE}}pages/craft.html#doll">인형 제작</a>
+            <a href="{{BASE}}pages/craft.html#oman">오만의탑 이동 부적</a>
+            <a href="{{BASE}}pages/craft.html#item">아이템 제작</a>
+          </div>
+        </li>
+
+        <li class="nav-item"><a class="nav-link nav-btn" href="{{BASE}}pages/classes.html">클래스</a></li>
+        <li class="nav-item"><a class="nav-link nav-btn" href="{{BASE}}pages/skills.html">스킬</a></li>
+        <li class="nav-item"><a class="nav-link nav-btn" href="{{BASE}}pages/items.html">아이템</a></li>
+        <li class="nav-item"><a class="nav-link nav-btn" href="{{BASE}}pages/hunting.html">사냥터</a></li>
+        <li class="nav-item"><a class="nav-link nav-btn" href="{{BASE}}pages/download.html">다운로드</a></li>
+        <li class="nav-item"><a class="nav-link nav-btn" href="{{BASE}}pages/promo.html">홍보</a></li>
+        <li class="nav-item"><a class="nav-link nav-btn" href="{{BASE}}pages/community.html">커뮤니티</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
