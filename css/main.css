@@ -592,3 +592,24 @@ main{min-height:60vh}
     height: 10px; /* adjust if needed */
   }
 }
+
+
+
+/* === v2.4.10: top menu active = font-weight only === */
+@media (min-width: 981px) {
+  /* remove any visual line/underline effects */
+  #main-nav.nav > ul > li > a,
+  #main-nav.nav > ul > li.active > a,
+  #main-nav.nav > ul > li > a:hover,
+  #main-nav.nav > ul > li > a:focus {
+    text-decoration: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    background-image: none !important;
+  }
+
+  #main-nav.nav > ul > li.active > a,
+  #main-nav.nav > ul > li > a[aria-current="page"] {
+    font-weight: 700; /* active only */
+  }
+}
