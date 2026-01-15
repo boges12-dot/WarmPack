@@ -230,3 +230,26 @@ main{min-height:60vh}
   text-decoration:none;
 }
 .main-menu .sub-link:hover{background:rgba(255,255,255,.06)}
+
+
+/* ===== Fix v8: dropdown not visible because main-menu overflow clips submenus ===== */
+.main-menu{
+  overflow: visible;          /* allow dropdown to render outside bar */
+  flex-wrap: nowrap;          /* keep one row on desktop */
+  white-space: nowrap;
+}
+
+/* if screen is narrow, allow wrapping instead of clipping */
+@media (max-width: 980px){
+  .main-menu{
+    flex-wrap: wrap;
+    white-space: normal;
+  }
+}
+
+
+/* override any earlier scroll settings to prevent clipping */
+.main-menu{
+  overflow-x: visible;
+  overflow-y: visible;
+}
