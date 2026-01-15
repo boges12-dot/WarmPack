@@ -1,12 +1,13 @@
 (function(){
   /**
-   * Hybrid Site Common JS (Desktop baseline)
+   * Hybrid Site Common JS
    * - Inject header/footer partials
-   * - Dropdown toggle (click) + alignment
-   * - Active menu highlighting (including hash anchors)
+   * - Desktop nav UX: horizontal wheel scroll, dropdown alignment
+   * - Active menu highlighting
    */
 
   function getBasePrefix(){
+    // If current page is inside /pages/, we need to go up one level for shared assets/partials.
     try{
       return window.location.pathname.includes('/pages/') ? '../' : '';
     }catch(e){
@@ -21,7 +22,7 @@
     const base = getBasePrefix();
     const url = base + partialPath;
 
-    const res = await fetch(url, {cache:'no-store'});
+    const res = await fetch(url, {cache: 'no-store'});
     if(!res.ok) return false;
 
     let html = await res.text();
@@ -30,94 +31,64 @@
     return true;
   }
 
-  function closeAllDropdowns(exceptItem){
-    document.querySelectorAll('.nav-item.has-sub.is-open').forEach(item=>{
-      if(exceptItem && item === exceptItem) return;
-      item.classList.remove('is-open');
-      const btn = item.querySelector(':scope > .nav-btn');
-      if(btn) btn.setAttribute('aria-expanded', 'false');
-    });
+  function initFooterYear(){
+    const y = document.getElementById('yearNow');
+    if(y) y.textContent = String(new Date().getFullYear());
   }
 
-  function initDropdownToggle(){
-    const items = [...document.querySelectorAll('.nav-item.has-sub')];
-    if(!items.length) return;
+  function initNavWheelScroll(){
+    const nav = document.getElementById('mainNav');
+    if(!nav) return;
 
-    items.forEach(item=>{
-      const btn = item.querySelector(':scope > .nav-btn');
-      const sub = item.querySelector(':scope > .sub');
-      if(!btn || !sub) return;
+    nav.addEventListener('wheel', (e)=>{
+      // Allow default trackpad horizontal scroll
+      if(e.shiftKey) return;
 
-      btn.addEventListener('click', (e)=>{
-        e.preventDefault();
-        e.stopPropagation();
+      const dx = (Math.abs(e.deltaY) > Math.abs(e.deltaX)) ? e.deltaY : e.deltaX;
+      if(!dx) return;
 
-        const isOpen = item.classList.toggle('is-open');
-        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-
-        // Close others
-        if(isOpen) closeAllDropdowns(item);
-
-        // Align on open
-        if(isOpen) alignDropdown(item);
-      });
-
-      // Click inside sub should not close immediately (except when navigating away)
-      sub.addEventListener('click', (e)=>{
-        e.stopPropagation();
-      });
-    });
-
-    // Close on outside click
-    document.addEventListener('click', ()=>{
-      closeAllDropdowns(null);
-    });
-
-    // Close on ESC
-    document.addEventListener('keydown', (e)=>{
-      if(e.key === 'Escape') closeAllDropdowns(null);
-    });
+      nav.scrollLeft += dx;
+      e.preventDefault();
+    }, {passive:false});
   }
 
   function alignDropdown(item){
-    const sub = item.querySelector(':scope > .sub');
+    const sub = item.querySelector('.sub');
     if(!sub) return;
 
-    // If hidden, temporarily show to measure
     const wasHidden = getComputedStyle(sub).display === 'none';
-    if(wasHidden){
-      sub.style.display = 'block';
-      sub.style.visibility = 'hidden';
-    }
+    if(wasHidden) sub.style.display = 'block';
 
     sub.classList.remove('align-right');
 
     const rect = sub.getBoundingClientRect();
-    const overflowRight = rect.right > (window.innerWidth - 10);
-    if(overflowRight) sub.classList.add('align-right');
+    const overflowRight = rect.right > (window.innerWidth - 8);
+    const overflowLeft  = rect.left < 8;
 
-    if(wasHidden){
-      sub.style.display = '';
-      sub.style.visibility = '';
-    }
+    if(overflowRight && !overflowLeft) sub.classList.add('align-right');
+
+    if(wasHidden) sub.style.display = '';
   }
 
   function initDropdownAlignment(){
     const items = [...document.querySelectorAll('.nav-item.has-sub')];
     if(!items.length) return;
 
-    // Re-align on resize
-    window.addEventListener('resize', ()=>{
-      items.forEach(alignDropdown);
-    });
-
-    // Align on hover open
     items.forEach(item=>{
       item.addEventListener('mouseenter', ()=>alignDropdown(item));
+      item.addEventListener('focusin',   ()=>alignDropdown(item));
+    });
+
+    window.addEventListener('resize', ()=>{
+      items.forEach(item=>{
+        const sub = item.querySelector('.sub');
+        if(sub) sub.classList.remove('align-right');
+      });
     });
   }
 
   function normalizePathname(pathname){
+    // Remove trailing slashes
     return (pathname || '').replace(/\/+$/, '');
   }
 
@@ -129,11 +100,11 @@
     const currentPath = normalizePathname(currentUrl.pathname);
     const currentHash = currentUrl.hash || '';
 
-    // clear
+    // Clear previous active
     document.querySelectorAll('#mainNav .active').forEach(el=>el.classList.remove('active'));
     document.querySelectorAll('#mainNav .is-active').forEach(el=>el.classList.remove('is-active'));
 
-    let best = null;
+    let bestMatch = null;
 
     for(const a of links){
       const href = a.getAttribute('href') || '';
@@ -142,43 +113,55 @@
       const u = new URL(href, window.location.href);
       const path = normalizePathname(u.pathname);
 
+      // Path must match first
       if(path !== currentPath) continue;
 
+      // Prefer hash match when hash exists on both
       const hash = u.hash || '';
       if(currentHash && hash && currentHash === hash){
-        best = a;
+        bestMatch = a;
         break;
       }
 
-      // If same path and no better match yet, remember it
-      if(!best) best = a;
-
-      // Prefer exact match when no hash
-      if(!currentHash && !hash){
-        best = a;
-      }
+      // Otherwise, keep first path match as fallback
+      if(!bestMatch) bestMatch = a;
     }
 
-    if(best){
-      best.classList.add('active');
-      const parentItem = best.closest('.nav-item');
-      if(parentItem) parentItem.classList.add('is-active');
-      const parentSubItem = best.closest('.nav-item.has-sub');
-      if(parentSubItem) parentSubItem.classList.add('is-active');
+    if(bestMatch){
+      bestMatch.classList.add('active');
+
+      // If it's inside dropdown, also activate parent button/item
+      const parentItem = bestMatch.closest('.nav-item.has-sub');
+      if(parentItem){
+        parentItem.classList.add('is-active');
+        const btn = parentItem.querySelector('.nav-btn');
+        if(btn) btn.classList.add('active');
+      }
+    }else{
+      // Home fallback
+      const home = document.querySelector('#mainNav a.nav-link[href$="index.html"]');
+      if(home && (currentPath.endsWith('/index.html') || currentPath === '' || currentPath === '/')){
+        home.classList.add('active');
+      }
     }
   }
 
   async function boot(){
+    // Inject header/footer (if placeholders exist)
     await injectPartial('siteHeader', 'partials/header.html');
     await injectPartial('siteFooter', 'partials/footer.html');
 
-    initDropdownToggle();
+    // Init common UX
+    initFooterYear();
+    initNavWheelScroll();
     initDropdownAlignment();
     setActiveMenu();
 
+    // Re-evaluate active when hash changes
     window.addEventListener('hashchange', setActiveMenu);
   }
 
+  // Run after DOM is ready (defer is already used, but this keeps it safe)
   if(document.readyState === 'loading'){
     document.addEventListener('DOMContentLoaded', boot);
   }else{
