@@ -541,3 +541,26 @@ main{min-height:60vh}
     --submenu-lh: 1.25;
   }
 }
+
+
+
+/* === v2.4.8c: remove unexpected top-menu underline/line === */
+@media (min-width: 981px) {
+  /* kill any underline/border/box-shadow used as active indicator on top-level links */
+  #main-nav.nav > ul > li > a,
+  #main-nav.nav > ul > li > a:visited,
+  #main-nav.nav > ul > li > a:hover,
+  #main-nav.nav > ul > li > a:focus,
+  #main-nav.nav > ul > li > a:active {
+    text-decoration: none !important;
+    border-bottom: 0 !important;
+    box-shadow: none !important;
+    background-image: none !important;
+  }
+  /* if underline is drawn via pseudo element */
+  #main-nav.nav > ul > li > a::before,
+  #main-nav.nav > ul > li > a::after {
+    content: none !important;
+    display: none !important;
+  }
+}
