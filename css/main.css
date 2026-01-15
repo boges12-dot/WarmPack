@@ -180,3 +180,27 @@ main{min-height:60vh}
   .main-menu{justify-content:flex-start}
   .menu-item .sub{left:0; transform:none}
 }
+
+
+/* ===== Fix: keep dropdown parent inline in main menu ===== */
+.main-menu .menu-item{
+  display: inline-flex;
+  align-items: center;
+}
+.main-menu .menu-item > .menu-link{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+
+/* ===== Fix v3: keep all top menu items on the same row (desktop) ===== */
+.main-menu{
+  flex-wrap: nowrap;          /* prevent early line breaks */
+  white-space: nowrap;
+  overflow-x: auto;           /* if ever too long, allow scroll */
+  -webkit-overflow-scrolling: touch;
+}
+.main-menu > *{
+  flex: 0 0 auto;             /* every item keeps its natural width */
+}
