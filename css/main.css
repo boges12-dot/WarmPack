@@ -120,28 +120,7 @@ main{min-height:60vh}
 }
 
 /* ===== Hero horizontal layout (logo-banner-logo) ===== */
-.hero-bar {
-  padding: 24px 0;
-}
-
-.hero-bar-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-}
-
-.hero-logo {
-  height: 56px;
-  width: auto;
-}
-
-.hero-banner {
-  max-height: 120px;
-  width: auto;
-  flex: 1;
-  text-align: center;
-}
+.hero-bar { padding: 24px 0; }
+.hero-bar-inner { max-width: 1200px; margin: 0 auto; padding: 0 16px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
+.hero-logo { height: 56px; width:auto; }
+.hero-banner { max-height: 120px; width:auto; flex:1; }

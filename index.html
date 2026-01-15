@@ -4,89 +4,54 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>HYBRID · hybrid_site_v2_2</title>
-  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="css/main.css" />
 </head>
 <body>
 <header class="site-header">
   <div class="topbar container">
-    <a class="brand" href="/index.html">
-      <img class="logo" src="/logo.png" alt="logo">
+    <a class="brand" href="index.html">
+      <img class="logo" src="assets/images/logo.png" alt="logo">
       <span class="brand-text">HYBRID</span>
     </a>
 
     <nav class="nav" aria-label="메인 메뉴">
-      <a class="nav-link" href="/pages/공지/index.html">공지</a>
-      <a class="nav-link" href="/pages/가이드/index.html">가이드</a>
+      <a class="nav-link" href="pages/공지/index.html">공지</a>
+      <a class="nav-link" href="pages/가이드/index.html">가이드</a>
 
       <div class="nav-item has-sub" data-menu="제작">
-        <a class="nav-link" href="/pages/제작/index.html" aria-haspopup="true" aria-expanded="false">제작</a>
+        <a class="nav-link" href="pages/제작/index.html" aria-haspopup="true" aria-expanded="false">제작</a>
         <div class="sub" role="menu" aria-label="제작 하위 메뉴">
-          <a class="sub-link" href="/pages/제작/인형-제작.html">인형 제작</a>
-          <a class="sub-link" href="/pages/제작/오만의탑-이동-부적.html">오만의탑 이동 부적</a>
-          <a class="sub-link" href="/pages/제작/아이템-제작.html">아이템 제작</a>
+          <a class="sub-link" href="pages/제작/인형-제작.html">인형 제작</a>
+          <a class="sub-link" href="pages/제작/오만의탑-이동-부적.html">오만의탑 이동 부적</a>
+          <a class="sub-link" href="pages/제작/아이템-제작.html">아이템 제작</a>
         </div>
       </div>
 
-      <a class="nav-link" href="/pages/클래스/index.html">클래스</a>
-      <a class="nav-link" href="/pages/스킬/index.html">스킬</a>
-      <a class="nav-link" href="/pages/아이템/index.html">아이템</a>
-      <a class="nav-link" href="/pages/사냥터/index.html">사냥터</a>
-      <a class="nav-link" href="/pages/다운로드/index.html">다운로드</a>
-      <a class="nav-link" href="/pages/홍보/index.html">홍보</a>
-      <a class="nav-link" href="/pages/커뮤니티/index.html">커뮤니티</a>
+      <a class="nav-link" href="pages/클래스/index.html">클래스</a>
+      <a class="nav-link" href="pages/스킬/index.html">스킬</a>
+      <a class="nav-link" href="pages/아이템/index.html">아이템</a>
+      <a class="nav-link" href="pages/사냥터/index.html">사냥터</a>
+      <a class="nav-link" href="pages/다운로드/index.html">다운로드</a>
+      <a class="nav-link" href="pages/홍보/index.html">홍보</a>
+      <a class="nav-link" href="pages/커뮤니티/index.html">커뮤니티</a>
     </nav>
   </div>
 </header>
 
-<main>
-  <section class="hero">
-    <div class="container hero-grid">
-      <div class="card banner-wrap">
-        <img class="banner-img" src="/banner.gif" alt="banner" />
-      </div>
-      <div class="card hero-card">
-        <h1 class="h1">hybrid_site_v2_2</h1>
-        <p class="lead">단일 랜딩(홈) + pages 섹션 구조 · 공통 CSS/JS 사용 · 데스크탑 우선 안정화</p>
-        <div class="meta">
-          <span class="pill">메뉴 UX/순서 고정</span>
-          <span class="pill">제작: 인형/오만부적/아이템 제작</span>
-          <span class="pill">모바일은 다음 단계</span>
-        </div>
-      </div>
-    </div>
-  </section>
+<header class="hero-bar">
+  <div class="hero-bar-inner">
+    <img class="hero-logo" src="assets/images/logo.png" alt="logo left">
+    <img class="hero-banner" src="assets/images/banner.gif" alt="banner">
+    <img class="hero-logo" src="assets/images/logo.png" alt="logo right">
+  </div>
+</header>
 
+<main>
   <section class="content">
-    <div class="container grid">
-      <div class="card tile">
-        <p class="tile-title">가이드</p>
-        <p class="tile-desc">초보/흐름/용어 등 안내 중심. (제작 관련 항목은 제거된 상태)</p>
-        <a class="inline" href="/pages/가이드/index.html">가이드로 이동 →</a>
-      </div>
-      <div class="card tile">
-        <p class="tile-title">제작</p>
-        <p class="tile-desc">인형 제작 / 오만의탑 이동 부적 / 아이템 제작으로 분리.</p>
-        <a class="inline" href="/pages/제작/index.html">제작으로 이동 →</a>
-      </div>
-      <div class="card tile">
-        <p class="tile-title">사냥터</p>
-        <p class="tile-desc">사냥터 정보/추천/동선 정리용 페이지.</p>
-        <a class="inline" href="/pages/사냥터/index.html">사냥터로 이동 →</a>
-      </div>
-      <div class="card tile">
-        <p class="tile-title">클래스</p>
-        <p class="tile-desc">클래스별 특징/운용/세팅 정리.</p>
-        <a class="inline" href="/pages/클래스/index.html">클래스로 이동 →</a>
-      </div>
-      <div class="card tile">
-        <p class="tile-title">스킬</p>
-        <p class="tile-desc">스킬 정보/우선순위/시너지 정리.</p>
-        <a class="inline" href="/pages/스킬/index.html">스킬로 이동 →</a>
-      </div>
-      <div class="card tile">
-        <p class="tile-title">커뮤니티</p>
-        <p class="tile-desc">질문/정보공유/공지 연결.</p>
-        <a class="inline" href="/pages/커뮤니티/index.html">커뮤니티로 이동 →</a>
+    <div class="container">
+      <div class="card section">
+        <h2>현재 버전</h2>
+        <p>hybrid_site_v2_2 · index.html 단일 랜딩 + pages 섹션 구조 · css/main.css, js/main.js 공통 사용</p>
       </div>
     </div>
   </section>
@@ -96,16 +61,16 @@
   <div class="container footer-inner">
     <div class="footer-left">
       <div class="footer-brand">HYBRID <span class="muted">hybrid_site_v2_2</span></div>
-      <div class="footer-small muted">정적 사이트 구조(공통 CSS/JS) · 데스크탑 우선</div>
+      <div class="footer-small muted">GitHub Pages 호환(상대경로) · 공통 CSS/JS</div>
     </div>
     <div class="footer-right">
-      <a class="footer-link" href="/index.html">홈</a>
-      <a class="footer-link" href="/pages/공지/index.html">공지</a>
-      <a class="footer-link" href="/pages/커뮤니티/index.html">커뮤니티</a>
+      <a class="footer-link" href="index.html">홈</a>
+      <a class="footer-link" href="pages/공지/index.html">공지</a>
+      <a class="footer-link" href="pages/커뮤니티/index.html">커뮤니티</a>
       <button class="to-top" type="button" data-to-top>맨위로</button>
     </div>
   </div>
 </footer>
-<script src="/js/main.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
