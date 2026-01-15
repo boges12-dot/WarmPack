@@ -330,3 +330,21 @@ main{min-height:60vh}
   #main-nav.nav{ flex-wrap: wrap; white-space: normal; justify-content: flex-start; }
   #main-nav.nav .submenu{ left: 0; transform: none; }
 }
+
+
+#main-nav.nav .submenu{
+  max-height: calc(100vh - 140px); /* 화면 밖으로 나가면 내부 스크롤 */
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;          /* Firefox: hide scrollbar */
+}
+#main-nav.nav .submenu::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+}
+
+/* ===== Fix v3: remove inner submenu scroll entirely ===== */
+#main-nav.nav .submenu{
+  max-height: none;
+  overflow: visible;
+}
