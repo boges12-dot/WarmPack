@@ -1,29 +1,10 @@
-/* HYBRID SITE v2_3 (RelPaths)
-   - No inline loader needed
-   - Works on file://, subfolder hosting, and normal hosting
-   - ROOT is derived from this script's URL (…/js/main.js)
+/* WarmPack GitHub Pages build
+   - Base path fixed to "/WarmPack"
+   - Works on https://boges12-dot.github.io/WarmPack/
 */
 
 (function(){
-  function getRoot(){
-    // Prefer currentScript (modern browsers)
-    var cs = document.currentScript && document.currentScript.src ? document.currentScript.src : "";
-    if (!cs){
-      // Fallback: find last script that ends with /js/main.js
-      var scripts = document.getElementsByTagName("script");
-      for (var i=scripts.length-1; i>=0; i--){
-        var s = scripts[i].src || "";
-        if (s.indexOf("/js/main.js") !== -1 || s.endsWith("js/main.js")){
-          cs = s; break;
-        }
-      }
-    }
-    // cs example: file:///C:/.../hybrid_site/js/main.js or https://domain/sub/hybrid_site/js/main.js
-    // Remove trailing "/js/main.js"
-    return cs ? cs.replace(/\/js\/main\.js(?:\?.*)?$/i, "").replace(/\/js\/main\.js$/i, "") : "";
-  }
-
-  var ROOT = getRoot(); // no trailing slash
+  var ROOT = "/WarmPack";
   function U(path){ return ROOT + path; } // path must start with "/"
 
   var NAV = [
@@ -70,24 +51,15 @@
     "index": "목차"
   };
 
-  function normalizePath(p){
-    return (p || "/").split("?")[0].split("#")[0].replace(/\/+$/, "");
-  }
-  function pathStartsWith(path, prefix){
-    return path === prefix || path.startsWith(prefix + "/");
-  }
+  function normalizePath(p){ return (p||"/").split("?")[0].split("#")[0].replace(/\/+$/, ""); }
+  function pathStartsWith(path, prefix){ return path === prefix || path.startsWith(prefix + "/"); }
+
   function detectActive(pathname){
     var p = normalizePath(pathname);
+    // Make relative to ROOT
+    var rel = p.startsWith(ROOT) ? p.slice(ROOT.length) : p;
 
-    // Make it relative to ROOT if possible (works on file:// too)
-    // ROOT might be "file:///C:/.../hybrid_site_v2_3_full_relpaths"
-    // pathname might be "/C:/.../hybrid_site_v2_3_full_relpaths/pages/news/index.html"
-    // We'll just search for "/pages/" segment.
-    var rel = p;
-    var idx = p.indexOf("/pages/");
-    if (idx >= 0) rel = p.slice(idx);
-
-    if (rel === "" || rel === "/" || rel.endsWith("/index.html") && idx < 0) return { topKey: "home", subKey: null };
+    if (rel === "" || rel === "/" || rel === "/index.html") return { topKey: "home", subKey: null };
 
     if (pathStartsWith(rel, "/pages/news")){
       if (rel.includes("/notice_rules")) return { topKey: "news", subKey: "news-rules" };
@@ -108,10 +80,7 @@
       ["promo", "/pages/promo"],
       ["community", "/pages/community"]
     ];
-    for (var i=0; i<rules.length; i++){
-      var k = rules[i][0], pre = rules[i][1];
-      if (pathStartsWith(rel, pre)) return { topKey: k, subKey: null };
-    }
+    for (var i=0;i<rules.length;i++){ var k=rules[i][0], pre=rules[i][1]; if (pathStartsWith(rel, pre)) return { topKey: k, subKey: null }; }
     return { topKey: null, subKey: null };
   }
 
@@ -151,76 +120,26 @@
   function setActiveStates(){
     var a = detectActive(location.pathname);
     if (!a.topKey) return;
-
     var topEl = document.querySelector('.nav-link[data-nav-key="'+a.topKey+'"]');
-    if (topEl){
-      topEl.classList.add("is-active");
-      topEl.setAttribute("aria-current", "page");
-    }
-    if (a.subKey){
-      var subEl = document.querySelector('.dd-link[data-nav-key="'+a.subKey+'"]');
-      if (subEl) subEl.classList.add("is-active");
-    }
+    if (topEl){ topEl.classList.add("is-active"); topEl.setAttribute("aria-current","page"); }
+    if (a.subKey){ var subEl = document.querySelector('.dd-link[data-nav-key="'+a.subKey+'"]'); if (subEl) subEl.classList.add("is-active"); }
   }
 
   function initDropdown(){
-    var parents = Array.prototype.slice.call(document.querySelectorAll(".nav-item")).filter(function(el){
-      return el.querySelector(".dropdown");
+    var parents = Array.prototype.slice.call(document.querySelectorAll(".nav-item")).filter(function(el){ return el.querySelector(".dropdown"); });
+    function closeAll(){ parents.forEach(function(p){ p.classList.remove("is-open"); var link=p.querySelector(".nav-link[aria-expanded]"); if (link) link.setAttribute("aria-expanded","false"); }); }
+    parents.forEach(function(p){ 
+      var link = p.querySelector(".nav-link"); if (!link) return;
+      link.addEventListener("click", function(e){ if (p.classList.contains("is-open")) return; e.preventDefault(); closeAll(); p.classList.add("is-open"); link.setAttribute("aria-expanded","true"); });
+      link.addEventListener("keydown", function(e){ 
+        if (e.key==="Enter"||e.key===" "){ if(!p.classList.contains("is-open")){ e.preventDefault(); closeAll(); p.classList.add("is-open"); link.setAttribute("aria-expanded","true"); } }
+        if (e.key==="Escape"){ closeAll(); link.blur(); }
+      });
+      p.addEventListener("mouseenter", function(){ closeAll(); p.classList.add("is-open"); link.setAttribute("aria-expanded","true"); });
+      p.addEventListener("mouseleave", function(){ p.classList.remove("is-open"); link.setAttribute("aria-expanded","false"); });
     });
-
-    function closeAll(){
-      parents.forEach(function(p){
-        p.classList.remove("is-open");
-        var link = p.querySelector(".nav-link[aria-expanded]");
-        if (link) link.setAttribute("aria-expanded", "false");
-      });
-    }
-
-    parents.forEach(function(p){
-      var link = p.querySelector(".nav-link");
-      if (!link) return;
-
-      link.addEventListener("click", function(e){
-        if (p.classList.contains("is-open")) return; // second click navigates
-        e.preventDefault();
-        closeAll();
-        p.classList.add("is-open");
-        link.setAttribute("aria-expanded", "true");
-      });
-
-      link.addEventListener("keydown", function(e){
-        if (e.key === "Enter" || e.key === " "){
-          if (!p.classList.contains("is-open")){
-            e.preventDefault();
-            closeAll();
-            p.classList.add("is-open");
-            link.setAttribute("aria-expanded", "true");
-          }
-        }
-        if (e.key === "Escape"){
-          closeAll();
-          link.blur();
-        }
-      });
-
-      p.addEventListener("mouseenter", function(){
-        closeAll();
-        p.classList.add("is-open");
-        link.setAttribute("aria-expanded", "true");
-      });
-
-      p.addEventListener("mouseleave", function(){
-        p.classList.remove("is-open");
-        link.setAttribute("aria-expanded", "false");
-      });
-    });
-
-    document.addEventListener("click", function(e){
-      if (!e.target.closest(".nav-item")) closeAll();
-    });
-    document.addEventListener("keydown", function(e){
-      if (e.key === "Escape") closeAll();
-    });
+    document.addEventListener("click", function(e){ if (!e.target.closest(".nav-item")) closeAll(); });
+    document.addEventListener("keydown", function(e){ if (e.key==="Escape") closeAll(); });
   }
 
   function buildBreadcrumb(){
@@ -228,34 +147,24 @@
     if (!host) return;
 
     var p = normalizePath(location.pathname);
-    var idx = p.indexOf("/pages/");
-    var rel = idx >= 0 ? p.slice(idx) : p;
+    var rel = p.startsWith(ROOT) ? p.slice(ROOT.length) : p;
 
-    if (rel === "" || rel === "/" || rel.endsWith("/index.html") && idx < 0){
-      host.textContent = "";
-      return;
-    }
+    if (rel === "" || rel === "/" || rel === "/index.html"){ host.textContent=""; return; }
 
     var parts = rel.split("/").filter(Boolean);
-    var crumbs = [{ label: "홈", href: U("/index.html") }];
+    var crumbs = [{ label:"홈", href: U("/index.html") }];
     var acc = "";
-
-    for (var i=0; i<parts.length; i++){
-      var raw = parts[i];
-      acc += "/" + raw;
-
-      var key = raw.replace(/\.html$/i, "");
+    for (var i=0;i<parts.length;i++){ 
+      var raw=parts[i]; acc += "/" + raw;
+      var key = raw.replace(/\.html$/i,"");
       var label = BREADCRUMB_MAP[key] || key;
-
       if (raw === "pages") continue;
-
-      var isLast = (i === parts.length - 1);
+      var isLast = (i===parts.length-1);
       var href = isLast ? null : U(acc + (raw.endsWith(".html") ? "" : "/"));
-      crumbs.push({ label: label, href: href });
+      crumbs.push({ label:label, href:href });
     }
-
-    host.innerHTML = crumbs.map(function(c, idx2){
-      var sep = idx2 === 0 ? "" : '<span class="sep">›</span>';
+    host.innerHTML = crumbs.map(function(c, idx){
+      var sep = idx===0 ? "" : '<span class="sep">›</span>';
       if (!c.href) return sep + "<span>" + escapeHtml(c.label) + "</span>";
       return sep + '<a href="'+c.href+'">' + escapeHtml(c.label) + "</a>";
     }).join("");
@@ -279,13 +188,8 @@
       + '</footer>';
   }
 
-  function escapeHtml(str){
-    return String(str)
-      .replaceAll("&","&amp;")
-      .replaceAll("<","&lt;")
-      .replaceAll(">","&gt;")
-      .replaceAll('"',"&quot;")
-      .replaceAll("'","&#039;");
+  function escapeHtml(str){ 
+    return String(str).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");
   }
 
   buildHeader();
