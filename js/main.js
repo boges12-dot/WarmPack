@@ -11,7 +11,7 @@
   function markActive(){
     // Active based on pathname; supports both /pages/섹션/ and /pages/섹션/index.html
     var path = location.pathname.replace(/\/index\.html$/, '/');
-    var links = document.querySelectorAll('.nav a.nav-link, .sub a.sub-link');
+    var links = document.querySelectorAll('.menu-link, .sub-link');
     links.forEach(function(a){
       try{
         var url = new URL(a.getAttribute('href'), location.origin);
@@ -21,7 +21,7 @@
           // if it's inside dropdown, also highlight parent
           var parent = a.closest('.has-sub');
           if(parent){
-            var parentLink = parent.querySelector(':scope > a.nav-link');
+            var parentLink = parent.querySelector(':scope > a.menu-link');
             if(parentLink) parentLink.classList.add('active');
           }
         }
@@ -31,7 +31,7 @@
 
   function initDropdown(){
     document.addEventListener('click', function(e){
-      var trigger = e.target.closest('.has-sub > a.nav-link, .has-sub > button');
+      var trigger = e.target.closest('.has-sub > a.menu-link, .has-sub > button');
       if(!trigger){
         // Outside click closes
         closeAll();

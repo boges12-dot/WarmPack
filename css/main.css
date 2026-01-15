@@ -124,3 +124,59 @@ main{min-height:60vh}
 .hero-bar-inner { max-width: 1200px; margin: 0 auto; padding: 0 16px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
 .hero-logo { height: 56px; width:auto; }
 .hero-banner { max-height: 120px; width:auto; flex:1; }
+
+/* ===== Main menu under banner (logo excluded) ===== */
+.main-menu{
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: rgba(11,15,20,.72);
+  backdrop-filter: blur(10px);
+}
+.menu-link{
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  font-weight: 750;
+  font-size: 14px;
+  color: var(--text);
+  opacity: .92;
+}
+.menu-link:hover{
+  border-color: var(--line);
+  background: rgba(255,255,255,.04);
+}
+.menu-link.active{
+  border-color: rgba(122,167,255,.35);
+  background: rgba(122,167,255,.12);
+}
+
+.menu-item{position: relative;}
+.menu-item .sub{
+  display:none;
+  position:absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 220px;
+  padding: 8px;
+  border-radius: 12px;
+  background: rgba(17,24,38,.92);
+  border: 1px solid var(--line);
+  box-shadow: 0 14px 34px rgba(0,0,0,.35);
+}
+.menu-item.is-open > .sub{display:block}
+
+/* keep dropdown usable on small widths */
+@media (max-width: 560px){
+  .main-menu{justify-content:flex-start}
+  .menu-item .sub{left:0; transform:none}
+}
