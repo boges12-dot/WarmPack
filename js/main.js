@@ -1,28 +1,72 @@
 
 // ULNAV_CLICK_TOGGLE: blogger-style dropdown support (touch/click)
 function initUlNavDropdown(){
+  // Touch / small-screen click-toggle only (desktop uses hover + focus-within)
+  var mqMobileLike = window.matchMedia('(hover: none), (pointer: coarse), (max-width: 980px)');
+
+  function isMobileLike(){
+    return !!(mqMobileLike && mqMobileLike.matches);
+  }
+
+  function closeAll(except){
+    document.querySelectorAll('#main-nav li.has-sub.is-open').forEach(function(li){
+      if(except && li === except) return;
+      li.classList.remove('is-open');
+      var a = li.querySelector(':scope > a');
+      if(a) a.setAttribute('aria-expanded','false');
+    });
+  }
+
+  // Initialize ARIA state
+  document.querySelectorAll('#main-nav li.has-sub > a').forEach(function(a){
+    a.setAttribute('aria-haspopup','true');
+    a.setAttribute('aria-expanded','false');
+  });
+
   document.addEventListener('click', function(e){
+    // Desktop: allow normal navigation on parent links
+    if(!isMobileLike()) return;
+
     var a = e.target.closest('#main-nav li.has-sub > a');
     if(!a){
-      document.querySelectorAll('#main-nav li.has-sub.is-open').forEach(function(li){ li.classList.remove('is-open'); });
+      closeAll();
       return;
     }
+
     var li = a.closest('#main-nav li.has-sub');
     if(!li) return;
-    // toggle only; keep link navigation for second click by checking if already open
-    if(!li.classList.contains('is-open')){
-      e.preventDefault();
-      document.querySelectorAll('#main-nav li.has-sub.is-open').forEach(function(x){ if(x!==li) x.classList.remove('is-open'); });
+
+    var willOpen = !li.classList.contains('is-open');
+
+    if(willOpen){
+      e.preventDefault(); // first tap opens
+      closeAll(li);
       li.classList.add('is-open');
+      a.setAttribute('aria-expanded','true');
+    }else{
+      // second tap follows the link naturally (no preventDefault)
+      closeAll();
     }
   });
 
   document.addEventListener('keydown', function(e){
     if(e.key === 'Escape'){
-      document.querySelectorAll('#main-nav li.has-sub.is-open').forEach(function(li){ li.classList.remove('is-open'); });
+      closeAll();
     }
   });
+
+  // If we cross to desktop, ensure any click-open state is cleared
+  if(mqMobileLike && mqMobileLike.addEventListener){
+    mqMobileLike.addEventListener('change', function(){
+      if(!isMobileLike()) closeAll();
+    });
+  }else if(mqMobileLike && mqMobileLike.addListener){
+    mqMobileLike.addListener(function(){
+      if(!isMobileLike()) closeAll();
+    });
+  }
 }
+
 
 (function(){
   function closeAll(except){
@@ -60,6 +104,7 @@ function initUlNavDropdown(){
 
     document.addEventListener('click', function(e){
       var trigger = e.target.closest('.has-sub > a, .has-sub > button');
+      if(trigger && trigger.closest('#main-nav')) return;
       if(!trigger){
         // Outside click closes
         closeAll();
