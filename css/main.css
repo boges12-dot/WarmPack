@@ -384,3 +384,39 @@ main{min-height:60vh}
     transform: translate(0, 0);
   }
 }
+
+
+/* =========================
+   Desktop Nav Typography Tweaks
+   (structure unchanged)
+   ========================= */
+@media (min-width: 981px) {
+  .main-nav-bar .nav > li > a {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.2px;
+    line-height: 1;
+    text-rendering: geometricPrecision;
+  }
+
+  .main-nav-bar .submenu a {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.1px;
+    line-height: 1.25;
+    text-rendering: geometricPrecision;
+  }
+
+  /* Long submenu labels: allow clean wrapping without breaking Korean syllables oddly */
+  .main-nav-bar .submenu a {
+    white-space: normal;
+    word-break: keep-all;
+  }
+
+  /* Slightly tighten vertical rhythm */
+  .main-nav-bar .submenu li > a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
