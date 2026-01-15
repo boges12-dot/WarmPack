@@ -590,15 +590,18 @@ mark.hl{ padding:0 .15em; border-radius:.2em; }
 .notice-title .hl{ font-weight:800; }
 
 
-/* === v2.4.8 Desktop submenu width fit-content === */
-@media (min-width: 981px) {
-  #main-nav .submenu {
-    width: max-content;
-    min-width: 140px;
-    max-width: 360px;
-  }
-  #main-nav .submenu a {
-    white-space: nowrap;
-  }
-}
 
+/* === v2.4.8a Desktop submenu width fits text (override) === */
+@media (min-width: 981px) {
+  /* Override token so existing submenu sizing rules follow it */
+  :root{
+    --submenu-minw: 140px;
+    --submenu-maxw: 360px;
+  }
+  /* Match existing selector specificity */
+  #main-nav.nav .submenu{
+    width: max-content;
+    max-width: min(var(--submenu-maxw), calc(100vw - 24px));
+  }
+  #main-nav.nav .submenu a{ white-space: nowrap; }
+}
