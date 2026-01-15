@@ -613,3 +613,34 @@ main{min-height:60vh}
     font-weight: 700; /* active only */
   }
 }
+
+
+
+/* === v2.4.11: dropdown close delay tuning (desktop) === */
+@media (min-width: 981px) {
+  /* Increase close delay so it doesn't disappear too fast */
+  #main-nav.nav .submenu {
+    transition: opacity 160ms ease, transform 160ms ease, visibility 0s linear 320ms;
+  }
+  #main-nav.nav li:hover > .submenu,
+  #main-nav.nav li:focus-within > .submenu {
+    transition: opacity 160ms ease, transform 160ms ease, visibility 0s linear 0s;
+  }
+
+  /* Slightly larger hover-bridge for safer cursor travel */
+  #main-nav.nav li:hover::after {
+    height: 14px;
+  }
+}
+
+
+
+/* (replaced by v2.4.13 caret side) */
+@media (min-width: 981px) {
+  /* caret made by pseudo element or content */
+  #main-nav.nav > ul > li > a::after,
+  #main-nav.nav > ul > li > a::before {
+    content: none !important;
+    display: none !important;
+  }
+}
