@@ -5,6 +5,31 @@
   --muted:#a7b3c9;
   --line:rgba(255,255,255,.10);
   --accent:#7aa7ff;
+
+  /* Typography tokens (desktop-first) */
+  --font-base: 14px;
+  --lh-base: 1.5;
+
+  /* Menu typography */
+  --menu-fs: 14px;
+  --menu-fw: 750;
+  --menu-ls: .2px;
+  --submenu-fs: 13px;
+  --submenu-fw: 650;
+  --submenu-lh: 1.35;
+  --z-header:50;
+  --z-dropdown:60;
+  --submenu-minw:220px;
+  --submenu-maxw:360px;
+  --submenu-gap:8px;
+  --submenu-pad:8px;
+  --submenu-radius:12px;
+  --submenu-item-py:10px;
+  --submenu-item-px:10px;
+  --submenu-item-radius:10px;
+  --menu-item-py:10px;
+  --menu-item-px:12px;
+  --menu-item-radius:12px;
 }
 *{box-sizing:border-box}
 html,body{height:100%}
@@ -15,7 +40,8 @@ body{
               radial-gradient(900px 500px at 85% 10%, rgba(122,255,209,.10), transparent 55%),
               var(--bg);
   color:var(--text);
-  line-height:1.5;
+  font-size: var(--font-base);
+  line-height: var(--lh-base);
 }
 a{color:inherit;text-decoration:none}
 .container{max-width:1100px;margin:0 auto;padding:0 16px}
@@ -35,7 +61,7 @@ a{color:inherit;text-decoration:none}
 .brand-text{font-weight:800;letter-spacing:.5px}
 .nav{display:flex;flex-wrap:wrap;gap:10px;margin-left:auto;align-items:center;justify-content:flex-end}
 .nav-link{
-  padding:8px 10px;border-radius:10px;border:1px solid transparent;
+  padding: var(--menu-item-py) var(--menu-item-px);border-radius: var(--menu-item-radius);border:1px solid transparent;
   color:var(--text);opacity:.92;font-weight:650;font-size:14px;
 }
 .nav-link:hover{border-color:var(--line);background:rgba(255,255,255,.04)}
@@ -45,19 +71,19 @@ a{color:inherit;text-decoration:none}
 .sub{
   display:none;
   position:absolute;
-  top:calc(100% + 8px);
+  top: calc(100% + var(--submenu-gap));
   right:0;
-  min-width:220px;
-  padding:8px;
-  border-radius:12px;
+  min-width: var(--submenu-minw);
+  padding: var(--submenu-pad);
+  border-radius: var(--submenu-radius);
   background:rgba(17,24,38,.92);
   border:1px solid var(--line);
   box-shadow: 0 14px 34px rgba(0,0,0,.35);
 }
 .sub-link{
   display:block;
-  padding:10px 10px;
-  border-radius:10px;
+  padding: var(--submenu-item-py) var(--submenu-item-px);
+  border-radius: var(--menu-item-radius);
   font-weight:650;
   color:var(--text);
   opacity:.92;
@@ -66,11 +92,28 @@ a{color:inherit;text-decoration:none}
 /* click-open support */
 .has-sub.is-open > .sub{display:block}
 
+/* Desktop: hover + keyboard access for the header nav dropdown */
+@media (min-width: 981px){
+  .nav-item:hover > .sub,
+  .nav-item:focus-within > .sub{
+    display:block;
+  }
+  .nav-item > .sub{z-index: var(--z-dropdown);}
+  .nav-item > .sub::before{
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    top:-10px;
+    height:10px;
+  }
+}
+
 /* Hero */
 .hero{padding:28px 0 18px}
 .hero-grid{display:grid;grid-template-columns: 1.2fr .8fr;gap:16px;align-items:stretch}
 .banner-wrap{padding:16px}
-.banner-img{width:100%;height:auto;display:block;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.02)}
+.banner-img{width:100%;height:auto;display:block;border-radius: var(--submenu-radius);border:1px solid var(--line);background:rgba(255,255,255,.02)}
 .hero-card{padding:16px}
 .h1{font-size:28px;margin:0 0 6px;font-weight:850;letter-spacing:-.2px}
 .lead{margin:0;color:var(--muted)}
@@ -99,10 +142,10 @@ main{min-height:60vh}
 .footer-brand{font-weight:850}
 .footer-small{font-size:12px}
 .footer-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}
-.footer-link{padding:6px 10px;border-radius:10px;border:1px solid transparent;color:var(--muted);font-weight:650;font-size:13px}
+.footer-link{padding:6px 10px;border-radius: var(--menu-item-radius);border:1px solid transparent;color:var(--muted);font-weight:650;font-size:13px}
 .footer-link:hover{border-color:var(--line);background:rgba(255,255,255,.03);color:var(--text)}
 .to-top{
-  padding:6px 10px;border-radius:10px;border:1px solid var(--line);
+  padding:6px 10px;border-radius: var(--menu-item-radius);border:1px solid var(--line);
   background:rgba(255,255,255,.03);color:var(--text);cursor:pointer;font-weight:750;font-size:13px
 }
 .to-top:hover{background:rgba(255,255,255,.06)}
@@ -142,8 +185,8 @@ main{min-height:60vh}
   backdrop-filter: blur(10px);
 }
 .menu-link{
-  padding: 8px 10px;
-  border-radius: 10px;
+  padding: var(--menu-item-py) var(--menu-item-px);
+  border-radius: var(--menu-item-radius);
   border: 1px solid transparent;
   font-weight: 750;
   font-size: 14px;
@@ -163,17 +206,47 @@ main{min-height:60vh}
 .menu-item .sub{
   display:none;
   position:absolute;
-  top: calc(100% + 8px);
+  top: calc(100% + var(--submenu-gap));
   left: 50%;
   transform: translateX(-50%);
-  min-width: 220px;
+  min-width: var(--submenu-minw);
   padding: 8px;
-  border-radius: 12px;
+  border-radius: var(--submenu-radius);
   background: rgba(17,24,38,.92);
   border: 1px solid var(--line);
   box-shadow: 0 14px 34px rgba(0,0,0,.35);
 }
 .menu-item.is-open > .sub{display:block}
+
+/* Desktop UX: stable hover + keyboard access (no JS changes) */
+@media (min-width: 981px){
+  /* Hover + keyboard focus opens dropdown */
+  .menu-item:hover > .sub,
+  .menu-item:focus-within > .sub{
+    display: block;
+  }
+
+  /* Hover-bridge: prevents dropdown from closing while moving the cursor */
+  .menu-item > .sub{
+    z-index: var(--z-dropdown);
+  }
+  .menu-item > .sub::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -10px;
+    height: 10px;
+  }
+
+  /* Focus styles (accessible, subtle) */
+  .menu-link:focus-visible,
+  .sub-link:focus-visible,
+  .nav-link:focus-visible{
+    outline: 2px solid rgba(122,167,255,.65);
+    outline-offset: 2px;
+  }
+}
 
 /* keep dropdown usable on small widths */
 @media (max-width: 560px){
@@ -222,8 +295,8 @@ main{min-height:60vh}
 /* ===== Main menu dropdown styling v5 ===== */
 .main-menu .sub-link{
   display:block;
-  padding:10px 10px;
-  border-radius:10px;
+  padding: var(--submenu-item-py) var(--submenu-item-px);
+  border-radius: var(--menu-item-radius);
   font-weight:650;
   color:var(--text);
   opacity:.92;
@@ -280,11 +353,12 @@ main{min-height:60vh}
 #main-nav.nav a{
   display: inline-flex;
   align-items: center;
-  padding: 8px 10px;
-  border-radius: 10px;
+  padding: var(--menu-item-py) var(--menu-item-px);
+  border-radius: var(--menu-item-radius);
   border: 1px solid transparent;
-  font-weight: 750;
-  font-size: 14px;
+  font-weight: var(--menu-fw);
+  font-size: var(--menu-fs);
+  letter-spacing: var(--menu-ls);
   color: var(--text);
   opacity: .92;
 }
@@ -321,16 +395,16 @@ main{min-height:60vh}
   padding: 8px;
 
   position: absolute;
-  top: calc(100% + 8px);
+  top: calc(100% + var(--submenu-gap));
   left: 50%;
-  min-width: 220px;
-  max-width: min(360px, calc(100vw - 24px));
+  min-width: var(--submenu-minw);
+  max-width: min(var(--submenu-maxw), calc(100vw - 24px));
 
-  border-radius: 12px;
+  border-radius: var(--submenu-radius);
   background: rgba(17,24,38,.92);
   border: 1px solid var(--line);
   box-shadow: 0 14px 34px rgba(0,0,0,.35);
-  z-index: 60;
+  z-index: var(--z-dropdown);
 
   /* animation-friendly hidden state */
   opacity: 0;
@@ -343,6 +417,60 @@ main{min-height:60vh}
   max-height: none;
   overflow: visible;
 }
+
+/* Submenu link typography (readability) */
+#main-nav.nav .submenu a{
+  display:block;
+  padding: var(--submenu-item-py) var(--submenu-item-px);
+  border-radius: var(--menu-item-radius);
+  font-size: var(--submenu-fs);
+  font-weight: var(--submenu-fw);
+  line-height: var(--submenu-lh);
+  letter-spacing: .1px;
+  word-break: keep-all;
+}
+#main-nav.nav .submenu a:hover{ background: rgba(255,255,255,.06); }
+
+/* Visual finish: consistent hover/active/current states (desktop-first, safe) */
+#main-nav.nav > li > a{
+  position: relative;
+}
+#main-nav.nav > li > a::after{
+  content:"";
+  position:absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 6px;
+  height: 2px;
+  background: var(--accent);
+  opacity: 0;
+  transform: scaleX(.6);
+  transform-origin: center;
+  transition: opacity .16s ease, transform .18s ease;
+  pointer-events:none;
+  border-radius: 2px;
+}
+#main-nav.nav > li > a:hover::after,
+#main-nav.nav > li > a:focus-visible::after,
+#main-nav.nav > li.has-current > a::after,
+#main-nav.nav > li > a[aria-current="page"]::after{
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* Current page inside submenu */
+#main-nav.nav .submenu a[aria-current="page"],
+#main-nav.nav .submenu a.is-current{
+  background: rgba(122,167,255,.14);
+  box-shadow: inset 3px 0 0 rgba(122,167,255,.9);
+}
+
+/* Ensure focus-visible works for actual nav links (classes may vary by page) */
+#main-nav.nav a:focus-visible{
+  outline: 2px solid rgba(122,167,255,.65);
+  outline-offset: 2px;
+}
+
 
 /* Desktop hover + keyboard focus */
 @media (hover:hover) and (pointer:fine){
@@ -386,37 +514,91 @@ main{min-height:60vh}
 }
 
 
-/* =========================
-   Desktop Nav Typography Tweaks
-   (structure unchanged)
-   ========================= */
+/* Desktop typography (variables only, to avoid selector fights) */
 @media (min-width: 981px) {
-  .main-nav-bar .nav > li > a {
-    font-size: 15px;
-    font-weight: 600;
-    letter-spacing: -0.2px;
-    line-height: 1;
-    text-rendering: geometricPrecision;
+  :root{
+    --menu-fs: 15px;
+    --menu-fw: 650;
+    --menu-ls: -0.2px;
+    --submenu-fs: 14px;
+    --submenu-fw: 500;
+    --submenu-lh: 1.25;
   }
+}
 
-  .main-nav-bar .submenu a {
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: -0.1px;
-    line-height: 1.25;
-    text-rendering: geometricPrecision;
+/* ===== Notices (JSON data, no-server) ===== */
+.notice-app { margin-top: 8px; }
+.notice-controls { display:flex; gap:10px; align-items:center; justify-content:space-between; flex-wrap:wrap; margin: 0 0 12px; }
+.notice-controls .left { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+.notice-select { appearance:none; -webkit-appearance:none; border:1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.06); color: var(--text); padding: 10px 12px; border-radius: 12px; font-size: 14px; line-height: 1.2; }
+
+.notice-controls .right { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+.notice-search { border:1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.06); color: var(--text); padding: 10px 12px; border-radius: 12px; font-size: 14px; line-height: 1.2; min-width: 220px; }
+.notice-search::placeholder { color: rgba(255,255,255,.55); }
+.notice-count strong { color: var(--text); font-weight: 800; }
+
+.notice-more-wrap { margin-top: 12px; display:flex; justify-content:center; }
+.notice-more-btn { border:1px solid rgba(255,255,255,.16); background: rgba(255,255,255,.06); color: var(--text); padding: 10px 14px; border-radius: 999px; font-size: 13px; cursor: pointer; }
+.notice-more-btn:hover { background: rgba(255,255,255,.10); }
+.notice-list { list-style:none; padding:0; margin:0; display:grid; gap:10px; }
+.notice-item { margin:0; }
+.notice-link { display:block; padding: 12px 14px; border:1px solid rgba(255,255,255,.12); border-radius: 14px; background: rgba(255,255,255,.04); text-decoration:none; }
+.notice-link:hover { background: rgba(255,255,255,.06); }
+.notice-top { display:flex; justify-content:space-between; align-items:center; gap:12px; }
+.notice-badge { display:inline-block; padding: 4px 8px; border-radius: 999px; border:1px solid rgba(255,255,255,.14); font-size: 12px; line-height: 1; color: var(--text); opacity:.92; }
+.notice-date { font-size: 12px; color: var(--muted); }
+.notice-title { margin: 8px 0 0; font-weight: 700; letter-spacing: -0.01em; }
+.notice-summary { margin: 6px 0 0; color: var(--muted); font-size: 14px; line-height: 1.5; }
+.notice-empty { color: var(--muted); padding: 10px 2px; }
+.notice-view-head { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+.notice-meta { color: var(--muted); font-size: 13px; }
+.notice-back { border:1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.06); color: var(--text); padding: 8px 10px; border-radius: 12px; text-decoration:none; font-size: 13px; }
+.notice-back:hover { background: rgba(255,255,255,.08); }
+.notice-content { margin: 10px 0 0; color: var(--text); line-height: 1.75; }
+
+/* Notice category tabs / sections */
+.notice-tabs { display:flex; gap:8px; flex-wrap:wrap; margin: 8px 0 12px; }
+.notice-tab { display:inline-flex; align-items:center; justify-content:center; padding: 8px 12px; border-radius: 999px; border:1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.04); color: var(--text); text-decoration:none; font-size: 13px; line-height: 1; }
+.notice-tab:hover { background: rgba(255,255,255,.06); }
+.notice-tab.is-active, .notice-tab[aria-current="page"] { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.24); }
+
+.notice-sections { display:grid; gap: 14px; margin-top: 16px; }
+.notice-section-head { display:flex; align-items:baseline; justify-content:space-between; gap:12px; }
+.notice-section-head h3 { margin:0; font-size: 16px; }
+.notice-more { font-size: 13px; color: var(--muted); text-decoration:none; }
+.notice-more:hover { color: var(--text); }
+
+@media (min-width: 980px) {
+  .notice-sections { grid-template-columns: 1fr 1fr; }
+}
+
+/* Notice related */
+.notice-related { margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.10); }
+.notice-related-title { margin: 0 0 8px; font-size: 14px; font-weight: 700; letter-spacing: -0.01em; }
+.notice-related-list { list-style:none; padding:0; margin:0; display:grid; gap:8px; }
+.notice-related-item { margin: 0; }
+.notice-related-link { display:flex; justify-content:space-between; gap:12px; align-items:center; padding: 10px 12px; border: 1px solid rgba(255,255,255,.10); border-radius: 12px; text-decoration:none; background: rgba(255,255,255,.03); }
+.notice-related-link:hover { background: rgba(255,255,255,.06); }
+.notice-related-title-text { font-size: 13px; line-height: 1.35; word-break: keep-all; }
+.notice-related-date { font-size: 12px; opacity: .75; white-space: nowrap; }
+
+
+/* === v2.4.7 Notice: search highlight + pinned badge === */
+mark.hl{ padding:0 .15em; border-radius:.2em; }
+.notice-badge-pinned{ margin-left:.4em; font-weight:700; }
+.badge.badge-pinned, .notice-badge.notice-badge-pinned{ display:inline-block; padding:.1em .45em; border-radius:999px; font-size:.78em; line-height:1.2; }
+.notice-title .hl{ font-weight:800; }
+
+
+/* === v2.4.8 Desktop submenu width fit-content === */
+@media (min-width: 981px) {
+  #main-nav .submenu {
+    width: max-content;
+    min-width: 140px;
+    max-width: 360px;
   }
-
-  /* Long submenu labels: allow clean wrapping without breaking Korean syllables oddly */
-  .main-nav-bar .submenu a {
-    white-space: normal;
-    word-break: keep-all;
-  }
-
-  /* Slightly tighten vertical rhythm */
-  .main-nav-bar .submenu li > a {
-    padding-top: 10px;
-    padding-bottom: 10px;
+  #main-nav .submenu a {
+    white-space: nowrap;
   }
 }
 
