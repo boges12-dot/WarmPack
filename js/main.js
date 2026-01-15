@@ -1,3 +1,29 @@
+
+// ULNAV_CLICK_TOGGLE: blogger-style dropdown support (touch/click)
+function initUlNavDropdown(){
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('#main-nav li.has-sub > a');
+    if(!a){
+      document.querySelectorAll('#main-nav li.has-sub.is-open').forEach(function(li){ li.classList.remove('is-open'); });
+      return;
+    }
+    var li = a.closest('#main-nav li.has-sub');
+    if(!li) return;
+    // toggle only; keep link navigation for second click by checking if already open
+    if(!li.classList.contains('is-open')){
+      e.preventDefault();
+      document.querySelectorAll('#main-nav li.has-sub.is-open').forEach(function(x){ if(x!==li) x.classList.remove('is-open'); });
+      li.classList.add('is-open');
+    }
+  });
+
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){
+      document.querySelectorAll('#main-nav li.has-sub.is-open').forEach(function(li){ li.classList.remove('is-open'); });
+    }
+  });
+}
+
 (function(){
   function closeAll(except){
     document.querySelectorAll('.has-sub.is-open').forEach(function(el){
@@ -11,7 +37,7 @@
   function markActive(){
     // Active based on pathname; supports both /pages/섹션/ and /pages/섹션/index.html
     var path = location.pathname.replace(/\/index\.html$/, '/');
-    var links = document.querySelectorAll('.menu-link, .sub-link');
+    var links = document.querySelectorAll('#main-nav a, #main-nav .submenu a');
     links.forEach(function(a){
       try{
         var url = new URL(a.getAttribute('href'), location.origin);
@@ -21,7 +47,7 @@
           // if it's inside dropdown, also highlight parent
           var parent = a.closest('.has-sub');
           if(parent){
-            var parentLink = parent.querySelector(':scope > a.menu-link');
+            var parentLink = parent.querySelector(':scope > a');
             if(parentLink) parentLink.classList.add('active');
           }
         }
@@ -30,8 +56,10 @@
   }
 
   function initDropdown(){
+    // legacy dropdown (not used in UL nav)
+
     document.addEventListener('click', function(e){
-      var trigger = e.target.closest('.has-sub > a.menu-link, .has-sub > button');
+      var trigger = e.target.closest('.has-sub > a, .has-sub > button');
       if(!trigger){
         // Outside click closes
         closeAll();
@@ -69,7 +97,10 @@
   }
 
   document.addEventListener('DOMContentLoaded', function(){
+      initUlNavDropdown();
     initDropdown();
+      // UL nav dropdown
+
     initToTop();
     markActive();
   });
