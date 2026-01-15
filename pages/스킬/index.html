@@ -8,9 +8,24 @@
 </head>
 <body>
 <nav class="main-menu" aria-label="메인 메뉴">
-  <a class="menu-link" href="../../pages/공지/index.html">공지</a>
-  <a class="menu-link" href="../../pages/가이드/index.html">가이드</a>
-
+  <div class="menu-item has-sub" data-menu="소개">
+    <a class="menu-link" href="../../pages/공지/index.html" aria-haspopup="true" aria-expanded="false">소개</a>
+    <div class="sub" role="menu" aria-label="소개 하위 메뉴">
+                <a class="sub-link" href="../../pages/공지/index.html">공지사항</a>
+<a class="sub-link" href="../../pages/공지/index.html#rule">서버규정</a>
+      <a class="sub-link" href="../../pages/공지/index.html#check">서버점검</a>
+      <a class="sub-link" href="../../pages/공지/index.html#update">업데이트</a>
+      <a class="sub-link" href="../../pages/공지/index.html#event">이벤트</a>
+    </div>
+  </div>
+  <div class="menu-item has-sub" data-menu="가이드">
+    <a class="menu-link" href="../../pages/가이드/index.html" aria-haspopup="true" aria-expanded="false">가이드</a>
+    <div class="sub" role="menu" aria-label="가이드 하위 메뉴">
+      <a class="sub-link" href="../../pages/가이드/index.html#server">서버가이드</a>
+      <a class="sub-link" href="../../pages/가이드/index.html#fishing">낚시가이드</a>
+      <a class="sub-link" href="../../pages/가이드/index.html#book">도감가이드</a>
+    </div>
+  </div>
   <div class="menu-item has-sub" data-menu="제작">
     <a class="menu-link" href="../../pages/제작/index.html" aria-haspopup="true" aria-expanded="false">제작</a>
     <div class="sub" role="menu" aria-label="제작 하위 메뉴">
@@ -19,14 +34,60 @@
       <a class="sub-link" href="../../pages/제작/아이템-제작.html">아이템 제작</a>
     </div>
   </div>
-
-  <a class="menu-link" href="../../pages/클래스/index.html">클래스</a>
-  <a class="menu-link" href="../../pages/스킬/index.html">스킬</a>
-  <a class="menu-link" href="../../pages/아이템/index.html">아이템</a>
-  <a class="menu-link" href="../../pages/사냥터/index.html">사냥터</a>
+  <div class="menu-item has-sub" data-menu="클래스">
+    <a class="menu-link" href="../../pages/클래스/index.html" aria-haspopup="true" aria-expanded="false">클래스</a>
+    <div class="sub" role="menu" aria-label="클래스 하위 메뉴">
+      <a class="sub-link" href="../../pages/클래스/index.html#prince">군주</a>
+      <a class="sub-link" href="../../pages/클래스/index.html#knight">기사</a>
+      <a class="sub-link" href="../../pages/클래스/index.html#mage">마법사</a>
+      <a class="sub-link" href="../../pages/클래스/index.html#elf">요정</a>
+    </div>
+  </div>
+  <div class="menu-item has-sub" data-menu="스킬">
+    <a class="menu-link" href="../../pages/스킬/index.html" aria-haspopup="true" aria-expanded="false">스킬</a>
+    <div class="sub" role="menu" aria-label="스킬 하위 메뉴">
+      <a class="sub-link" href="../../pages/스킬/index.html#prince">군주 스킬</a>
+      <a class="sub-link" href="../../pages/스킬/index.html#knight">기사 스킬</a>
+      <a class="sub-link" href="../../pages/스킬/index.html#mage">마법사 스킬</a>
+      <a class="sub-link" href="../../pages/스킬/index.html#elf">요정 스킬</a>
+    </div>
+  </div>
+  <div class="menu-item has-sub" data-menu="아이템">
+    <a class="menu-link" href="../../pages/아이템/index.html" aria-haspopup="true" aria-expanded="false">아이템</a>
+    <div class="sub" role="menu" aria-label="아이템 하위 메뉴">
+      <a class="sub-link" href="../../pages/아이템/index.html#weapon">무기</a>
+      <a class="sub-link" href="../../pages/아이템/index.html#armor">방어구</a>
+      <a class="sub-link" href="../../pages/아이템/index.html#accessory">악세사리</a>
+      <a class="sub-link" href="../../pages/아이템/index.html#doll">인형</a>
+      <a class="sub-link" href="../../pages/아이템/index.html#eye">마안</a>
+      <a class="sub-link" href="../../pages/아이템/index.html#scroll">주문서</a>
+    </div>
+  </div>
+  <div class="menu-item has-sub" data-menu="사냥터">
+    <a class="menu-link" href="../../pages/사냥터/index.html" aria-haspopup="true" aria-expanded="false">사냥터</a>
+    <div class="sub" role="menu" aria-label="사냥터 하위 메뉴">
+      <a class="sub-link" href="../../pages/사냥터/index.html#field">필드 사냥터</a>
+      <a class="sub-link" href="../../pages/사냥터/index.html#dungeon">던전</a>
+      <a class="sub-link" href="../../pages/사냥터/index.html#rotation">로테이션 던전</a>
+    </div>
+  </div>
   <a class="menu-link" href="../../pages/다운로드/index.html">다운로드</a>
-  <a class="menu-link" href="../../pages/홍보/index.html">홍보</a>
-  <a class="menu-link" href="../../pages/커뮤니티/index.html">커뮤니티</a>
+  <div class="menu-item has-sub" data-menu="홍보">
+    <a class="menu-link" href="../../pages/홍보/index.html" aria-haspopup="true" aria-expanded="false">홍보</a>
+    <div class="sub" role="menu" aria-label="홍보 하위 메뉴">
+      <a class="sub-link" href="../../pages/홍보/index.html#post">홍보글</a>
+      <a class="sub-link" href="../../pages/홍보/index.html#reward">홍보보상받기</a>
+    </div>
+  </div>
+  <div class="menu-item has-sub" data-menu="커뮤니티">
+    <a class="menu-link" href="../../pages/커뮤니티/index.html" aria-haspopup="true" aria-expanded="false">커뮤니티</a>
+    <div class="sub" role="menu" aria-label="커뮤니티 하위 메뉴">
+      <a class="sub-link" href="../../pages/커뮤니티/index.html#kakao">카카오톡 오픈방</a>
+      <a class="sub-link" href="../../pages/커뮤니티/index.html#telegram">텔레그램 문의방</a>
+      <a class="sub-link" href="../../pages/커뮤니티/index.html#qa">질문 또는 답변</a>
+      <a class="sub-link" href="../../pages/커뮤니티/index.html#support">고객지원</a>
+    </div>
+  </div>
 </nav>
 <main>
   <section class="page-head">
@@ -41,7 +102,20 @@
         <h2>내용</h2>
         <p>여기에 스킬 콘텐츠를 채우면 됩니다.</p>
         
-      </div>
+      
+<hr style="border:0;border-top:1px solid rgba(255,255,255,.10);margin:14px 0;">
+<h3 id="prince" style="margin:0 0 6px;font-size:16px;">군주 스킬</h3>
+<p style="margin:0;color:var(--muted);">내용을 여기에 작성하세요.</p>
+<hr style="border:0;border-top:1px solid rgba(255,255,255,.10);margin:14px 0;">
+<h3 id="knight" style="margin:0 0 6px;font-size:16px;">기사 스킬</h3>
+<p style="margin:0;color:var(--muted);">내용을 여기에 작성하세요.</p>
+<hr style="border:0;border-top:1px solid rgba(255,255,255,.10);margin:14px 0;">
+<h3 id="mage" style="margin:0 0 6px;font-size:16px;">마법사 스킬</h3>
+<p style="margin:0;color:var(--muted);">내용을 여기에 작성하세요.</p>
+<hr style="border:0;border-top:1px solid rgba(255,255,255,.10);margin:14px 0;">
+<h3 id="elf" style="margin:0 0 6px;font-size:16px;">요정 스킬</h3>
+<p style="margin:0;color:var(--muted);">내용을 여기에 작성하세요.</p>
+</div>
     </div>
   </section>
 </main>

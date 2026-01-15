@@ -204,3 +204,29 @@ main{min-height:60vh}
 .main-menu > *{
   flex: 0 0 auto;             /* every item keeps its natural width */
 }
+
+
+/* ===== Fix v4: unify logo & banner size ===== */
+.hero-bar-inner{
+  gap: 24px;
+}
+
+.hero-logo,
+.hero-banner{
+  height: 96px;          /* 동일한 높이 */
+  max-height: 96px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* ===== Main menu dropdown styling v5 ===== */
+.main-menu .sub-link{
+  display:block;
+  padding:10px 10px;
+  border-radius:10px;
+  font-weight:650;
+  color:var(--text);
+  opacity:.92;
+  text-decoration:none;
+}
+.main-menu .sub-link:hover{background:rgba(255,255,255,.06)}
