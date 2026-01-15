@@ -1,6 +1,234 @@
+/* HYBRID SITE v2_3 (Desktop-first skeleton)
+   - A안 메뉴 + '소식' 드롭다운
+   - active 상태 / breadcrumb / 카드형 인덱스
+   - 모바일은 '나중에' 단계: 데스크탑 구조 안정화 우선
+*/
 
-body{margin:0;font-family:Arial,Helvetica,sans-serif}
-header{border-bottom:1px solid #ddd;padding:12px}
-nav a{margin-right:12px;text-decoration:none;color:#111}
-nav a:hover{text-decoration:underline}
-.container{max-width:1200px;margin:0 auto;padding:20px}
+:root{
+  --container-max: 1240px;
+  --gutter: 20px;
+  --nav-h: 56px;
+  --radius: 12px;
+  --border: rgba(0,0,0,.12);
+  --text: #111;
+  --muted: rgba(0,0,0,.62);
+  --bg: #fff;
+  --bg-soft: rgba(0,0,0,.04);
+  --shadow: 0 10px 25px rgba(0,0,0,.08);
+}
+
+*{ box-sizing: border-box; }
+html, body{ height: 100%; }
+body{
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.55;
+}
+
+a{ color: inherit; text-decoration: none; }
+a:hover{ text-decoration: underline; }
+
+.container{
+  max-width: var(--container-max);
+  padding: 0 var(--gutter);
+  margin: 0 auto;
+}
+
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar{
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.brand{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 900;
+  letter-spacing: -0.3px;
+  white-space: nowrap;
+}
+
+.nav{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: nowrap;
+}
+
+.nav-item{
+  position: relative;
+}
+
+.nav-link{
+  display: inline-flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 12px;
+  border-radius: 10px;
+  font-weight: 700;
+  color: rgba(0,0,0,.84);
+}
+
+.nav-link:hover{
+  background: var(--bg-soft);
+  text-decoration: none;
+}
+
+.nav-link[aria-current="page"],
+.nav-link.is-active{
+  background: rgba(0,0,0,.10);
+  color: rgba(0,0,0,.92);
+}
+
+.nav-link .caret{
+  margin-left: 8px;
+  width: 0; height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid rgba(0,0,0,.6);
+}
+
+.dropdown{
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 200px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 8px;
+  display: none;
+}
+
+.nav-item.is-open > .dropdown{
+  display: block;
+}
+
+.dropdown a{
+  display: flex;
+  align-items: center;
+  height: 38px;
+  padding: 0 10px;
+  border-radius: 10px;
+  color: rgba(0,0,0,.82);
+  font-weight: 650;
+}
+
+.dropdown a:hover{
+  background: var(--bg-soft);
+  text-decoration: none;
+}
+
+.dropdown a.is-active{
+  background: rgba(0,0,0,.10);
+}
+
+main{
+  padding-top: 18px;
+  padding-bottom: 28px;
+}
+
+.breadcrumb{
+  padding: 14px 0 6px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.breadcrumb a{ color: var(--muted); }
+.breadcrumb .sep{ margin: 0 6px; opacity: .7; }
+
+.page-title{
+  margin: 8px 0 14px;
+  font-size: 28px;
+  letter-spacing: -0.5px;
+}
+
+.lead{
+  color: var(--muted);
+  margin: 0 0 12px;
+}
+
+.card{
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+  background: var(--bg);
+}
+
+.grid{
+  display: grid;
+  gap: 14px;
+}
+
+.grid.cols-3{ grid-template-columns: repeat(3, minmax(0,1fr)); }
+.grid.cols-2{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+
+.kv{
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: rgba(0,0,0,.02);
+}
+
+.badge{
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  background: rgba(0,0,0,.10);
+}
+
+.list{
+  margin: 0;
+  padding-left: 18px;
+}
+
+.footer{
+  margin-top: 40px;
+  padding: 26px 0;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.footer .links{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.footer a{
+  color: var(--muted);
+  font-weight: 700;
+}
+
+@media (max-width: 1020px){
+  .grid.cols-3{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .nav{ flex-wrap: wrap; justify-content: flex-end; }
+  .navbar{ height: auto; padding: 10px 0; align-items: flex-start; }
+}
+
+@media (max-width: 720px){
+  .grid.cols-3, .grid.cols-2{ grid-template-columns: 1fr; }
+}

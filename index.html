@@ -1,29 +1,44 @@
 <!doctype html>
 <html lang="ko">
 <head>
-<meta charset="utf-8">
-<title>HYBRID</title>
-<link rel="stylesheet" href="/css/main.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HYBRID</title>
+  <link rel="stylesheet" href="css/main.css" />
 </head>
 <body>
-<header>
-<nav>
-<a href="/index.html">홈</a>
-<a href="/pages/notice/index.html">공지</a>
-<a href="/pages/guide/index.html">가이드</a>
-<a href="/pages/craft/index.html">제작</a>
-<a href="/pages/class/index.html">클래스</a>
-<a href="/pages/skill/index.html">스킬</a>
-<a href="/pages/item/index.html">아이템</a>
-<a href="/pages/hunt/index.html">사냥터</a>
-<a href="/pages/download/index.html">다운로드</a>
-<a href="/pages/promo/index.html">홍보</a>
-<a href="/pages/community/index.html">커뮤니티</a>
-</nav>
-</header>
-<div class="container">
-<h1>HYBRID</h1>
-<p>hybrid_site_v2_2</p>
+  <div id="site-header"></div>
+
+  <main class="container">
+    <nav class="breadcrumb" id="breadcrumb"></nav>
+    <h1 class="page-title">HYBRID</h1>
+    <p class="lead">데스크탑 구조 안정화(v2_3) — 메뉴/위치/뼈대 확정용</p>
+
+<div class="kv">
+  <div>
+    <div style="font-weight:900; font-size:16px;">현재 버전: hybrid_site_v2_3</div>
+    <div style="color:var(--muted); font-size:13px; margin-top:4px;">상단 메뉴는 공통 스크립트로 자동 삽입됩니다.</div>
+  </div>
+  <span class="badge">DESKTOP</span>
 </div>
+
+<div style="height:14px;"></div>
+
+<div class="grid cols-3">
+  <a class="card" href="/pages/news/index.html"><strong>소식</strong><div class="lead" style="margin:8px 0 0;">공지/업데이트/이벤트/규정</div></a>
+  <a class="card" href="/pages/guide/index.html"><strong>가이드</strong><div class="lead" style="margin:8px 0 0;">입문/시스템 이해</div></a>
+  <a class="card" href="/pages/craft/index.html"><strong>제작</strong><div class="lead" style="margin:8px 0 0;">인형/부적/아이템 제작</div></a>
+  <a class="card" href="/pages/class/index.html"><strong>클래스</strong><div class="lead" style="margin:8px 0 0;">직업/특징</div></a>
+  <a class="card" href="/pages/skill/index.html"><strong>스킬</strong><div class="lead" style="margin:8px 0 0;">스킬 정보</div></a>
+  <a class="card" href="/pages/item/index.html"><strong>아이템</strong><div class="lead" style="margin:8px 0 0;">아이템 정보</div></a>
+  <a class="card" href="/pages/hunt/index.html"><strong>사냥터</strong><div class="lead" style="margin:8px 0 0;">사냥터/드랍</div></a>
+  <a class="card" href="/pages/download/index.html"><strong>다운로드</strong><div class="lead" style="margin:8px 0 0;">클라이언트</div></a>
+  <a class="card" href="/pages/community/index.html"><strong>커뮤니티</strong><div class="lead" style="margin:8px 0 0;">게시판/규칙</div></a>
+</div>
+
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="js/main.js" defer></script>
 </body>
 </html>
