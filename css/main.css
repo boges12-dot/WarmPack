@@ -160,3 +160,66 @@ button{font:inherit;color:inherit}
   .logo-card,.banner-center{height:92px}
   .logo-card img{padding:12px}
 }
+
+
+/* =========
+   Header/Nav: Active states
+   ========= */
+.nav-link.active,
+.nav-btn.active{
+  border-color: rgba(120,170,255,.55);
+  box-shadow: 0 0 0 3px rgba(120,170,255,.14), var(--shadow);
+}
+.nav-item.is-active > .nav-btn{
+  border-color: rgba(120,170,255,.55);
+}
+
+/* =========
+   Footer (Desktop baseline)
+   ========= */
+.site-footer{
+  margin-top: 70px;
+  padding: 26px 0 34px;
+  border-top: 1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.18);
+}
+.footer-row{
+  display:flex;
+  gap:14px;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+}
+.footer-left{
+  display:flex;
+  align-items:baseline;
+  gap:10px;
+}
+.footer-brand{
+  letter-spacing:.08em;
+}
+.footer-meta{
+  opacity:.65;
+  font-size: 13px;
+}
+.footer-right{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.footer-link{
+  opacity:.8;
+  text-decoration:none;
+  padding:6px 8px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,.10);
+}
+.footer-link:hover{
+  opacity:1;
+  border-color: rgba(255,255,255,.22);
+}
+.footer-copy{
+  margin: 12px 0 0;
+  opacity:.55;
+  font-size: 12px;
+}
