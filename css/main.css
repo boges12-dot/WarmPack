@@ -564,3 +564,31 @@ main{min-height:60vh}
     display: none !important;
   }
 }
+
+
+
+/* === v2.4.9: dropdown close delay (desktop) === */
+@media (min-width: 981px) {
+  /* Smooth open/close with a small close delay */
+  #main-nav.nav .submenu {
+    transition: opacity 140ms ease, transform 140ms ease, visibility 0s linear 180ms;
+  }
+  /* When open (hover/focus), remove the visibility delay so it appears immediately */
+  #main-nav.nav li:hover > .submenu,
+  #main-nav.nav li:focus-within > .submenu {
+    transition: opacity 140ms ease, transform 140ms ease, visibility 0s linear 0s;
+  }
+
+  /* Extra safety: tiny hover-bridge so mouse travel doesn't instantly close */
+  #main-nav.nav li {
+    position: relative;
+  }
+  #main-nav.nav li:hover::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    height: 10px; /* adjust if needed */
+  }
+}
