@@ -402,4 +402,14 @@ main{min-height:60vh}
 .notice-meta { color: var(--muted); font-size: 13px; }
 .notice-back { border:1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.06); color: var(--text); padding: 8px 10px; border-radius: 12px; text-decoration:none; font-size: 13px; }
 .notice-back:hover { background: rgba(255,255,255,.08); }
-.notice-content { margin: 10px 0 0; color: var(--text); line-height: 1.75; }
+.notice-content { margin: 10px 0 0; color: var(--text); line-height: 1.75; }\n\n/* ===== Submenu size tighten to text ===== */
+#main-nav.nav .submenu{
+  min-width: unset;
+  width: max-content;
+  padding: 6px;
+}
+#main-nav.nav .submenu li a{
+  font-size: 14px;
+  padding: 6px 10px;
+  white-space: nowrap;
+}\n
