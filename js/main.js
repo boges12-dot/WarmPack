@@ -1,4 +1,17 @@
 
+// ULNAV_PREVENT_PARENT_CLICK: prevent navigation on parent menu
+  (function(){
+    var nav = document.getElementById('main-nav');
+    if(!nav) return;
+    nav.addEventListener('click', function(e){
+      var a = e.target.closest('li.has-sub > a');
+      if(!a) return;
+      // prevent page navigation, only toggle/open submenu
+      e.preventDefault();
+    });
+  })();
+
+
 // ULNAV_CLICK_TOGGLE: blogger-style dropdown support (touch/click)
 function initUlNavDropdown(){
   document.addEventListener('click', function(e){
@@ -110,7 +123,7 @@ function initUlNavDropdown(){
     try { canHover = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches; } catch(e) {}
     if(!canHover) return;
 
-    var CLOSE_DELAY_MS = 120;
+    var CLOSE_DELAY_MS = 150;
     nav.querySelectorAll('li.has-sub').forEach(function(li){
       var t = null;
       li.addEventListener('mouseenter', function(){
