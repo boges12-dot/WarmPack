@@ -112,7 +112,7 @@ function initUlNavDropdown(){
     try { canHover = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches; } catch(e) {}
     if(!canHover) return;
 
-    var CLOSE_DELAY_MS = 220; // tweak here
+    var CLOSE_DELAY_MS = 600; // tweak here (submenu close delay)
     nav.querySelectorAll('li.has-sub').forEach(function(li){
       var t = null;
       li.addEventListener('mouseenter', function(){
