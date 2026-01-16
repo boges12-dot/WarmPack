@@ -101,38 +101,34 @@ function initUlNavDropdown(){
     initDropdown();
       // UL nav dropdown
 
-    
-
-  // ULNAV_HOVER_FAST_CLOSE: close quickly after mouse leaves (desktop)
+    // ULNAV_HOVER_FAST_CLOSE: close quickly after mouse leaves (desktop)
   (function(){
     var nav = document.getElementById('main-nav');
     if(!nav) return;
 
-    // only for devices that actually hover
     var canHover = false;
     try { canHover = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches; } catch(e) {}
     if(!canHover) return;
 
-    var CLOSE_DELAY_MS = 120; // 더 빠르게(짧게) 닫힘
+    var CLOSE_DELAY_MS = 120;
     nav.querySelectorAll('li.has-sub').forEach(function(li){
       var t = null;
-
       li.addEventListener('mouseenter', function(){
         if(t){ clearTimeout(t); t=null; }
-        li.classList.add('hovering');
+        // remove others
+        nav.querySelectorAll('li.has-sub.is-open').forEach(function(x){ if(x!==li) x.classList.remove('is-open'); });
       });
-
       li.addEventListener('mouseleave', function(){
         if(t){ clearTimeout(t); }
         t = setTimeout(function(){
-          li.classList.remove('hovering');
-          li.classList.remove('is-open'); // click-open also closes when mouse is gone
+          li.classList.remove('is-open');
         }, CLOSE_DELAY_MS);
       });
     });
   })();
 
-initToTop();
+
+    initToTop();
     markActive();
   });
 })();

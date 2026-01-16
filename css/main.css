@@ -349,44 +349,41 @@ main{min-height:60vh}
   overflow: visible;
 }
 
-/* ===== Dropdown caret + tight submenu (font-fit) ===== */
+/* ===== Dropdown caret (next to text) ===== */
 #main-nav.nav li.has-sub > a{
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
 }
 #main-nav.nav li.has-sub > a::after{
-  content: "";
-  display: inline-block;
-  width: 0;
-  height: 0;
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent;
-  border-top: 5px solid currentColor;
+  content:"";
+  display:inline-block;
+  width:0;height:0;
+  border-left:4px solid transparent;
+  border-right:4px solid transparent;
+  border-top:5px solid currentColor;
   transform: translateY(1px);
-  opacity: .9;
+  opacity:.9;
 }
 #main-nav.nav li.has-sub:hover > a::after,
-#main-nav.nav li.has-sub.is-open > a::after,
-#main-nav.nav li.has-sub.hovering > a::after{
+#main-nav.nav li.has-sub.is-open > a::after{
   transform: translateY(1px) rotate(180deg);
 }
 
-/* submenu: text width fit */
+/* ===== Submenu: left align + fit to text ===== */
 #main-nav.nav .submenu{
-  min-width: 0 !important;
+  left: 0 !important;
+  transform: none !important;
+  min-width: unset !important;
   width: max-content !important;
-  max-width: 90vw;
   padding: 6px !important;
+  border-radius: 10px !important;
 }
 #main-nav.nav .submenu li a{
-  font-size: 14px;
+  font-size: 14px !important;
   padding: 6px 10px !important;
-  white-space: nowrap;
+  white-space: nowrap !important;
 }
-
-/* hover delay helper */
-#main-nav.nav li.has-sub.hovering > .submenu{ display: block; }
 
 /* ===== Notices (JSON data, no-server) ===== */
 .notice-app { margin-top: 8px; }
@@ -417,18 +414,3 @@ main{min-height:60vh}
 .notice-back { border:1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.06); color: var(--text); padding: 8px 10px; border-radius: 12px; text-decoration:none; font-size: 13px; }
 .notice-back:hover { background: rgba(255,255,255,.08); }
 .notice-content { margin: 10px 0 0; color: var(--text); line-height: 1.75; }
-
-/* ===== Submenu size tighten to text (override) ===== */
-#main-nav.nav .submenu{
-  left: 0 !important;
-  transform: none !important;
-  min-width: unset !important;
-  width: max-content !important;
-  padding: 6px !important;
-  border-radius: 10px !important;
-}
-#main-nav.nav .submenu li a{
-  font-size: 14px !important;
-  padding: 6px 10px !important;
-  white-space: nowrap !important;
-}
