@@ -102,6 +102,7 @@ function initUlNavDropdown(){
       // UL nav dropdown
 
     
+
   // ULNAV_HOVER_DELAY: add small close delay for desktop hover
   (function(){
     var nav = document.getElementById('main-nav');
@@ -112,7 +113,7 @@ function initUlNavDropdown(){
     try { canHover = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches; } catch(e) {}
     if(!canHover) return;
 
-    var CLOSE_DELAY_MS = 600; // tweak here (submenu close delay)
+    var CLOSE_DELAY_MS = 350; // 조금만 더 빠르게 닫힘
     nav.querySelectorAll('li.has-sub').forEach(function(li){
       var t = null;
       li.addEventListener('mouseenter', function(){
@@ -125,7 +126,6 @@ function initUlNavDropdown(){
       });
     });
   })();
-
 
     initToTop();
     markActive();
