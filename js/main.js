@@ -1,4 +1,29 @@
 
+// ULNAV_CLOSE_ON_OUTSIDE: close menus as soon as cursor leaves the nav area (desktop)
+(function(){
+  var nav = document.getElementById('main-nav');
+  if(!nav) return;
+
+  var canHover = false;
+  try { canHover = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches; } catch(e) {}
+  if(!canHover) return;
+
+  function closeAll(){
+    nav.querySelectorAll('li.has-sub.is-open, li.has-sub.hovering').forEach(function(li){
+      li.classList.remove('is-open');
+      li.classList.remove('hovering');
+    });
+  }
+
+  document.addEventListener('mousemove', function(e){
+    if(!e.target || !e.target.closest) return;
+    if(!e.target.closest('#main-nav')){
+      closeAll();
+    }
+  });
+})();
+
+
 // ULNAV_PREVENT_PARENT_CLICK: prevent navigation on parent menu
   (function(){
     var nav = document.getElementById('main-nav');
@@ -123,7 +148,7 @@ function initUlNavDropdown(){
     try { canHover = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches; } catch(e) {}
     if(!canHover) return;
 
-    var CLOSE_DELAY_MS = 300;
+    var CLOSE_DELAY_MS = 80;
     nav.querySelectorAll('li.has-sub').forEach(function(li){
       var t = null;
 

@@ -426,3 +426,8 @@ main{min-height:60vh}
 #main-nav.nav li.has-sub.hovering > .submenu{
   display: block !important;
 }
+
+/* ===== Submenu gap reduce (snappier) ===== */
+#main-nav.nav .submenu{
+  top: calc(100% + 2px) !important;
+}
