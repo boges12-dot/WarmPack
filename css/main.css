@@ -417,3 +417,12 @@ main{min-height:60vh}
 
 /* ===== Submenu hover bridge (keeps open during mouse move) ===== */
 #main-nav.nav li.has-sub.hovering > .submenu{ display: block !important; }
+
+/* ===== submenu JS-only control (disable CSS hover close) ===== */
+#main-nav.nav li.has-sub:hover > .submenu{
+  display: none !important;
+}
+#main-nav.nav li.has-sub.is-open > .submenu,
+#main-nav.nav li.has-sub.hovering > .submenu{
+  display: block !important;
+}
