@@ -101,6 +101,32 @@ function initUlNavDropdown(){
     initDropdown();
       // UL nav dropdown
 
+    
+  // ULNAV_HOVER_DELAY: add small close delay for desktop hover
+  (function(){
+    var nav = document.getElementById('main-nav');
+    if(!nav) return;
+
+    // only for devices that actually hover
+    var canHover = false;
+    try { canHover = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches; } catch(e) {}
+    if(!canHover) return;
+
+    var CLOSE_DELAY_MS = 220; // tweak here
+    nav.querySelectorAll('li.has-sub').forEach(function(li){
+      var t = null;
+      li.addEventListener('mouseenter', function(){
+        if(t){ clearTimeout(t); t=null; }
+        li.classList.add('hovering');
+      });
+      li.addEventListener('mouseleave', function(){
+        if(t){ clearTimeout(t); }
+        t = setTimeout(function(){ li.classList.remove('hovering'); }, CLOSE_DELAY_MS);
+      });
+    });
+  })();
+
+
     initToTop();
     markActive();
   });
