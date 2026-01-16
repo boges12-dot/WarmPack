@@ -375,18 +375,19 @@ main{min-height:60vh}
 #main-nav.nav li.has-sub{ position: relative; }
 
 #main-nav.nav li.has-sub > a{
-  padding-right: 22px; /* room for caret */
-  position: relative;
+  /* caret(▾)를 글자 바로 옆에 붙이기 */
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 }
 
 #main-nav.nav li.has-sub > a::after{
   content: "▾";
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
+  position: static;
+  transform: translateY(1px);
   font-size: 12px;
   opacity: .72;
+  line-height: 1;
 }
 
 #main-nav.nav .submenu{
@@ -472,31 +473,15 @@ main{min-height:60vh}
 }
 
 
-/* Desktop hover + keyboard focus
-   NOTE: focus-within is enabled only when keyboard navigation is active
-   (html.kbd-nav is toggled by JS). This prevents dropdown opening on mouse click.
-*/
+/* Desktop hover + keyboard focus */
 @media (hover:hover) and (pointer:fine){
   #main-nav.nav li.has-sub:hover > .submenu,
-  html.kbd-nav #main-nav.nav li.has-sub:focus-within > .submenu{
+  #main-nav.nav li.has-sub:focus-within > .submenu{
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
     transform: translate(-50%, 0);
     transition-delay: 0s;
-  }
-}
-
-/* Desktop: fit dropdown width to content (title length) */
-@media (min-width: 981px){
-  :root{
-    --submenu-minw: 140px;
-  }
-  #main-nav.nav .submenu{
-    width: max-content;
-  }
-  #main-nav.nav .submenu a{
-    white-space: nowrap;
   }
 }
 
@@ -516,8 +501,9 @@ main{min-height:60vh}
 
 /* Narrow screens: left aligned */
 @media (max-width: 980px){
-  #main-nav.nav li.has-sub > a{ padding-right: 18px; }
-  #main-nav.nav li.has-sub > a::after{ right: 8px; }
+  /* keep caret next to label on narrow screens too */
+  #main-nav.nav li.has-sub > a{ display: inline-flex; align-items: center; gap: 4px; }
+  #main-nav.nav li.has-sub > a::after{ position: static; transform: translateY(1px); }
 
   #main-nav.nav .submenu{
     left: 0;
@@ -542,105 +528,58 @@ main{min-height:60vh}
   }
 }
 
+/* ===== Notices (JSON data, no-server) ===== */
+.notice-app { margin-top: 8px; }
+.notice-controls { display:flex; gap:10px; align-items:center; justify-content:space-between; flex-wrap:wrap; margin: 0 0 12px; }
+.notice-controls .left { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+.notice-select { appearance:none; -webkit-appearance:none; border:1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.06); color: var(--text); padding: 10px 12px; border-radius: 12px; font-size: 14px; line-height: 1.2; }
 
+.notice-controls .right { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+.notice-search { border:1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.06); color: var(--text); padding: 10px 12px; border-radius: 12px; font-size: 14px; line-height: 1.2; min-width: 220px; }
+.notice-search::placeholder { color: rgba(255,255,255,.55); }
+.notice-count strong { color: var(--text); font-weight: 800; }
 
-/* === v2.4.8c: remove unexpected top-menu underline/line === */
-@media (min-width: 981px) {
-  /* kill any underline/border/box-shadow used as active indicator on top-level links */
-  #main-nav.nav > ul > li > a,
-  #main-nav.nav > ul > li > a:visited,
-  #main-nav.nav > ul > li > a:hover,
-  #main-nav.nav > ul > li > a:focus,
-  #main-nav.nav > ul > li > a:active {
-    text-decoration: none !important;
-    border-bottom: 0 !important;
-    box-shadow: none !important;
-    background-image: none !important;
-  }
-  /* if underline is drawn via pseudo element */
-  #main-nav.nav > ul > li > a::before,
-  #main-nav.nav > ul > li > a::after {
-    content: none !important;
-    display: none !important;
-  }
+.notice-more-wrap { margin-top: 12px; display:flex; justify-content:center; }
+.notice-more-btn { border:1px solid rgba(255,255,255,.16); background: rgba(255,255,255,.06); color: var(--text); padding: 10px 14px; border-radius: 999px; font-size: 13px; cursor: pointer; }
+.notice-more-btn:hover { background: rgba(255,255,255,.10); }
+.notice-list { list-style:none; padding:0; margin:0; display:grid; gap:10px; }
+.notice-item { margin:0; }
+.notice-link { display:block; padding: 12px 14px; border:1px solid rgba(255,255,255,.12); border-radius: 14px; background: rgba(255,255,255,.04); text-decoration:none; }
+.notice-link:hover { background: rgba(255,255,255,.06); }
+.notice-top { display:flex; justify-content:space-between; align-items:center; gap:12px; }
+.notice-badge { display:inline-block; padding: 4px 8px; border-radius: 999px; border:1px solid rgba(255,255,255,.14); font-size: 12px; line-height: 1; color: var(--text); opacity:.92; }
+.notice-date { font-size: 12px; color: var(--muted); }
+.notice-title { margin: 8px 0 0; font-weight: 700; letter-spacing: -0.01em; }
+.notice-summary { margin: 6px 0 0; color: var(--muted); font-size: 14px; line-height: 1.5; }
+.notice-empty { color: var(--muted); padding: 10px 2px; }
+.notice-view-head { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+.notice-meta { color: var(--muted); font-size: 13px; }
+.notice-back { border:1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.06); color: var(--text); padding: 8px 10px; border-radius: 12px; text-decoration:none; font-size: 13px; }
+.notice-back:hover { background: rgba(255,255,255,.08); }
+.notice-content { margin: 10px 0 0; color: var(--text); line-height: 1.75; }
+
+/* Notice category tabs / sections */
+.notice-tabs { display:flex; gap:8px; flex-wrap:wrap; margin: 8px 0 12px; }
+.notice-tab { display:inline-flex; align-items:center; justify-content:center; padding: 8px 12px; border-radius: 999px; border:1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.04); color: var(--text); text-decoration:none; font-size: 13px; line-height: 1; }
+.notice-tab:hover { background: rgba(255,255,255,.06); }
+.notice-tab.is-active, .notice-tab[aria-current="page"] { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.24); }
+
+.notice-sections { display:grid; gap: 14px; margin-top: 16px; }
+.notice-section-head { display:flex; align-items:baseline; justify-content:space-between; gap:12px; }
+.notice-section-head h3 { margin:0; font-size: 16px; }
+.notice-more { font-size: 13px; color: var(--muted); text-decoration:none; }
+.notice-more:hover { color: var(--text); }
+
+@media (min-width: 980px) {
+  .notice-sections { grid-template-columns: 1fr 1fr; }
 }
 
-
-
-/* === v2.4.9: dropdown close delay (desktop) === */
-@media (min-width: 981px) {
-  /* Smooth open/close with a small close delay */
-  #main-nav.nav .submenu {
-    transition: opacity 140ms ease, transform 140ms ease, visibility 0s linear 180ms;
-  }
-  /* When open (hover/focus), remove the visibility delay so it appears immediately */
-  #main-nav.nav li:hover > .submenu,
-  #main-nav.nav li:focus-within > .submenu {
-    transition: opacity 140ms ease, transform 140ms ease, visibility 0s linear 0s;
-  }
-
-  /* Extra safety: tiny hover-bridge so mouse travel doesn't instantly close */
-  #main-nav.nav li {
-    position: relative;
-  }
-  #main-nav.nav li:hover::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 100%;
-    height: 10px; /* adjust if needed */
-  }
-}
-
-
-
-/* === v2.4.10: top menu active = font-weight only === */
-@media (min-width: 981px) {
-  /* remove any visual line/underline effects */
-  #main-nav.nav > ul > li > a,
-  #main-nav.nav > ul > li.active > a,
-  #main-nav.nav > ul > li > a:hover,
-  #main-nav.nav > ul > li > a:focus {
-    text-decoration: none !important;
-    border: 0 !important;
-    box-shadow: none !important;
-    background-image: none !important;
-  }
-
-  #main-nav.nav > ul > li.active > a,
-  #main-nav.nav > ul > li > a[aria-current="page"] {
-    font-weight: 700; /* active only */
-  }
-}
-
-
-
-/* === v2.4.11: dropdown close delay tuning (desktop) === */
-@media (min-width: 981px) {
-  /* Increase close delay so it doesn't disappear too fast */
-  #main-nav.nav .submenu {
-    transition: opacity 160ms ease, transform 160ms ease, visibility 0s linear 320ms;
-  }
-  #main-nav.nav li:hover > .submenu,
-  #main-nav.nav li:focus-within > .submenu {
-    transition: opacity 160ms ease, transform 160ms ease, visibility 0s linear 0s;
-  }
-
-  /* Slightly larger hover-bridge for safer cursor travel */
-  #main-nav.nav li:hover::after {
-    height: 14px;
-  }
-}
-
-
-
-/* (replaced by v2.4.13 caret side) */
-@media (min-width: 981px) {
-  /* caret made by pseudo element or content */
-  #main-nav.nav > ul > li > a::after,
-  #main-nav.nav > ul > li > a::before {
-    content: none !important;
-    display: none !important;
-  }
-}
+/* Notice related */
+.notice-related { margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.10); }
+.notice-related-title { margin: 0 0 8px; font-size: 14px; font-weight: 700; letter-spacing: -0.01em; }
+.notice-related-list { list-style:none; padding:0; margin:0; display:grid; gap:8px; }
+.notice-related-item { margin: 0; }
+.notice-related-link { display:flex; justify-content:space-between; gap:12px; align-items:center; padding: 10px 12px; border: 1px solid rgba(255,255,255,.10); border-radius: 12px; text-decoration:none; background: rgba(255,255,255,.03); }
+.notice-related-link:hover { background: rgba(255,255,255,.06); }
+.notice-related-title-text { font-size: 13px; line-height: 1.35; word-break: keep-all; }
+.notice-related-date { font-size: 12px; opacity: .75; white-space: nowrap; }
