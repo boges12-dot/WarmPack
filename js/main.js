@@ -114,7 +114,7 @@ function initUlNavDropdown(){
     initDropdown();
       // UL nav dropdown
 
-    // ULNAV_HOVER_FAST_CLOSE: close quickly after mouse leaves (desktop)
+    // ULNAV_HOVER_DELAY: keep submenu open briefly while moving cursor (desktop)
   (function(){
     var nav = document.getElementById('main-nav');
     if(!nav) return;
@@ -123,17 +123,19 @@ function initUlNavDropdown(){
     try { canHover = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches; } catch(e) {}
     if(!canHover) return;
 
-    var CLOSE_DELAY_MS = 170;
+    var CLOSE_DELAY_MS = 200;
     nav.querySelectorAll('li.has-sub').forEach(function(li){
       var t = null;
+
       li.addEventListener('mouseenter', function(){
-        if(t){ clearTimeout(t); t=null; }
-        // remove others
-        nav.querySelectorAll('li.has-sub.is-open').forEach(function(x){ if(x!==li) x.classList.remove('is-open'); });
+        if(t){ clearTimeout(t); t = null; }
+        li.classList.add('hovering');
       });
+
       li.addEventListener('mouseleave', function(){
         if(t){ clearTimeout(t); }
         t = setTimeout(function(){
+          li.classList.remove('hovering');
           li.classList.remove('is-open');
         }, CLOSE_DELAY_MS);
       });
