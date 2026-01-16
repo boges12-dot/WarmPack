@@ -123,7 +123,7 @@ function initUlNavDropdown(){
     try { canHover = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches; } catch(e) {}
     if(!canHover) return;
 
-    var CLOSE_DELAY_MS = 700;
+    var CLOSE_DELAY_MS = 450;
     nav.querySelectorAll('li.has-sub').forEach(function(li){
       var t = null;
 
