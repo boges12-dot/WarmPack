@@ -1,29 +1,42 @@
-/* === Banner override (final2) === */
+/* === Banner override (final3) === */
 
-/* Hide any leftover header decoration */
-.hero-bar, .header-banner, .top-banner, .banner-bar,
-.header-logo, .header-logos, .logo-wrap, .logo-area {
+/* 1) Remove old header banner/logos area completely */
+.hero-bar,
+.hero-bar * {
   display: none !important;
 }
+.hero-bar {
+  padding: 0 !important;
+  margin: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
 
-/* Ensure hero uses the new background image */
-.hero, .main-banner {
+/* 2) Add main hero banner (background only) */
+.hero-main {
+  width: 100%;
+  height: 520px;
   background-image: url("../assets/images/banner_main.webp") !important;
   background-position: center center !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
-  height: 520px !important;
 }
 
 @media (max-width: 768px) {
-  .hero, .main-banner {
-    height: 320px !important;
+  .hero-main {
+    height: 320px;
     background-position: center top !important;
   }
 }
 
-/* Remove hero text if any remains */
-.hero-content, .hero-content h1, .hero-content h2, .hero-content p,
-.hero-title, .hero-subtitle, .banner-text, .banner-content {
+/* 3) If any hero text exists, hide it (safety) */
+.hero-content,
+.hero-content h1,
+.hero-content h2,
+.hero-content p,
+.hero-title,
+.hero-subtitle,
+.banner-text,
+.banner-content {
   display: none !important;
 }
