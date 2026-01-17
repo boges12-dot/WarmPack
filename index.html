@@ -15,27 +15,38 @@
 <meta name="twitter:title" content=" · ">
 <meta name="twitter:description" content=" · ">
 <meta name="twitter:image" content="assets/images/og-default.png">
-<link rel="stylesheet" href="css/main.20260116_16.min.css">
-
-<link rel="stylesheet" href="css/banner_override.css">
-<link rel="preload" as="image" href="assets/images/banner_main.webp" fetchpriority="high">
-
-
-
-
+<link rel="stylesheet"href="css/main.20260116_16.min.css">
+<link rel="preload" as="image" type="image/webp" fetchpriority="high"href="assets/images/logo.webp">
+<link rel="preload" as="image" type="image/webp" fetchpriority="high"href="assets/images/banner.webp">
 
   <!-- STEP9: icons/manifest -->
-<link rel="icon" sizes="any" href="favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
-<link rel="manifest" href="site.webmanifest">
+<link rel="icon" sizes="any"href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32"href="assets/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16"href="assets/icons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180"href="assets/icons/apple-touch-icon.png">
+<link rel="manifest"href="site.webmanifest">
 <meta name="theme-color" content="#ffffff">
-
 </head>
 <body>
   <div id="top"></div>
   <a class="skip-link" href="#main-content">본문 바로가기</a>
+
+<header class="hero-bar">
+  <div class="hero-bar-inner">
+    <picture>
+      <source srcset="assets/images/logo.webp" type="image/webp">
+      <img class="hero-logo" src="assets/images/logo.png" alt="logo left" width="177" height="158" loading="eager" decoding="async" fetchpriority="high">
+    </picture>
+    <picture>
+      <source srcset="assets/images/banner.webp" type="image/webp">
+      <img class="hero-banner" src="assets/images/banner.gif" alt="banner" width="320" height="32" loading="eager" decoding="async" fetchpriority="high">
+    </picture>
+    <picture>
+      <source srcset="assets/images/logo.webp" type="image/webp">
+      <img class="hero-logo" src="assets/images/logo.png" alt="logo right" width="177" height="158" loading="eager" decoding="async" fetchpriority="high">
+    </picture>
+  </div>
+</header>
 
 <nav class="main-nav-bar" aria-label="메인 메뉴">
   <ul class="nav" id="main-nav">
@@ -131,20 +142,11 @@
   </ul>
 </nav>
 
-
-<section class="main-hero" aria-label="메인 배너">
-  <div class="main-hero-inner">
-    <h1 class="main-hero-title">Hot Pack Server</h1>
-    <p class="main-hero-sub">Fight and Conquer Endlessly!</p>
-  </div>
-</section>
-
-
 <main id="main-content">
   <section class="home-intro">
     <div class="container">
       <div class="card section home-intro-head">
-        <h1 class="h1">HOT PACK SERVER</h1>
+        <h1 class="h1"></h1>
         <p class="lead">게임 서버 정보 · 가이드 · 다운로드를 한 곳에서 확인할 수 있는 홈페이지입니다.</p>
         <div class="meta">
           <span class="pill">공지/업데이트</span>
@@ -194,6 +196,7 @@
   <div class="container footer-inner">
     <div class="footer-left">
       <div class="footer-brand"> <span class="muted"></span></div>
+      <div class="footer-small muted">GitHub Pages 호환(상대경로) · 공통 CSS/JS</div>
     </div>
     <div class="footer-right">
       <a class="footer-link" href="index.html">홈</a>

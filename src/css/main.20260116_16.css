@@ -413,3 +413,24 @@ main{min-height:60vh}
 .skip-link{position:absolute;left:-9999px;top:8px;z-index:9999;padding:10px 12px;background:#000;color:#fff;border-radius:8px;line-height:1;}
 .skip-link:focus{left:12px;}
 :focus-visible{outline:2px solid currentColor;outline-offset:3px;}
+
+
+/* === Banner text removed & size adjusted === */
+.hero-title,
+.hero-subtitle,
+.hero-text,
+.banner-text {
+  display: none !important;
+}
+
+.hero,
+.main-banner {
+  height: 640px;
+}
+
+@media (max-width: 768px) {
+  .hero,
+  .main-banner {
+    height: 380px;
+  }
+}
