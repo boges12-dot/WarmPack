@@ -77,37 +77,3 @@
 .notice-nav-link{display:inline-flex;align-items:center;padding:8px 10px;border-radius:12px;border:1px solid rgba(0,0,0,.18);background:rgba(0,0,0,.06);text-decoration:none;color:inherit}
 .notice-nav-link:hover{background:rgba(0,0,0,.1)}
 .notice-nav-link[hidden]{display:none!important}
-
-
-/* === Banner text removed & size adjusted === */
-.hero-title,
-.hero-subtitle,
-.hero-text,
-.banner-text {
-  display: none !important;
-}
-
-.hero,
-.main-banner {
-  height: 640px;
-}
-
-@media (max-width: 768px) {
-  .hero,
-  .main-banner {
-    height: 380px;
-  }
-}
-
-
-/* === Final banner size === */
-.hero,
-.main-banner {
-  height: 520px !important;
-}
-@media (max-width: 768px) {
-  .hero,
-  .main-banner {
-    height: 320px !important;
-  }
-}

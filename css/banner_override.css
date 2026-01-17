@@ -1,50 +1,29 @@
-/* Banner override: remove old top strip header and show main hero banner (방식 A) */
+/* === Banner override (final2) === */
 
-/* Old top strip (logo + old banner) should not appear */
-.hero-bar{display:none !important;}
-
-/* New main banner */
-.main-hero{
-  position: relative;
-  height: 720px;
-  background-image: url("../assets/images/banner_main.webp");
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
+/* Hide any leftover header decoration */
+.hero-bar, .header-banner, .top-banner, .banner-bar,
+.header-logo, .header-logos, .logo-wrap, .logo-area {
+  display: none !important;
 }
 
-.main-hero::before{
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.20));
+/* Ensure hero uses the new background image */
+.hero, .main-banner {
+  background-image: url("../assets/images/banner_main.webp") !important;
+  background-position: center center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  height: 520px !important;
 }
 
-.main-hero-inner{
-  position: relative;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 24px;
+@media (max-width: 768px) {
+  .hero, .main-banner {
+    height: 320px !important;
+    background-position: center top !important;
+  }
 }
 
-.main-hero-title{
-  margin: 0;
-  font-size: 64px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-.main-hero-sub{
-  margin: 12px 0 0;
-  font-size: 22px;
-}
-
-@media (max-width: 768px){
-  .main-hero{height: 420px; background-position: center top;}
-  .main-hero-title{font-size: 38px;}
-  .main-hero-sub{font-size: 16px;}
+/* Remove hero text if any remains */
+.hero-content, .hero-content h1, .hero-content h2, .hero-content p,
+.hero-title, .hero-subtitle, .banner-text, .banner-content {
+  display: none !important;
 }
