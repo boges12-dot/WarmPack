@@ -98,3 +98,16 @@
     height: 380px;
   }
 }
+
+
+/* === Final banner size === */
+.hero,
+.main-banner {
+  height: 520px !important;
+}
+@media (max-width: 768px) {
+  .hero,
+  .main-banner {
+    height: 320px !important;
+  }
+}
