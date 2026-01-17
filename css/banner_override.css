@@ -1,0 +1,50 @@
+/* Banner override: remove old top strip header and show main hero banner (방식 A) */
+
+/* Old top strip (logo + old banner) should not appear */
+.hero-bar{display:none !important;}
+
+/* New main banner */
+.main-hero{
+  position: relative;
+  height: 720px;
+  background-image: url("../assets/images/banner_main.webp");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.main-hero::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.20));
+}
+
+.main-hero-inner{
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 24px;
+}
+
+.main-hero-title{
+  margin: 0;
+  font-size: 64px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.main-hero-sub{
+  margin: 12px 0 0;
+  font-size: 22px;
+}
+
+@media (max-width: 768px){
+  .main-hero{height: 420px; background-position: center top;}
+  .main-hero-title{font-size: 38px;}
+  .main-hero-sub{font-size: 16px;}
+}

@@ -1,23 +1,23 @@
 {
-  "name": "WarmPack / HOT PACK SERVER",
-  "short_name": "WarmPack",
-  "start_url": "./",
+  "name": "Hybrid Site",
+  "short_name": "Hybrid",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#ffffff",
   "icons": [
     {
-      "src": "assets/icons/android-chrome-192x192.png",
+      "src": "/assets/icons/android-chrome-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "assets/icons/android-chrome-512x512.png",
+      "src": "/assets/icons/android-chrome-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     },
     {
-      "src": "assets/icons/maskable-icon-512x512.png",
+      "src": "/assets/icons/maskable-icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
