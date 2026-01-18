@@ -100,3 +100,38 @@ body.nav-open .main-nav-bar { transform: translateX(0); }
 }
 
 /* Keep page content unchanged */
+
+
+/* === Desktop: horizontal menu, no hamburger === */
+@media (min-width: 1025px) {
+  .topbar { display: none !important; }
+  .nav-backdrop { display: none !important; }
+  .main-nav-bar {
+    position: static;
+    transform: none !important;
+    height: auto;
+    width: auto;
+    background: transparent;
+    border: 0;
+    padding: 0;
+  }
+  .main-nav-bar .nav {
+    display: flex !important;
+    gap: 14px;
+  }
+  .main-nav-bar .submenu {
+    position: absolute;
+    background: rgba(10,14,22,.95);
+    padding: 8px;
+    border-radius: 10px;
+    display: none !important;
+  }
+  .main-nav-bar li:hover > .submenu {
+    display: block !important;
+  }
+}
+
+/* === Mobile only hamburger === */
+@media (max-width: 1024px) {
+  .topbar { display: block; }
+}

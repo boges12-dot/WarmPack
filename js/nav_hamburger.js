@@ -1,4 +1,7 @@
 (() => {
+  const isMobile = window.matchMedia("(max-width: 1024px)").matches;
+  if (!isMobile) return;
+
   const body = document.body;
   const btn = document.querySelector('.nav-toggle');
   const nav = document.getElementById('site-nav');
