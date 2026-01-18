@@ -447,3 +447,39 @@ main{min-height:60vh}
     display:block;
   }
 }
+
+/* === PC (>=981px): force classic dropdown (no slide / no fade) === */
+@media (min-width:981px){
+  /* Blogger-style main nav */
+  #main-nav.nav .submenu{
+    display:none !important;
+    opacity:1 !important;
+    visibility:visible !important;
+    pointer-events:auto !important;
+    transform:none !important;
+    transition:none !important;
+    animation:none !important;
+    will-change:auto !important;
+  }
+  #main-nav.nav li:hover > .submenu,
+  #main-nav.nav li.has-sub.hovering > .submenu,
+  #main-nav.nav li.has-sub.is-open > .submenu{
+    display:block !important;
+  }
+
+  /* Alternate menu block (main-menu / menu-item) */
+  .menu-item .sub{
+    display:none !important;
+    opacity:1 !important;
+    visibility:visible !important;
+    pointer-events:auto !important;
+    transform:none !important;
+    transition:none !important;
+    animation:none !important;
+    will-change:auto !important;
+  }
+  .menu-item:hover > .sub,
+  .menu-item.is-open > .sub{
+    display:block !important;
+  }
+}

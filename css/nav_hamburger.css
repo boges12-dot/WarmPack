@@ -211,3 +211,15 @@ body.nav-open .main-nav-bar { transform: translateX(0); }
     display:block;
   }
 }
+
+/* === PC (>=981px): force classic dropdown (no slide / no fade) === */
+@media (min-width:981px){
+  #main-nav.nav .submenu,
+  .main-nav-bar .submenu,
+  .menu-item .sub{
+    transition:none !important;
+    animation:none !important;
+    transform:none !important;
+    opacity:1 !important;
+  }
+}
