@@ -1,0 +1,102 @@
+/* === Global Hamburger Navigation (PC+Mobile) === */
+.topbar {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 2000;
+}
+.nav-toggle {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(15,22,32,.55);
+  color: #fff;
+  font-size: 22px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+}
+.nav-toggle:active { transform: translateY(1px); }
+
+/* Backdrop */
+.nav-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.55);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .18s ease;
+  z-index: 1990;
+}
+body.nav-open .nav-backdrop {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Drawer */
+.main-nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: min(320px, 86vw);
+  background: rgba(10,14,22,.98);
+  border-right: 1px solid rgba(255,255,255,.10);
+  transform: translateX(-105%);
+  transition: transform .22s ease;
+  z-index: 1995;
+  padding: 70px 16px 18px;
+  overflow: auto;
+}
+body.nav-open .main-nav-bar { transform: translateX(0); }
+
+/* Vertical menu styling */
+.main-nav-bar .nav {
+  display: block !important;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.main-nav-bar .nav > li {
+  margin: 0;
+  padding: 0;
+}
+.main-nav-bar .nav a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 10px;
+  color: rgba(255,255,255,.92);
+  text-decoration: none;
+  border-radius: 10px;
+}
+.main-nav-bar .nav a:hover {
+  background: rgba(122,167,255,.12);
+}
+
+/* Submenus accordion */
+.main-nav-bar .submenu {
+  display: none !important;
+  list-style: none;
+  margin: 0;
+  padding: 6px 0 10px 10px;
+}
+.main-nav-bar li.open > .submenu {
+  display: block !important;
+}
+.main-nav-bar .submenu a {
+  padding: 10px 10px;
+  color: rgba(255,255,255,.86);
+}
+
+/* Hide any horizontal nav styling leftovers (force drawer behavior) */
+.main-nav-bar .nav,
+.main-nav-bar .submenu {
+  float: none !important;
+}
+
+/* Keep page content unchanged */

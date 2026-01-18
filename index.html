@@ -28,11 +28,17 @@
 <meta name="theme-color" content="#ffffff">
 
 <link rel="stylesheet" href="css/banner_override.css">
+<link rel="stylesheet" href="css/nav_hamburger.css">
 </head>
 <body>
   <div id="top"></div>
   <a class="skip-link" href="#main-content">본문 바로가기</a>
 
+
+<div class="topbar">
+  <button class="nav-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="메뉴 열기">☰</button>
+</div>
+<div class="nav-backdrop" aria-hidden="true"></div>
 <header class="hero-bar">
   
 </header>
@@ -41,7 +47,7 @@
 
 
 <section class="hero-main" aria-hidden="true"></section>
-<nav class="main-nav-bar" aria-label="메인 메뉴">
+<nav class="main-nav-bar" aria-label="메인 메뉴" id="site-nav">
   <ul class="nav" id="main-nav">
     <li class="has-sub">
       <a href="pages/공지/index.html">소개</a>
@@ -199,5 +205,6 @@
   </div>
 </footer>
 <script defer src="js/main.20260116_16.min.js"></script>
+<script src="js/nav_hamburger.js"></script>
 </body>
 </html>
