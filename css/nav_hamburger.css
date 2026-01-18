@@ -133,7 +133,14 @@ body.nav-open .main-nav-bar { transform: translateX(0); }
 
 /* === Mobile only hamburger === */
 @media (max-width: 1024px) {
-  .topbar { display: block; }
+  .topbar {
+    position: absolute;
+    left: 50%;
+    bottom: 12px;
+    transform: translateX(-50%);
+    z-index: 2100;
+  }
+}
 }
 
 
@@ -141,10 +148,10 @@ body.nav-open .main-nav-bar { transform: translateX(0); }
 @media (max-width: 1024px) {
   .topbar {
     position: absolute;
-    top: auto;
-    bottom: 16px;
     left: 50%;
+    bottom: 12px;
     transform: translateX(-50%);
     z-index: 2100;
   }
+}
 }
