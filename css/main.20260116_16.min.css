@@ -77,25 +77,3 @@
 .notice-nav-link{display:inline-flex;align-items:center;padding:8px 10px;border-radius:12px;border:1px solid rgba(0,0,0,.18);background:rgba(0,0,0,.06);text-decoration:none;color:inherit}
 .notice-nav-link:hover{background:rgba(0,0,0,.1)}
 .notice-nav-link[hidden]{display:none!important}
-
-
-/* === PC dropdown: no animation === */
-@media (min-width: 1025px){
-  .submenu, .sub-menu, .dropdown, .dropdown-menu{
-    transition:none !important;
-    animation:none !important;
-    transform:none !important;
-    max-height:none !important;
-    opacity:1 !important;
-    display:none;
-    position:absolute;
-    top:100%;
-    left:0;
-  }
-  li:hover > .submenu,
-  li:hover > .sub-menu,
-  li:hover > .dropdown,
-  li:hover > .dropdown-menu{
-    display:block;
-  }
-}

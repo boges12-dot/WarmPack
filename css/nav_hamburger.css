@@ -141,20 +141,7 @@ body.nav-open .main-nav-bar { transform: translateX(0); }
     z-index: 2100;
   }
 }
-}
 
-
-/* === Mobile hamburger at bottom of banner === */
-@media (max-width: 1024px) {
-  .topbar {
-    position: absolute;
-    left: 50%;
-    bottom: 12px;
-    transform: translateX(-50%);
-    z-index: 2100;
-  }
-}
-}
 
 
 /* === Desktop submenu: classic dropdown (no slide) === */
@@ -187,27 +174,5 @@ body.nav-open .main-nav-bar { transform: translateX(0); }
     padding: 10px 10px;
     border-radius: 8px;
     white-space: nowrap;
-  }
-}
-
-
-/* === PC dropdown: no animation === */
-@media (min-width: 1025px){
-  .submenu, .sub-menu, .dropdown, .dropdown-menu{
-    transition:none !important;
-    animation:none !important;
-    transform:none !important;
-    max-height:none !important;
-    opacity:1 !important;
-    display:none;
-    position:absolute;
-    top:100%;
-    left:0;
-  }
-  li:hover > .submenu,
-  li:hover > .sub-menu,
-  li:hover > .dropdown,
-  li:hover > .dropdown-menu{
-    display:block;
   }
 }
