@@ -155,3 +155,37 @@ body.nav-open .main-nav-bar { transform: translateX(0); }
   }
 }
 }
+
+
+/* === Desktop submenu: classic dropdown (no slide) === */
+@media (min-width: 1025px) {
+  .main-nav-bar .submenu {
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    min-width: 200px;
+    background: rgba(10,14,22,.95) !important;
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 10px;
+    padding: 8px 6px;
+    margin-top: 8px;
+    display: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,.35);
+    z-index: 5000;
+  }
+  .main-nav-bar .has-sub { position: relative; }
+  .main-nav-bar .has-sub:hover > .submenu {
+    display: block !important;
+  }
+  .main-nav-bar .submenu li { margin: 0; }
+  .main-nav-bar .submenu a {
+    display: block;
+    padding: 10px 10px;
+    border-radius: 8px;
+    white-space: nowrap;
+  }
+}
