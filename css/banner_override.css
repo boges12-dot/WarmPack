@@ -74,3 +74,13 @@
   align-items: center;
   justify-content: center;
 }
+
+
+/* Force show floating top button */
+.floating-top-btn{
+  position: fixed !important;
+  right: 18px !important;
+  bottom: 18px !important;
+  z-index: 99999 !important;
+  display: inline-flex !important;
+}
