@@ -425,3 +425,7 @@ main{min-height:60vh}
     z-index:50;
   }
 }
+
+
+/* === Desktop submenu: kill animation (override) === */
+@media (min-width:1025px){#main-nav.nav .submenu{transition:none !important;transform:none !important;}}
