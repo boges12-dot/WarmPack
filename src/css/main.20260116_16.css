@@ -369,6 +369,22 @@ main{min-height:60vh}
   transform: translateY(0);
 }
 
+/* ===== PC: remove dropdown animation entirely (requested) =====
+   - No slide, no fade; show/hide is instant on desktop.
+*/
+@media (min-width: 981px){
+  #main-nav.nav .submenu{
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+    will-change: auto;
+  }
+  #main-nav.nav li.has-sub.is-open > .submenu,
+  #main-nav.nav li.has-sub.hovering > .submenu{
+    transform: none !important;
+  }
+}
+
 /* ===== Dropdown caret (next to text) ===== */
 #main-nav.nav li.has-sub > a{
   display:inline-flex;
