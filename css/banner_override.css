@@ -41,3 +41,16 @@
 .banner-content {
   display: none !important;
 }
+
+/* =========================================================
+   NAV: MUST be under banner (no overlay)
+   - index.html has: <section class="hero-main"></section> then <nav class="main-nav-bar">
+   - main css sets .main-nav-bar { position: sticky; } so we override to normal flow
+   ========================================================= */
+.main-nav-bar{
+  position: relative !important;
+  top: auto !important;
+}
+
+/* Keep dropdown aligned */
+#main-nav.nav .submenu{ top: calc(100% + 2px); }
