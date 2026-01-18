@@ -369,22 +369,6 @@ main{min-height:60vh}
   transform: translateY(0);
 }
 
-/* ===== PC: remove dropdown animation entirely (requested) =====
-   - No slide, no fade; show/hide is instant on desktop.
-*/
-@media (min-width: 981px){
-  #main-nav.nav .submenu{
-    transition: none !important;
-    animation: none !important;
-    transform: none !important;
-    will-change: auto;
-  }
-  #main-nav.nav li.has-sub.is-open > .submenu,
-  #main-nav.nav li.has-sub.hovering > .submenu{
-    transform: none !important;
-  }
-}
-
 /* ===== Dropdown caret (next to text) ===== */
 #main-nav.nav li.has-sub > a{
   display:inline-flex;
@@ -429,3 +413,37 @@ main{min-height:60vh}
 .skip-link{position:absolute;left:-9999px;top:8px;z-index:9999;padding:10px 12px;background:#000;color:#fff;border-radius:8px;line-height:1;}
 .skip-link:focus{left:12px;}
 :focus-visible{outline:2px solid currentColor;outline-offset:3px;}
+
+
+/* === Mobile hamburger reposition (banner bottom-left) === */
+@media (max-width: 980px){
+  .hero{position:relative; overflow:visible;}
+  .m-hamburger{
+    position:absolute;
+    left:16px;
+    bottom:-18px;
+    z-index:50;
+  }
+}
+
+
+/* === PC dropdown: no animation === */
+@media (min-width: 1025px){
+  .submenu, .sub-menu, .dropdown, .dropdown-menu{
+    transition:none !important;
+    animation:none !important;
+    transform:none !important;
+    max-height:none !important;
+    opacity:1 !important;
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+  }
+  li:hover > .submenu,
+  li:hover > .sub-menu,
+  li:hover > .dropdown,
+  li:hover > .dropdown-menu{
+    display:block;
+  }
+}
