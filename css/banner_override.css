@@ -14,7 +14,6 @@
 
 /* 2) Add main hero banner (background only) */
 .hero-main {
-  position: relative;
   width: 100%;
   height: 380px;
   background-image: url("../assets/images/banner_main.webp") !important;
@@ -26,7 +25,6 @@
 
 @media (max-width: 768px) {
   .hero-main {
-  position: relative;
     height: 240px;
     background-position: center top !important;
   }
@@ -42,26 +40,4 @@
 .banner-text,
 .banner-content {
   display: none !important;
-}
-
-
-/* === PC dropdown: no animation === */
-@media (min-width: 981px){
-  .submenu, .sub-menu, .dropdown, .dropdown-menu{
-    transition:none !important;
-    animation:none !important;
-    transform:none !important;
-    max-height:none !important;
-    opacity:1 !important;
-    display:none;
-    position:absolute;
-    top:100%;
-    left:0;
-  }
-  li:hover > .submenu,
-  li:hover > .sub-menu,
-  li:hover > .dropdown,
-  li:hover > .dropdown-menu{
-    display:block;
-  }
 }
