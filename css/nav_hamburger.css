@@ -135,3 +135,16 @@ body.nav-open .main-nav-bar { transform: translateX(0); }
 @media (max-width: 1024px) {
   .topbar { display: block; }
 }
+
+
+/* === Mobile hamburger at bottom of banner === */
+@media (max-width: 1024px) {
+  .topbar {
+    position: absolute;
+    top: auto;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2100;
+  }
+}
