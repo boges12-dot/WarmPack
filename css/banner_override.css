@@ -1,22 +1,6 @@
 /* === Banner + Nav override (baseline v5) === */
 
-/* 0) Layout variables */
-:root{
-  --nav-h: 62px; /* adjust if needed */
-}
-
-/* 1) Remove old header banner/logos area completely (if used) */
-.hero-bar{
-  padding:0 !important;
-  margin:0 !important;
-  height:0 !important;
-  overflow:hidden !important;
-}
-.hero-bar *{
-  display:none !important;
-}
-
-/* 2) Main hero banner (background only)
+/* 1) Main hero banner (background only)
    - Top stays visible
    - Bottom may crop (center top)
 */
@@ -37,7 +21,7 @@
   }
 }
 
-/* 3) Hide any hero text (safety) */
+/* 2) Hide any hero text (safety) */
 .hero-content,
 .hero-content h1,
 .hero-content h2,
@@ -49,26 +33,17 @@
   display:none !important;
 }
 
-/* 4) Keep parent menu fixed at top on every page */
+/* 3) Parent menu should sit at the bottom of the banner (normal flow),
+      and stick to the top only when scrolling (sticky). */
 .main-nav-bar{
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
   z-index: 9999;
 }
 
-/* Ensure page content starts below fixed nav */
-body{
-  padding-top: var(--nav-h);
-}
-
-/* Optional: if the nav has its own height rules */
-#main-nav.nav{
-  min-height: var(--nav-h);
-}
-
-/* Dropdown should appear below fixed nav */
+/* Ensure dropdown appears below the nav bar */
 #main-nav.nav .submenu{
   top: 100%;
 }
