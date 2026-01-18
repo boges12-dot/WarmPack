@@ -135,3 +135,40 @@
     display:block !important;
   }
 }
+
+
+/* === PC dropdown (no slide / no fade) override === */
+@media (min-width:981px){
+  /* main nav (id=main-nav) */
+  #main-nav.nav .submenu{
+    display:none !important;
+    opacity:1 !important;
+    visibility:visible !important;
+    pointer-events:auto !important;
+    transform:none !important;
+    transition:none !important;
+    animation:none !important;
+    will-change:auto !important;
+  }
+  #main-nav.nav li.has-sub:hover > .submenu,
+  #main-nav.nav li.has-sub.hovering > .submenu,
+  #main-nav.nav li.has-sub.is-open > .submenu{
+    display:block !important;
+  }
+
+  /* main-menu variant */
+  .main-menu .menu-item > .sub{
+    display:none !important;
+    opacity:1 !important;
+    visibility:visible !important;
+    pointer-events:auto !important;
+    transform:none !important;
+    transition:none !important;
+    animation:none !important;
+    will-change:auto !important;
+  }
+  .main-menu .menu-item:hover > .sub,
+  .main-menu .menu-item.is-open > .sub{
+    display:block !important;
+  }
+}
