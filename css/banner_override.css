@@ -1,36 +1,44 @@
-/* === Banner override (final3) === */
+/* === Banner + Nav override (baseline v5) === */
+
+/* 0) Layout variables */
+:root{
+  --nav-h: 62px; /* adjust if needed */
+}
 
 /* 1) Remove old header banner/logos area completely */
 .hero-bar,
-.hero-bar * {
-  display: none !important;
+.hero-bar *{
+  display:none !important;
 }
-.hero-bar {
-  padding: 0 !important;
-  margin: 0 !important;
-  height: 0 !important;
-  overflow: hidden !important;
-}
-
-/* 2) Add main hero banner (background only) */
-.hero-main {
-  width: 100%;
-  height: 380px;
-  background-image: url("../assets/images/banner_main.webp") !important;
-  background-position: center top !important;
-  background-size: cover !important;
-  background-repeat: no-repeat !important;
-  background-color: #0b111a !important;
+.hero-bar{
+  padding:0 !important;
+  margin:0 !important;
+  height:0 !important;
+  overflow:hidden !important;
 }
 
-@media (max-width: 768px) {
-  .hero-main {
-    height: 240px;
-    background-position: center top !important;
+/* 2) Main hero banner (background only)
+   - Top stays visible
+   - Bottom may crop (center top)
+*/
+.hero-main{
+  width:100%;
+  height: clamp(260px, 46vh, 520px);
+  background-image: url("../assets/images/banner_main.webp");
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center top; /* keep top, crop bottom */
+}
+
+/* Mobile tune (a bit shorter) */
+@media (max-width: 980px){
+  .hero-main{
+    height: clamp(220px, 38vh, 420px);
+    background-position:center top;
   }
 }
 
-/* 3) If any hero text exists, hide it (safety) */
+/* 3) Hide any hero text (safety) */
 .hero-content,
 .hero-content h1,
 .hero-content h2,
@@ -38,6 +46,33 @@
 .hero-title,
 .hero-subtitle,
 .banner-text,
-.banner-content {
-  display: none !important;
+.banner-content{
+  display:none !important;
+}
+
+/* 4) Keep parent menu fixed at top on every page
+   - Works on PC + mobile
+   - Prevents content hiding under fixed nav
+*/
+.main-nav-bar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+/* Ensure page content starts below fixed nav */
+body{
+  padding-top: var(--nav-h);
+}
+
+/* Optional: if the nav has its own height rules, let it define --nav-h visually */
+#main-nav.nav{
+  min-height: var(--nav-h);
+}
+
+/* Dropdown should appear below fixed nav */
+#main-nav.nav .submenu{
+  top: 100%;
 }
