@@ -143,7 +143,6 @@ body.nav-open .main-nav-bar { transform: translateX(0); }
 }
 
 
-
 /* === Desktop submenu: classic dropdown (no slide) === */
 @media (min-width: 1025px) {
   .main-nav-bar .submenu {
@@ -174,5 +173,28 @@ body.nav-open .main-nav-bar { transform: translateX(0); }
     padding: 10px 10px;
     border-radius: 8px;
     white-space: nowrap;
+  }
+}
+
+
+/* === PC: force classic dropdown (no fade/slide) for #main-nav === */
+@media (min-width: 1025px){
+  #main-nav.nav .submenu{transition:none !important;animation:none !important;transform:none !important;opacity:1 !important;visibility:visible !important;pointer-events:auto !important;display:none !important;}
+  #main-nav.nav li.has-sub:hover > .submenu{display:block !important;}
+}
+
+/* === PC: force classic dropdown (no fade/slide) for #main-nav === */
+@media (min-width: 1025px){
+  #main-nav.nav .submenu{
+    transition:none !important;
+    animation:none !important;
+    transform:none !important;
+    opacity:1 !important;
+    visibility:visible !important;
+    pointer-events:auto !important;
+    display:none !important;
+  }
+  #main-nav.nav li.has-sub:hover > .submenu{
+    display:block !important;
   }
 }
