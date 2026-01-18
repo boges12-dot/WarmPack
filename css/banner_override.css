@@ -50,3 +50,27 @@
   display:block;
   cursor:pointer;
 }
+
+
+/* Hide bottom mini navigation (safety) */
+.footer-mini,
+.bottom-nav,
+.mobile-footer-nav{
+  display:none !important;
+}
+
+
+/* Floating "맨위로" button: follows scroll */
+.floating-top-btn{
+  position: fixed !important;
+  right: 18px !important;
+  bottom: 18px !important;
+  z-index: 99999 !important;
+  display: none !important;
+}
+
+.floating-top-btn.is-visible{
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+}
