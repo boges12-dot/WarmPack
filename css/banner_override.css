@@ -124,17 +124,3 @@ main, .main, .container, .content, .content-wrap{
 
 /* Structural wrappers (no visual change) */
 .site-header, .site-main{display:block;}
-
-
-/* =========================================================
-   HERO SHRINK ON SCROLL (PC ONLY)
-   ========================================================= */
-@media (min-width: 981px){
-  .hero-main{
-    height: 320px;
-    transition: height 0.3s ease;
-  }
-  .hero-main.is-shrink{
-    height: 120px;
-  }
-}
