@@ -84,3 +84,25 @@
   z-index: 99999 !important;
   display: inline-flex !important;
 }
+
+
+
+
+/* Injected floating top button (ALWAYS visible) */
+.wp-top-btn{
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 99999;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(12,18,26,0.88);
+  color: #eaf2ff;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
