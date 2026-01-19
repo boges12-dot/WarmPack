@@ -106,3 +106,17 @@
   align-items: center;
   justify-content: center;
 }
+
+
+/* Safety: ensure main content is visible */
+main, .main, .container, .content, .content-wrap{
+  display:block !important;
+  visibility:visible !important;
+  opacity:1 !important;
+}
+
+
+/* Hide (not delete) the intro/guide block */
+.wp-hidden-intro{
+  display:none !important;
+}
