@@ -120,3 +120,7 @@ main, .main, .container, .content, .content-wrap{
 .wp-hidden-intro{
   display:none !important;
 }
+
+
+/* Structural wrappers (no visual change) */
+.site-header, .site-main{display:block;}
