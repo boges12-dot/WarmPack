@@ -1,27 +1,23 @@
 /* =========================================================
-   banner_override.css (PC ONLY) - Clean (Recommended)
+   banner_override.css (PC ONLY) - No layout shift
+   목표:
    - 메뉴: 배너 아래에서 시작(sticky), 스크롤 시 상단 고정
-   - 배너: 상단 보존(center top) + 스크롤 시 높이 줄어듦
+   - 배너: 레이아웃(높이) 고정, transform으로만 줄어듦 -> 메뉴 점프/깜빡임 방지
    ========================================================= */
 
 :root{
-  --hero-h: 460px;   /* 기본 배너 높이 */
-  --hero-h2: 220px;  /* 줄어든 배너 높이 */
+  --hero-h: 460px;        /* 배너 영역 레이아웃 높이(고정) */
+  --hero-scale: 0.48;     /* 줄어든 상태(시각적 높이 비율) */
 }
 
-/* 1) 메뉴: 배너 아래에서 시작 -> 스크롤 시 상단에 붙음 */
+/* 메뉴: 배너 아래에서 시작 -> 스크롤 시 상단에 붙음 */
 .main-nav-bar{
   position: sticky;
   top: 0;
   z-index: 9999;
 }
 
-/* fixed/padding 같은 보정은 사용하지 않음 */
-.site-header{
-  padding-top: 0;
-}
-
-/* 2) 배너 */
+/* 배너 레이아웃은 고정(여기서 height는 절대 바꾸지 않음) */
 .hero-main{
   width: 100%;
   height: var(--hero-h);
@@ -30,36 +26,34 @@
   background-image: url("../assets/images/banner_main.webp");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center top; /* 상단 보존 */
+  background-position: center top;
 
   background-color: #0b111a;
   position: relative;
+  overflow: hidden;
 
-  transition: height .25s ease;
+  transform-origin: top;
+  transform: scaleY(1);
+  transition: transform .25s ease;
 }
+
+/* 스크롤 시: 레이아웃은 그대로, 보이는 배너만 줄어듦 */
 .hero-main.is-shrink{
-  height: var(--hero-h2);
-  min-height: var(--hero-h2);
+  transform: scaleY(var(--hero-scale));
 }
 
-/* 3) 배너 클릭영역 유지 */
+/* 배너 클릭영역 유지 */
 .hero-home-link{
   position: absolute;
   inset: 0;
   display: block;
 }
 
-/* 4) 배너 텍스트가 있으면 숨김(이미지 배너만) */
+/* 배너 텍스트가 있으면 숨김(이미지 배너만) */
 .hero-content,
 .hero-title,
 .hero-subtitle,
 .banner-text,
 .banner-content{
   display: none !important;
-}
-
-
-/* FIX: nav jitter guard */
-.main-nav-bar{
-  will-change: transform;
 }
