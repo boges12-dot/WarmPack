@@ -124,3 +124,21 @@ main, .main, .container, .content, .content-wrap{
 
 /* Structural wrappers (no visual change) */
 .site-header, .site-main{display:block;}
+
+/* ===== Hero shrink on scroll (PC ONLY) ===== */
+.hero-main{
+  height: 380px;               /* 기본(커진 상태) */
+  transition: height .25s ease, background-size .25s ease;
+}
+
+.hero-main.is-shrink{
+  height: 180px;               /* 줄어든 상태 */
+}
+
+/* 배너 클릭영역 유지 */
+.hero-main .hero-home-link{
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
