@@ -1,23 +1,23 @@
 /* =========================================================
-   banner_override.css (PC ONLY) - No layout shift
-   목표:
-   - 메뉴: 배너 아래에서 시작(sticky), 스크롤 시 상단 고정
-   - 배너: 레이아웃(높이) 고정, transform으로만 줄어듦 -> 메뉴 점프/깜빡임 방지
+   banner_override.css (PC ONLY) - Crop (Top) + Menu moves together
+   요구사항:
+   - 배너(배경)가 변할 때 메인 메뉴도 같이 움직임 (sticky/fixed 금지)
+   - 배너는 "줄어듦"이 아니라 높이가 줄며 아래가 잘리는 크롭 형태
+   - 크롭 기준: TOP (상단 보존)
    ========================================================= */
 
 :root{
-  --hero-h: 460px;        /* 배너 영역 레이아웃 높이(고정) */
-  --hero-scale: 0.48;     /* 줄어든 상태(시각적 높이 비율) */
+  --hero-h: 460px;   /* 기본 배너 높이 */
+  --hero-h2: 220px;  /* 줄어든 배너 높이(더 많이 잘림) */
 }
 
-/* 메뉴: 배너 아래에서 시작 -> 스크롤 시 상단에 붙음 */
+/* 메뉴는 고정하지 않음: 배너 높이가 변하면 같이 위아래로 이동 */
 .main-nav-bar{
-  position: sticky;
-  top: 0;
-  z-index: 9999;
+  position: static !important;
+  top: auto !important;
 }
 
-/* 배너 레이아웃은 고정(여기서 height는 절대 바꾸지 않음) */
+/* 배너: cover 유지 + 상단 보존(top) + 높이 변화로 크롭 */
 .hero-main{
   width: 100%;
   height: var(--hero-h);
@@ -26,20 +26,18 @@
   background-image: url("../assets/images/banner_main.webp");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center top;
+  background-position: center top; /* TOP: 상단 보존, 아래가 잘림 */
 
   background-color: #0b111a;
   position: relative;
   overflow: hidden;
 
-  transform-origin: top;
-  transform: scaleY(1);
-  transition: transform .25s ease;
+  transition: height .25s ease;
 }
 
-/* 스크롤 시: 레이아웃은 그대로, 보이는 배너만 줄어듦 */
 .hero-main.is-shrink{
-  transform: scaleY(var(--hero-scale));
+  height: var(--hero-h2);
+  min-height: var(--hero-h2);
 }
 
 /* 배너 클릭영역 유지 */
