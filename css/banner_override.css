@@ -1,0 +1,74 @@
+/* =========================================================
+   banner_override.css (PC ONLY) - Clean / No conflicts
+   목적:
+   1) 배너(hero-main) 배경이미지 고정 + 스크롤 시 높이 줄어듦
+   2) 메뉴(main-nav-bar) 고정(점프 방지)
+   3) 기존 상단(hero-bar) 및 배너 텍스트 숨김(이미지 배너만)
+   ========================================================= */
+
+:root{
+  --nav-h: 56px;      /* 메뉴 실제 높이에 맞게 조절 */
+  --hero-h: 380px;    /* 기본 배너 높이 */
+  --hero-h2: 180px;   /* 줄어든 배너 높이 */
+}
+
+/* 0) 메뉴: 화면 상단 고정 + 페이지 내용 가림 방지 */
+.main-nav-bar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+.site-header{
+  padding-top: var(--nav-h);
+}
+
+/* 1) 기존 상단(hero-bar) 영역 완전 숨김 */
+.hero-bar,
+.hero-bar *{
+  display: none !important;
+}
+.hero-bar{
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+/* 2) 배너: 이미지 배경 + 크롭 규칙(상단 안 자르고 하단만) */
+.hero-main{
+  width: 100%;
+  height: var(--hero-h);
+  min-height: var(--hero-h);
+
+  background-image: url("../assets/images/banner_main.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+
+  background-color: #0b111a;
+  position: relative;
+
+  transition: height .25s ease;
+}
+.hero-main.is-shrink{
+  height: var(--hero-h2);
+  min-height: var(--hero-h2);
+}
+
+/* 3) 배너 클릭영역 유지 */
+.hero-home-link{
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+/* 4) 배너 텍스트가 존재하면 숨김(안전) */
+.hero-content,
+.hero-title,
+.hero-subtitle,
+.banner-text,
+.banner-content{
+  display: none !important;
+}
