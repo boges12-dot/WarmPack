@@ -142,3 +142,16 @@ main, .main, .container, .content, .content-wrap{
   display: block;
 }
 
+/* ===== FIX: keep menu stable, banner not fixed (PC ONLY) ===== */
+/* 기존 main.css에서 .site-header가 sticky라서 배너까지 같이 고정됨 -> header는 static으로 풀고,
+   메뉴(nav)만 sticky로 고정 */
+.site-header{
+  position: static !important;
+  top: auto !important;
+}
+
+.main-nav-bar{
+  position: sticky;
+  top: 0;
+  z-index: 60;
+}
