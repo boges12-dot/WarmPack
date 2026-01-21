@@ -1,43 +1,35 @@
-/* === Banner override (final3) === */
-
-/* 1) Remove old header banner/logos area completely */
-.hero-bar,
-.hero-bar * {
-  display: none !important;
-}
-.hero-bar {
-  padding: 0 !important;
-  margin: 0 !important;
-  height: 0 !important;
-  overflow: hidden !important;
+:root{
+  --hero-h: 460px;
+  --wrap-offset: 0px;
 }
 
-/* 2) Add main hero banner (background only) */
-.hero-main {
-  width: 100%;
-  height: 380px;
-  background-image: url("../assets/images/banner_main.webp") !important;
-  background-position: center top !important;
-  background-size: cover !important;
-  background-repeat: no-repeat !important;
-  background-color: #0b111a !important;
+/* 배너 + 메뉴를 함께 이동 */
+.hero-wrap{
+  transform: translateY(var(--wrap-offset));
+  transition: transform .25s ease;
+  will-change: transform;
 }
 
-@media (max-width: 768px) {
-  .hero-main {
-    height: 240px;
-    background-position: center top !important;
-  }
+/* 메뉴 고정 제거 */
+.main-nav-bar{
+  position: relative;
+  z-index: 1000;
+  background: linear-gradient(to bottom, #0b111a, #060a10);
 }
 
-/* 3) If any hero text exists, hide it (safety) */
+.hero-main{
+  width:100%;
+  height:var(--hero-h);
+  min-height:var(--hero-h);
+  background:url("../assets/images/banner_main.webp") center top / cover no-repeat;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero-home-link{ position:absolute; inset:0; display:block; }
+
 .hero-content,
-.hero-content h1,
-.hero-content h2,
-.hero-content p,
 .hero-title,
 .hero-subtitle,
 .banner-text,
-.banner-content {
-  display: none !important;
-}
+.banner-content{ display:none !important; }
