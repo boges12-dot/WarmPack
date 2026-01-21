@@ -1,12 +1,26 @@
 document.addEventListener("DOMContentLoaded", () => {
   const hero = document.querySelector(".hero-main");
-  if (!hero || !("IntersectionObserver" in window)) return;
+  if (!hero) return;
 
-  const observer = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      hero.classList.toggle("is-hidden", !e.isIntersecting);
+  const HERO_H = 460;
+  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+
+  const update = () => {
+    const y = window.scrollY || 0;
+    const offset = -clamp(y, 0, HERO_H);
+    hero.style.setProperty("--hero-offset", offset + "px");
+  };
+
+  let ticking = false;
+  window.addEventListener("scroll", () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      ticking = false;
+      update();
     });
-  }, {threshold:0});
+  }, { passive: true });
 
-  observer.observe(hero);
+  window.addEventListener("resize", update);
+  update();
 });
