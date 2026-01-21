@@ -2,45 +2,46 @@ document.addEventListener("DOMContentLoaded", () => {
   const hero = document.querySelector(".hero-main");
   if (!hero) return;
 
-  // 내려가면 줄어듦 / 올라오면 커짐 (완충지대)
-  const SHRINK_ON  = 180; // >= 이면 shrink
-  const SHRINK_OFF = 120; // <= 이면 expand
+  const HERO_H = 460;
 
-  let isShrink = false;
-  let lockUntil = 0;
+  // 내릴 때 숨김 / 올릴 때 복귀 (깜빡임 방지 완충)
+  const HIDE_ON  = 120; // 이 이상 내려가면 배너 숨김
+  const SHOW_OFF = 60;  // 이 이하로 올라오면 배너 표시
 
-  const setShrink = (next) => {
-    isShrink = next;
-    // next=true => is-shrink 추가(=줄어듦)
-    hero.classList.toggle("is-shrink", next);
-    lockUntil = performance.now() + 300; // transition 동안 재토글 방지
-  };
+  let isHidden = false;
 
-  const update = () => {
-    const now = performance.now();
-    if (now < lockUntil) return;
-
+  const apply = () => {
     const y = window.scrollY || 0;
 
-    if (!isShrink && y >= SHRINK_ON) {
-      setShrink(true);
+    if (!isHidden && y >= HIDE_ON) {
+      isHidden = true;
+      hero.style.setProperty("--hero-cur", "0px");
+      hero.style.setProperty("--hero-op", "0");
       return;
     }
 
-    if (isShrink && y <= SHRINK_OFF) {
-      setShrink(false);
+    if (isHidden && y <= SHOW_OFF) {
+      isHidden = false;
+      hero.style.setProperty("--hero-cur", HERO_H + "px");
+      hero.style.setProperty("--hero-op", "1");
     }
   };
 
   let ticking = false;
-  window.addEventListener("scroll", () => {
+  const onScroll = () => {
     if (ticking) return;
     ticking = true;
     requestAnimationFrame(() => {
       ticking = false;
-      update();
+      apply();
     });
-  }, { passive: true });
+  };
 
-  update();
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", apply);
+
+  // 초기값
+  hero.style.setProperty("--hero-cur", HERO_H + "px");
+  hero.style.setProperty("--hero-op", "1");
+  apply();
 });

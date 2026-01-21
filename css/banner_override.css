@@ -1,15 +1,13 @@
 /* =========================================================
-   banner_override.css (PC ONLY) - Crop (Top) + Menu moves together
-   확정 동작:
-   - 스크롤 내려가면: is-shrink 추가 -> 배너 높이 줄어듦(크롭)
-   - 스크롤 올리면: is-shrink 제거 -> 배너 높이 원복
-   - 메뉴는 고정하지 않음(배너와 함께 이동)
-   - 크롭 기준: TOP (상단 보존)
+   banner_override.css (PC ONLY) - Banner disappears on scroll
+   동작:
+   - 스크롤을 내리면 배너가 부드럽게 사라짐(높이 0 + 투명)
+   - 스크롤을 올리면 배너가 다시 나타남
+   - 메뉴는 고정하지 않음(배너가 사라지면 메뉴가 위로 올라옴)
    ========================================================= */
 
 :root{
-  --hero-h: 460px;   /* 기본(큰) */
-  --hero-h2: 220px;  /* shrink(작은) */
+  --hero-h: 460px;   /* 기본 배너 높이 */
 }
 
 /* 메뉴는 고정하지 않음 */
@@ -18,11 +16,11 @@
   top: auto !important;
 }
 
-/* 배너: cover + 상단 보존 + 높이 변화로 아래가 잘리는 크롭 */
+/* 배너: JS가 --hero-cur(0 또는 hero-h)을 넣음 */
 .hero-main{
   width: 100%;
-  height: var(--hero-h);
-  min-height: var(--hero-h);
+  height: var(--hero-cur, var(--hero-h));
+  min-height: var(--hero-cur, var(--hero-h));
 
   background-image: url("../assets/images/banner_main.webp");
   background-size: cover;
@@ -33,13 +31,8 @@
   position: relative;
   overflow: hidden;
 
-  transition: height .25s ease;
-}
-
-/* ✅ shrink는 더 작아야 함 */
-.hero-main.is-shrink{
-  height: var(--hero-h2);
-  min-height: var(--hero-h2);
+  opacity: var(--hero-op, 1);
+  transition: height .22s ease, opacity .22s ease;
 }
 
 /* 클릭영역 */
