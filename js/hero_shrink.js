@@ -2,20 +2,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const hero = document.querySelector(".hero-main");
   if (!hero) return;
 
-  // ✅ 레이아웃(height) 변화로 scrollY가 튀면서 ON/OFF가 반복되는 현상 방지용
-  // - 줄어듦: 충분히 내려갔을 때만
-  // - 복귀: 거의 최상단(0 근처)에서만
-  const SHRINK_ON  = 180; // px
-  const EXPAND_AT  = 10;  // px (거의 맨 위에서만 원복)
+  // 내려가면 줄어듦 / 올라오면 커짐 (완충지대)
+  const SHRINK_ON  = 180; // >= 이면 shrink
+  const SHRINK_OFF = 120; // <= 이면 expand
 
   let isShrink = false;
   let lockUntil = 0;
 
   const setShrink = (next) => {
     isShrink = next;
+    // next=true => is-shrink 추가(=줄어듦)
     hero.classList.toggle("is-shrink", next);
-    // 토글 직후 몇 프레임 동안은 재토글 금지(쿨다운)
-    lockUntil = performance.now() + 350;
+    lockUntil = performance.now() + 300; // transition 동안 재토글 방지
   };
 
   const update = () => {
@@ -29,21 +27,20 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    if (isShrink && y <= EXPAND_AT) {
+    if (isShrink && y <= SHRINK_OFF) {
       setShrink(false);
     }
   };
 
   let ticking = false;
-  const onScroll = () => {
+  window.addEventListener("scroll", () => {
     if (ticking) return;
     ticking = true;
     requestAnimationFrame(() => {
       ticking = false;
       update();
     });
-  };
+  }, { passive: true });
 
-  window.addEventListener("scroll", onScroll, { passive: true });
   update();
 });
