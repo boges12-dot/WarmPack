@@ -101,3 +101,16 @@
     max-width:320px;
   }
 }
+
+
+/* FIX: 클래스 텍스트가 이상하게 끊기는 현상 방지 */
+.class-item{ align-items:flex-start; }
+.class-item .class-desc{
+  flex:1;
+  min-width:0;            /* flex 아이템이 줄바꿈 가능하도록 */
+  white-space: normal;
+  word-break: keep-all;   /* 한글 단어 단위 줄바꿈 */
+  overflow-wrap: break-word;
+  line-height: 1.65;
+}
+.class-item .class-desc p{ margin:0; }
