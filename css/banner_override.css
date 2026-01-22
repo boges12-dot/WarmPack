@@ -27,3 +27,29 @@
 .hero-subtitle,
 .banner-text,
 .banner-content{ display:none !important; }
+
+
+/* FIX: 클래스 상세 이미지 + 설명을 나란히, 텍스트 끊김 방지 */
+.class-item{
+  display:flex;
+  gap:20px;
+  align-items:flex-start;
+}
+.class-item img{
+  width:180px;
+  height:auto;
+  flex:0 0 auto;
+}
+.class-item .class-desc{
+  flex:1 1 auto;
+  min-width:0;
+  white-space:normal;
+  word-break:keep-all;
+  overflow-wrap:break-word;
+  line-height:1.65;
+}
+.class-item .class-desc p{ margin:0 0 10px 0; }
+@media (max-width:768px){
+  .class-item{ flex-direction:column; }
+  .class-item img{ width:100%; max-width:320px; }
+}
