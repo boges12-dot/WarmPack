@@ -1,150 +1,227 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="ko">
 <head>
-    <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>기사 스킬 · </title>
-<meta name="description" content="기사 스킬 · ">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="">
-<meta property="og:title" content="기사 스킬 · ">
-<meta property="og:description" content="기사 스킬 · ">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="기사 스킬 · ">
-<meta name="twitter:description" content="기사 스킬 · ">
-<link rel="stylesheet" href="../../css/main.20260116_16.min.css">
-
-  <!-- STEP9: icons/manifest -->
-<link rel="icon"  sizes="any" href="../../favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="../../assets/icons/favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="../../assets/icons/apple-touch-icon.png">
-<link rel="manifest" href="../../site.webmanifest">
-<meta name="theme-color" content="#ffffff">
-
-<meta property="og:image" content="https://boges12-dot.github.io/WarmPack/assets/images/og_v3.jpg">
-  <meta property="og:image:secure_url" content="https://boges12-dot.github.io/WarmPack/assets/images/og_v3.jpg">
-  <meta name="twitter:image" content="https://boges12-dot.github.io/WarmPack/assets/images/og_v3.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="../../css/banner_override.css">
-</head>
+<meta content="strict-origin-when-cross-origin" name="referrer"/>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>기사 스킬 · </title>
+<meta content="기사 스킬 · " name="description"/>
+<meta content="website" property="og:type"/>
+<meta content="" property="og:site_name"/>
+<meta content="기사 스킬 · " property="og:title"/>
+<meta content="기사 스킬 · " property="og:description"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="기사 스킬 · " name="twitter:title"/>
+<meta content="기사 스킬 · " name="twitter:description"/>
+<link href="../../css/main.20260116_16.min.css" rel="stylesheet"/>
+<!-- STEP9: icons/manifest -->
+<link href="../../favicon.ico" rel="icon" sizes="any"/>
+<link href="../../assets/icons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../../assets/icons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="../../assets/icons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="../../site.webmanifest" rel="manifest"/>
+<meta content="#ffffff" name="theme-color"/>
+<meta content="https://boges12-dot.github.io/WarmPack/assets/images/og_v3.jpg" property="og:image"/>
+<meta content="https://boges12-dot.github.io/WarmPack/assets/images/og_v3.jpg" property="og:image:secure_url"/>
+<meta content="https://boges12-dot.github.io/WarmPack/assets/images/og_v3.jpg" name="twitter:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="../../css/banner_override.css" rel="stylesheet"/>
+</meta><style id="skill-table-center">
+/* Skill tables center alignment */
+main table{
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+main h2, main h3{
+  text-align:center;
+}
+</style></head>
 <body>
 <header class="site-header">
-<section class="hero-main"><a href="#" class="hero-home-link" aria-label="홈으로 이동"></a></section>
-<nav class="main-nav-bar" aria-label="메인 메뉴">
-  <ul class="nav" id="main-nav">
-    <li class="has-sub">
-      <a href="../../pages/공지/index.html">소개</a>
-      <ul class="submenu">
-        <li><a href="../../pages/공지/index.html">공지사항</a></li>
-        <li><a href="../../pages/공지/서버규정.html">서버규정</a></li>
-        <li><a href="../../pages/공지/서버점검.html">서버점검</a></li>
-        <li><a href="../../pages/공지/업데이트.html">업데이트</a></li>
-        <li><a href="../../pages/공지/이벤트.html">이벤트</a></li>
-      </ul>
-    </li>
-
-    <li class="has-sub">
-      <a href="../../pages/가이드/index.html">가이드</a>
-      <ul class="submenu">
-        <li><a href="../../pages/가이드/클래스-가이드.html">클래스</a></li>
-
-        <li><a href="../../pages/가이드/index.html">서버가이드</a></li>
-        <li><a href="../../pages/가이드/낚시가이드.html">낚시가이드</a></li>
-        <li><a href="../../pages/가이드/도감가이드.html">도감가이드</a></li>
-      </ul>
-    </li>
-
-    <li class="has-sub">
-      <a href="../../pages/제작/index.html">제작</a>
-      <ul class="submenu">
-        <li><a href="../../pages/제작/인형-제작.html">인형 제작</a></li>
-        <li><a href="../../pages/제작/오만의탑-이동-부적.html">오만의탑 이동 부적</a></li>
-        <li><a href="../../pages/제작/아이템-제작.html">아이템 제작</a></li>
-      </ul>
-    </li>
-
-    <li class="has-sub">
-      <a href="../../pages/스킬/index.html">스킬</a>
-      <ul class="submenu">
-        <li><a href="../../pages/스킬/군주-스킬.html">군주 스킬</a></li>
-        <li><a href="../../pages/스킬/기사-스킬.html">기사 스킬</a></li>
-        <li><a href="../../pages/스킬/마법사-스킬.html">마법사 스킬</a></li>
-        <li><a href="../../pages/스킬/요정-스킬.html">요정 스킬</a></li>
-      </ul>
-    </li>
-
-    <li class="has-sub">
-      <a href="../../pages/아이템/index.html">아이템</a>
-      <ul class="submenu">
-        <li><a href="../../pages/아이템/무기.html">무기</a></li>
-        <li><a href="../../pages/아이템/방어구.html">방어구</a></li>
-        <li><a href="../../pages/아이템/악세사리.html">악세사리</a></li>
-        <li><a href="../../pages/아이템/인형.html">인형</a></li>
-        <li><a href="../../pages/아이템/마안.html">마안</a></li>
-        <li><a href="../../pages/아이템/주문서.html">주문서</a></li>
-      </ul>
-    </li>
-
-    <li class="has-sub">
-      <a href="../../pages/사냥터/index.html">사냥터</a>
-      <ul class="submenu">
-        <li><a href="../../pages/사냥터/필드.html">필드</a></li>
-        <li><a href="../../pages/사냥터/던전.html">던전</a></li>
-        <li><a href="../../pages/사냥터/로테이션-던전.html">로테이션 던전</a></li>
-      </ul>
-    </li>
-
-    <li class="has-sub">
-      <a href="../../pages/홍보/index.html">홍보</a>
-      <ul class="submenu">
-        <li><a href="../../pages/홍보/홍보글.html">홍보글</a></li>
-        <li><a href="../../pages/홍보/홍보보상받기.html">홍보보상받기</a></li>
-      </ul>
-    </li>
-
-    <li class="has-sub">
-      <a href="../../pages/커뮤니티/index.html">커뮤니티</a>
-      <ul class="submenu">
-        <li><a href="../../pages/커뮤니티/카카오톡.html">카카오톡</a></li>
-        <li><a href="../../pages/커뮤니티/텔레그램.html">텔레그램</a></li>
-        <li><a href="../../pages/커뮤니티/질문답변.html">질문답변</a></li>
-        <li><a href="../../pages/커뮤니티/고객지원.html">고객지원</a></li>
-      </ul>
-    </li>
-
-    <li><a href="../../pages/다운로드/index.html">다운로드</a></li>
-  </ul>
+<section class="hero-main"><a aria-label="홈으로 이동" class="hero-home-link" href="#"></a></section>
+<nav aria-label="메인 메뉴" class="main-nav-bar">
+<ul class="nav" id="main-nav">
+<li class="has-sub">
+<a href="../../pages/공지/index.html">소개</a>
+<ul class="submenu">
+<li><a href="../../pages/공지/index.html">공지사항</a></li>
+<li><a href="../../pages/공지/서버규정.html">서버규정</a></li>
+<li><a href="../../pages/공지/서버점검.html">서버점검</a></li>
+<li><a href="../../pages/공지/업데이트.html">업데이트</a></li>
+<li><a href="../../pages/공지/이벤트.html">이벤트</a></li>
+</ul>
+</li>
+<li class="has-sub">
+<a href="../../pages/가이드/index.html">가이드</a>
+<ul class="submenu">
+<li><a href="../../pages/가이드/클래스-가이드.html">클래스</a></li>
+<li><a href="../../pages/가이드/index.html">서버가이드</a></li>
+<li><a href="../../pages/가이드/낚시가이드.html">낚시가이드</a></li>
+<li><a href="../../pages/가이드/도감가이드.html">도감가이드</a></li>
+</ul>
+</li>
+<li class="has-sub">
+<a href="../../pages/제작/index.html">제작</a>
+<ul class="submenu">
+<li><a href="../../pages/제작/인형-제작.html">인형 제작</a></li>
+<li><a href="../../pages/제작/오만의탑-이동-부적.html">오만의탑 이동 부적</a></li>
+<li><a href="../../pages/제작/아이템-제작.html">아이템 제작</a></li>
+</ul>
+</li>
+<li class="has-sub">
+<a href="../../pages/스킬/index.html">스킬</a>
+<ul class="submenu">
+<li><a href="../../pages/스킬/군주-스킬.html">군주 스킬</a></li>
+<li><a href="../../pages/스킬/기사-스킬.html">기사 스킬</a></li>
+<li><a href="../../pages/스킬/마법사-스킬.html">마법사 스킬</a></li>
+<li><a href="../../pages/스킬/요정-스킬.html">요정 스킬</a></li>
+</ul>
+</li>
+<li class="has-sub">
+<a href="../../pages/아이템/index.html">아이템</a>
+<ul class="submenu">
+<li><a href="../../pages/아이템/무기.html">무기</a></li>
+<li><a href="../../pages/아이템/방어구.html">방어구</a></li>
+<li><a href="../../pages/아이템/악세사리.html">악세사리</a></li>
+<li><a href="../../pages/아이템/인형.html">인형</a></li>
+<li><a href="../../pages/아이템/마안.html">마안</a></li>
+<li><a href="../../pages/아이템/주문서.html">주문서</a></li>
+</ul>
+</li>
+<li class="has-sub">
+<a href="../../pages/사냥터/index.html">사냥터</a>
+<ul class="submenu">
+<li><a href="../../pages/사냥터/필드.html">필드</a></li>
+<li><a href="../../pages/사냥터/던전.html">던전</a></li>
+<li><a href="../../pages/사냥터/로테이션-던전.html">로테이션 던전</a></li>
+</ul>
+</li>
+<li class="has-sub">
+<a href="../../pages/홍보/index.html">홍보</a>
+<ul class="submenu">
+<li><a href="../../pages/홍보/홍보글.html">홍보글</a></li>
+<li><a href="../../pages/홍보/홍보보상받기.html">홍보보상받기</a></li>
+</ul>
+</li>
+<li class="has-sub">
+<a href="../../pages/커뮤니티/index.html">커뮤니티</a>
+<ul class="submenu">
+<li><a href="../../pages/커뮤니티/카카오톡.html">카카오톡</a></li>
+<li><a href="../../pages/커뮤니티/텔레그램.html">텔레그램</a></li>
+<li><a href="../../pages/커뮤니티/질문답변.html">질문답변</a></li>
+<li><a href="../../pages/커뮤니티/고객지원.html">고객지원</a></li>
+</ul>
+</li>
+<li><a href="../../pages/다운로드/index.html">다운로드</a></li>
+</ul>
 </nav>
 </header>
-
 <main class="site-main">
-
-  <div id="top"></div>
-  <a class="skip-link" href="#main-content">본문 바로가기</a>
-
-
+<div id="top"></div>
+<a class="skip-link" href="#main-content">본문 바로가기</a>
 <main id="main-content">
-  <section class="page-head">
-    <div class="container">
-      <h1 class="page-title">기사 스킬</h1>
-      <p class="page-sub">스킬 하위: 기사 스킬 페이지입니다.</p>
-    </div>
-  </section>
-  <section class="page-body">
-    <div class="container">
-      <div class="card section">
-        <h2>내용</h2>
-        <p>여기에 기사 스킬 콘텐츠를 채우면 됩니다.</p>
-      </div>
-    </div>
-  </section>
+<section class="page-head">
+<div class="container">
+<h1 class="page-title">기사 스킬</h1>
+<p class="page-sub">스킬 하위: 기사 스킬 페이지입니다.</p>
+</div>
+</section>
+<section class="page-body">
+<div class="container">
+<div class="card section">
+<h2>내용</h2>
+<p>여기에 기사 스킬 콘텐츠를 채우면 됩니다.</p>
+</div>
+</div>
+</section>
+<h3 style="margin-top:30px; margin-bottom:10px;">기사 스킬 목록</h3>
+<table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; max-width: 800px; width: 100%;">
+<thead>
+<tr>
+<th>스킬 명</th>
+<th>사진</th>
+<th>소모 MP/HP</th>
+<th>정보</th>
+<th>획득 방법</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>쇼크 스턴<br/>(기사)</td>
+<td><img height="80" src="https://example.com/skill_shock_stun.png" width="80"/></td>
+<td>MP 20<br/>HP 사용 안함</td>
+<td>양손검 착용 시에만 사용 가능.<br/>순간적인 대미지와 함께 상대를 스턴 상태로 만듦.</td>
+<td>하급 마법상인 판매</td>
+</tr>
+<tr>
+<td>솔리드 캐리지<br/>(기사)</td>
+<td><img height="80" src="https://example.com/skill_solid_carriage.png" width="80"/></td>
+<td>MP 10<br/>HP 100</td>
+<td>지속 시간 동안 ER +15 효과 부여</td>
+<td>중급 마법상인 판매, 드랍(추후 공개)</td>
+</tr>
+<tr>
+<td>리덕션 아머<br/>(기사)</td>
+<td><img height="80" src="https://example.com/skill_reduction_armor.png" width="80"/></td>
+<td>MP 7<br/>HP 50</td>
+<td>192초 동안 대미지 감소 +1, 이후 5레벨마다 +1</td>
+<td>중급 마법상인 판매, 드랍(추후 공개)</td>
+</tr>
+<tr>
+<td>카운터 배리어<br/>(기사)</td>
+<td><img height="80" src="https://example.com/skill_counter_barrier.png" width="80"/></td>
+<td>MP 10<br/>HP 100</td>
+<td>근거리 공격 회피 후 카운터 공격</td>
+<td>드랍(추후 공개)</td>
+</tr>
+</tbody>
+</table>
 </main>
+<h3 style="margin-top:30px; margin-bottom:10px;">기사 스킬 목록</h3>
+<table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; max-width: 800px; width: 100%;">
+<thead>
+<tr>
+<th>스킬 명</th>
+<th>사진</th>
+<th>소모 MP/HP</th>
+<th>정보</th>
+<th>획득 방법</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>쇼크 스턴<br/>(기사)</td>
+<td><img height="80" src="https://example.com/skill_shock_stun.png" width="80"/></td>
+<td>MP 20<br/>HP 사용 안함</td>
+<td>양손검 착용 시에만 사용 가능.<br/>순간적인 대미지와 함께 상대를 스턴 상태로 만듦.</td>
+<td>하급 마법상인 판매</td>
+</tr>
+<tr>
+<td>솔리드 캐리지<br/>(기사)</td>
+<td><img height="80" src="https://example.com/skill_solid_carriage.png" width="80"/></td>
+<td>MP 10<br/>HP 100</td>
+<td>지속 시간 동안 ER +15 효과 부여</td>
+<td>중급 마법상인 판매, 드랍(추후 공개)</td>
+</tr>
+<tr>
+<td>리덕션 아머<br/>(기사)</td>
+<td><img height="80" src="https://example.com/skill_reduction_armor.png" width="80"/></td>
+<td>MP 7<br/>HP 50</td>
+<td>192초 동안 대미지 감소 +1, 이후 5레벨마다 +1</td>
+<td>중급 마법상인 판매, 드랍(추후 공개)</td>
+</tr>
+<tr>
+<td>카운터 배리어<br/>(기사)</td>
+<td><img height="80" src="https://example.com/skill_counter_barrier.png" width="80"/></td>
+<td>MP 10<br/>HP 100</td>
+<td>근거리 공격 회피 후 카운터 공격</td>
+<td>드랍(추후 공개)</td>
+</tr>
+</tbody>
+</table>
 </main>
-
-
-<script src="../../js/main.20260116_16.min.js" defer></script>
+<script defer="" src="../../js/main.20260116_16.min.js"></script>
 <script src="../../js/banner_home.js"></script>
 <script src="../../js/top_button.js"></script>
 <script src="../../js/hero_shrink.js"></script>
