@@ -1,22 +1,8 @@
 :root{
-  --hero-h: 300px;
-  --wrap-offset: 0px;
+  --hero-h: 300px; /* 기본 배너 높이 */
 }
 
-/* 배너 + 메뉴를 함께 이동 */
-.hero-wrap{
-  transform: translateY(var(--wrap-offset));
-  transition: transform .25s ease;
-  will-change: transform;
-}
-
-/* 메뉴 고정 제거 */
-.main-nav-bar{
-  position: relative;
-  z-index: 1000;
-  background: linear-gradient(to bottom, #0b111a, #060a10);
-}
-
+/* 배너(배경) */
 .hero-main{
   width:100%;
   height:var(--hero-h);
@@ -26,8 +12,16 @@
   overflow:hidden;
 }
 
+/* 메뉴는 배너 아래에 위치(스크롤 시 배너 높이가 줄어들면 메뉴도 같이 올라옴) */
+.main-nav-bar{
+  position: relative;
+  z-index: 1000;
+}
+
+/* 배너 위 전체 클릭(홈) */
 .hero-home-link{ position:absolute; inset:0; display:block; }
 
+/* 배너 안 텍스트 숨김(필요시 해제) */
 .hero-content,
 .hero-title,
 .hero-subtitle,
