@@ -1,15 +1,18 @@
 :root{
-  --hero-h: 300px; /* 기본 배너 높이 */
+  --hero-h-base: 300px; /* 기본 배너 높이 */
+  --hero-collapse: 0px;  /* 스크롤로 줄어드는 값 */
 }
+
 
 /* 배너(배경) */
 .hero-main{
   width:100%;
-  height:var(--hero-h);
-  min-height:var(--hero-h);
+  height:calc(var(--hero-h-base) - var(--hero-collapse));
+  min-height:0;
   background:url("../assets/images/banner_main.webp") center top / cover no-repeat;
   position:relative;
   overflow:hidden;
+  transition: height .12s linear;
 }
 
 /* 메뉴는 배너 아래에 위치(스크롤 시 배너 높이가 줄어들면 메뉴도 같이 올라옴) */
