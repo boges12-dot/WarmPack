@@ -77,3 +77,27 @@
 .notice-nav-link{display:inline-flex;align-items:center;padding:8px 10px;border-radius:12px;border:1px solid rgba(0,0,0,.18);background:rgba(0,0,0,.06);text-decoration:none;color:inherit}
 .notice-nav-link:hover{background:rgba(0,0,0,.1)}
 .notice-nav-link[hidden]{display:none!important}
+
+/* 클래스 설명 이미지 + 텍스트 나란히 */
+.class-item{
+  display:flex;
+  gap:16px;
+  align-items:flex-start;
+}
+.class-item img{
+  width:160px;
+  height:auto;
+  flex-shrink:0;
+}
+.class-item .class-desc{
+  flex:1;
+}
+@media (max-width:768px){
+  .class-item{
+    flex-direction:column;
+  }
+  .class-item img{
+    width:100%;
+    max-width:320px;
+  }
+}
