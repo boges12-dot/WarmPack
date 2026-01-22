@@ -36,6 +36,17 @@ main table{
 main h2, main h3{
   text-align:center;
 }
+
+
+/* FIX: 스킬 표 헤더(회색) -> 검정 */
+main table thead{
+  background:#000 !important;
+  color:#fff !important;
+}
+main table thead th{
+  background:#000 !important;
+  color:#fff !important;
+}
 </style></head>
 <body>
 <header class="site-header">
@@ -178,49 +189,7 @@ main h2, main h3{
 </tbody>
 </table>
 </main>
-<h3 style="margin-top:30px; margin-bottom:10px;">기사 스킬 목록</h3>
-<table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; max-width: 800px; width: 100%;">
-<thead>
-<tr>
-<th>스킬 명</th>
-<th>사진</th>
-<th>소모 MP/HP</th>
-<th>정보</th>
-<th>획득 방법</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>쇼크 스턴<br/>(기사)</td>
-<td><img height="80" src="https://example.com/skill_shock_stun.png" width="80"/></td>
-<td>MP 20<br/>HP 사용 안함</td>
-<td>양손검 착용 시에만 사용 가능.<br/>순간적인 대미지와 함께 상대를 스턴 상태로 만듦.</td>
-<td>하급 마법상인 판매</td>
-</tr>
-<tr>
-<td>솔리드 캐리지<br/>(기사)</td>
-<td><img height="80" src="https://example.com/skill_solid_carriage.png" width="80"/></td>
-<td>MP 10<br/>HP 100</td>
-<td>지속 시간 동안 ER +15 효과 부여</td>
-<td>중급 마법상인 판매, 드랍(추후 공개)</td>
-</tr>
-<tr>
-<td>리덕션 아머<br/>(기사)</td>
-<td><img height="80" src="https://example.com/skill_reduction_armor.png" width="80"/></td>
-<td>MP 7<br/>HP 50</td>
-<td>192초 동안 대미지 감소 +1, 이후 5레벨마다 +1</td>
-<td>중급 마법상인 판매, 드랍(추후 공개)</td>
-</tr>
-<tr>
-<td>카운터 배리어<br/>(기사)</td>
-<td><img height="80" src="https://example.com/skill_counter_barrier.png" width="80"/></td>
-<td>MP 10<br/>HP 100</td>
-<td>근거리 공격 회피 후 카운터 공격</td>
-<td>드랍(추후 공개)</td>
-</tr>
-</tbody>
-</table>
-</main>
+<h3 style="margin-top:30px; margin-bottom:10px;"></main>
 <script defer="" src="../../js/main.20260116_16.min.js"></script>
 <script src="../../js/banner_home.js"></script>
 <script src="../../js/top_button.js"></script>
