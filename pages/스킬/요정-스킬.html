@@ -57,7 +57,17 @@ main table thead th{
   color:#000 !important;
   background:#f2f2f2 !important;
 }
-</style></head>
+</style><style>
+/* FIX: 스크롤 시 메뉴 떨림 방지 */
+header, nav, .header, .navbar {
+  will-change: auto !important;
+  transform: none !important;
+}
+body {
+  overflow-anchor: none;
+}
+</style>
+</head>
 <body>
 <header class="site-header">
 <section class="hero-main"><a aria-label="홈으로 이동" class="hero-home-link" href="#"></a></section>
@@ -95,7 +105,7 @@ main table thead th{
 <ul class="submenu">
 <li><a href="../../pages/스킬/군주-스킬.html">군주 스킬</a></li>
 <li><a href="../../pages/스킬/기사-스킬.html">기사 스킬</a></li>
-<li><a href="../../pages/스킬/마법사-스킬.html">마법사 스킬</a></li>
+<li><a href="../../pages/스킬/마법사-스킬.html"></a></li>
 <li><a href="../../pages/스킬/요정-스킬.html">요정 스킬</a></li>
 </ul>
 </li>

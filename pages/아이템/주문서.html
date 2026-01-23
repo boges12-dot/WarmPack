@@ -28,6 +28,16 @@
   <meta name="twitter:image" content="https://boges12-dot.github.io/WarmPack/assets/images/og_v3.jpg">
   <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="../../css/banner_override.css">
+<style>
+/* FIX: 스크롤 시 메뉴 떨림 방지 */
+header, nav, .header, .navbar {
+  will-change: auto !important;
+  transform: none !important;
+}
+body {
+  overflow-anchor: none;
+}
+</style>
 </head>
 <body>
 <header class="site-header">

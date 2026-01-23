@@ -40,7 +40,17 @@
   .class-table .ct-title{width:90px; white-space:normal;}
   .class-table .ct-img img{width:80px !important; height:80px !important; object-fit:cover !important; display:block; margin:0 auto; border-radius:6px;}
 }
-</style></head>
+</style><style>
+/* FIX: 스크롤 시 메뉴 떨림 방지 */
+header, nav, .header, .navbar {
+  will-change: auto !important;
+  transform: none !important;
+}
+body {
+  overflow-anchor: none;
+}
+</style>
+</head>
 <body>
 <header class="site-header">
 <section class="hero-main"><a aria-label="홈으로 이동" class="hero-home-link" href="#"></a></section>
