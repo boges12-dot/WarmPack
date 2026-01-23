@@ -165,3 +165,13 @@ table.skill-table th, table.skill-table td{
   .home-widgets-grid{ grid-template-columns: 1fr; }
   .home-boss-grid{ grid-template-columns: repeat(2, 1fr); }
 }
+
+
+/* AUDIT FIX: 깨진 이미지가 레이아웃을 망치지 않도록 */
+table.skill-table img{
+  display:block;
+  margin:0 auto;
+  max-width:80px;
+  max-height:80px;
+  object-fit:contain;
+}
