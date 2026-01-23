@@ -56,3 +56,15 @@
   .class-item{ flex-direction:column; }
   .class-item img{ width:100%; max-width:320px; }
 }
+
+/* FIX: skill-table width (force) */
+table.skill-table{
+  width:100% !important;
+  max-width:980px !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  border-collapse:collapse !important;
+}
+table.skill-table th, table.skill-table td{
+  padding:10px !important;
+}
