@@ -68,6 +68,17 @@ main table{
 main table th, main table td{
   padding:8px !important;
 }
+
+
+/* FIX: 스킬 표가 글자 영역보다 작아 보이는 문제(폭/패딩 확대) */
+main table{
+  width:100% !important;
+  max-width:980px !important;
+  border-collapse:collapse !important;
+}
+main table th, main table td{
+  padding:10px !important;
+}
 </style><style>
 /* FIX: 스크롤 시 메뉴 떨림 방지 */
 header, nav, .header, .navbar {
