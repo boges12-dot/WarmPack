@@ -465,3 +465,32 @@ main{min-height:60vh}
 @media (max-width: 520px){
   #server-notice .notice-box{ padding:22px 16px; }
 }
+
+/* 홈 3분할: 왼쪽 소개 / 중앙 서버안내 / 오른쪽 바로가기 */
+.home-widgets .home-3col{
+  display:grid;
+  grid-template-columns: 1fr 1.2fr 1fr;
+  gap:20px;
+}
+@media (max-width: 1100px){
+  .home-widgets .home-3col{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 홈 아이콘 메뉴 */
+#main-nav .home-link .nav-home{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:38px;
+  height:32px;
+  border-radius:10px;
+}
+#main-nav .home-link .nav-home .icon-home{
+  fill: currentColor;
+  opacity:.95;
+}
+#main-nav .home-link .nav-home:hover{
+  background: rgba(255,255,255,.08);
+}
