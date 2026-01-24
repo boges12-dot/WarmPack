@@ -131,7 +131,7 @@
 /* ===== 홈 레이아웃: [소개][서버안내][바로가기] + 아래 [소식] ===== */
 .home-widgets-grid{
   display:grid;
-  grid-template-columns: 0.8fr 1.5fr 1fr;
+  grid-template-columns: 0.65fr 1.75fr 1fr;
   grid-template-areas:
     "intro notice shortcuts"
     "news news news";
