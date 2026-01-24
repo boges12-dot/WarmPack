@@ -7,19 +7,21 @@
 /* 배너(배경) */
 .hero-main{
   width:100%;
-  background:url("../assets/images/banner_main.webp") center top / cover no-repeat;
   height:calc(var(--hero-h-base) - var(--hero-collapse));
-  min-height:0;
+  min-height:calc(var(--hero-h-base) - var(--hero-collapse));
+  background:url("../assets/images/banner_main.webp") center top / cover no-repeat;
   position:relative;
   overflow:hidden;
   transition: height .12s linear;
 }
-/* 메뉴는 항상 상단 고정(배너가 줄어도 메뉴는 유지) */
+
+/* 메뉴는 배너 아래에 위치(스크롤 시 배너 높이가 줄어들면 메뉴도 같이 올라옴) */
 .main-nav-bar{
   position: sticky;
   top: 0;
   z-index: 1000;
 }
+
 
 
 /* 배너 위 전체 클릭(홈) */

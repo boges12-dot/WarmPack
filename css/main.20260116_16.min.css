@@ -128,15 +128,29 @@
 
 
 
-/* 홈 3분할: 왼쪽 소개 / 중앙 서버안내 / 오른쪽 바로가기 */
-.home-widgets .home-3col{
+/* ===== 홈 레이아웃: [소개][서버안내][바로가기] + 아래 [소식] ===== */
+.home-widgets-grid{
   display:grid;
   grid-template-columns: 1fr 1.2fr 1fr;
-  gap:20px;
+  grid-template-areas:
+    "intro notice shortcuts"
+    "news news news";
+  gap: 20px;
+  align-items:start;
 }
+.home-widgets-grid .home-intro{ grid-area:intro; }
+.home-widgets-grid .home-notice{ grid-area:notice; }
+.home-widgets-grid .home-shortcuts{ grid-area:shortcuts; }
+.home-widgets-grid .home-news{ grid-area:news; }
+
 @media (max-width: 1100px){
-  .home-widgets .home-3col{
+  .home-widgets-grid{
     grid-template-columns: 1fr;
+    grid-template-areas:
+      "intro"
+      "notice"
+      "shortcuts"
+      "news";
   }
 }
 
@@ -149,10 +163,34 @@
   height:32px;
   border-radius:10px;
 }
-#main-nav .home-link .nav-home .icon-home{
-  fill: currentColor;
-  opacity:.95;
+#main-nav .home-link .nav-home .icon-home{ fill: currentColor; opacity:.95; }
+#main-nav .home-link .nav-home:hover{ background: rgba(255,255,255,.08); }
+
+/* ===== 홈: 서버 보스 카드 + 표 ===== */
+.home-boss .home-boss-card .home-card-body{ padding: 14px 16px 18px; }
+.boss-table{
+  width:100%;
+  border-collapse: collapse;
+  font-size: 14px;
 }
-#main-nav .home-link .nav-home:hover{
-  background: rgba(255,255,255,.08);
+.boss-table th,
+.boss-table td{
+  padding: 10px 10px;
+  border-bottom: 1px solid rgba(255,255,255,.12);
+  text-align: left;
+}
+.boss-table thead th{
+  font-weight: 800;
+  border-bottom: 1px solid rgba(255,255,255,.18);
+}
+.boss-table tbody tr:hover{
+  background: rgba(255,255,255,.05);
+}
+.boss-note{
+  margin: 10px 0 0;
+  opacity: .85;
+  font-size: 13px;
+}
+@media (max-width: 520px){
+  .boss-table th, .boss-table td{ padding: 9px 8px; font-size: 13px; }
 }
