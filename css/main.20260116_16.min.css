@@ -203,3 +203,42 @@
     grid-template-columns: 0.55fr 1.9fr 0.95fr !important;
   }
 }
+
+/* EXTREME 폭 조정 (PC 전용) */
+@media (min-width: 1101px){
+  .home-widgets-grid{
+    grid-template-columns: 0.5fr 2.2fr 0.8fr !important;
+  }
+}
+
+/* 좌우 동일 폭(0.5fr) + 중앙 확장 */
+@media (min-width: 1101px){
+  .home-widgets-grid{
+    grid-template-columns: 0.5fr 2fr 0.5fr !important;
+  }
+}
+
+/* ===== 홈 최종 레이아웃 ===== */
+.home-news-top{ margin-bottom: 24px; }
+
+.home-widgets-grid{
+  display:grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 900px){
+  .home-widgets-grid{
+    grid-template-columns: 1fr;
+  }
+}
+
+.news-links{ list-style:none; padding:0; margin:0; display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; }
+.news-links a{ display:block; padding:14px; border-radius:14px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); text-align:center; }
+.news-links a:hover{ background:rgba(255,255,255,.08); }
+
+.server-status{ display:inline-flex; align-items:center; gap:8px; margin-left:10px; }
+.server-status .dot{ width:10px;height:10px;border-radius:50%; }
+.server-status.on .dot{ background:#35d07f; }
+.server-status.off .dot{ background:#ff5b5b; }
+.server-status span{ font-size:13px; font-weight:700; }
