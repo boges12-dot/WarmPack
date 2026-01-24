@@ -64,12 +64,10 @@ table.skill-table td{
 <section aria-hidden="true" class="hero-main"><a aria-label="홈으로 이동" class="hero-home-link" href="/"></a></section>
 <nav aria-label="메인 메뉴" class="main-nav-bar">
 <ul class="nav" id="main-nav">
+<li class="home-link"><a href="/" class="nav-home" aria-label="홈"><svg class="icon-home" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3 2.5 11.2a1 1 0 0 0 .7 1.8H5v7a1 1 0 0 0 1 1h4v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5h4a1 1 0 0 0 1-1v-7h1.8a1 1 0 0 0 .7-1.8L12 3z"></path></svg></a></li>
 
-<li class="home-link"><a href="/" class="nav-home" aria-label="홈"><svg class="icon-home" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-  <path d="M12 3 2.5 11.2a1 1 0 0 0 .7 1.8H5v7a1 1 0 0 0 1 1h4v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5h4a1 1 0 0 0 1-1v-7h1.8a1 1 0 0 0 .7-1.8L12 3z"></path>
-</svg></a></li>
 <li class="has-sub">
-<a href="pages/공지/index.html">소개</a>
+<a href="pages/공지/index.html">소식</a>
 <ul class="submenu">
 <li><a href="pages/공지/index.html">공지사항</a></li>
 <li><a href="pages/공지/서버규정.html">서버규정</a></li>
@@ -143,21 +141,13 @@ table.skill-table td{
 </ul>
 </nav>
 <section class="home-widgets">
-<div class="home-3col">
-  <div class="home-col left">
-    
-  </div>
-  <div class="home-col center">
-    <div class="home-card home-notice">
+<div class="container home-widgets-grid">
+<div class="home-card home-intro">
   <div class="home-card-head">
-    <h3>서버 안내</h3>
+    <h3>소개</h3>
   </div>
-  </div>
-  <div class="home-col right">
-    <div class="home-card home-shortcuts">
-<div class="home-card-head">
-<h3>바로가기</h3>
-</div>
+  <div class="home-card-body">
+    <h2>소개</h2><p>소개 내용을 여기에 입력하세요.</p>
   </div>
 </div>
 
@@ -165,6 +155,56 @@ table.skill-table td{
 <div class="home-card-head">
 <h3>소식</h3>
 <a class="home-more" href="pages/공지/index.html">더보기</a>
+</div>
+<ul class="home-list">
+<li><a href="pages/공지/업데이트.html">[업데이트] 내용 작성</a><span class="home-date">2026-01-23</span></li>
+<li><a href="pages/공지/이벤트.html">[이벤트] 내용 작성</a><span class="home-date">2026-01-23</span></li>
+<li><a href="pages/공지/서버점검.html">[점검] 내용 작성</a><span class="home-date">2026-01-23</span></li>
+</ul>
+</div>
+<div class="home-card home-notice">
+  <div class="home-card-head">
+    <h3>서버 안내</h3>
+  </div>
+
+  <div class="home-notice-body">
+    <p><strong>오픈 :</strong> 2025년 2월 21일 20:00 <span class="home-notice-status">ON</span></p>
+    <p><strong>오픈대기 :</strong> 19:00 <span class="home-notice-badge">초보자 클릭!</span></p>
+    <p>신화 랭킹 변신(무제한권) / 무한 회복 물약 / 오픈대기상자 (지각생도 꼭 챙겨 드립니다.)</p>
+
+    <hr class="home-notice-hr">
+
+    <p><strong>서버 기본 장비</strong></p>
+    <p>무기 : 초보용 무기(인첸,강화불가) / 방어구 : 초보용 방어구(인첸,강화불가)</p>
+
+    <p class="home-notice-center">단체지원 / 개인지원 ▶ <strong>빵빵!!</strong> ◀</p>
+    <p>단축슬롯 F1, F2, F3 총 3개슬롯 지원! 편의성 대폭 UP!</p>
+
+    <ul class="home-notice-list">
+      <li>신규 / 초보 사냥 난위도 대폭 하향</li>
+      <li>직장인을 위한 서버 (자동 사냥/보스젠 : 19:00 ~ 02:00)</li>
+      <li>시원시원한 드랍률 / 테마별 사냥터 구현</li>
+      <li>오림 주문서 사용으로 인첸 스트레스 없음</li>
+      <li>잡렉/칼렉/튕김 최소화 최적화</li>
+      <li>편리한 인터페이스 / 쉬운 시스템</li>
+    </ul>
+
+    <p class="home-notice-foot">최소 한달 운영 · 유저님과 소통 후 연장 유무 진행</p>
+  </div>
+</div>
+<div class="home-card home-shortcuts">
+<div class="home-card-head">
+<h3>바로가기</h3>
+</div>
+<div class="home-shortcut-grid">
+<a class="home-shortcut" href="pages/가이드/index.html">가이드</a>
+<a class="home-shortcut" href="pages/가이드/클래스-가이드.html">클래스</a>
+<a class="home-shortcut" href="pages/스킬/index.html">스킬</a>
+<a class="home-shortcut" href="pages/다운로드/index.html">다운로드</a>
+<a class="home-shortcut" href="pages/사냥터/index.html">사냥터</a>
+<a class="home-shortcut" href="pages/커뮤니티/index.html">커뮤니티</a>
+</div>
+</div>
 </div>
 </section>
 <section class="home-boss">
