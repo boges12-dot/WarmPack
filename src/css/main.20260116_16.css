@@ -530,3 +530,10 @@ main{min-height:60vh}
 .home-intro .mini-links{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px; }
 .home-intro .mini-links a{ display:block; padding:12px 12px; border-radius:12px; background: rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); }
 .home-intro .mini-links a:hover{ background: rgba(255,255,255,.07); }
+
+/* 폭 강제(PC): 소식 더 좁게 / 서버안내 더 넓게 */
+@media (min-width: 1101px){
+  .home-widgets-grid{
+    grid-template-columns: 0.55fr 1.9fr 0.95fr !important;
+  }
+}
