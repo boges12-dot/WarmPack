@@ -138,3 +138,13 @@
     markActive();
   });
 })();
+
+/* 홈 아이콘은 배너(홈 링크)와 동일한 주소로 이동 */
+document.addEventListener('click', function(e){
+  var a = e.target && e.target.closest ? e.target.closest('a.nav-home') : null;
+  if(!a) return;
+  var hero = document.querySelector('.hero-home-link');
+  var url = hero && hero.getAttribute('href') ? hero.getAttribute('href') : '/';
+  e.preventDefault();
+  window.location.href = url;
+});

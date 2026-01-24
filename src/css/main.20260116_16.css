@@ -465,7 +465,7 @@ main{min-height:60vh}
 /* ===== 홈 레이아웃: [소개][서버안내][바로가기] + 아래 [소식] ===== */
 .home-widgets-grid{
   display:grid;
-  grid-template-columns: 1fr 1.2fr 1fr;
+  grid-template-columns: 0.8fr 1.5fr 1fr;
   grid-template-areas:
     "intro notice shortcuts"
     "news news news";
@@ -525,3 +525,8 @@ main{min-height:60vh}
   opacity: .85;
   font-size: 13px;
 }
+
+/* 소식(좌측) 카드 링크 리스트 */
+.home-intro .mini-links{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px; }
+.home-intro .mini-links a{ display:block; padding:12px 12px; border-radius:12px; background: rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); }
+.home-intro .mini-links a:hover{ background: rgba(255,255,255,.07); }
