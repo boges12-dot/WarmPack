@@ -80,6 +80,13 @@ table.skill-table th, table.skill-table td{
   display:grid;
   grid-template-columns: 1.2fr .8fr;
   gap:16px;
+  align-items:start;
+}
+
+.home-col{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
 }
 .home-card{
   background: rgba(255,255,255,.04);
@@ -318,45 +325,76 @@ table.skill-table img{
 }
 
 
-/* HOME BOSS: place under shortcuts (right column) on PC */
-.home-boss-card{
-  grid-column: 1 / -1;
-}
 
-/* HOME BOSS: title icon/emphasis */
-.home-boss-title{
+
+/* HOME BOSS: full width below shortcuts */
+
+
+/* SHORTCUTS: boss list inside shortcuts card */
+.shortcut-divider{
+  height:1px;
+  margin:14px 0 12px;
+  background: rgba(255,255,255,.08);
+}
+.shortcut-boss-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:10px;
+}
+.shortcut-boss-title{
   display:flex;
   align-items:center;
   gap:8px;
   font-weight:800;
 }
-.home-boss-title .home-title-icon{
+.shortcut-boss-icon{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  width:28px;
-  height:28px;
+  width:26px;
+  height:26px;
   border-radius:10px;
   background: rgba(255,255,255,.08);
   border: 1px solid rgba(255,255,255,.12);
 }
-.home-boss-title .home-title-badge{
-  margin-left:6px;
+.shortcut-boss-more{
+  font-size:13px;
+  opacity:.85;
+}
+.shortcut-boss-list{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.shortcut-boss-list li{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:8px 10px;
+  border-radius:12px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+}
+.shortcut-boss-list .boss-name{ font-weight:700; }
+.shortcut-boss-list .boss-time{ opacity:.85; font-size:13px; }
+
+
+/* NEXT BOSS highlight */
+.shortcut-boss-list li.next-boss{
+  border-color: rgba(255,255,255,.18);
+  background: rgba(255,255,255,.06);
+}
+.boss-next-badge{
+  margin-left:8px;
   font-size:12px;
-  padding:3px 8px;
+  padding:2px 8px;
   border-radius:999px;
-  background: rgba(255,255,255,.08);
-  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.10);
+  border: 1px solid rgba(255,255,255,.14);
   font-weight:800;
-}
-
-/* MOBILE: boss full width */
-@media (max-width: 980px){
-  .home-boss-card{ grid-column: 1 / -1; }
-}
-
-
-/* HOME BOSS: full width below shortcuts */
-.home-boss-card{
-  grid-column: 1 / -1;
 }
