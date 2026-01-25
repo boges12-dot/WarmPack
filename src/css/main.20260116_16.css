@@ -694,3 +694,29 @@ main{min-height:60vh}
   position:relative !important;
   top:auto !important;
 }
+
+
+/* ===== ALIGN V2: 카드 상단/내부 패딩까지 완전 통일 ===== */
+.home-widgets .home-card{
+  padding-top: 0 !important;
+}
+
+/* 헤더 패딩을 완전히 동일하게 */
+.home-widgets .home-card-head{
+  padding: 16px 18px !important;
+  min-height: auto !important;
+}
+
+/* 본문 시작점 통일 */
+.home-widgets .home-card-body{
+  padding-top: 0 !important;
+}
+
+/* 바로가기 카드가 살짝 내려가 보이면 보정 */
+.home-widgets .home-card.home-shortcuts{
+  transform: translateY(0) !important;
+}
+
+/* (디버그) 필요시 주석 해제해서 상단 기준선 확인
+.home-widgets .home-card{ outline:1px solid rgba(255,0,0,.35); }
+*/
