@@ -242,3 +242,15 @@
 .server-status.on .dot{ background:#35d07f; }
 .server-status.off .dot{ background:#ff5b5b; }
 .server-status span{ font-size:13px; font-weight:700; }
+
+/* HOME FIX (기준): 상단 소식(리스트) + 서버안내/바로가기 한줄 + 하단 소식 제거 */
+.home-news-top{ margin: 22px 0 24px; }
+.home-widgets .home-widgets-grid{
+  display:grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 20px;
+  align-items:start;
+}
+@media (max-width: 900px){
+  .home-widgets .home-widgets-grid{ grid-template-columns: 1fr; }
+}
