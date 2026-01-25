@@ -249,3 +249,57 @@ table.skill-table img{
   font-weight:700;
   letter-spacing:.2px;
 }
+
+
+/* 서버규정 페이지 */
+.rules h2{ margin-bottom:14px; }
+.rules h3{ margin-top:18px; margin-bottom:8px; font-size:1.05rem; }
+.rules-divider{ border:0; border-top:1px solid rgba(255,255,255,.12); margin:18px 0; }
+
+.rules-alert{
+  list-style: none;
+  padding-left: 0;
+  margin: 0 0 6px 0;
+}
+.rules-alert li{
+  padding:10px 12px;
+  border-left:4px solid rgba(255,80,80,.85);
+  background: rgba(255,80,80,.10);
+  border-radius: 10px;
+  margin: 8px 0;
+  line-height: 1.6;
+}
+
+.rules-list{
+  margin: 0;
+  padding-left: 18px;
+  line-height: 1.7;
+}
+.rules-list li{ margin: 6px 0; }
+
+.rules-steps{
+  display:flex;
+  gap:12px;
+  margin-top: 14px;
+}
+.rules-steps.one .step{ flex:1; }
+.rules-steps.two .step{ flex:1; }
+.rules-steps.three .step{ flex:1; }
+
+.rules-steps .step{
+  padding:14px 12px;
+  border-radius: 12px;
+  text-align:center;
+  font-weight: 800;
+  line-height: 1.4;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.06);
+}
+
+.rules-steps .step.s1{ background: rgba(255, 214, 89, .16); }
+.rules-steps .step.s2{ background: rgba(255, 179, 71, .16); }
+.rules-steps .step.s3{ background: rgba(255, 95, 95, .18); }
+
+@media (max-width: 900px){
+  .rules-steps{ flex-direction: column; }
+}
