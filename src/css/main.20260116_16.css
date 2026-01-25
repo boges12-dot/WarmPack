@@ -651,11 +651,10 @@ main{min-height:60vh}
 }
 
 
-/* ===== HOME 2COL: 3열 -> 2열로 정리 (남는 열 삭제) ===== */
+/* HOME: 서버 안내 + 바로가기 2열 고정 */
 .home-widgets-grid{
   display:grid;
-  grid-template-columns: 1.6fr 1fr !important;
-  grid-template-areas: none !important;
+  grid-template-columns: 1.6fr 1fr;
   gap: 20px;
-  align-items:start;
+  align-items: start;
 }
