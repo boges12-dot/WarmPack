@@ -242,3 +242,35 @@
 .server-status.on .dot{ background:#35d07f; }
 .server-status.off .dot{ background:#ff5b5b; }
 .server-status span{ font-size:13px; font-weight:700; }
+
+/* ===== 서버 안내 내부 2분할 (왼쪽 안내 / 오른쪽 바로가기) ===== */
+.home-widgets-grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+.home-notice .notice-split{
+  display: grid;
+  grid-template-columns: 1.7fr 0.9fr;
+  gap: 16px;
+  align-items: start;
+}
+.home-notice .notice-right-head{
+  font-weight: 900;
+  margin: 2px 0 10px;
+  opacity: .95;
+}
+/* 바로가기 버튼은 2열 유지 */
+.home-notice .home-shortcut-grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+@media (max-width: 900px){
+  .home-notice .notice-split{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 상단 소식(리스트형) 여백 */
+.home-news-top{ margin-bottom: 24px; }
