@@ -152,7 +152,7 @@ table.skill-table th, table.skill-table td{
 
 .home-boss-grid{
   display:grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap:10px;
 }
 .home-boss-item{
@@ -315,4 +315,42 @@ table.skill-table img{
 
 @media (max-width: 900px){
   .rules-steps{ flex-direction: column; }
+}
+
+
+/* HOME BOSS: place under shortcuts (right column) on PC */
+.home-boss-card{
+  grid-column: 2;
+}
+
+/* HOME BOSS: title icon/emphasis */
+.home-boss-title{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-weight:800;
+}
+.home-boss-title .home-title-icon{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:28px;
+  height:28px;
+  border-radius:10px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
+}
+.home-boss-title .home-title-badge{
+  margin-left:6px;
+  font-size:12px;
+  padding:3px 8px;
+  border-radius:999px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
+  font-weight:800;
+}
+
+/* MOBILE: boss full width */
+@media (max-width: 980px){
+  .home-boss-card{ grid-column: 1; }
 }
