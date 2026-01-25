@@ -608,38 +608,3 @@ main{min-height:60vh}
 
 /* 상단 소식(리스트형) 여백 */
 .home-news-top{ margin-bottom: 24px; }
-
-/* ===== 서버규정(텍스트+경고 박스) ===== */
-.rules-content{ margin-top:18px; }
-.rules-content h2{ margin:18px 0 10px; }
-.rules-red{ color:#ff4d4d; font-weight:800; line-height:1.85; }
-.rules-red li{ margin:0 0 8px; }
-.rules-sep{ border:0; border-top:1px solid rgba(255,255,255,.18); margin:18px 0; }
-.rules-check{ list-style:none; padding:0; margin:0; line-height:1.9; }
-.rules-check li{ margin:0 0 8px; position:relative; padding-left:22px; }
-.rules-check li:before{ content:"√"; position:absolute; left:0; top:0; color:#bfe8c9; font-weight:900; }
-.rules-note{ color:#b58cff; font-weight:800; }
-
-.rules-penalty{ margin:18px 0 8px; border-radius:8px; overflow:hidden; }
-.rules-penalty.two{ display:grid; grid-template-columns: 1fr 1fr; }
-.rules-penalty.one{ display:block; }
-.rules-penalty .pbox{ text-align:center; padding:34px 10px; font-size:24px; font-weight:900; color:#111; }
-.rules-penalty .p1{ background:#f0c27b; }
-.rules-penalty .p2{ background:#f07a7a; }
-.rules-penalty .p3{ background:#f07a7a; }
-.rules-penalty .p3.small{ font-size:22px; padding:30px 10px; }
-@media (max-width: 900px){
-  .rules-penalty .pbox{ font-size:20px; padding:28px 10px; }
-}
-
-/* ===== HOME LAYOUT FIX: 상단 소식 + (서버 안내 | 바로가기) + 서버 보스 ===== */
-.home-news-top{ margin: 22px 0 24px; }
-.home-widgets .home-widgets-grid{
-  display:grid;
-  grid-template-columns: 1.6fr 1fr;
-  gap: 20px;
-  align-items:start;
-}
-@media (max-width: 900px){
-  .home-widgets .home-widgets-grid{ grid-template-columns: 1fr; }
-}
