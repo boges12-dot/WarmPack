@@ -178,3 +178,35 @@ table.skill-table img{
   max-height:80px;
   object-fit:contain;
 }
+
+
+
+/* ===== 홈 레이아웃 수정(2026-01-25): [소식] 아래에 [서버 안내][바로가기] 2열 ===== */
+.home-widgets .container.home-widgets-grid{
+  display: grid !important;
+  grid-template-columns: 1.35fr 1fr !important;
+  grid-template-areas: "notice shortcuts" !important;
+  gap: 16px !important;
+  align-items: start !important;
+}
+
+/* 기존 3영역(intro 포함) 레이아웃 영향 제거 */
+.home-widgets-grid .home-notice{ grid-area: notice !important; }
+.home-widgets-grid .home-shortcuts{ grid-area: shortcuts !important; }
+.home-widgets-grid .home-intro{ display:none !important; }
+
+/* 카드 겹침 방지 */
+.home-widgets-grid .home-card{
+  position: relative !important;
+}
+
+/* 모바일: 1열 */
+@media (max-width: 1100px){
+  .home-widgets .container.home-widgets-grid{
+    grid-template-columns: 1fr !important;
+    grid-template-areas:
+      "notice"
+      "shortcuts" !important;
+  }
+}
+
