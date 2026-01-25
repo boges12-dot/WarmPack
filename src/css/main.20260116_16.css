@@ -658,3 +658,39 @@ main{min-height:60vh}
   gap: 20px;
   align-items: start;
 }
+
+
+/* ===== 서버 안내 / 바로가기 '줄(상단) 맞춤' 강화 ===== */
+.home-widgets .home-widgets-grid{
+  display:grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap:20px;
+  align-items:start !important;
+}
+
+/* 카드 자체가 위에서 시작하도록 */
+.home-widgets .home-card{
+  margin-top:0 !important;
+  align-self:start !important;
+}
+
+/* 두 카드의 헤더 높이를 동일하게 맞춰 시각적 기준선 통일 */
+.home-widgets .home-card-head{
+  min-height:56px;
+  display:flex;
+  align-items:center;
+  padding-top:0 !important;
+  padding-bottom:0 !important;
+}
+
+/* 서버 안내/바로가기 제목 줄 정렬 보정 */
+.home-widgets .home-card-head h3{
+  margin:0 !important;
+  line-height:1.2;
+}
+
+/* 혹시 바로가기 카드가 내부에서 내려앉는 경우 방지 */
+.home-widgets .home-card.home-shortcuts{
+  position:relative !important;
+  top:auto !important;
+}
