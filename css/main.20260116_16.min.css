@@ -315,3 +315,13 @@
     opacity:.6;
   }
 }
+
+
+/* ===== HOME 2COL: 3열 -> 2열로 정리 (남는 열 삭제) ===== */
+.home-widgets-grid{
+  display:grid;
+  grid-template-columns: 1.6fr 1fr !important;
+  grid-template-areas: none !important;
+  gap: 20px;
+  align-items:start;
+}
