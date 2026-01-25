@@ -386,3 +386,13 @@
 /* (디버그) 필요시 주석 해제해서 상단 기준선 확인
 .home-widgets .home-card{ outline:1px solid rgba(255,0,0,.35); }
 */
+
+
+/* ===== HOME FIX: 빈 왼쪽 칸 제거 (2열만 사용) ===== */
+.home-widgets .home-widgets-grid{
+  display:grid;
+  grid-template-columns: 1.6fr 1fr !important;
+  grid-template-areas: none !important;
+  gap: 20px;
+  align-items: start;
+}
