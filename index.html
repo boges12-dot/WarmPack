@@ -159,11 +159,11 @@ table.skill-table td{
 <div class="container home-widgets-grid">
   <div class="home-card home-notice">
   <div class="home-card-head">
-    <h3>서버 안내<span class="server-status on"><i class="dot"></i><span>ON</span></span></h3>
+    <h3>서버 안내<span id="serverToggle" class="server-status on" role="button" aria-label="서버 상태 토글"><i class="dot"></i><span class="label">ON</span></span></h3>
   </div>
 
   <div class="home-notice-body">
-    <p><strong>오픈 :</strong> 2025년 2월 21일 20:00 <span class="home-notice-status">ON</span></p>
+    <p><strong>오픈 :</strong> <span id="openDateText" data-original="2025년 2월 21일 20:00">2025년 2월 21일 20:00</span></p>
     <p><strong>오픈대기 :</strong> 19:00 <span class="home-notice-badge">초보자 클릭!</span></p>
     <p>신화 랭킹 변신(무제한권) / 무한 회복 물약 / 오픈대기상자 (지각생도 꼭 챙겨 드립니다.)</p>
 
@@ -243,5 +243,6 @@ table.skill-table td{
 <script src="js/banner_home.js"></script>
 <script src="js/top_button.js"></script>
 <script src="./js/hero_shrink.js"></script>
+<script src="js/server_status_toggle.js"></script>
 </main></body>
 </html>
