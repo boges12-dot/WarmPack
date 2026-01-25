@@ -254,3 +254,64 @@
 @media (max-width: 900px){
   .home-widgets .home-widgets-grid{ grid-template-columns: 1fr; }
 }
+
+/* HOME CLEAN: 빈 영역 제거 후 2열 고정 */
+.home-widgets .home-widgets-grid{
+  display:grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 20px;
+  align-items:start;
+}
+
+
+/* ===== 서버 안내 / 바로가기 위치 정렬 FIX ===== */
+.home-widgets .home-widgets-grid{
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+.home-card{ margin-top: 0; }
+.home-card.home-shortcuts{ margin-top: 0 !important; }
+.home-card-head{
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  padding-top: 0;
+}
+
+/* ===== 상단 소식 리스트 정리 ===== */
+.home-list li{
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  gap:12px;
+  padding:10px 0;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.home-list li:last-child{ border-bottom:none; }
+.home-list li a{
+  flex:1;
+  line-height:1.6;
+  white-space: nowrap;
+  overflow:hidden;
+  text-overflow: ellipsis;
+}
+.home-list .home-date{
+  flex-shrink:0;
+  font-size:13px;
+  opacity:.7;
+  margin-left:12px;
+}
+@media (max-width: 600px){
+  .home-list li{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .home-list .home-date{
+    margin-left:0;
+    font-size:12px;
+    opacity:.6;
+  }
+}
