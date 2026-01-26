@@ -470,3 +470,18 @@ body{
 body.has-fixed-nav{
   padding-top: var(--nav-h);
 }
+
+
+
+/* SCROLL FIX: 일부 페이지에서 스크롤이 막히는 현상 방지 */
+html, body{
+  height: auto !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch;
+}
+body{
+  position: relative !important;
+}
+.page, .page-wrap, .wrap, .container, main{
+  overflow: visible;
+}
