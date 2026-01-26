@@ -148,3 +148,68 @@ document.addEventListener('click', function(e){
   e.preventDefault();
   window.location.href = url;
 });
+
+
+
+
+/* NAV+HERO (auto): collapse hero behind menu; keep menu pinned on top */
+(function(){
+  function initNavHero(){
+    var hero = document.querySelector('.hero-main');
+    var nav = document.querySelector('.main-nav-bar');
+    if(!nav) return;
+
+    // nav height
+    function navH(){
+      return Math.ceil(nav.getBoundingClientRect().height || 64);
+    }
+
+    function heroBaseH(){
+      if(!hero) return 0;
+      var cs = getComputedStyle(document.documentElement);
+      var v = cs.getPropertyValue('--hero-h-base').trim();
+      var n = parseInt(v,10);
+      if(!isNaN(n)) return n;
+      // fallback to current hero height
+      return Math.ceil(hero.getBoundingClientRect().height || 260);
+    }
+
+    function tick(){
+      var nH = navH();
+      document.documentElement.style.setProperty('--nav-h', nH + 'px');
+
+      var base = heroBaseH();
+      var y = window.scrollY || 0;
+
+      if(hero){
+        var collapse = Math.min(y, Math.max(0, base)); // 0..base
+        document.documentElement.style.setProperty('--hero-collapse', collapse + 'px');
+
+        // when hero is fully collapsed (or nearly), lock nav fixed
+        var shouldFix = y >= (base - nH);
+        if(shouldFix){
+          nav.classList.add('is-fixed');
+          document.body.classList.add('has-fixed-nav');
+        }else{
+          nav.classList.remove('is-fixed');
+          document.body.classList.remove('has-fixed-nav');
+        }
+      }else{
+        // pages without hero: always fixed
+        nav.classList.add('is-fixed');
+        document.body.classList.add('has-fixed-nav');
+      }
+    }
+
+    window.addEventListener('scroll', tick, {passive:true});
+    window.addEventListener('resize', tick, {passive:true});
+    tick();
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', initNavHero);
+  }else{
+    initNavHero();
+  }
+})();
+
