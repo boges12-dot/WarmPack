@@ -114,20 +114,25 @@ table.skill-table td{
 
 
 
+
 <style id="item-toc-style">
-/* TOC LAYOUT FIX: 제목 아래에 바로가기 버튼이 자연스럽게 붙도록 (무기/방어구/악세 공통) */
+/* TOC CENTER: 제목/바로가기 버튼을 가운데 정렬 (무기/방어구/악세 공통) */
 .item-page-head{
   display:flex;
   flex-direction:column;
-  align-items:flex-start;
+  align-items:center;
   gap:10px;
   margin-bottom: 14px;
+  text-align:center;
+}
+.item-page-head > h2{
+  width:100%;
 }
 .item-toc{
   display:flex;
   flex-direction:column;
   gap:10px;
-  align-items:flex-start;
+  align-items:center;
   width: 100%;
 }
 .item-toc-title{ font-weight:900; opacity:.9; }
@@ -136,6 +141,8 @@ table.skill-table td{
   align-items:center;
   gap:8px;
   flex-wrap:wrap;
+  justify-content:center;
+  width:100%;
 }
 .item-toc-stage{
   font-size:12px;
@@ -150,6 +157,7 @@ table.skill-table td{
   display:flex;
   gap:8px;
   flex-wrap:wrap;
+  justify-content:center;
 }
 .item-toc-link{
   display:inline-flex;
