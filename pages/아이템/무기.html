@@ -45,7 +45,18 @@ table.skill-table td{
   line-height:1.55 !important;
 }
 </style>
-</meta></head>
+</meta>
+<style id="item-table-force">
+/* ITEM TABLE FORCE: 공통 CSS가 table을 block으로 깨는 문제 방지 */
+.item-page table{ display: table !important; width:100% !important; border-collapse: collapse !important; }
+.item-page thead{ display: table-header-group !important; }
+.item-page tbody{ display: table-row-group !important; }
+.item-page tr{ display: table-row !important; }
+.item-page th, .item-page td{ display: table-cell !important; vertical-align: middle !important; }
+.item-page .item-table-wrap{ overflow:auto; }
+</style>
+
+</head>
 <body><section class="hero-main"><a aria-label="홈으로 이동" class="hero-home-link" href="#"></a></section><nav aria-label="메인 메뉴" class="main-nav-bar">
 <ul class="nav" id="main-nav">
 <li class="home-link"><a aria-label="홈" class="nav-home" href="#"><svg aria-hidden="true" class="icon-home" focusable="false" height="18" viewbox="0 0 24 24" width="18"><path d="M12 3 2.5 11.2a1 1 0 0 0 .7 1.8H5v7a1 1 0 0 0 1 1h4v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5h4a1 1 0 0 0 1-1v-7h1.8a1 1 0 0 0 .7-1.8L12 3z"></path></svg></a></li>
