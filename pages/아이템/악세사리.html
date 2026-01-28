@@ -110,31 +110,30 @@ table.skill-table td{
 /* 모바일: 표는 가로 스크롤로 */
 .item-table-wrap{ overflow:auto; }
 </style>
+
+
 <style id="item-toc-style">
+/* TOC LAYOUT FIX: 제목 아래에 바로가기 버튼이 자연스럽게 붙도록 (무기/방어구/악세 공통) */
 .item-page-head{
   display:flex;
+  flex-direction:column;
   align-items:flex-start;
-  justify-content:space-between;
-  gap:12px;
-  flex-wrap:wrap;
-  margin-bottom: 12px;
+  gap:10px;
+  margin-bottom: 14px;
 }
 .item-toc{
   display:flex;
   flex-direction:column;
   gap:10px;
-  align-items:flex-end;
+  align-items:flex-start;
+  width: 100%;
 }
-.item-toc-title{
-  font-weight:900;
-  opacity:.9;
-}
+.item-toc-title{ font-weight:900; opacity:.9; }
 .item-toc-group{
   display:flex;
   align-items:center;
   gap:8px;
   flex-wrap:wrap;
-  justify-content:flex-end;
 }
 .item-toc-stage{
   font-size:12px;
@@ -162,11 +161,8 @@ table.skill-table td{
   color: inherit;
 }
 .item-toc-link:hover{ background: rgba(255,255,255,.07); }
-@media (max-width: 720px){
-  .item-toc{ align-items:flex-start; }
-  .item-page-head{ align-items:flex-start; }
-}
 </style>
+
 </head>
 <body><section class="hero-main"><a aria-label="홈으로 이동" class="hero-home-link" href="#"></a></section><nav aria-label="메인 메뉴" class="main-nav-bar">
 <ul class="nav" id="main-nav">
