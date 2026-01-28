@@ -445,3 +445,6 @@ html, body{
 /* HERO+NAV TOP: 배너 바로 아래에 메뉴가 붙도록 */
 .hero-main{ display:block; }
 .main-nav-bar{ margin-top: 0; }
+
+
+html{ scroll-behavior: smooth; }

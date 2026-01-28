@@ -8,8 +8,8 @@
 <title>무기 · </title>
 <meta content="무기 · " name="description"/>
 <meta content="website" property="og:type"/>
-<meta content="" property="og:site_name">
-<meta content="무기 · " property="og:title"/>
+<meta content="" property="og:site_name"/>
+<meta content="무기 · " property="og:title">
 <meta content="무기 · " property="og:description"/>
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="무기 · " name="twitter:title"/>
@@ -55,8 +55,6 @@ table.skill-table td{
 .item-page th, .item-page td{ display: table-cell !important; vertical-align: middle !important; }
 .item-page .item-table-wrap{ overflow:auto; }
 </style>
-
-
 <style id="item-table-skin">
 /* ITEM TABLE SKIN: 스샷처럼 카드형 표 스타일 */
 .item-page{ max-width: 1100px; margin: 0 auto; padding: 18px 14px 60px; }
@@ -111,6 +109,57 @@ table.skill-table td{
 
 /* 모바일: 표는 가로 스크롤로 */
 .item-table-wrap{ overflow:auto; }
+</style>
+
+<style id="item-toc-style">
+.item-page-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom: 12px;
+}
+.item-toc{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  align-items:flex-end;
+}
+.item-toc-title{ font-weight:900; opacity:.9; }
+.item-toc-group{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+.item-toc-stage{
+  font-size:12px;
+  font-weight:900;
+  padding:4px 8px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.04);
+  opacity:.9;
+}
+.item-toc-links{ display:flex; gap:8px; flex-wrap:wrap; }
+.item-toc-link{
+  display:inline-flex;
+  align-items:center;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.04);
+  font-size: 13px;
+  text-decoration:none;
+  color: inherit;
+}
+.item-toc-link:hover{ background: rgba(255,255,255,.07); }
+@media (max-width: 720px){
+  .item-toc{ align-items:flex-start; }
+  .item-page-head{ align-items:flex-start; }
+}
 </style>
 
 </head>
@@ -193,7 +242,7 @@ table.skill-table td{
 </nav>
 <header class="site-header">
 </header>
-<main class="site-main">
+<main class="site-main"><div class="item-page-head"><h2>무기</h2><div class="item-toc"><div class="item-toc-title">바로가기</div><div class="item-toc-group"><div class="item-toc-stage">1차</div><div class="item-toc-links"><a class="item-toc-link" href="#sec-1차-군주">군주</a><a class="item-toc-link" href="#sec-1차-기사">기사</a><a class="item-toc-link" href="#sec-1차-다크엘프">다크엘프</a><a class="item-toc-link" href="#sec-1차-요정">요정</a><a class="item-toc-link" href="#sec-1차-마법사">마법사</a></div></div></div></div>
 <style>
 .item-page{max-width:980px;margin:0 auto;padding:14px 14px 48px;}
 .item-head h2{font-size:18px;font-weight:900;margin:10px 0 12px;}
@@ -206,8 +255,8 @@ table.skill-table td{
 .img-ph{width:48px;height:48px;border-radius:10px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.10);}
 .item-opt{opacity:.9;}
 </style>
-<section class="item-page"><div class="item-head"><h2>무기</h2></div>
-<h3 class="item-class-title">군주</h3>
+<section class="item-page"><div class="item-head"></div>
+<h3 class="item-class-title" id="sec-1차-군주">군주</h3>
 <div class="item-table-wrap">
 <table class="item-table">
 <thead>
@@ -248,7 +297,7 @@ table.skill-table td{
 </tbody>
 </table>
 </div>
-<h3 class="item-class-title">기사</h3>
+<h3 class="item-class-title" id="sec-1차-기사">기사</h3>
 <div class="item-table-wrap">
 <table class="item-table">
 <thead>
@@ -289,7 +338,7 @@ table.skill-table td{
 </tbody>
 </table>
 </div>
-<h3 class="item-class-title">다크엘프</h3>
+<h3 class="item-class-title" id="sec-1차-다크엘프">다크엘프</h3>
 <div class="item-table-wrap">
 <table class="item-table">
 <thead>
@@ -330,7 +379,7 @@ table.skill-table td{
 </tbody>
 </table>
 </div>
-<h3 class="item-class-title">요정</h3>
+<h3 class="item-class-title" id="sec-1차-요정">요정</h3>
 <div class="item-table-wrap">
 <table class="item-table">
 <thead>
@@ -371,7 +420,7 @@ table.skill-table td{
 </tbody>
 </table>
 </div>
-<h3 class="item-class-title">마법사</h3>
+<h3 class="item-class-title" id="sec-1차-마법사">마법사</h3>
 <div class="item-table-wrap">
 <table class="item-table">
 <thead>

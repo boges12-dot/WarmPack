@@ -11,9 +11,9 @@
 <meta content="" property="og:site_name"/>
 <meta content="방어구 · " property="og:title"/>
 <meta content="방어구 · " property="og:description"/>
-<meta content="summary_large_image" name="twitter:card">
+<meta content="summary_large_image" name="twitter:card"/>
 <meta content="방어구 · " name="twitter:title"/>
-<meta content="방어구 · " name="twitter:description"/>
+<meta content="방어구 · " name="twitter:description">
 <link href="../../css/main.20260116_16.min.css" rel="stylesheet"/>
 <!-- STEP9: icons/manifest -->
 <link href="../../favicon.ico" rel="icon" sizes="any"/>
@@ -55,8 +55,6 @@ table.skill-table td{
 .item-page th, .item-page td{ display: table-cell !important; vertical-align: middle !important; }
 .item-page .item-table-wrap{ overflow:auto; }
 </style>
-
-
 <style id="item-table-skin">
 /* ITEM TABLE SKIN: 스샷처럼 카드형 표 스타일 */
 .item-page{ max-width: 1100px; margin: 0 auto; padding: 18px 14px 60px; }
@@ -111,6 +109,67 @@ table.skill-table td{
 
 /* 모바일: 표는 가로 스크롤로 */
 .item-table-wrap{ overflow:auto; }
+</style>
+
+
+<style id="item-toc-style">
+.item-page-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom: 12px;
+}
+.item-toc{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  align-items:flex-end;
+}
+.item-toc-title{
+  font-weight:900;
+  opacity:.9;
+}
+.item-toc-group{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+.item-toc-stage{
+  font-size:12px;
+  font-weight:900;
+  padding:4px 8px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.04);
+  opacity:.9;
+}
+.item-toc-links{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.item-toc-link{
+  display:inline-flex;
+  align-items:center;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.04);
+  font-size: 13px;
+  text-decoration:none;
+  color: inherit;
+}
+.item-toc-link:hover{
+  background: rgba(255,255,255,.07);
+}
+@media (max-width: 720px){
+  .item-toc{ align-items:flex-start; }
+  .item-page-head{ align-items:flex-start; }
+}
 </style>
 
 </head>
@@ -193,8 +252,8 @@ table.skill-table td{
 </nav>
 <header class="site-header">
 </header>
-<main class="site-main"><section class="item-page"><h2>방어구</h2>
-<h3 class="item-class-title">투구</h3>
+<main class="site-main"><div class="item-page-head"><h2>방어구</h2><div class="item-toc"><div class="item-toc-title">바로가기</div><div class="item-toc-group"><div class="item-toc-stage">1차(상점구매)</div><div class="item-toc-links"><a class="item-toc-link" href="#sec-1차상점구매-투구">투구</a><a class="item-toc-link" href="#sec-1차상점구매-갑옷">갑옷</a><a class="item-toc-link" href="#sec-1차상점구매-망토">망토</a><a class="item-toc-link" href="#sec-1차상점구매-장갑">장갑</a><a class="item-toc-link" href="#sec-1차상점구매-티셔츠">티셔츠</a><a class="item-toc-link" href="#sec-1차상점구매-부츠">부츠</a><a class="item-toc-link" href="#sec-1차상점구매-가더-및-방패">가더 및 방패</a></div></div><div class="item-toc-group"><div class="item-toc-stage">2차 (드롭)</div><div class="item-toc-links"><a class="item-toc-link" href="#sec-2차-드롭-투구">투구</a><a class="item-toc-link" href="#sec-2차-드롭-갑옷">갑옷</a><a class="item-toc-link" href="#sec-2차-드롭-부츠">부츠</a><a class="item-toc-link" href="#sec-2차-드롭-장갑">장갑</a><a class="item-toc-link" href="#sec-2차-드롭-티셔츠">티셔츠</a><a class="item-toc-link" href="#sec-2차-드롭-가더-및-방패">가더 및 방패</a><a class="item-toc-link" href="#sec-2차-드롭-망토">망토</a></div></div><div class="item-toc-group"><div class="item-toc-stage">3차 (드롭)</div><div class="item-toc-links"><a class="item-toc-link" href="#sec-3차-드롭-투구">투구</a><a class="item-toc-link" href="#sec-3차-드롭-티셔츠">티셔츠</a><a class="item-toc-link" href="#sec-3차-드롭-갑옷">갑옷</a><a class="item-toc-link" href="#sec-3차-드롭-장갑">장갑</a><a class="item-toc-link" href="#sec-3차-드롭-망토">망토</a><a class="item-toc-link" href="#sec-3차-드롭-부츠">부츠</a><a class="item-toc-link" href="#sec-3차-드롭-가더-및-방패">가더 및 방패</a></div></div></div></div><section class="item-page">
+<h3 class="item-class-title" id="sec-1차상점구매-투구">투구</h3>
 <div class="item-table-wrap">
 <table class="item-table">
 <thead>
@@ -233,7 +292,7 @@ table.skill-table td{
 <td>상점구매</td>
 </tr>
 </tbody></table></div>
-<h3 class="item-class-title">갑옷</h3>
+<h3 class="item-class-title" id="sec-1차상점구매-갑옷">갑옷</h3>
 <div class="item-table-wrap">
 <table class="item-table">
 <thead>
@@ -280,7 +339,7 @@ table.skill-table td{
 <td>상점구매</td>
 </tr>
 </tbody></table></div>
-<h3 class="item-class-title">망토</h3>
+<h3 class="item-class-title" id="sec-1차상점구매-망토">망토</h3>
 <div class="item-table-wrap">
 <table class="item-table">
 <thead>
@@ -319,7 +378,7 @@ table.skill-table td{
 <td>상점구매</td>
 </tr>
 </tbody></table></div>
-<h3 class="item-class-title">장갑</h3>
+<h3 class="item-class-title" id="sec-1차상점구매-장갑">장갑</h3>
 <div class="item-table-wrap">
 <table class="item-table">
 <thead>
@@ -350,7 +409,7 @@ table.skill-table td{
 <td>상점구매</td>
 </tr>
 </tbody></table></div>
-<h3 class="item-class-title">티셔츠</h3>
+<h3 class="item-class-title" id="sec-1차상점구매-티셔츠">티셔츠</h3>
 <div class="item-table-wrap">
 <table class="item-table">
 <thead>
@@ -381,7 +440,7 @@ table.skill-table td{
 <td>상점구매</td>
 </tr>
 </tbody></table></div>
-<h3 class="item-class-title">부츠</h3>
+<h3 class="item-class-title" id="sec-1차상점구매-부츠">부츠</h3>
 <div class="item-table-wrap">
 <table class="item-table">
 <thead>
@@ -404,7 +463,7 @@ table.skill-table td{
 <td>상점구매</td>
 </tr>
 </tbody></table></div>
-<h3 class="item-class-title">가더 및 방패</h3>
+<h3 class="item-class-title" id="sec-1차상점구매-가더-및-방패">가더 및 방패</h3>
 <div class="item-table-wrap">
 <table class="item-table">
 <thead>
@@ -444,7 +503,7 @@ table.skill-table td{
 </tr>
 </tbody></table></div>
 </section><h2>방어구 2차 (드롭)</h2>
-<h3 class="item-class-title">투구</h3>
+<h3 class="item-class-title" id="sec-2차-드롭-투구">투구</h3>
 <div class="item-table-wrap">
 <table class="item-table">
 <thead>
@@ -483,7 +542,7 @@ table.skill-table td{
 <td>드랍</td>
 </tr>
 </tbody></table></div>
-<h3 class="item-class-title">갑옷</h3>
+<h3 class="item-class-title" id="sec-2차-드롭-갑옷">갑옷</h3>
 <div class="item-table-wrap">
 <table class="item-table">
 <thead>
@@ -522,7 +581,7 @@ table.skill-table td{
 <td>드랍</td>
 </tr>
 </tbody></table></div>
-<h3 class="item-class-title">부츠</h3>
+<h3 class="item-class-title" id="sec-2차-드롭-부츠">부츠</h3>
 <div class="item-table-wrap">
 <table class="item-table">
 <thead>
@@ -561,7 +620,7 @@ table.skill-table td{
 <td>드랍</td>
 </tr>
 </tbody></table></div>
-<h3 class="item-class-title">장갑</h3>
+<h3 class="item-class-title" id="sec-2차-드롭-장갑">장갑</h3>
 <div class="item-table-wrap">
 <table class="item-table">
 <thead>
@@ -608,7 +667,7 @@ table.skill-table td{
 <td>드랍</td>
 </tr>
 </tbody></table></div>
-<h3 class="item-class-title">티셔츠</h3>
+<h3 class="item-class-title" id="sec-2차-드롭-티셔츠">티셔츠</h3>
 <div class="item-table-wrap">
 <table class="item-table">
 <thead>
@@ -647,7 +706,7 @@ table.skill-table td{
 <td>드랍</td>
 </tr>
 </tbody></table></div>
-<h3 class="item-class-title">가더 및 방패</h3>
+<h3 class="item-class-title" id="sec-2차-드롭-가더-및-방패">가더 및 방패</h3>
 <div class="item-table-wrap">
 <table class="item-table">
 <thead>
@@ -702,7 +761,7 @@ table.skill-table td{
 <td>드랍</td>
 </tr>
 </tbody></table></div>
-<h3 class="item-class-title">망토</h3>
+<h3 class="item-class-title" id="sec-2차-드롭-망토">망토</h3>
 <div class="item-table-wrap">
 <table class="item-table">
 <thead>
@@ -733,7 +792,7 @@ table.skill-table td{
 <td>드랍</td>
 </tr>
 </tbody></table></div><h2>방어구 3차 (드롭)</h2>
-<h3 class="item-class-title">투구</h3>
+<h3 class="item-class-title" id="sec-3차-드롭-투구">투구</h3>
 <div class="item-table-wrap">
 <table class="item-table">
 <thead>
@@ -788,7 +847,7 @@ table.skill-table td{
 <td>드랍</td>
 </tr>
 </tbody></table></div>
-<h3 class="item-class-title">티셔츠</h3>
+<h3 class="item-class-title" id="sec-3차-드롭-티셔츠">티셔츠</h3>
 <div class="item-table-wrap">
 <table class="item-table">
 <thead>
@@ -835,7 +894,7 @@ table.skill-table td{
 <td>드랍</td>
 </tr>
 </tbody></table></div>
-<h3 class="item-class-title">갑옷</h3>
+<h3 class="item-class-title" id="sec-3차-드롭-갑옷">갑옷</h3>
 <div class="item-table-wrap">
 <table class="item-table">
 <thead>
@@ -978,7 +1037,7 @@ table.skill-table td{
 <td>드랍</td>
 </tr>
 </tbody></table></div>
-<h3 class="item-class-title">장갑</h3>
+<h3 class="item-class-title" id="sec-3차-드롭-장갑">장갑</h3>
 <div class="item-table-wrap">
 <table class="item-table">
 <thead>
@@ -1033,7 +1092,7 @@ table.skill-table td{
 <td>드랍</td>
 </tr>
 </tbody></table></div>
-<h3 class="item-class-title">망토</h3>
+<h3 class="item-class-title" id="sec-3차-드롭-망토">망토</h3>
 <div class="item-table-wrap">
 <table class="item-table">
 <thead>
@@ -1088,7 +1147,7 @@ table.skill-table td{
 <td>드랍</td>
 </tr>
 </tbody></table></div>
-<h3 class="item-class-title">부츠</h3>
+<h3 class="item-class-title" id="sec-3차-드롭-부츠">부츠</h3>
 <div class="item-table-wrap">
 <table class="item-table">
 <thead>
@@ -1143,7 +1202,7 @@ table.skill-table td{
 <td>드랍</td>
 </tr>
 </tbody></table></div>
-<h3 class="item-class-title">가더 및 방패</h3>
+<h3 class="item-class-title" id="sec-3차-드롭-가더-및-방패">가더 및 방패</h3>
 <div class="item-table-wrap">
 <table class="item-table">
 <thead>
