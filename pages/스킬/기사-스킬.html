@@ -7,9 +7,9 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>기사 스킬 · </title>
 <meta content="기사 스킬 · " name="description"/>
-<meta content="website" property="og:type">
+<meta content="website" property="og:type"/>
 <meta content="" property="og:site_name"/>
-<meta content="기사 스킬 · " property="og:title"/>
+<meta content="기사 스킬 · " property="og:title">
 <meta content="기사 스킬 · " property="og:description"/>
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="기사 스킬 · " name="twitter:title"/>
@@ -101,7 +101,13 @@ table.skill-table td{
   line-height:1.55 !important;
 }
 </style>
-</head>
+<style id="skill-icon-style">
+.skill-icon{
+  width:48px;height:48px;object-fit:contain;
+  border-radius:12px;background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.10);
+}
+</style></head>
 <body><section class="hero-main"><a aria-label="홈으로 이동" class="hero-home-link" href="#"></a></section><nav aria-label="메인 메뉴" class="main-nav-bar">
 <ul class="nav" id="main-nav">
 <li class="home-link"><a aria-label="홈" class="nav-home" href="#"><svg aria-hidden="true" class="icon-home" focusable="false" height="18" viewbox="0 0 24 24" width="18"><path d="M12 3 2.5 11.2a1 1 0 0 0 .7 1.8H5v7a1 1 0 0 0 1 1h4v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5h4a1 1 0 0 0 1-1v-7h1.8a1 1 0 0 0 .7-1.8L12 3z"></path></svg></a></li>
@@ -180,9 +186,7 @@ table.skill-table td{
 </ul>
 </nav>
 <header class="site-header">
-
 </header>
-
 <main class="site-main">
 <div id="top"></div>
 <a class="skip-link" href="#main-content">본문 바로가기</a>
@@ -210,28 +214,28 @@ table.skill-table td{
 <tbody>
 <tr>
 <td>쇼크 스턴<br/>(기사)</td>
-<td><img alt="image" height="80" src="https://example.com/skill_shock_stun.png" width="80"/></td>
+<td><img alt="쇼크 스턴 아이콘" class="skill-icon" src="https://static.inven.co.kr/image_2011/site_image/lineage/dataninfo/skillicon/m_0134.gif"/></td>
 <td>MP 20<br/>HP 사용 안함</td>
 <td>양손검 착용 시에만 사용 가능.<br/>순간적인 대미지와 함께 상대를 스턴 상태로 만듦.</td>
 <td>하급 마법상인 판매</td>
 </tr>
 <tr>
 <td>솔리드 캐리지<br/>(기사)</td>
-<td><img alt="image" height="80" src="https://example.com/skill_solid_carriage.png" width="80"/></td>
+<td><img alt="솔리드 캐리지 아이콘" class="skill-icon" src="https://static.inven.co.kr/image_2011/site_image/lineage/dataninfo/skillicon/m_0133.gif"/></td>
 <td>MP 10<br/>HP 100</td>
 <td>지속 시간 동안 ER +15 효과 부여</td>
 <td>중급 마법상인 판매, 드랍(추후 공개)</td>
 </tr>
 <tr>
 <td>리덕션 아머<br/>(기사)</td>
-<td><img alt="image" height="80" src="https://example.com/skill_reduction_armor.png" width="80"/></td>
+<td><img alt="리덕션 아머 아이콘" class="skill-icon" src="https://static.inven.co.kr/image_2011/site_image/lineage/dataninfo/skillicon/m_0131.gif"/></td>
 <td>MP 7<br/>HP 50</td>
 <td>192초 동안 대미지 감소 +1, 이후 5레벨마다 +1</td>
 <td>중급 마법상인 판매, 드랍(추후 공개)</td>
 </tr>
 <tr>
 <td>카운터 배리어<br/>(기사)</td>
-<td><img alt="image" height="80" src="https://example.com/skill_counter_barrier.png" width="80"/></td>
+<td><img alt="카운터 배리어 아이콘" class="skill-icon" src="https://static.inven.co.kr/image_2011/site_image/lineage/dataninfo/skillicon/m_0135.gif"/></td>
 <td>MP 10<br/>HP 100</td>
 <td>근거리 공격 회피 후 카운터 공격</td>
 <td>드랍(추후 공개)</td>
