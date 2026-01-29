@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>다크엘프 스킬</title>
+<link href="../../css/main.20260116_16.min.css" rel="stylesheet"/>
+<link href="../../css/banner_override.css" rel="stylesheet"/>
+<style id="skill-icon-style">
+  .skill-icon{
+    width:48px;height:48px;object-fit:contain;
+    border-radius:12px;background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.10);
+  }
+  .skill-img-ph{
+    width:52px;height:52px;border-radius:14px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.10);
+    margin:0 auto;
+  }
+  </style>
+<style id="skill-template-style">
+ /* SKILL TEMPLATE (군주 기준) */
+.skill-page{ max-width: 1100px; margin: 0 auto; padding: 18px 14px 60px; }
+.skill-page h1{ font-size: 26px; font-weight: 900; text-align:center; margin: 6px 0 10px; }
+.skill-note{ text-align:center; opacity:.85; margin: 0 0 18px; font-size: 13px; line-height: 1.6; }
+
+.skill-table{ width:100%; border-collapse: separate; border-spacing: 0; overflow:hidden;
+  border:1px solid rgba(255,255,255,.10); border-radius: 18px; background: rgba(255,255,255,.04); }
+.skill-table th{ background: rgba(255,255,255,.06); font-weight:900; padding:14px 16px; text-align:center; border-bottom:1px solid rgba(255,255,255,.10); }
+.skill-table td{ padding:18px 16px; vertical-align: middle; border-bottom:1px solid rgba(255,255,255,.07); }
+.skill-table tr:last-child td{ border-bottom:0; }
+
+.skill-table td:nth-child(1){ font-weight:800; } /* 스킬 명 */
+.skill-table td:nth-child(2){ width:90px; text-align:center; }
+.skill-table td:nth-child(3){ width:140px; text-align:center; }
+.skill-table td:nth-child(5){ width:180px; text-align:center; font-weight:800; }
+
+.skill-img-ph{ width:52px; height:52px; border-radius:14px; background: rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.10); margin: 0 auto; }
+
+@media (max-width: 860px){
+  .skill-table{ display:block; overflow:auto; }
+  .skill-table{ min-width: 920px; }
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+<div class="hero-main"></div>
+</header>
+<div class="main-nav-bar">
+<ul class="nav" id="main-nav">
+<li><a href="../../index.html">홈</a></li>
+<li><a href="../가이드/index.html">가이드</a></li>
+<li class="has-sub">
+<a class="active" href="../스킬/index.html">스킬</a>
+</li>
+<li><a href="../아이템/index.html">아이템</a></li>
+</ul>
+</div>
+<main>
+<section class="skill-page">
+<h1>다크엘프 스킬</h1>
+<p class="skill-note">※ 군주/기사/마법사/요정 페이지와 동일한 표 형식입니다. (아이콘은 인게임 기준으로 순차 적용)</p>
+<table class="skill-table">
+<thead>
+<tr>
+<th>스킬 명</th>
+<th>사진</th>
+<th>소모 MP/HP</th>
+<th>정보</th>
+<th>획득 방법</th>
+</tr>
+</thead>
+<tbody><tr><td>드레스 마이티 (다크엘프)</td><td><img alt="드레스 마이티 아이콘" class="skill-icon" src="../../assets/icons/skills/de_dress_mighty.png"/></td><td>MP 10 / HP 0</td><td>[마법재료] 0 / [지속시간] 960초 / [대상] 술자
+시전하면 960초(16분) 동안 술자에게 STR+2의 효과가 적용된다</td><td>인게임 기준</td></tr><tr><td>블라인드 하이딩 (다크엘프)</td><td><img alt="블라인드 하이딩 아이콘" class="skill-icon" src="../../assets/icons/skills/de_blind_hiding.png"/></td><td>MP 10 / HP 0</td><td>[마법재료] --- / [지속시간] 32초 / [대상] 술자
+시전하면 32초 동안 투명 효과가 적용된다. 단, 투명 상태에서 이동/공격 등 적극적인 행동을 하면 효과가 사라진다</td><td>인게임 기준</td></tr><tr><td>쉐도우 아머 (다크엘프)</td><td><img alt="쉐도우 아머 아이콘" class="skill-icon" src="../../assets/icons/skills/de_shadow_armor.png"/></td><td>MP 10 / HP 0</td><td>[마법재료] 0 / [지속시간] 960초 / [대상] 술자
+시전하면 960초(16분) 동안 술자에게 AC-3의 효과가 적용된다</td><td>인게임 기준</td></tr><tr><td>인챈트 베놈 (다크엘프)</td><td><img alt="인챈트 베놈 아이콘" class="skill-icon" src="../../assets/icons/skills/de_enchant_venom.png"/></td><td>MP 10 / HP 1</td><td>[마법재료] 흑요석 1개 / [지속시간] 320초 / [대상] 술자
+시전하면 320초 동안 술자의 무기에 독 속성이 부여되며 일정 확률로 타겟에게 독이 적용된다(중독)</td><td>인게임 기준</td></tr><tr><td>드레스 덱스터리티 (다크엘프)</td><td><img alt="드레스 덱스터리티 아이콘" class="skill-icon" src="../../assets/icons/skills/de_dress_dexterity.png"/></td><td>MP 10 / HP 0</td><td>[마법재료] 0 / [지속시간] 960초 / [대상] 술자
+시전하면 960초(16분) 동안 술자에게 DEX+2의 효과가 적용된다</td><td>인게임 기준</td></tr><tr><td>무빙 악셀레이션 (다크엘프)</td><td><img alt="무빙 악셀레이션 아이콘" class="skill-icon" src="../../assets/icons/skills/de_moving_acceleration.png"/></td><td>MP 10 / HP 0</td><td>[마법재료] 0 / [지속시간] 960초 / [대상] 술자
+시전하면 960초(16분) 동안 술자에게 이동 속도 1단계 증가 효과가 적용된다. 이 효과는 속도 향상 물약 등의 효과와 중복된다</td><td>인게임 기준</td></tr><tr><td>버닝 스피릿츠 (다크엘프)</td><td><img alt="버닝 스피릿츠 아이콘" class="skill-icon" src="../../assets/icons/skills/de_burning_spirits.png"/></td><td>MP 20 / HP 0</td><td>[마법재료] 0 / [지속시간] 300초 / [대상] 술자
+시전하면 일정 확률로 공격 대미지 1.5배의 효과가 적용된다</td><td>인게임 기준</td></tr><tr><td>베놈 레지스트 (다크엘프)</td><td><img alt="베놈 레지스트 아이콘" class="skill-icon" src="../../assets/icons/skills/de_venom_resist.png"/></td><td>MP 20 / HP 0</td><td>[마법재료] 0 / [지속시간] 320초 / [대상] 술자
+시전하면 320초 동안 술자에게 독 내성 효과가 적용된다</td><td>인게임 기준</td></tr><tr><td>더블 브레이크 (다크엘프)</td><td><img alt="더블 브레이크 아이콘" class="skill-icon" src="../../assets/icons/skills/de_double_break.png"/></td><td>MP 30 / HP 0</td><td>[마법재료] 흑요석 1개 / [지속시간] 192초 / [대상] 술자
+시전하면 192초 동안 일정 확률로 공격 대미지 2배의 효과가 적용된다. 단, 이 마법은 이도류나 크로우 장착 시 사용 가능</td><td>인게임 기준</td></tr><tr><td>드레스 이베이전 (다크엘프)</td><td><img alt="드레스 이베이전 아이콘" class="skill-icon" src="../../assets/icons/skills/de_dress_evasion.png"/></td><td>MP 20 / HP 0</td><td>[마법재료] 0 / [지속시간] 32초 / [대상] 술자
+시전하면 32초 동안 술자에게 ER(원거리 회피)+12의 효과가 적용된다</td><td>인게임 기준</td></tr><tr><td>쉐도우 핑 (다크엘프)</td><td><img alt="쉐도우 핑 아이콘" class="skill-icon" src="../../assets/icons/skills/de_shadow_fang.png"/></td><td>MP 30 / HP 0</td><td>[마법재료] 흑요석 1개 / [지속시간] 192초 / [대상] 술자의 무기
+시전 후 인벤토리에서 근거리 무기를 선택하면 192초 동안 선택한 근거리 무기에 추가 타격 +5의 효과가 적용된다</td><td>인게임 기준</td></tr><tr><td>언캐니 닷지 (다크엘프)</td><td><img alt="언캐니 닷지 아이콘" class="skill-icon" src="../../assets/icons/skills/de_uncanny_dodge.png"/></td><td>MP 20 / HP 0</td><td>[마법재료] 0 / [지속시간] 192초 / [대상] 술자
+시전하면 192초 동안 술자에게 DG(근거리 회피)+50의 효과가 적용된다</td><td>인게임 기준</td></tr><tr><td>파이널 번 (다크엘프)</td><td><img alt="파이널 번 아이콘" class="skill-icon" src="../../assets/icons/skills/de_final_burn.png"/></td><td>MP 최대 MP에서 1 남김 / HP 최대 HP에서 4 남김</td><td>[마법재료] 0 / [지속시간] 순간 / [대상] PC 또는 NPC 1인
+시전하면 대상에게 강력한 대미지를 가한다. 단, 이 마법 사용 시 HP와 MP가 1만 남는다</td><td>인게임 기준</td></tr></tbody>
+</table>
+</section>
+</main>
+<script src="../../js/main.20260116_16.min.js"></script>
+</body>
+</html>

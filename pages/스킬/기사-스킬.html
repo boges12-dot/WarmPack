@@ -9,8 +9,8 @@
 <meta content="기사 스킬 · " name="description"/>
 <meta content="website" property="og:type"/>
 <meta content="" property="og:site_name"/>
-<meta content="기사 스킬 · " property="og:title">
-<meta content="기사 스킬 · " property="og:description"/>
+<meta content="기사 스킬 · " property="og:title"/>
+<meta content="기사 스킬 · " property="og:description">
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="기사 스킬 · " name="twitter:title"/>
 <meta content="기사 스킬 · " name="twitter:description"/>
@@ -107,7 +107,26 @@ table.skill-table td{
   border-radius:12px;background:rgba(255,255,255,.04);
   border:1px solid rgba(255,255,255,.10);
 }
-</style></head>
+</style>
+<style id="skill-ui-polish">
+/* SKILL UI POLISH: 전 클래스 공통 미세 정리 */
+.skill-page{ max-width:1100px; margin:0 auto; padding:18px 14px 60px; }
+.skill-page h1{ font-size:26px; font-weight:900; text-align:center; margin: 6px 0 10px; }
+.skill-note{ text-align:center; opacity:.85; margin:0 0 18px; font-size:13px; line-height:1.6; }
+.skill-table{ width:100%; border-collapse:separate; border-spacing:0; border:1px solid rgba(255,255,255,.10); border-radius:18px; background:rgba(255,255,255,.04); overflow:hidden; }
+.skill-table th{ background:rgba(255,255,255,.06); font-weight:900; padding:14px 16px; text-align:center; border-bottom:1px solid rgba(255,255,255,.10); }
+.skill-table td{ padding:18px 16px; vertical-align:middle; border-bottom:1px solid rgba(255,255,255,.07); }
+.skill-table tr:last-child td{ border-bottom:0; }
+.skill-table td:nth-child(2){ width:90px; text-align:center; }
+.skill-table td:nth-child(3){ width:140px; text-align:center; white-space:nowrap; }
+.skill-table td:nth-child(5){ width:160px; text-align:center; font-weight:800; white-space:nowrap; }
+.skill-icon{ width:48px; height:48px; object-fit:contain; border-radius:12px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.10); }
+@media (max-width: 860px){
+  .skill-table{ display:block; overflow:auto; }
+  .skill-table{ min-width: 980px; }
+}
+</style>
+</head>
 <body><section class="hero-main"><a aria-label="홈으로 이동" class="hero-home-link" href="#"></a></section><nav aria-label="메인 메뉴" class="main-nav-bar">
 <ul class="nav" id="main-nav">
 <li class="home-link"><a aria-label="홈" class="nav-home" href="#"><svg aria-hidden="true" class="icon-home" focusable="false" height="18" viewbox="0 0 24 24" width="18"><path d="M12 3 2.5 11.2a1 1 0 0 0 .7 1.8H5v7a1 1 0 0 0 1 1h4v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5h4a1 1 0 0 0 1-1v-7h1.8a1 1 0 0 0 .7-1.8L12 3z"></path></svg></a></li>
