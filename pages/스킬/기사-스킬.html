@@ -10,11 +10,11 @@
 <meta content="website" property="og:type"/>
 <meta content="" property="og:site_name"/>
 <meta content="기사 스킬 · " property="og:title"/>
-<meta content="기사 스킬 · " property="og:description">
-<meta content="summary_large_image" name="twitter:card"/>
+<meta content="기사 스킬 · " property="og:description"/>
+<meta content="summary_large_image" name="twitter:card">
 <meta content="기사 스킬 · " name="twitter:title"/>
 <meta content="기사 스킬 · " name="twitter:description"/>
-<link href="../../css/main.20260116_16.min.css" rel="stylesheet"/>
+<link href="/css/main.20260116_16.min.css" rel="stylesheet"/>
 <!-- STEP9: icons/manifest -->
 <link href="../../favicon.ico" rel="icon" sizes="any"/>
 <link href="../../assets/icons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
@@ -26,7 +26,7 @@
 <meta content="https://boges12-dot.github.io/WarmPack/assets/images/og_v3.jpg" property="og:image:secure_url"/>
 <meta content="https://boges12-dot.github.io/WarmPack/assets/images/og_v3.jpg" name="twitter:image"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<link href="../../css/banner_override.css?v=20260126_B2" rel="stylesheet"/>
+<link href="/css/banner_override.css?v=20260126_B2" rel="stylesheet"/>
 </meta><style id="skill-table-center">
 /* Skill tables center alignment */
 main table{
@@ -108,8 +108,9 @@ table.skill-table td{
   border:1px solid rgba(255,255,255,.10);
 }
 </style>
+
 <style id="skill-ui-polish">
-/* SKILL UI POLISH: 전 클래스 공통 미세 정리 */
+/* SKILL UI POLISH v2: 아이콘 표시 강제 */
 .skill-page{ max-width:1100px; margin:0 auto; padding:18px 14px 60px; }
 .skill-page h1{ font-size:26px; font-weight:900; text-align:center; margin: 6px 0 10px; }
 .skill-note{ text-align:center; opacity:.85; margin:0 0 18px; font-size:13px; line-height:1.6; }
@@ -120,13 +121,24 @@ table.skill-table td{
 .skill-table td:nth-child(2){ width:90px; text-align:center; }
 .skill-table td:nth-child(3){ width:140px; text-align:center; white-space:nowrap; }
 .skill-table td:nth-child(5){ width:160px; text-align:center; font-weight:800; white-space:nowrap; }
-.skill-icon{ width:48px; height:48px; object-fit:contain; border-radius:12px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.10); }
-@media (max-width: 860px){
-  .skill-table{ display:block; overflow:auto; }
-  .skill-table{ min-width: 980px; }
+
+/* 아이콘 강제 표시 */
+.skill-table td:nth-child(2) img,
+.skill-icon{
+  display:block !important;
+  width:48px !important;
+  height:48px !important;
+  object-fit:contain !important;
+  margin:0 auto !important;
+  border-radius:12px !important;
+  background:rgba(255,255,255,.04) !important;
+  border:1px solid rgba(255,255,255,.10) !important;
 }
-</style>
-</head>
+
+@media (max-width: 860px){
+  .skill-table{ display:block; overflow:auto; min-width: 980px; }
+}
+</style></head>
 <body><section class="hero-main"><a aria-label="홈으로 이동" class="hero-home-link" href="#"></a></section><nav aria-label="메인 메뉴" class="main-nav-bar">
 <ul class="nav" id="main-nav">
 <li class="home-link"><a aria-label="홈" class="nav-home" href="#"><svg aria-hidden="true" class="icon-home" focusable="false" height="18" viewbox="0 0 24 24" width="18"><path d="M12 3 2.5 11.2a1 1 0 0 0 .7 1.8H5v7a1 1 0 0 0 1 1h4v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5h4a1 1 0 0 0 1-1v-7h1.8a1 1 0 0 0 .7-1.8L12 3z"></path></svg></a></li>
@@ -263,9 +275,9 @@ table.skill-table td{
 </table>
 </main>
 <h3 style="margin-top:30px; margin-bottom:10px;"></h3></main>
-<script defer="" src="../../js/main.20260116_16.min.js"></script>
-<script src="../../js/banner_home.js"></script>
-<script src="../../js/top_button.js"></script>
-<script src="../../js/hero_shrink.js"></script>
+<script defer="" src="/js/main.20260116_16.min.js"></script>
+<script src="/js/banner_home.js"></script>
+<script src="/js/top_button.js"></script>
+<script src="/js/hero_shrink.js"></script>
 </body>
 </html>
