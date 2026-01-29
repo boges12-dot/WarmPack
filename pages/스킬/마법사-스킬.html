@@ -10,8 +10,8 @@
 <meta content="website" property="og:type"/>
 <meta content="" property="og:site_name"/>
 <meta content=" · " property="og:title"/>
-<meta content=" · " property="og:description">
-<meta content="summary_large_image" name="twitter:card"/>
+<meta content=" · " property="og:description"/>
+<meta content="summary_large_image" name="twitter:card">
 <meta content=" · " name="twitter:title"/>
 <meta content=" · " name="twitter:description"/>
 <link href="/WarmPack/css/main.20260116_16.min.css" rel="stylesheet"/>
@@ -79,6 +79,63 @@ main table{
 main table th, main table td{
   padding:10px !important;
 }
+
+/* --- 카드형 스킬 레이아웃 (표 삭제 후 대체) --- */
+.skill-cards{
+  width:100%;
+  max-width:1100px;
+  margin:0 auto;
+  padding:18px 14px 60px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:18px;
+}
+.skill-card{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  background:rgba(15,18,22,.75);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:14px;
+  padding:14px 14px;
+}
+.skill-card-icon{
+  width:64px;
+  height:64px;
+  flex:0 0 64px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(0,0,0,.35);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:12px;
+  overflow:hidden;
+}
+.skill-card-icon img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  image-rendering:auto;
+}
+.skill-card-body h3{
+  margin:0;
+  font-size:18px;
+  line-height:1.2;
+}
+.skill-card-meta{
+  margin-top:6px;
+  font-size:12px;
+  opacity:.8;
+}
+.skill-card-body p{
+  margin:8px 0 0;
+  font-size:13px;
+  line-height:1.4;
+  opacity:.95;
+}
+@media (max-width:640px){
+  .skill-cards{ grid-template-columns:1fr; }
+}
 </style><style>
 /* FIX: 스크롤 시 메뉴 떨림 방지 */
 header, nav, .header, .navbar {
@@ -119,7 +176,6 @@ table.skill-table td{
   border:1px solid rgba(255,255,255,.10);
 }
 </style>
-
 <style id="skill-ui-polish">
 /* SKILL UI POLISH v2: 아이콘 표시 강제 */
 .skill-page{ max-width:1100px; margin:0 auto; padding:18px 14px 60px; }
@@ -244,75 +300,7 @@ table.skill-table td{
 </div>
 </section>
 <h2>1단계</h2>
-<table border="1" cellpadding="5" cellspacing="0" class="skill-table" style="border-collapse: collapse; width: 100%; ">
-<thead>
-<tr>
-<th>스킬명</th>
-<th>이미지</th>
-<th>소모 MP / HP</th>
-<th>정보</th>
-<th>획득 방법</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>라이트</td>
-<td><img alt="라이트 아이콘" class="skill-icon" src="https://static.inven.co.kr/image_2011/site_image/lineage/dataninfo/skillicon/m_0001.gif"/></td>
-<td>MP 4 / HP ○</td>
-<td>3600초 동안 밝은 광원을 만들어 시전자 주위를 밝힌다.</td>
-<td>기본 습득</td>
-</tr>
-<tr>
-<td>실드</td>
-<td><img alt="실드 아이콘" class="skill-icon" src="https://static.inven.co.kr/image_2011/site_image/lineage/dataninfo/skillicon/m_0002.gif"/></td>
-<td>MP 8 / HP ○</td>
-<td>1800초 동안 AC-2의 효과 적용.</td>
-<td>기본 습득</td>
-</tr>
-<tr>
-<td>아이스 대거</td>
-<td><img alt="아이스 대거 아이콘" class="skill-icon" src="https://static.inven.co.kr/image_2011/site_image/lineage/dataninfo/skillicon/m_0003.gif"/></td>
-<td>MP 4 / HP ○</td>
-<td>얼음 단검을 날려 적에게 대미지를 준다.</td>
-<td>기본 습득</td>
-</tr>
-<tr>
-<td>에너지 볼트</td>
-<td><img alt="에너지 볼트 아이콘" class="skill-icon" src="https://static.inven.co.kr/image_2011/site_image/lineage/dataninfo/skillicon/m_0004.gif"/></td>
-<td>MP 3 / HP ○</td>
-<td>마법 에너지를 발사하여 대상에게 작은 피해를 준다.</td>
-<td>기본 습득</td>
-</tr>
-<tr>
-<td>윈드 커터</td>
-<td><img alt="윈드 커터 아이콘" class="skill-icon" src="https://static.inven.co.kr/image_2011/site_image/lineage/dataninfo/skillicon/m_0005.gif"/></td>
-<td>MP 4 / HP ○</td>
-<td>바람의 흐름을 조종해 톱니바퀴 형태로 날려 대미지를 준다.</td>
-<td>기본 습득</td>
-</tr>
-<tr>
-<td>텔레포트</td>
-<td><img alt="텔레포트 아이콘" class="skill-icon" src="https://static.inven.co.kr/image_2011/site_image/lineage/dataninfo/skillicon/m_0006.gif"/></td>
-<td>MP 10 / HP ○</td>
-<td>무작위 장소로 순간이동. 순간이동 조종 반지 착용 시 저장된 장소로 이동 가능.</td>
-<td>기본 습득</td>
-</tr>
-<tr>
-<td>홀리 웨폰</td>
-<td><img alt="홀리 웨폰 아이콘" class="skill-icon" src="https://static.inven.co.kr/image_2011/site_image/lineage/dataninfo/skillicon/m_0007.gif"/></td>
-<td>MP 10 / HP ○</td>
-<td>근거리 대미지 +1, 명중 +1, 언데드 추가 대미지 효과를 부여.</td>
-<td>기본 습득</td>
-</tr>
-<tr>
-<td>힐</td>
-<td><img alt="힐 아이콘" class="skill-icon" src="https://static.inven.co.kr/image_2011/site_image/lineage/dataninfo/skillicon/m_0008.gif"/></td>
-<td>MP 4 / HP ○</td>
-<td>대상을 치유하여 HP를 조금 회복. 언데드에게는 피해를 줌.</td>
-<td>기본 습득</td>
-</tr>
-</tbody>
-</table>
+<div class="skill-cards"><div class="skill-card"><div class="skill-card-icon"><img alt="라이트" src="https://static.inven.co.kr/image_2011/site_image/lineage/dataninfo/skillicon/m_0001.gif"/></div><div class="skill-card-body"><h3>라이트</h3><div class="skill-card-meta">MP 4 / HP ○ · 기본 습득</div><p>3600초 동안 밝은 광원을 만들어 시전자 주위를 밝힌다.</p></div></div><div class="skill-card"><div class="skill-card-icon"><img alt="실드" src="https://static.inven.co.kr/image_2011/site_image/lineage/dataninfo/skillicon/m_0002.gif"/></div><div class="skill-card-body"><h3>실드</h3><div class="skill-card-meta">MP 8 / HP ○ · 기본 습득</div><p>1800초 동안 AC-2의 효과 적용.</p></div></div><div class="skill-card"><div class="skill-card-icon"><img alt="아이스 대거" src="https://static.inven.co.kr/image_2011/site_image/lineage/dataninfo/skillicon/m_0003.gif"/></div><div class="skill-card-body"><h3>아이스 대거</h3><div class="skill-card-meta">MP 4 / HP ○ · 기본 습득</div><p>얼음 단검을 날려 적에게 대미지를 준다.</p></div></div><div class="skill-card"><div class="skill-card-icon"><img alt="에너지 볼트" src="https://static.inven.co.kr/image_2011/site_image/lineage/dataninfo/skillicon/m_0004.gif"/></div><div class="skill-card-body"><h3>에너지 볼트</h3><div class="skill-card-meta">MP 3 / HP ○ · 기본 습득</div><p>마법 에너지를 발사하여 대상에게 작은 피해를 준다.</p></div></div><div class="skill-card"><div class="skill-card-icon"><img alt="윈드 커터" src="https://static.inven.co.kr/image_2011/site_image/lineage/dataninfo/skillicon/m_0005.gif"/></div><div class="skill-card-body"><h3>윈드 커터</h3><div class="skill-card-meta">MP 4 / HP ○ · 기본 습득</div><p>바람의 흐름을 조종해 톱니바퀴 형태로 날려 대미지를 준다.</p></div></div><div class="skill-card"><div class="skill-card-icon"><img alt="텔레포트" src="https://static.inven.co.kr/image_2011/site_image/lineage/dataninfo/skillicon/m_0006.gif"/></div><div class="skill-card-body"><h3>텔레포트</h3><div class="skill-card-meta">MP 10 / HP ○ · 기본 습득</div><p>무작위 장소로 순간이동. 순간이동 조종 반지 착용 시 저장된 장소로 이동 가능.</p></div></div><div class="skill-card"><div class="skill-card-icon"><img alt="홀리 웨폰" src="https://static.inven.co.kr/image_2011/site_image/lineage/dataninfo/skillicon/m_0007.gif"/></div><div class="skill-card-body"><h3>홀리 웨폰</h3><div class="skill-card-meta">MP 10 / HP ○ · 기본 습득</div><p>근거리 대미지 +1, 명중 +1, 언데드 추가 대미지 효과를 부여.</p></div></div><div class="skill-card"><div class="skill-card-icon"><img alt="힐" src="https://static.inven.co.kr/image_2011/site_image/lineage/dataninfo/skillicon/m_0008.gif"/></div><div class="skill-card-body"><h3>힐</h3><div class="skill-card-meta">MP 4 / HP ○ · 기본 습득</div><p>대상을 치유하여 HP를 조금 회복. 언데드에게는 피해를 줌.</p></div></div></div>
 <h2>2단계</h2>
 <table border="1" cellpadding="5" cellspacing="0" class="skill-table" style="border-collapse: collapse; width: 100%; ">
 <thead>

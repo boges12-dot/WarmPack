@@ -11,8 +11,8 @@
 <meta content="" property="og:site_name"/>
 <meta content="기사 스킬 · " property="og:title"/>
 <meta content="기사 스킬 · " property="og:description"/>
-<meta content="summary_large_image" name="twitter:card">
-<meta content="기사 스킬 · " name="twitter:title"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="기사 스킬 · " name="twitter:title">
 <meta content="기사 스킬 · " name="twitter:description"/>
 <link href="/WarmPack/css/main.20260116_16.min.css" rel="stylesheet"/>
 <!-- STEP9: icons/manifest -->
@@ -68,6 +68,63 @@ main table{
 main table th, main table td{
   padding:10px !important;
 }
+
+/* --- 카드형 스킬 레이아웃 (표 삭제 후 대체) --- */
+.skill-cards{
+  width:100%;
+  max-width:1100px;
+  margin:0 auto;
+  padding:18px 14px 60px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:18px;
+}
+.skill-card{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  background:rgba(15,18,22,.75);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:14px;
+  padding:14px 14px;
+}
+.skill-card-icon{
+  width:64px;
+  height:64px;
+  flex:0 0 64px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(0,0,0,.35);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:12px;
+  overflow:hidden;
+}
+.skill-card-icon img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  image-rendering:auto;
+}
+.skill-card-body h3{
+  margin:0;
+  font-size:18px;
+  line-height:1.2;
+}
+.skill-card-meta{
+  margin-top:6px;
+  font-size:12px;
+  opacity:.8;
+}
+.skill-card-body p{
+  margin:8px 0 0;
+  font-size:13px;
+  line-height:1.4;
+  opacity:.95;
+}
+@media (max-width:640px){
+  .skill-cards{ grid-template-columns:1fr; }
+}
 </style><style>
 /* FIX: 스크롤 시 메뉴 떨림 방지 */
 header, nav, .header, .navbar {
@@ -108,7 +165,6 @@ table.skill-table td{
   border:1px solid rgba(255,255,255,.10);
 }
 </style>
-
 <style id="skill-ui-polish">
 /* SKILL UI POLISH v2: 아이콘 표시 강제 */
 .skill-page{ max-width:1100px; margin:0 auto; padding:18px 14px 60px; }
@@ -232,47 +288,7 @@ table.skill-table td{
 <div class="container">
 </div>
 </section>
-<table border="1" cellpadding="8" cellspacing="0" class="skill-table" style="border-collapse: collapse; width: 100%; ">
-<thead>
-<tr>
-<th>스킬 명</th>
-<th>사진</th>
-<th>소모 MP/HP</th>
-<th>정보</th>
-<th>획득 방법</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>쇼크 스턴<br/>(기사)</td>
-<td><img alt="쇼크 스턴 아이콘" class="skill-icon" src="https://static.inven.co.kr/image_2011/site_image/lineage/dataninfo/skillicon/m_0134.gif"/></td>
-<td>MP 20<br/>HP 사용 안함</td>
-<td>양손검 착용 시에만 사용 가능.<br/>순간적인 대미지와 함께 상대를 스턴 상태로 만듦.</td>
-<td>하급 마법상인 판매</td>
-</tr>
-<tr>
-<td>솔리드 캐리지<br/>(기사)</td>
-<td><img alt="솔리드 캐리지 아이콘" class="skill-icon" src="https://static.inven.co.kr/image_2011/site_image/lineage/dataninfo/skillicon/m_0133.gif"/></td>
-<td>MP 10<br/>HP 100</td>
-<td>지속 시간 동안 ER +15 효과 부여</td>
-<td>중급 마법상인 판매, 드랍(추후 공개)</td>
-</tr>
-<tr>
-<td>리덕션 아머<br/>(기사)</td>
-<td><img alt="리덕션 아머 아이콘" class="skill-icon" src="https://static.inven.co.kr/image_2011/site_image/lineage/dataninfo/skillicon/m_0131.gif"/></td>
-<td>MP 7<br/>HP 50</td>
-<td>192초 동안 대미지 감소 +1, 이후 5레벨마다 +1</td>
-<td>중급 마법상인 판매, 드랍(추후 공개)</td>
-</tr>
-<tr>
-<td>카운터 배리어<br/>(기사)</td>
-<td><img alt="카운터 배리어 아이콘" class="skill-icon" src="https://static.inven.co.kr/image_2011/site_image/lineage/dataninfo/skillicon/m_0135.gif"/></td>
-<td>MP 10<br/>HP 100</td>
-<td>근거리 공격 회피 후 카운터 공격</td>
-<td>드랍(추후 공개)</td>
-</tr>
-</tbody>
-</table>
+<div class="skill-cards"><div class="skill-card"><div class="skill-card-icon"><img alt="쇼크 스턴 (기사)" src="https://static.inven.co.kr/image_2011/site_image/lineage/dataninfo/skillicon/m_0134.gif"/></div><div class="skill-card-body"><h3>쇼크 스턴 (기사)</h3><div class="skill-card-meta">MP 20 HP 사용 안함 · 하급 마법상인 판매</div><p>양손검 착용 시에만 사용 가능. 순간적인 대미지와 함께 상대를 스턴 상태로 만듦.</p></div></div><div class="skill-card"><div class="skill-card-icon"><img alt="솔리드 캐리지 (기사)" src="https://static.inven.co.kr/image_2011/site_image/lineage/dataninfo/skillicon/m_0133.gif"/></div><div class="skill-card-body"><h3>솔리드 캐리지 (기사)</h3><div class="skill-card-meta">MP 10 HP 100 · 중급 마법상인 판매, 드랍(추후 공개)</div><p>지속 시간 동안 ER +15 효과 부여</p></div></div><div class="skill-card"><div class="skill-card-icon"><img alt="리덕션 아머 (기사)" src="https://static.inven.co.kr/image_2011/site_image/lineage/dataninfo/skillicon/m_0131.gif"/></div><div class="skill-card-body"><h3>리덕션 아머 (기사)</h3><div class="skill-card-meta">MP 7 HP 50 · 중급 마법상인 판매, 드랍(추후 공개)</div><p>192초 동안 대미지 감소 +1, 이후 5레벨마다 +1</p></div></div><div class="skill-card"><div class="skill-card-icon"><img alt="카운터 배리어 (기사)" src="https://static.inven.co.kr/image_2011/site_image/lineage/dataninfo/skillicon/m_0135.gif"/></div><div class="skill-card-body"><h3>카운터 배리어 (기사)</h3><div class="skill-card-meta">MP 10 HP 100 · 드랍(추후 공개)</div><p>근거리 공격 회피 후 카운터 공격</p></div></div></div>
 </main>
 <h3 style="margin-top:30px; margin-bottom:10px;"></h3></main>
 <script defer="" src="/WarmPack/js/main.20260116_16.min.js"></script>
