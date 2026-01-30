@@ -730,3 +730,23 @@ main{min-height:60vh}
   gap: 20px;
   align-items: start;
 }
+
+
+/* === SKILL CARD HEIGHT UNIFY === */
+.skill-cards{
+  align-items: stretch;
+}
+.skill-card{
+  display:flex;
+  flex-direction:column;
+  height:100%;
+}
+.skill-card-body{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+}
+.skill-card-desc{
+  margin-top:auto;
+}
+
