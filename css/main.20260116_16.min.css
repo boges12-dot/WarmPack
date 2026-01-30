@@ -398,11 +398,26 @@
 }
 
 
-/* === SKILL CARDS FORCE 4-COL === */
-.skill-cards{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:20px!important}
-.skill-card{width:auto!important;flex:unset!important}
-/* responsive */
 @media (max-width:1200px){.skill-cards{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
 @media (max-width:900px){.skill-cards{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
 @media (max-width:500px){.skill-cards{grid-template-columns:1fr!important}}
+
+
+/* === SKILL CARD HEIGHT UNIFY === */
+.skill-cards{
+  align-items: stretch;
+}
+.skill-card{
+  display:flex;
+  flex-direction:column;
+  height:100%;
+}
+.skill-card-body{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+}
+.skill-card-desc{
+  margin-top:auto;
+}
 
