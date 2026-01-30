@@ -730,15 +730,3 @@ main{min-height:60vh}
   gap: 20px;
   align-items: start;
 }
-
-
-/* FORCE 4-COLUMN SKILL GRID */
-.skill-card-wrap {
-  display: grid !important;
-  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-  gap: 20px;
-}
-.skill-card {
-  width: auto !important;
-  flex: unset !important;
-}
