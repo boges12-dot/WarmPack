@@ -443,3 +443,19 @@
 .skill-card-icon{width:48px!important;height:48px!important;flex:0 0 48px!important;overflow:hidden!important}
 .skill-card-icon img{width:48px!important;height:48px!important;object-fit:cover!important;display:block!important}
 
+
+/* === SKILL ICON CONTAINER FIX (FORCE) === */
+.skill-icon {
+  width: 48px !important;
+  height: 48px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+}
+.skill-icon img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  display: block !important;
+}
