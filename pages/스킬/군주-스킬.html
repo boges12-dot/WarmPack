@@ -126,7 +126,7 @@ main table th, main table td{
   .skill-cards{ grid-template-columns:1fr; }
 }
 
-/* === SKILL ACCORDION (card click expand) === */
+/* === SKILL ACCORDION UNIFIED (lord template) === */
 .skill-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
 @media (max-width:1024px){ .skill-grid{ grid-template-columns:repeat(2,1fr);} }
 @media (max-width:640px){ .skill-grid{ grid-template-columns:1fr;} }
@@ -138,9 +138,10 @@ main table th, main table td{
 .skill-acc-icon{ flex:0 0 80px; width:80px; height:80px; display:flex; align-items:center; justify-content:center; }
 .skill-acc-icon img{ width:80px; height:80px; object-fit:contain; display:block; }
 
-.skill-acc-head{ flex:1; min-width:0; display:flex; flex-direction:column; gap:6px; }
+.skill-acc-head{ flex:1; min-width:0; display:flex; flex-direction:column; gap:8px; }
 .skill-acc-title{ font-size:18px; line-height:1.2; font-weight:700; }
-.skill-acc-meta{ font-size:13px; opacity:.85; }
+.skill-acc-meta{ display:flex; flex-direction:column; gap:4px; }
+.skill-acc-meta .meta-line{ font-size:13px; opacity:.85; }
 
 .skill-acc-chev{ flex:0 0 24px; width:24px; height:24px; position:relative; }
 .skill-acc-chev::before{ content:""; position:absolute; inset:0; margin:auto; width:10px; height:10px; border-right:2px solid rgba(255,255,255,.7); border-bottom:2px solid rgba(255,255,255,.7); transform:rotate(45deg); transition:transform .15s ease; }
@@ -148,11 +149,6 @@ details.skill-acc[open] .skill-acc-chev::before{ transform:rotate(225deg); }
 
 .skill-acc-body{ padding:0 16px 16px 16px; }
 .skill-acc-desc{ margin:0; font-size:13px; line-height:1.45; opacity:.9; }
-
-
-/* meta formatting */
-.skill-acc-meta{ display:flex; flex-direction:column; gap:4px; }
-.skill-acc-meta .meta-line{ font-size:13px; opacity:.85; }
 
 </style><style>
 /* FIX: 스크롤 시 메뉴 떨림 방지 */
@@ -310,7 +306,10 @@ table.skill-table td{
     <span class="skill-acc-icon"><img src="/WarmPack/media_skill/lord/shock_stun.png" alt="쇼크 스턴 (군주)"></span>
     <span class="skill-acc-head">
       <span class="skill-acc-title">쇼크 스턴 (군주)</span>
-      <span class="skill-acc-meta"><span class="meta-line">소모: HP : 0 / MP : 20</span><span class="meta-line">판매 : 중급 마법상인</span></span>
+      <span class="skill-acc-meta">
+        <span class="meta-line">소모: HP : 0 / MP : 20</span>
+        <span class="meta-line">판매 : 중급 마법상인</span>
+      </span>
     </span>
     <span class="skill-acc-chev" aria-hidden="true"></span>
   </summary>
@@ -321,7 +320,10 @@ table.skill-table td{
     <span class="skill-acc-icon"><img src="/WarmPack/media_skill/lord/true_target.png" alt="트루 타겟 (군주)"></span>
     <span class="skill-acc-head">
       <span class="skill-acc-title">트루 타겟 (군주)</span>
-      <span class="skill-acc-meta"><span class="meta-line">소모: HP : 0 / MP : 1</span><span class="meta-line">판매 : 하급 마법상인</span></span>
+      <span class="skill-acc-meta">
+        <span class="meta-line">소모: HP : 0 / MP : 1</span>
+        <span class="meta-line">판매 : 하급 마법상인</span>
+      </span>
     </span>
     <span class="skill-acc-chev" aria-hidden="true"></span>
   </summary>
@@ -332,7 +334,10 @@ table.skill-table td{
     <span class="skill-acc-icon"><img src="/WarmPack/media_skill/lord/glowing_weapon.png" alt="글로잉 웨폰 (군주)"></span>
     <span class="skill-acc-head">
       <span class="skill-acc-title">글로잉 웨폰 (군주)</span>
-      <span class="skill-acc-meta"><span class="meta-line">소모: HP : 0 / MP : 25</span><span class="meta-line">판매 : 하급 마법상인</span></span>
+      <span class="skill-acc-meta">
+        <span class="meta-line">소모: HP : 0 / MP : 25</span>
+        <span class="meta-line">판매 : 하급 마법상인</span>
+      </span>
     </span>
     <span class="skill-acc-chev" aria-hidden="true"></span>
   </summary>
@@ -343,7 +348,10 @@ table.skill-table td{
     <span class="skill-acc-icon"><img src="/WarmPack/media_skill/lord/shining_shield.png" alt="샤이닝 실드 (군주)"></span>
     <span class="skill-acc-head">
       <span class="skill-acc-title">샤이닝 실드 (군주)</span>
-      <span class="skill-acc-meta"><span class="meta-line">소모: HP : 0 / MP : 25</span><span class="meta-line">판매 : 하급 마법상인</span></span>
+      <span class="skill-acc-meta">
+        <span class="meta-line">소모: HP : 0 / MP : 25</span>
+        <span class="meta-line">판매 : 하급 마법상인</span>
+      </span>
     </span>
     <span class="skill-acc-chev" aria-hidden="true"></span>
   </summary>
@@ -354,7 +362,10 @@ table.skill-table td{
     <span class="skill-acc-icon"><img src="/WarmPack/media_skill/lord/call_clan.png" alt="콜 클랜 (군주)"></span>
     <span class="skill-acc-head">
       <span class="skill-acc-title">콜 클랜 (군주)</span>
-      <span class="skill-acc-meta"><span class="meta-line">소모: HP : 0 / MP : 30</span><span class="meta-line">판매 : 하급 마법상인</span></span>
+      <span class="skill-acc-meta">
+        <span class="meta-line">소모: HP : 0 / MP : 30</span>
+        <span class="meta-line">판매 : 하급 마법상인</span>
+      </span>
     </span>
     <span class="skill-acc-chev" aria-hidden="true"></span>
   </summary>
@@ -365,7 +376,10 @@ table.skill-table td{
     <span class="skill-acc-icon"><img src="/WarmPack/media_skill/lord/brave_mental.png" alt="브레이브 멘탈 (군주)"></span>
     <span class="skill-acc-head">
       <span class="skill-acc-title">브레이브 멘탈 (군주)</span>
-      <span class="skill-acc-meta"><span class="meta-line">소모: HP : 0 / MP : 25</span><span class="meta-line">획득 : 드랍</span></span>
+      <span class="skill-acc-meta">
+        <span class="meta-line">소모: HP : 0 / MP : 25</span>
+        <span class="meta-line">획득 : 드랍</span>
+      </span>
     </span>
     <span class="skill-acc-chev" aria-hidden="true"></span>
   </summary>
