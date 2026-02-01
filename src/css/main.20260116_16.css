@@ -861,3 +861,31 @@ main{min-height:60vh}
 .skill-acc-summary > *{width:100%;}
 .skill-acc-summary .skill-acc-icon{width:auto;}
 
+
+
+/* === Skill: 4-column grid (desktop) === */
+.skill-page .grid,
+.skill-page .skill-grid,
+.skill-page .skill-cards-grid{
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+}
+@media (max-width: 980px){
+  .skill-page .grid,
+  .skill-page .skill-grid,
+  .skill-page .skill-cards-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+@media (max-width: 620px){
+  .skill-page .grid,
+  .skill-page .skill-grid,
+  .skill-page .skill-cards-grid{
+    grid-template-columns: 1fr !important;
+  }
+}
+/* if wrapper wasn't a grid, force it to be one */
+.skill-page .skill-grid{
+  display: grid;
+  gap: 12px;
+}
+
