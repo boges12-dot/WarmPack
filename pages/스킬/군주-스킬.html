@@ -150,6 +150,14 @@ details.skill-acc[open] .skill-acc-chev::before{ transform:rotate(225deg); }
 .skill-acc-body{ padding:0 16px 16px 16px; }
 .skill-acc-desc{ margin:0; font-size:13px; line-height:1.45; opacity:.9; }
 
+
+/* === SKILL PAGE WRAP (uniform) === */
+.skill-page{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 18px 14px 60px;
+}
+
 </style><style>
 /* FIX: 스크롤 시 메뉴 떨림 방지 */
 header, nav, .header, .navbar {
@@ -300,7 +308,8 @@ table.skill-table td{
 </nav>
 <header class="site-header">
 </header>
-<main class="site-main"><section class="skill-page"><h1 class="page-title">(임시) 백업 서버</h1><p class="skill-note">군주 스킬 표 기준으로 다른 클래스도 동일한 구조로 통일합니다.</p><div class="skill-grid">
+<main class="site-main"><section class="skill-page"><h1 class="page-title">(임시) 백업 서버</h1><p class="skill-note">군주 스킬 표 기준으로 다른 클래스도 동일한 구조로 통일합니다.</p><section class="skill-page">
+<div class="skill-grid">
 <details class="skill-acc">
   <summary class="skill-acc-summary">
     <span class="skill-acc-icon"><img src="/WarmPack/media_skill/lord/shock_stun.png" alt="쇼크 스턴 (군주)"></span>
@@ -314,6 +323,7 @@ table.skill-table td{
     <span class="skill-acc-chev" aria-hidden="true"></span>
   </summary>
   <div class="skill-acc-body"><p class="skill-acc-desc">설명: 순간적인 대미지와 함께 상대를 모든 행동이 불가능한 스턴 상태 로 만듦 (2칸턴).</p></div>
+</section>
 </details>
 <details class="skill-acc">
   <summary class="skill-acc-summary">

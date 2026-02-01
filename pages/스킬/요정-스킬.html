@@ -150,6 +150,14 @@ details.skill-acc[open] .skill-acc-chev::before{ transform:rotate(225deg); }
 .skill-acc-body{ padding:0 16px 16px 16px; }
 .skill-acc-desc{ margin:0; font-size:13px; line-height:1.45; opacity:.9; }
 
+
+/* === SKILL PAGE WRAP (uniform) === */
+.skill-page{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 18px 14px 60px;
+}
+
 </style><style>
 /* FIX: 스크롤 시 메뉴 떨림 방지 */
 header, nav, .header, .navbar {
@@ -318,7 +326,8 @@ main h4{ margin: 14px 0 8px; }
 </nav>
 <header class="site-header">
 </header>
-<main class="site-main"><div class="container"><h3>공통 정령마법</h3><div class="skill-grid">
+<main class="site-main"><div class="container"><h3>공통 정령마법</h3><section class="skill-page">
+<div class="skill-grid">
 <details class="skill-acc">
   <summary class="skill-acc-summary">
     <span class="skill-acc-icon"><img src="/WarmPack/media_skill/elf/common/01.png" alt="레지스트 매직"></span>
@@ -332,6 +341,7 @@ main h4{ margin: 14px 0 8px; }
     <span class="skill-acc-chev" aria-hidden="true"></span>
   </summary>
   <div class="skill-acc-body"><p class="skill-acc-desc">설명: 시전하면 1200초(20분) 동안 술자에게 MR+10 효과 적용</p></div>
+</section>
 </details>
 <details class="skill-acc">
   <summary class="skill-acc-summary">

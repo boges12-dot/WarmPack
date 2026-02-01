@@ -150,6 +150,14 @@ details.skill-acc[open] .skill-acc-chev::before{ transform:rotate(225deg); }
 .skill-acc-body{ padding:0 16px 16px 16px; }
 .skill-acc-desc{ margin:0; font-size:13px; line-height:1.45; opacity:.9; }
 
+
+/* === SKILL PAGE WRAP (uniform) === */
+.skill-page{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 18px 14px 60px;
+}
+
 </style><style>
 /* FIX: 스크롤 시 메뉴 떨림 방지 */
 header, nav, .header, .navbar {
@@ -302,6 +310,7 @@ table.skill-table td{
 </header>
 <main class="site-main"><h2>다크엘프 스킬</h2>
 <p class="skill-note">※ 다크엘프 스킬 카드 형식과 동일한 구조로 통일합니다.</p>
+<section class="skill-page">
 <div class="skill-grid">
 <details class="skill-acc">
   <summary class="skill-acc-summary">
@@ -316,6 +325,7 @@ table.skill-table td{
     <span class="skill-acc-chev" aria-hidden="true"></span>
   </summary>
   <div class="skill-acc-body"><p class="skill-acc-desc">설명: 시전하면 960초(16분) 동안 술자에게 STR+3의 효과가 적용된다.</p></div>
+</section>
 </details>
 <details class="skill-acc">
   <summary class="skill-acc-summary">
