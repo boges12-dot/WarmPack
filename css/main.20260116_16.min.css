@@ -439,3 +439,10 @@
 .skill-card-text p{margin:6px 0 0;color:var(--muted);font-size:14px;line-height:1.35}
 .skill-card-link{color:inherit;text-decoration:none;display:block}
 
+
+/* reduce extra empty space on skill pages */
+.page-head{display:none !important;}
+.site-main{padding-bottom:0 !important;}
+main#main-content{padding-bottom:0 !important;}
+section.section{padding-bottom:0 !important;}
+
