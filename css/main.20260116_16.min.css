@@ -560,3 +560,14 @@
   gap: 12px;
 }
 
+
+
+/* === Skill page title center fix === */
+.skill-page .page-head .page-title,
+.pages-skill .page-head .page-title,
+.page-head .page-title{
+  text-align: center !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+
