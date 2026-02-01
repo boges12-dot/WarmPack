@@ -459,3 +459,76 @@
   object-fit: contain !important;
   display: block !important;
 }
+
+
+/* === FIX: Skill cards/accordion text must stay horizontal === */
+.skill-acc-title,
+.skill-acc-meta,
+.skill-acc-desc,
+.skill-card-text h3,
+.skill-card-text p,
+.meta-line{
+  writing-mode: horizontal-tb !important;
+  text-orientation: mixed !important;
+  transform: none !important;
+  white-space: normal !important;
+  word-break: keep-all !important;
+  letter-spacing: normal !important;
+}
+/* prevent ultra-narrow text columns */
+.skill-acc-summary{ display:flex; align-items:center; gap:14px; }
+.skill-acc-head{ flex:1 1 auto; min-width:0; }
+.skill-acc-title{ display:block; }
+
+
+
+/* === Skill accordion: icon top-center layout === */
+.skill-acc-summary{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  gap:10px;
+}
+.skill-acc-icon{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.skill-acc-icon img{
+  width:56px;
+  height:56px;
+  object-fit:cover;
+  display:block;
+}
+.skill-acc-head{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  min-width:0;
+}
+.skill-acc-title{
+  writing-mode:horizontal-tb !important;
+  text-orientation:mixed !important;
+  white-space:normal;
+  word-break:keep-all;
+  overflow-wrap:break-word;
+  display:block;
+}
+.skill-acc-meta{
+  writing-mode:horizontal-tb !important;
+  text-orientation:mixed !important;
+  white-space:normal;
+  word-break:keep-all;
+  overflow-wrap:break-word;
+  display:block;
+}
+.skill-acc-meta .meta-line{
+  display:block;
+}
+
+
+
+.skill-acc-summary > *{width:100%;}
+.skill-acc-summary .skill-acc-icon{width:auto;}
+
