@@ -125,6 +125,30 @@ main table th, main table td{
 @media (max-width:640px){
   .skill-cards{ grid-template-columns:1fr; }
 }
+
+/* === SKILL ACCORDION (card click expand) === */
+.skill-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+@media (max-width:1024px){ .skill-grid{ grid-template-columns:repeat(2,1fr);} }
+@media (max-width:640px){ .skill-grid{ grid-template-columns:1fr;} }
+
+.skill-acc{ background: rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:14px; overflow:hidden; }
+.skill-acc-summary{ list-style:none; cursor:pointer; display:flex; gap:12px; align-items:center; padding:16px; }
+.skill-acc-summary::-webkit-details-marker{ display:none; }
+
+.skill-acc-icon{ flex:0 0 80px; width:80px; height:80px; display:flex; align-items:center; justify-content:center; }
+.skill-acc-icon img{ width:80px; height:80px; object-fit:contain; display:block; }
+
+.skill-acc-head{ flex:1; min-width:0; display:flex; flex-direction:column; gap:6px; }
+.skill-acc-title{ font-size:18px; line-height:1.2; font-weight:700; }
+.skill-acc-meta{ font-size:13px; opacity:.85; }
+
+.skill-acc-chev{ flex:0 0 24px; width:24px; height:24px; position:relative; }
+.skill-acc-chev::before{ content:""; position:absolute; inset:0; margin:auto; width:10px; height:10px; border-right:2px solid rgba(255,255,255,.7); border-bottom:2px solid rgba(255,255,255,.7); transform:rotate(45deg); transition:transform .15s ease; }
+details.skill-acc[open] .skill-acc-chev::before{ transform:rotate(225deg); }
+
+.skill-acc-body{ padding:0 16px 16px 16px; }
+.skill-acc-desc{ margin:0; font-size:13px; line-height:1.45; opacity:.9; }
+
 </style><style>
 /* FIX: 스크롤 시 메뉴 떨림 방지 */
 header, nav, .header, .navbar {
@@ -277,122 +301,135 @@ table.skill-table td{
 </header>
 <main class="site-main"><h2>다크엘프 스킬</h2>
 <p class="skill-note">※ 다크엘프 스킬 카드 형식과 동일한 구조로 통일합니다.</p>
-<div class="skill-cards">
-<div class="skill-card">
-  <div class="skill-card-icon">
-    <img alt="드레스 마이티 (다크엘프)" src="/WarmPack/media_skill/darkelf/01.png" width="48" height="48">
-  </div>
-  <div class="skill-card-body">
-    <h3>드레스 마이티 (다크엘프)</h3>
-    <div class="skill-card-meta">MP 10 / HP 0 · 하급마법상인 판매</div>
-    <p>시전하면 960초(16분) 동안 술자에게 STR+3의 효과가 적용된다.</p>
-  </div>
+<div class="skill-grid">
+<details class="skill-acc">
+  <summary class="skill-acc-summary">
+    <span class="skill-acc-icon"><img src="/WarmPack/media_skill/darkelf/01.png" alt="드레스 마이티 (다크엘프)"></span>
+    <span class="skill-acc-head">
+      <span class="skill-acc-title">드레스 마이티 (다크엘프)</span>
+      <span class="skill-acc-meta">MP 10 / HP 0 · 하급마법상인 판매</span>
+    </span>
+    <span class="skill-acc-chev" aria-hidden="true"></span>
+  </summary>
+  <div class="skill-acc-body"><p class="skill-acc-desc">시전하면 960초(16분) 동안 술자에게 STR+3의 효과가 적용된다.</p></div>
+</details>
+<details class="skill-acc">
+  <summary class="skill-acc-summary">
+    <span class="skill-acc-icon"><img src="/WarmPack/media_skill/darkelf/02.png" alt="쉐도우 아머 (다크엘프)"></span>
+    <span class="skill-acc-head">
+      <span class="skill-acc-title">쉐도우 아머 (다크엘프)</span>
+      <span class="skill-acc-meta">MP 12 / HP 0 · 하급마법상인 판매</span>
+    </span>
+    <span class="skill-acc-chev" aria-hidden="true"></span>
+  </summary>
+  <div class="skill-acc-body"><p class="skill-acc-desc">시전하면 960초(16분) 동안 술자에게 MR+5%의 효과가 적용. 참고로 캔슬레이션에 지워지지 않는다.</p></div>
+</details>
+<details class="skill-acc">
+  <summary class="skill-acc-summary">
+    <span class="skill-acc-icon"><img src="/WarmPack/media_skill/darkelf/03.png" alt="인첸트 베놈 (다크엘프)"></span>
+    <span class="skill-acc-head">
+      <span class="skill-acc-title">인첸트 베놈 (다크엘프)</span>
+      <span class="skill-acc-meta">MP 10 / HP 1 · 흑요석 1 · 하급마법상인 판매</span>
+    </span>
+    <span class="skill-acc-chev" aria-hidden="true"></span>
+  </summary>
+  <div class="skill-acc-body"><p class="skill-acc-desc">시전하면 320초 동안 술자의 무기에 독 속성이 부여. 일정 확률로 대상에게 커스 포이즌(중독)의 효과가 적용.</p></div>
+</details>
+<details class="skill-acc">
+  <summary class="skill-acc-summary">
+    <span class="skill-acc-icon"><img src="/WarmPack/media_skill/darkelf/04.png" alt="버닝스피릿츠 (다크엘프)"></span>
+    <span class="skill-acc-head">
+      <span class="skill-acc-title">버닝스피릿츠 (다크엘프)</span>
+      <span class="skill-acc-meta">MP 20 / HP 0 · 중급마법상인 판매</span>
+    </span>
+    <span class="skill-acc-chev" aria-hidden="true"></span>
+  </summary>
+  <div class="skill-acc-body"><p class="skill-acc-desc">시전하면 300초(5분) 동안 일정 확률로 술자의 물리 데미지에 1.5배의 효과가 적용된다.</p></div>
+</details>
+<details class="skill-acc">
+  <summary class="skill-acc-summary">
+    <span class="skill-acc-icon"><img src="/WarmPack/media_skill/darkelf/05.png" alt="무빙 악셀레이션 (다크엘프)"></span>
+    <span class="skill-acc-head">
+      <span class="skill-acc-title">무빙 악셀레이션 (다크엘프)</span>
+      <span class="skill-acc-meta">MP 10 / HP 0 · 하급마법상인 판매</span>
+    </span>
+    <span class="skill-acc-chev" aria-hidden="true"></span>
+  </summary>
+  <div class="skill-acc-body"><p class="skill-acc-desc">시전하면 960초(16분) 동안 술자에게 이동 속도 1.5배의 효과가 적용. 이 효과는 속도 향상 물약 효과와 중복된다.</p></div>
+</details>
+<details class="skill-acc">
+  <summary class="skill-acc-summary">
+    <span class="skill-acc-icon"><img src="/WarmPack/media_skill/darkelf/06.png" alt="더블브레이크 (다크엘프)"></span>
+    <span class="skill-acc-head">
+      <span class="skill-acc-title">더블브레이크 (다크엘프)</span>
+      <span class="skill-acc-meta">MP 20 / HP 0 · 중급마법상인 판매 · 드랍</span>
+    </span>
+    <span class="skill-acc-chev" aria-hidden="true"></span>
+  </summary>
+  <div class="skill-acc-body"><p class="skill-acc-desc">192초 동안 일정 확률로 술자가 착용한 무기에 데미지 2배의 효과가 적용된다. 이도류나 크로우에만 효과 적용. 발동 확률은 45레벨부터 5레벨당 1% 상승.</p></div>
+</details>
+<details class="skill-acc">
+  <summary class="skill-acc-summary">
+    <span class="skill-acc-icon"><img src="/WarmPack/media_skill/darkelf/07.png" alt="드레스 이베이전 (다크엘프)"></span>
+    <span class="skill-acc-head">
+      <span class="skill-acc-title">드레스 이베이전 (다크엘프)</span>
+      <span class="skill-acc-meta">MP 15 / HP 0 · 드랍</span>
+    </span>
+    <span class="skill-acc-chev" aria-hidden="true"></span>
+  </summary>
+  <div class="skill-acc-body"><p class="skill-acc-desc">시전하면 32초 동안 술자에게 ER(원거리 회피)+18 효과가 적용된다. 캔슬레이션에 지워지지 않는다.</p></div>
+</details>
+<details class="skill-acc">
+  <summary class="skill-acc-summary">
+    <span class="skill-acc-icon"><img src="/WarmPack/media_skill/darkelf/08.png" alt="쉐도우 팽 (다크엘프)"></span>
+    <span class="skill-acc-head">
+      <span class="skill-acc-title">쉐도우 팽 (다크엘프)</span>
+      <span class="skill-acc-meta">MP 20 / HP 0 · 흑요석 1 · 드랍</span>
+    </span>
+    <span class="skill-acc-chev" aria-hidden="true"></span>
+  </summary>
+  <div class="skill-acc-body"><p class="skill-acc-desc">시전한 후 인벤토리에서 근거리 무기를 선택하면 192초 동안 선택한 근거리 무기에 근거리 데미지+5의 효과가 적용된다.</p></div>
+</details>
+<details class="skill-acc">
+  <summary class="skill-acc-summary">
+    <span class="skill-acc-icon"><img src="/WarmPack/media_skill/darkelf/09.png" alt="파이널 번 (다크엘프)"></span>
+    <span class="skill-acc-head">
+      <span class="skill-acc-title">파이널 번 (다크엘프)</span>
+      <span class="skill-acc-meta">MP 1 / HP 1 · 드랍</span>
+    </span>
+    <span class="skill-acc-chev" aria-hidden="true"></span>
+  </summary>
+  <div class="skill-acc-body"><p class="skill-acc-desc">시전하면 대상에게 강력한 데미지를 가한다. 단, 사용 시 HP는 1, MP는 1만 남는다. 시전자의 HP가 100 이하면 사용할 수 없다.</p></div>
+</details>
+<details class="skill-acc">
+  <summary class="skill-acc-summary">
+    <span class="skill-acc-icon"><img src="/WarmPack/media_skill/darkelf/10.png" alt="엔케니 닷지 (다크엘프)"></span>
+    <span class="skill-acc-head">
+      <span class="skill-acc-title">엔케니 닷지 (다크엘프)</span>
+      <span class="skill-acc-meta">MP 20 / HP 0 · 흑요석 1 · 드랍</span>
+    </span>
+    <span class="skill-acc-chev" aria-hidden="true"></span>
+  </summary>
+  <div class="skill-acc-body"><p class="skill-acc-desc">시전하면 192초 동안 술자에게 DG(근거리 회피)+60 효과를 준다. 참고로 캔슬레이션에 지워지지 않는다.</p></div>
+</details>
+<details class="skill-acc">
+  <summary class="skill-acc-summary">
+    <span class="skill-acc-icon"><img src="/WarmPack/media_skill/darkelf/11.png" alt="아마 브레이크 (다크엘프)"></span>
+    <span class="skill-acc-head">
+      <span class="skill-acc-title">아마 브레이크 (다크엘프)</span>
+      <span class="skill-acc-meta">MP 50 / HP 25 · 드랍</span>
+    </span>
+    <span class="skill-acc-chev" aria-hidden="true"></span>
+  </summary>
+  <div class="skill-acc-body"><p class="skill-acc-desc">8초 동안 대상(PC)이 맞는 근거리 물리 데미지가 58% 증가. 상대보다 레벨이 높을 경우 성공 확률이 증가하며 캔슬레이션에 지워지지 않는다.</p></div>
+</details>
 </div>
-<div class="skill-card">
-  <div class="skill-card-icon">
-    <img alt="쉐도우 아머 (다크엘프)" src="/WarmPack/media_skill/darkelf/02.png" width="48" height="48">
-  </div>
-  <div class="skill-card-body">
-    <h3>쉐도우 아머 (다크엘프)</h3>
-    <div class="skill-card-meta">MP 12 / HP 0 · 하급마법상인 판매</div>
-    <p>시전하면 960초(16분) 동안 술자에게 MR+5%의 효과가 적용. 참고로 캔슬레이션에 지워지지 않는다.</p>
-  </div>
-</div>
-<div class="skill-card">
-  <div class="skill-card-icon">
-    <img alt="인첸트 베놈 (다크엘프)" src="/WarmPack/media_skill/darkelf/03.png" width="48" height="48">
-  </div>
-  <div class="skill-card-body">
-    <h3>인첸트 베놈 (다크엘프)</h3>
-    <div class="skill-card-meta">MP 10 / HP 1 · 흑요석 1 · 하급마법상인 판매</div>
-    <p>시전하면 320초 동안 술자의 무기에 독 속성이 부여. 일정 확률로 대상에게 커스 포이즌(중독)의 효과가 적용.</p>
-  </div>
-</div>
-<div class="skill-card">
-  <div class="skill-card-icon">
-    <img alt="버닝스피릿츠 (다크엘프)" src="/WarmPack/media_skill/darkelf/04.png" width="48" height="48">
-  </div>
-  <div class="skill-card-body">
-    <h3>버닝스피릿츠 (다크엘프)</h3>
-    <div class="skill-card-meta">MP 20 / HP 0 · 중급마법상인 판매</div>
-    <p>시전하면 300초(5분) 동안 일정 확률로 술자의 물리 데미지에 1.5배의 효과가 적용된다.</p>
-  </div>
-</div>
-<div class="skill-card">
-  <div class="skill-card-icon">
-    <img alt="무빙 악셀레이션 (다크엘프)" src="/WarmPack/media_skill/darkelf/05.png" width="48" height="48">
-  </div>
-  <div class="skill-card-body">
-    <h3>무빙 악셀레이션 (다크엘프)</h3>
-    <div class="skill-card-meta">MP 10 / HP 0 · 하급마법상인 판매</div>
-    <p>시전하면 960초(16분) 동안 술자에게 이동 속도 1.5배의 효과가 적용. 이 효과는 속도 향상 물약 효과와 중복된다.</p>
-  </div>
-</div>
-<div class="skill-card">
-  <div class="skill-card-icon">
-    <img alt="더블브레이크 (다크엘프)" src="/WarmPack/media_skill/darkelf/06.png" width="48" height="48">
-  </div>
-  <div class="skill-card-body">
-    <h3>더블브레이크 (다크엘프)</h3>
-    <div class="skill-card-meta">MP 20 / HP 0 · 중급마법상인 판매 · 드랍</div>
-    <p>192초 동안 일정 확률로 술자가 착용한 무기에 데미지 2배의 효과가 적용된다. 이도류나 크로우에만 효과 적용. 발동 확률은 45레벨부터 5레벨당 1% 상승.</p>
-  </div>
-</div>
-<div class="skill-card">
-  <div class="skill-card-icon">
-    <img alt="드레스 이베이전 (다크엘프)" src="/WarmPack/media_skill/darkelf/07.png" width="48" height="48">
-  </div>
-  <div class="skill-card-body">
-    <h3>드레스 이베이전 (다크엘프)</h3>
-    <div class="skill-card-meta">MP 15 / HP 0 · 드랍</div>
-    <p>시전하면 32초 동안 술자에게 ER(원거리 회피)+18 효과가 적용된다. 캔슬레이션에 지워지지 않는다.</p>
-  </div>
-</div>
-<div class="skill-card">
-  <div class="skill-card-icon">
-    <img alt="쉐도우 팽 (다크엘프)" src="/WarmPack/media_skill/darkelf/08.png" width="48" height="48">
-  </div>
-  <div class="skill-card-body">
-    <h3>쉐도우 팽 (다크엘프)</h3>
-    <div class="skill-card-meta">MP 20 / HP 0 · 흑요석 1 · 드랍</div>
-    <p>시전한 후 인벤토리에서 근거리 무기를 선택하면 192초 동안 선택한 근거리 무기에 근거리 데미지+5의 효과가 적용된다.</p>
-  </div>
-</div>
-<div class="skill-card">
-  <div class="skill-card-icon">
-    <img alt="파이널 번 (다크엘프)" src="/WarmPack/media_skill/darkelf/09.png" width="48" height="48">
-  </div>
-  <div class="skill-card-body">
-    <h3>파이널 번 (다크엘프)</h3>
-    <div class="skill-card-meta">MP 1 / HP 1 · 드랍</div>
-    <p>시전하면 대상에게 강력한 데미지를 가한다. 단, 사용 시 HP는 1, MP는 1만 남는다. 시전자의 HP가 100 이하면 사용할 수 없다.</p>
-  </div>
-</div>
-<div class="skill-card">
-  <div class="skill-card-icon">
-    <img alt="엔케니 닷지 (다크엘프)" src="/WarmPack/media_skill/darkelf/10.png" width="48" height="48">
-  </div>
-  <div class="skill-card-body">
-    <h3>엔케니 닷지 (다크엘프)</h3>
-    <div class="skill-card-meta">MP 20 / HP 0 · 흑요석 1 · 드랍</div>
-    <p>시전하면 192초 동안 술자에게 DG(근거리 회피)+60 효과를 준다. 참고로 캔슬레이션에 지워지지 않는다.</p>
-  </div>
-</div>
-<div class="skill-card">
-  <div class="skill-card-icon">
-    <img alt="아마 브레이크 (다크엘프)" src="/WarmPack/media_skill/darkelf/11.png" width="48" height="48">
-  </div>
-  <div class="skill-card-body">
-    <h3>아마 브레이크 (다크엘프)</h3>
-    <div class="skill-card-meta">MP 50 / HP 25 · 드랍</div>
-    <p>8초 동안 대상(PC)이 맞는 근거리 물리 데미지가 58% 증가. 상대보다 레벨이 높을 경우 성공 확률이 증가하며 캔슬레이션에 지워지지 않는다.</p>
-  </div>
-</div>
-</div></main>
+</main>
 <script defer src="../../js/main.20260116_16.min.js"></script>
 <script src="../../js/banner_home.js"></script>
 <script src="../../js/top_button.js"></script>
 <script src="../../js/hero_shrink.js"></script>
 
+<script defer src="../../js/skill_accordion.js"></script>
 </body>
 </html>
