@@ -6,15 +6,15 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>기사 스킬 · </title>
-<meta content="기사 스킬 · " name="description"/>
+<meta content="기사 클래스 스킬 목록입니다." name="description">
 <meta content="website" property="og:type"/>
 <meta content="" property="og:site_name"/>
 <meta content="기사 스킬 · " property="og:title"/>
-<meta content="기사 스킬 · " property="og:description"/>
+<meta content="기사 클래스 스킬 목록입니다." property="og:description"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="기사 스킬 · " name="twitter:title">
-<meta content="기사 스킬 · " name="twitter:description"/>
-<link href="/WarmPack/css/main.20260116_16.min.css" rel="stylesheet"/>
+<meta content="기사 스킬 · " name="twitter:title"/>
+<meta content="기사 클래스 스킬 목록입니다." name="twitter:description"/>
+<link href="../../css/main.20260116_16.min.css" rel="stylesheet"/>
 <!-- STEP9: icons/manifest -->
 <link href="../../favicon.ico" rel="icon" sizes="any"/>
 <link href="../../assets/icons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
@@ -26,139 +26,8 @@
 <meta content="https://boges12-dot.github.io/WarmPack/assets/images/og_v3.jpg" property="og:image:secure_url"/>
 <meta content="https://boges12-dot.github.io/WarmPack/assets/images/og_v3.jpg" name="twitter:image"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<link href="/WarmPack/css/banner_override.css?v=20260126_B2" rel="stylesheet"/>
-</meta><style id="skill-table-center">
-/* Skill tables center alignment */
-main table{
-  margin-left:auto !important;
-  margin-right:auto !important;
-}
-main h2, main h3{
-  text-align:center;
-}
-
-
-/* FIX: 스킬 표 헤더(회색) -> 검정 */
-main table thead{
-  background:#000 !important;
-  color:#fff !important;
-}
-main table thead th{
-  background:#000 !important;
-  color:#fff !important;
-}
-
-
-/* FIX: 스킬 표 헤더 글자색 검정 */
-main table thead{
-  background:#f2f2f2 !important;
-}
-main table thead th{
-  color:#000 !important;
-  background:#f2f2f2 !important;
-}
-
-
-/* FIX: 스킬 표가 글자 영역보다 작아 보이는 문제(폭/패딩 확대) */
-main table{
-  width:100% !important;
-  max-width:980px !important;
-  border-collapse:collapse !important;
-}
-main table th, main table td{
-  padding:10px !important;
-}
-
-/* --- 카드형 스킬 레이아웃 (표 삭제 후 대체) --- */
-.skill-cards{
-  width:100%;
-  max-width:1100px;
-  margin:0 auto;
-  padding:18px 14px 60px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:18px;
-}
-.skill-card{
-  display:flex;
-  gap:12px;
-  align-items:center;
-  background:rgba(15,18,22,.75);
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:14px;
-  padding:14px 14px;
-}
-.skill-card-icon{
-  width:64px;
-  height:64px;
-  flex:0 0 64px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:rgba(0,0,0,.35);
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:12px;
-  overflow:hidden;
-}
-.skill-card-icon img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  image-rendering:auto;
-}
-.skill-card-body h3{
-  margin:0;
-  font-size:18px;
-  line-height:1.2;
-}
-.skill-card-meta{
-  margin-top:6px;
-  font-size:12px;
-  opacity:.8;
-}
-.skill-card-body p{
-  margin:8px 0 0;
-  font-size:13px;
-  line-height:1.4;
-  opacity:.95;
-}
-@media (max-width:640px){
-  .skill-cards{ grid-template-columns:1fr; }
-}
-
-/* === SKILL ACCORDION UNIFIED (lord template) === */
-.skill-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
-@media (max-width:1024px){ .skill-grid{ grid-template-columns:repeat(2,1fr);} }
-@media (max-width:640px){ .skill-grid{ grid-template-columns:1fr;} }
-
-.skill-acc{ background: rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:14px; overflow:hidden; }
-.skill-acc-summary{ list-style:none; cursor:pointer; display:flex; gap:12px; align-items:center; padding:16px; }
-.skill-acc-summary::-webkit-details-marker{ display:none; }
-
-.skill-acc-icon{ flex:0 0 80px; width:80px; height:80px; display:flex; align-items:center; justify-content:center; }
-.skill-acc-icon img{ width:80px; height:80px; object-fit:contain; display:block; }
-
-.skill-acc-head{ flex:1; min-width:0; display:flex; flex-direction:column; gap:8px; }
-.skill-acc-title{ font-size:18px; line-height:1.2; font-weight:700; }
-.skill-acc-meta{display:flex;gap:10px;flex-wrap:wrap;}
-.skill-acc-meta .meta-line{ font-size:13px; opacity:.85; }
-
-.skill-acc-chev{ flex:0 0 24px; width:24px; height:24px; position:relative; }
-.skill-acc-chev::before{ content:""; position:absolute; inset:0; margin:auto; width:10px; height:10px; border-right:2px solid rgba(255,255,255,.7); border-bottom:2px solid rgba(255,255,255,.7); transform:rotate(45deg); transition:transform .15s ease; }
-details.skill-acc[open] .skill-acc-chev::before{ transform:rotate(225deg); }
-
-.skill-acc-body{ padding:0 16px 16px 16px; }
-.skill-acc-desc{ margin:0; font-size:13px; line-height:1.45; opacity:.9; }
-
-
-/* === SKILL PAGE WRAP (uniform) === */
-.skill-page{
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 18px 14px 60px;
-}
-
-</style><style>
+<link href="../../css/banner_override.css?v=20260126_B2" rel="stylesheet"/>
+<style>
 /* FIX: 스크롤 시 메뉴 떨림 방지 */
 header, nav, .header, .navbar {
   will-change: auto !important;
@@ -169,21 +38,6 @@ body {
 }
 </style>
 <style>
-/* FORCE: 스킬 표 셀/폭 강제 통일 */
-table.skill-table{
-  width:100% !important;
-  max-width:1100px !important;
-  margin:0 auto !important;
-  border-collapse:collapse !important;
-}
-table.skill-table th,
-table.skill-table td{
-  padding:12px 14px !important;
-  font-size:15px !important;
-  line-height:1.6 !important;
-}
-</style>
-<style>
 /* FONT FIX: 스킬 표 글자 크기 조정 */
 table.skill-table th,
 table.skill-table td{
@@ -191,43 +45,7 @@ table.skill-table td{
   line-height:1.55 !important;
 }
 </style>
-<style id="skill-icon-style">
-.skill-icon{
-  width:48px;height:48px;object-fit:contain;
-  border-radius:12px;background:rgba(255,255,255,.04);
-  border:1px solid rgba(255,255,255,.10);
-}
-</style>
-<style id="skill-ui-polish">
-/* SKILL UI POLISH v2: 아이콘 표시 강제 */
-.skill-page{ max-width:1100px; margin:0 auto; padding:18px 14px 60px; }
-.skill-page h1{ font-size:26px; font-weight:900; text-align:center; margin: 6px 0 10px; }
-.skill-note{ text-align:center; opacity:.85; margin:0 0 18px; font-size:13px; line-height:1.6; }
-.skill-table{ width:100%; border-collapse:separate; border-spacing:0; border:1px solid rgba(255,255,255,.10); border-radius:18px; background:rgba(255,255,255,.04); overflow:hidden; }
-.skill-table th{ background:rgba(255,255,255,.06); font-weight:900; padding:14px 16px; text-align:center; border-bottom:1px solid rgba(255,255,255,.10); }
-.skill-table td{ padding:18px 16px; vertical-align:middle; border-bottom:1px solid rgba(255,255,255,.07); }
-.skill-table tr:last-child td{ border-bottom:0; }
-.skill-table td:nth-child(2){ width:90px; text-align:center; }
-.skill-table td:nth-child(3){ width:140px; text-align:center; white-space:nowrap; }
-.skill-table td:nth-child(5){ width:160px; text-align:center; font-weight:800; white-space:nowrap; }
-
-/* 아이콘 강제 표시 */
-.skill-table td:nth-child(2) img,
-.skill-icon{
-  display:block !important;
-  width:48px !important;
-  height:48px !important;
-  object-fit:contain !important;
-  margin:0 auto !important;
-  border-radius:12px !important;
-  background:rgba(255,255,255,.04) !important;
-  border:1px solid rgba(255,255,255,.10) !important;
-}
-
-@media (max-width: 860px){
-  .skill-table{ display:block; overflow:auto; min-width: 980px; }
-}
-</style></head>
+</meta></head>
 <body><section class="hero-main"><a aria-label="홈으로 이동" class="hero-home-link" href="/WarmPack/"></a></section><nav aria-label="메인 메뉴" class="main-nav-bar">
 <ul class="nav" id="main-nav">
 <li class="home-link"><a aria-label="홈" class="nav-home" href="/WarmPack/"><svg aria-hidden="true" class="icon-home" focusable="false" height="18" viewbox="0 0 24 24" width="18"><path d="M12 3 2.5 11.2a1 1 0 0 0 .7 1.8H5v7a1 1 0 0 0 1 1h4v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5h4a1 1 0 0 0 1-1v-7h1.8a1 1 0 0 0 .7-1.8L12 3z"></path></svg></a></li>
@@ -307,81 +125,51 @@ table.skill-table td{
 </ul>
 </nav>
 <header class="site-header">
+
 </header>
+
 <main class="site-main">
 <div id="top"></div>
 <a class="skip-link" href="#main-content">본문 바로가기</a>
 <main id="main-content">
 <section class="page-head">
-<div class="container">
-<h1 class="page-title">(임시) 백업 서버</h1>
-<p class="page-sub"></p>
-</div>
+  <div class="container">
+    <h1 class="page-title">기사 스킬</h1>
+    <p class="page-sub">기사 클래스 스킬 목록입니다.</p>
+  </div>
 </section>
-<section class="page-body">
-<div class="container">
+<section class="section">
+  <div class="container">
+    <a class="pill" href="./index.html">← 스킬 메인</a>
+<div style="height:10px"></div>
+<div style="display:flex;gap:10px;flex-wrap:wrap">
+  <a class="pill" href="./군주-스킬.html">군주 스킬</a>
+  <a class="pill" href="./기사-스킬.html">기사 스킬</a>
+  <a class="pill" href="./마법사-스킬.html">마법사 스킬</a>
+  <a class="pill" href="./요정-스킬.html">요정 스킬</a>
+  <a class="pill" href="./다크엘프-스킬.html">다크엘프 스킬</a>
 </div>
+<div class="muted" style="margin-top:14px;">
+  <p>현재 스킬 목록이 비어 있습니다.</p>
+  <p>여기에 스킬 항목을 추가하면 됩니다.</p>
+</div>
+
+<!-- 예시 구조 (필요시 사용)
+<details class="skill-acc">
+  <summary class="skill-acc-summary">스킬명</summary>
+  <div class="skill-acc-body">
+    <span class="meta-line">소모: HP : 0 / MP : 20</span>
+    <span class="meta-line">획득 방법 : 중급 마법상인</span>
+  </div>
+</details>
+-->
+  </div>
 </section>
-<section class="skill-page">
-<div class="skill-grid">
-<details class="skill-acc">
-  <summary class="skill-acc-summary">
-    <span class="skill-acc-icon"><img src="/WarmPack/media_skill/knight/shock_stun.png" alt="쇼크 스턴 (기사)"></span>
-    <span class="skill-acc-head">
-      <span class="skill-acc-title">쇼크 스턴 (기사)</span>
-      <span class="skill-acc-meta"><span class="meta-line">소모: MP : 20</span></span><span class="meta-line">획득 방법 : (추후 공개)</span></span><span class="meta-line">획득 방법 : 하급 마법상인</span></span>
-    </span>
-    <span class="skill-acc-chev" aria-hidden="true"></span>
-  </summary>
-  <div class="skill-acc-body"><p class="skill-acc-desc">설명: 양손검 착용 시에만 사용 가능. 순간적인 대미지와 함께 상대를 스턴 상태로 만듦.</p></div>
-</details>
-<details class="skill-acc">
-  <summary class="skill-acc-summary">
-    <span class="skill-acc-icon"><img src="/WarmPack/media_skill/knight/solid_carriage.png" alt="솔리드 캐리지 (기사)"></span>
-    <span class="skill-acc-head">
-      <span class="skill-acc-title">솔리드 캐리지 (기사)</span>
-      <span class="skill-acc-meta"><span class="meta-line">소모: HP : 100 / MP : 10</span></span><span class="meta-line">획득 방법 : (추후 공개)</span></span><span class="meta-line">획득 방법 : 중급 마법상인 판매, 드랍(추후 공개)</span></span>
-    </span>
-    <span class="skill-acc-chev" aria-hidden="true"></span>
-  </summary>
-  <div class="skill-acc-body"><p class="skill-acc-desc">설명: 지속 시간 동안 ER +15 효과 부여</p></div>
-</details>
-<details class="skill-acc">
-  <summary class="skill-acc-summary">
-    <span class="skill-acc-icon"><img src="/WarmPack/media_skill/knight/reduction_armor.png" alt="리덕션 아머 (기사)"></span>
-    <span class="skill-acc-head">
-      <span class="skill-acc-title">리덕션 아머 (기사)</span>
-      <span class="skill-acc-meta"><span class="meta-line">소모: HP : 50 / MP : 7</span></span><span class="meta-line">획득 방법 : (추후 공개)</span></span><span class="meta-line">획득 방법 : 중급 마법상인 판매, 드랍(추후 공개)</span></span>
-    </span>
-    <span class="skill-acc-chev" aria-hidden="true"></span>
-  </summary>
-  <div class="skill-acc-body"><p class="skill-acc-desc">설명: 192초 동안 대미지 감소 +1, 이후 5레벨마다 +1</p></div>
-</details>
-<details class="skill-acc">
-  <summary class="skill-acc-summary">
-    <span class="skill-acc-icon"><img src="/WarmPack/media_skill/knight/counter_barrier.png" alt="카운터 배리어 (기사)"></span>
-    <span class="skill-acc-head">
-      <span class="skill-acc-title">카운터 배리어 (기사)</span>
-      <span class="skill-acc-meta"><span class="meta-line">소모: HP : 100 / MP : 10</span></span><span class="meta-line">획득 방법 : (추후 공개)</span></span><span class="meta-line">획득 방법 : 드랍(추후 공개)</span></span>
-    </span>
-    <span class="skill-acc-chev" aria-hidden="true"></span>
-  </summary>
-  <div class="skill-acc-body"><p class="skill-acc-desc">설명: 근거리 공격 회피 후 카운터 공격</p></div>
-</details>
-</div>
-</section>
-</details>
-
-
-
-</div>
 </main>
-<h3 style="margin-top:30px; margin-bottom:10px;"></h3></main>
-<script defer="" src="/WarmPack/js/main.20260116_16.min.js"></script>
-<script src="/WarmPack/js/banner_home.js"></script>
-<script src="/WarmPack/js/top_button.js"></script>
-<script src="/WarmPack/js/hero_shrink.js"></script>
-<script defer src="../../js/skill_accordion.js"></script>
-<script defer src="../../js/menu_dedupe.js"></script>
-</body>
+<script defer="" src="../../js/main.20260116_16.min.js"></script>
+<script src="../../js/banner_home.js"></script>
+<script src="../../js/top_button.js"></script>
+<script src="../../js/skill_accordion.js"></script>
+<script src="../../js/hero_shrink.js"></script>
+</main></body>
 </html>
