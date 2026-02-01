@@ -93,3 +93,12 @@
   object-fit: contain !important;
   display: block !important;
 }
+
+
+/* skill submenu bullet fix */
+.skill-submenu ul,
+.skill-submenu li {
+  list-style: none !important;
+  margin: 0;
+  padding: 0;
+}

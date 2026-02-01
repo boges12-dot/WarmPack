@@ -730,3 +730,12 @@ main{min-height:60vh}
   gap: 20px;
   align-items: start;
 }
+
+
+/* skill submenu bullet fix */
+.skill-submenu ul,
+.skill-submenu li {
+  list-style: none !important;
+  margin: 0;
+  padding: 0;
+}
