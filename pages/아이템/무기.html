@@ -261,224 +261,179 @@ table.skill-table td{
 </nav>
 <header class="site-header">
 </header>
-<main class="site-main"><div class="item-page-head"><h2>무기</h2><div class="item-toc"><div class="item-toc-title">바로가기</div><div class="item-toc-group"><div class="item-toc-stage">1차</div><div class="item-toc-links"><a class="item-toc-link" href="#sec-1차-군주">군주</a><a class="item-toc-link" href="#sec-1차-기사">기사</a><a class="item-toc-link" href="#sec-1차-다크엘프">다크엘프</a><a class="item-toc-link" href="#sec-1차-요정">요정</a><a class="item-toc-link" href="#sec-1차-마법사">마법사</a></div></div></div></div>
-<style>
-.item-page{max-width:980px;margin:0 auto;padding:14px 14px 48px;}
-.item-head h2{font-size:18px;font-weight:900;margin:10px 0 12px;}
-.item-class-title{margin:18px 0 8px;font-size:15px;font-weight:900;opacity:.95;}
-.item-table-wrap{overflow:auto;border:1px solid rgba(255,255,255,.10);border-radius:12px;}
-.item-table{width:100%;border-collapse:collapse;min-width:860px;}
-.item-table th,.item-table td{border-bottom:1px solid rgba(255,255,255,.08);padding:10px 12px;font-size:13px;vertical-align:middle;}
-.item-table thead th{background:rgba(255,255,255,.06);font-weight:900;}
-.item-table tbody tr:hover{background:rgba(255,255,255,.03);}
-.img-ph{width:48px;height:48px;border-radius:10px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.10);}
-.item-opt{opacity:.9;}
+<main class="site-main"><div class="item-page item-page-weapon">
+  <div class="item-page-head">
+    <h2>무기</h2>
+  </div>
+  <p class="item-note">※ 카드형 구조(뼈대)만 먼저 생성했습니다. 각 무기 카드는 다음 단계에서 채웁니다.</p>
+
+  <style>
+.item-page{max-width:980px;margin:0 auto;padding:14px 14px 56px;}
+.item-page-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin:8px 0 10px;}
+.item-page-head h2{font-size:18px;font-weight:900;margin:0;}
+.item-note{opacity:.75;font-size:12px;line-height:1.4;margin:0 0 12px;}
+.item-tier{margin:14px 0 22px;padding:14px;border:1px solid rgba(255,255,255,.10);border-radius:14px;background:rgba(0,0,0,.12);}
+.item-tier-title{font-size:15px;font-weight:900;margin:0 0 10px;}
+.item-class{margin:12px 0 0;}
+.item-class-title{font-size:13px;font-weight:900;margin:0 0 8px;opacity:.92;}
+.item-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;}
+@media (min-width: 860px){.item-grid{grid-template-columns:repeat(3,minmax(0,1fr));}}
+.item-card{border:1px dashed rgba(255,255,255,.22);border-radius:14px;padding:12px;background:rgba(255,255,255,.04);min-height:78px;display:flex;gap:10px;align-items:flex-start;}
+.item-ic{width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,.08);flex:0 0 auto;}
+.item-meta{flex:1;min-width:0;}
+.item-name{font-weight:900;margin:1px 0 6px;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.item-sub{font-size:12px;opacity:.75;line-height:1.35;margin:0;}
+.item-empty{opacity:.55;font-size:12px;margin:6px 0 0;}
 </style>
-<section class="item-page"><div class="item-head"></div>
-<h3 class="item-class-title" id="sec-1차-군주">군주</h3>
-<div class="item-table-wrap">
-<table class="item-table">
-<thead>
-<tr>
-<th style="width:72px;">이미지</th>
-<th>아이템 명</th>
-<th style="width:140px;">착용 클래스</th>
-<th style="width:90px;">차수</th>
-<th style="width:160px;">옵션</th>
-<th style="width:120px;">획득 방법</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="item-img"></td>
-<td class="item-name">커츠의검</td>
-<td class="item-class">군주</td>
-<td class="item-stage">1차</td>
-<td class="item-opt">-</td>
-<td class="item-method">상점구매</td>
-</tr>
-<tr>
-<td class="item-img"><div class="img-ph"></div></td>
-<td class="item-name">데스나이트의불검</td>
-<td class="item-class">군주</td>
-<td class="item-stage">2차</td>
-<td class="item-opt">-</td>
-<td class="item-method">드랍</td>
-</tr>
-<tr>
-<td class="item-img"><div class="img-ph"></div></td>
-<td class="item-name">바람칼날의 단검</td>
-<td class="item-class">군주</td>
-<td class="item-stage">3차</td>
-<td class="item-opt">-</td>
-<td class="item-method">제작</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 class="item-class-title" id="sec-1차-기사">기사</h3>
-<div class="item-table-wrap">
-<table class="item-table">
-<thead>
-<tr>
-<th style="width:72px;">이미지</th>
-<th>아이템 명</th>
-<th style="width:140px;">착용 클래스</th>
-<th style="width:90px;">차수</th>
-<th style="width:160px;">옵션</th>
-<th style="width:120px;">획득 방법</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="item-img"></td>
-<td class="item-name">무관의양손검</td>
-<td class="item-class">기사</td>
-<td class="item-stage">1차</td>
-<td class="item-opt">-</td>
-<td class="item-method">상점구매</td>
-</tr>
-<tr>
-<td class="item-img"><div class="img-ph"></div></td>
-<td class="item-name">나이트발드의양손검</td>
-<td class="item-class">기사</td>
-<td class="item-stage">2차</td>
-<td class="item-opt">-</td>
-<td class="item-method">드랍</td>
-</tr>
-<tr>
-<td class="item-img"><div class="img-ph"></div></td>
-<td class="item-name">진명황의집행검</td>
-<td class="item-class">기사</td>
-<td class="item-stage">3차</td>
-<td class="item-opt">-</td>
-<td class="item-method">제작</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 class="item-class-title" id="sec-1차-다크엘프">다크엘프</h3>
-<div class="item-table-wrap">
-<table class="item-table">
-<thead>
-<tr>
-<th style="width:72px;">이미지</th>
-<th>아이템 명</th>
-<th style="width:140px;">착용 클래스</th>
-<th style="width:90px;">차수</th>
-<th style="width:160px;">옵션</th>
-<th style="width:120px;">획득 방법</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="item-img"></td>
-<td class="item-name">론드의이도류</td>
-<td class="item-class">다크엘프</td>
-<td class="item-stage">1차</td>
-<td class="item-opt">-</td>
-<td class="item-method">상점구매</td>
-</tr>
-<tr>
-<td class="item-img"><div class="img-ph"></div></td>
-<td class="item-name">포효의 이도류</td>
-<td class="item-class">다크엘프</td>
-<td class="item-stage">2차</td>
-<td class="item-opt">-</td>
-<td class="item-method">드랍</td>
-</tr>
-<tr>
-<td class="item-img"><div class="img-ph"></div></td>
-<td class="item-name">붉은그림자의이도류</td>
-<td class="item-class">다크엘프</td>
-<td class="item-stage">3차</td>
-<td class="item-opt">-</td>
-<td class="item-method">제작</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 class="item-class-title" id="sec-1차-요정">요정</h3>
-<div class="item-table-wrap">
-<table class="item-table">
-<thead>
-<tr>
-<th style="width:72px;">이미지</th>
-<th>아이템 명</th>
-<th style="width:140px;">착용 클래스</th>
-<th style="width:90px;">차수</th>
-<th style="width:160px;">옵션</th>
-<th style="width:120px;">획득 방법</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="item-img"></td>
-<td class="item-name">달의장궁</td>
-<td class="item-class">요정</td>
-<td class="item-stage">1차</td>
-<td class="item-opt">-</td>
-<td class="item-method">상점구매</td>
-</tr>
-<tr>
-<td class="item-img"><div class="img-ph"></div></td>
-<td class="item-name">악몽의 장궁</td>
-<td class="item-class">요정</td>
-<td class="item-stage">2차</td>
-<td class="item-opt">-</td>
-<td class="item-method">드랍</td>
-</tr>
-<tr>
-<td class="item-img"><div class="img-ph"></div></td>
-<td class="item-name">가이아의격노</td>
-<td class="item-class">요정</td>
-<td class="item-stage">3차</td>
-<td class="item-opt">-</td>
-<td class="item-method">제작</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 class="item-class-title" id="sec-1차-마법사">마법사</h3>
-<div class="item-table-wrap">
-<table class="item-table">
-<thead>
-<tr>
-<th style="width:72px;">이미지</th>
-<th>아이템 명</th>
-<th style="width:140px;">착용 클래스</th>
-<th style="width:90px;">차수</th>
-<th style="width:160px;">옵션</th>
-<th style="width:120px;">획득 방법</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="item-img"></td>
-<td class="item-name">얼음여왕의지팡이</td>
-<td class="item-class">마법사</td>
-<td class="item-stage">1차</td>
-<td class="item-opt">-</td>
-<td class="item-method">상점구매</td>
-</tr>
-<tr>
-<td class="item-img"><div class="img-ph"></div></td>
-<td class="item-name">제로스의 지팡이</td>
-<td class="item-class">마법사</td>
-<td class="item-stage">2차</td>
-<td class="item-opt">-</td>
-<td class="item-method">드랍</td>
-</tr>
-<tr>
-<td class="item-img"><div class="img-ph"></div></td>
-<td class="item-name">수정결정체지팡이</td>
-<td class="item-class">마법사</td>
-<td class="item-stage">3차</td>
-<td class="item-opt">-</td>
-<td class="item-method">제작</td>
-</tr>
-</tbody>
-</table>
-</div>
-</section></main></body>
+
+  <section class="item-tier" id="weapon-1">
+    <h3 class="item-tier-title">무기 1차 (상점판매)</h3>
+    <div class="item-class" id="weapon-1-lord"><h4 class="item-class-title">군주</h4><div class="item-grid">
+        <div class="item-card">
+          <div class="item-ic"></div>
+          <div class="item-meta">
+            <div class="item-name">커츠의 검</div>
+            <p class="item-sub">카드 정보 추가 예정</p>
+          </div>
+        </div>
+        </div></div>
+    <div class="item-class" id="weapon-1-knight"><h4 class="item-class-title">기사</h4><div class="item-grid">
+        <div class="item-card">
+          <div class="item-ic"></div>
+          <div class="item-meta">
+            <div class="item-name">무관의 양손검</div>
+            <p class="item-sub">카드 정보 추가 예정</p>
+          </div>
+        </div>
+        </div></div>
+    <div class="item-class" id="weapon-1-darkelf"><h4 class="item-class-title">다크엘프</h4><div class="item-grid">
+        <div class="item-card">
+          <div class="item-ic"></div>
+          <div class="item-meta">
+            <div class="item-name">론드의 이도류</div>
+            <p class="item-sub">카드 정보 추가 예정</p>
+          </div>
+        </div>
+        </div></div>
+    <div class="item-class" id="weapon-1-elf"><h4 class="item-class-title">요정</h4><div class="item-grid">
+        <div class="item-card">
+          <div class="item-ic"></div>
+          <div class="item-meta">
+            <div class="item-name">달의 장궁</div>
+            <p class="item-sub">카드 정보 추가 예정</p>
+          </div>
+        </div>
+        </div></div>
+    <div class="item-class" id="weapon-1-mage"><h4 class="item-class-title">마법사</h4><div class="item-grid">
+        <div class="item-card">
+          <div class="item-ic"></div>
+          <div class="item-meta">
+            <div class="item-name">얼음여왕의 지팡이</div>
+            <p class="item-sub">카드 정보 추가 예정</p>
+          </div>
+        </div>
+        </div></div>
+    <div class="item-empty">카드 추가 예정</div>
+  </section>
+
+  <section class="item-tier" id="weapon-2">
+    <h3 class="item-tier-title">무기 2차 (드랍)</h3>
+    <div class="item-class" id="weapon-2-lord"><h4 class="item-class-title">군주</h4><div class="item-grid">
+        <div class="item-card">
+          <div class="item-ic"></div>
+          <div class="item-meta">
+            <div class="item-name">데스나이트의 불검</div>
+            <p class="item-sub">카드 정보 추가 예정</p>
+          </div>
+        </div>
+        </div></div>
+    <div class="item-class" id="weapon-2-knight"><h4 class="item-class-title">기사</h4><div class="item-grid">
+        <div class="item-card">
+          <div class="item-ic"></div>
+          <div class="item-meta">
+            <div class="item-name">나이트발드의 양손검</div>
+            <p class="item-sub">카드 정보 추가 예정</p>
+          </div>
+        </div>
+        </div></div>
+    <div class="item-class" id="weapon-2-darkelf"><h4 class="item-class-title">다크엘프</h4><div class="item-grid">
+        <div class="item-card">
+          <div class="item-ic"></div>
+          <div class="item-meta">
+            <div class="item-name">포효의 이도류</div>
+            <p class="item-sub">카드 정보 추가 예정</p>
+          </div>
+        </div>
+        </div></div>
+    <div class="item-class" id="weapon-2-elf"><h4 class="item-class-title">요정</h4><div class="item-grid">
+        <div class="item-card">
+          <div class="item-ic"></div>
+          <div class="item-meta">
+            <div class="item-name">악몽의 장궁</div>
+            <p class="item-sub">카드 정보 추가 예정</p>
+          </div>
+        </div>
+        </div></div>
+    <div class="item-class" id="weapon-2-mage"><h4 class="item-class-title">마법사</h4><div class="item-grid">
+        <div class="item-card">
+          <div class="item-ic"></div>
+          <div class="item-meta">
+            <div class="item-name">제로스의 지팡이</div>
+            <p class="item-sub">카드 정보 추가 예정</p>
+          </div>
+        </div>
+        </div></div>
+    <div class="item-empty">카드 추가 예정</div>
+  </section>
+
+  <section class="item-tier" id="weapon-3">
+    <h3 class="item-tier-title">무기 3차 (제작)</h3>
+    <div class="item-class" id="weapon-3-lord"><h4 class="item-class-title">군주</h4><div class="item-grid">
+        <div class="item-card">
+          <div class="item-ic"></div>
+          <div class="item-meta">
+            <div class="item-name">바람칼날의 단검</div>
+            <p class="item-sub">카드 정보 추가 예정</p>
+          </div>
+        </div>
+        </div></div>
+    <div class="item-class" id="weapon-3-knight"><h4 class="item-class-title">기사</h4><div class="item-grid">
+        <div class="item-card">
+          <div class="item-ic"></div>
+          <div class="item-meta">
+            <div class="item-name">진명황의 집행검</div>
+            <p class="item-sub">카드 정보 추가 예정</p>
+          </div>
+        </div>
+        </div></div>
+    <div class="item-class" id="weapon-3-darkelf"><h4 class="item-class-title">다크엘프</h4><div class="item-grid">
+        <div class="item-card">
+          <div class="item-ic"></div>
+          <div class="item-meta">
+            <div class="item-name">붉은그림자의 이도류</div>
+            <p class="item-sub">카드 정보 추가 예정</p>
+          </div>
+        </div>
+        </div></div>
+    <div class="item-class" id="weapon-3-elf"><h4 class="item-class-title">요정</h4><div class="item-grid">
+        <div class="item-card">
+          <div class="item-ic"></div>
+          <div class="item-meta">
+            <div class="item-name">가이아의 격노</div>
+            <p class="item-sub">카드 정보 추가 예정</p>
+          </div>
+        </div>
+        </div></div>
+    <div class="item-class" id="weapon-3-mage"><h4 class="item-class-title">마법사</h4><div class="item-grid">
+        <div class="item-card">
+          <div class="item-ic"></div>
+          <div class="item-meta">
+            <div class="item-name">수정결정체 지팡이</div>
+            <p class="item-sub">카드 정보 추가 예정</p>
+          </div>
+        </div>
+        </div></div>
+    <div class="item-empty">카드 추가 예정</div>
+  </section>
+</div></main></body>
 </html>
