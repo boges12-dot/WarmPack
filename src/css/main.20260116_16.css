@@ -971,3 +971,19 @@ main{min-height:60vh}
 @media(max-width:980px){.skill-group .skill-grid{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:620px){.skill-group .skill-grid{grid-template-columns:1fr;}}
 
+
+
+/* Fairy Earth grid fix: keep horizontal grid even if empty */
+.skill-grid.earth-grid{
+  display:grid !important;
+  grid-template-columns:repeat(4, minmax(0,1fr)) !important;
+  gap:14px;
+  min-height:120px;
+}
+@media(max-width:980px){
+  .skill-grid.earth-grid{grid-template-columns:repeat(2,1fr) !important;}
+}
+@media(max-width:620px){
+  .skill-grid.earth-grid{grid-template-columns:1fr !important;}
+}
+
