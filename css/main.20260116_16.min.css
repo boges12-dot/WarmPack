@@ -571,3 +571,14 @@
   margin-right: auto;
 }
 
+
+
+/* Mage skill step titles */
+.skill-step-title{
+  margin:32px 0 18px;
+  text-align:center;
+  font-size:26px;
+  font-weight:900;
+  letter-spacing:-0.5px;
+}
+
