@@ -196,6 +196,13 @@ table.skill-table td{
   background:rgba(255,255,255,.14);
 }
 </style>
+<style>
+.tier-tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:10px 0 14px;}
+.tier-tile{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:inherit;border-radius:16px;padding:10px;cursor:pointer;text-align:center}
+.tier-tile.is-active{border-color:rgba(255,255,255,.38);background:rgba(255,255,255,.14);}
+.tier-tile .tile-img{width:100%;aspect-ratio: 1.6/1;border-radius:12px;background:rgba(255,255,255,.10);margin:0 auto 8px;}
+.tier-tile .tile-label{font-weight:900;font-size:12px;opacity:.95}
+</style>
 </head>
 <body><section class="hero-main"><a aria-label="홈으로 이동" class="hero-home-link" href="/WarmPack/"></a></section><nav aria-label="메인 메뉴" class="main-nav-bar">
 <ul class="nav" id="main-nav">
@@ -294,13 +301,21 @@ table.skill-table td{
     </div>
   </div>
 
-  <div class="item-tabs" style="display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 12px;">
-    <button class="item-tabbtn" data-target="lord-tier-1" type="button">1차 무기</button>
-    <button class="item-tabbtn" data-target="lord-tier-2" type="button">2차 무기</button>
-    <button class="item-tabbtn" data-target="lord-tier-3" type="button">3차 무기</button>
-  </div>
-
-  <div id="lord-tier-1" class="item-grid lord-tier"><div class="item-card">
+  
+  <div class="tier-tiles" data-scope="lord">
+    <button class="tier-tile item-tabbtn" data-target="lord-tier-1" type="button">
+      <div class="tile-img"></div>
+      <div class="tile-label">1차무기</div>
+    </button>
+    <button class="tier-tile item-tabbtn" data-target="lord-tier-2" type="button">
+      <div class="tile-img"></div>
+      <div class="tile-label">2차무기</div>
+    </button>
+    <button class="tier-tile item-tabbtn" data-target="lord-tier-3" type="button">
+      <div class="tile-img"></div>
+      <div class="tile-label">3차무기</div>
+    </button>
+  </div><div id="lord-tier-1" class="item-grid lord-tier"><div class="item-card">
           <div class="item-ic"></div>
           <div class="item-meta">
             <div class="item-name">커츠의 검</div>
@@ -315,6 +330,170 @@ table.skill-table td{
           <div class="item-ic"></div>
           <div class="item-meta">
             <div class="item-name">바람칼날의 단검</div>
+            <p class="item-sub">카드 정보 추가 예정</p></div>
+</section>
+
+<section class="item-tier class-weapon" id="knight-weapon">
+  <div class="item-page-head" style="margin-top:18px;">
+    <h2>기사 무기</h2>
+  </div>
+  <div style="display:flex;gap:12px;align-items:center;margin:8px 0 12px;">
+    <div class="item-ic knight-ic" style="width:64px;height:64px;border-radius:16px;"></div>
+    <div style="flex:1;min-width:0;">
+      <p class="item-note" style="margin:0;">※ 1차/2차/3차 버튼으로 무기 카드를 전환합니다.</p>
+    </div>
+  </div>
+
+  
+  <div class="tier-tiles" data-scope="knight">
+    <button class="tier-tile item-tabbtn" data-target="knight-tier-1" type="button">
+      <div class="tile-img"></div>
+      <div class="tile-label">1차무기</div>
+    </button>
+    <button class="tier-tile item-tabbtn" data-target="knight-tier-2" type="button">
+      <div class="tile-img"></div>
+      <div class="tile-label">2차무기</div>
+    </button>
+    <button class="tier-tile item-tabbtn" data-target="knight-tier-3" type="button">
+      <div class="tile-img"></div>
+      <div class="tile-label">3차무기</div>
+    </button>
+  </div><div id="knight-tier-1" class="item-grid tier-panel"><div class="item-card">
+          <div class="item-ic"></div>
+          <div class="item-meta">
+            <div class="item-name">무관의 양손검</div>
+  <div id="knight-tier-2" class="item-grid tier-panel" style="display:none;"><div class="item-card">
+          <div class="item-ic"></div>
+          <div class="item-meta">
+            <div class="item-name">나이트발드의 양손검</div>
+            <p class="item-sub">카드 정보 추가 예정</p></div>
+  <div id="knight-tier-3" class="item-grid tier-panel" style="display:none;"><div class="item-card">
+          <div class="item-ic"></div>
+          <div class="item-meta">
+            <div class="item-name">진명황의 집행검</div>
+            <p class="item-sub">카드 정보 추가 예정</p></div>
+</section>
+
+<section class="item-tier class-weapon" id="darkelf-weapon">
+  <div class="item-page-head" style="margin-top:18px;">
+    <h2>다크엘프 무기</h2>
+  </div>
+  <div style="display:flex;gap:12px;align-items:center;margin:8px 0 12px;">
+    <div class="item-ic darkelf-ic" style="width:64px;height:64px;border-radius:16px;"></div>
+    <div style="flex:1;min-width:0;">
+      <p class="item-note" style="margin:0;">※ 1차/2차/3차 버튼으로 무기 카드를 전환합니다.</p>
+    </div>
+  </div>
+
+  
+  <div class="tier-tiles" data-scope="darkelf">
+    <button class="tier-tile item-tabbtn" data-target="darkelf-tier-1" type="button">
+      <div class="tile-img"></div>
+      <div class="tile-label">1차무기</div>
+    </button>
+    <button class="tier-tile item-tabbtn" data-target="darkelf-tier-2" type="button">
+      <div class="tile-img"></div>
+      <div class="tile-label">2차무기</div>
+    </button>
+    <button class="tier-tile item-tabbtn" data-target="darkelf-tier-3" type="button">
+      <div class="tile-img"></div>
+      <div class="tile-label">3차무기</div>
+    </button>
+  </div><div id="darkelf-tier-1" class="item-grid tier-panel"><div class="item-card">
+          <div class="item-ic"></div>
+          <div class="item-meta">
+            <div class="item-name">론드의 이도류</div>
+  <div id="darkelf-tier-2" class="item-grid tier-panel" style="display:none;"><div class="item-card">
+          <div class="item-ic"></div>
+          <div class="item-meta">
+            <div class="item-name">포효의 이도류</div>
+            <p class="item-sub">카드 정보 추가 예정</p></div>
+  <div id="darkelf-tier-3" class="item-grid tier-panel" style="display:none;"><div class="item-card">
+          <div class="item-ic"></div>
+          <div class="item-meta">
+            <div class="item-name">붉은그림자의 이도류</div>
+            <p class="item-sub">카드 정보 추가 예정</p></div>
+</section>
+
+<section class="item-tier class-weapon" id="elf-weapon">
+  <div class="item-page-head" style="margin-top:18px;">
+    <h2>요정 무기</h2>
+  </div>
+  <div style="display:flex;gap:12px;align-items:center;margin:8px 0 12px;">
+    <div class="item-ic elf-ic" style="width:64px;height:64px;border-radius:16px;"></div>
+    <div style="flex:1;min-width:0;">
+      <p class="item-note" style="margin:0;">※ 1차/2차/3차 버튼으로 무기 카드를 전환합니다.</p>
+    </div>
+  </div>
+
+  
+  <div class="tier-tiles" data-scope="elf">
+    <button class="tier-tile item-tabbtn" data-target="elf-tier-1" type="button">
+      <div class="tile-img"></div>
+      <div class="tile-label">1차무기</div>
+    </button>
+    <button class="tier-tile item-tabbtn" data-target="elf-tier-2" type="button">
+      <div class="tile-img"></div>
+      <div class="tile-label">2차무기</div>
+    </button>
+    <button class="tier-tile item-tabbtn" data-target="elf-tier-3" type="button">
+      <div class="tile-img"></div>
+      <div class="tile-label">3차무기</div>
+    </button>
+  </div><div id="elf-tier-1" class="item-grid tier-panel"><div class="item-card">
+          <div class="item-ic"></div>
+          <div class="item-meta">
+            <div class="item-name">달의 장궁</div>
+  <div id="elf-tier-2" class="item-grid tier-panel" style="display:none;"><div class="item-card">
+          <div class="item-ic"></div>
+          <div class="item-meta">
+            <div class="item-name">악몽의 장궁</div>
+            <p class="item-sub">카드 정보 추가 예정</p></div>
+  <div id="elf-tier-3" class="item-grid tier-panel" style="display:none;"><div class="item-card">
+          <div class="item-ic"></div>
+          <div class="item-meta">
+            <div class="item-name">가이아의 격노</div>
+            <p class="item-sub">카드 정보 추가 예정</p></div>
+</section>
+
+<section class="item-tier class-weapon" id="mage-weapon">
+  <div class="item-page-head" style="margin-top:18px;">
+    <h2>마법사 무기</h2>
+  </div>
+  <div style="display:flex;gap:12px;align-items:center;margin:8px 0 12px;">
+    <div class="item-ic mage-ic" style="width:64px;height:64px;border-radius:16px;"></div>
+    <div style="flex:1;min-width:0;">
+      <p class="item-note" style="margin:0;">※ 1차/2차/3차 버튼으로 무기 카드를 전환합니다.</p>
+    </div>
+  </div>
+
+  
+  <div class="tier-tiles" data-scope="mage">
+    <button class="tier-tile item-tabbtn" data-target="mage-tier-1" type="button">
+      <div class="tile-img"></div>
+      <div class="tile-label">1차무기</div>
+    </button>
+    <button class="tier-tile item-tabbtn" data-target="mage-tier-2" type="button">
+      <div class="tile-img"></div>
+      <div class="tile-label">2차무기</div>
+    </button>
+    <button class="tier-tile item-tabbtn" data-target="mage-tier-3" type="button">
+      <div class="tile-img"></div>
+      <div class="tile-label">3차무기</div>
+    </button>
+  </div><div id="mage-tier-1" class="item-grid tier-panel"><div class="item-card">
+          <div class="item-ic"></div>
+          <div class="item-meta">
+            <div class="item-name">얼음여왕의 지팡이</div>
+  <div id="mage-tier-2" class="item-grid tier-panel" style="display:none;"><div class="item-card">
+          <div class="item-ic"></div>
+          <div class="item-meta">
+            <div class="item-name">제로스의 지팡이</div>
+            <p class="item-sub">카드 정보 추가 예정</p></div>
+  <div id="mage-tier-3" class="item-grid tier-panel" style="display:none;"><div class="item-card">
+          <div class="item-ic"></div>
+          <div class="item-meta">
+            <div class="item-name">수정결정체 지팡이</div>
             <p class="item-sub">카드 정보 추가 예정</p></div>
 </section>
 
@@ -348,38 +527,22 @@ table.skill-table td{
           </div>
         </div>
         </div></div>
-    <div class="item-class" id="weapon-1-knight"><h4 class="item-class-title">기사</h4><div class="item-grid">
-        <div class="item-card">
-          <div class="item-ic"></div>
-          <div class="item-meta">
-            <div class="item-name">무관의 양손검</div>
+    <div class="item-class" id="weapon-1-knight"><h4 class="item-class-title">기사</h4><div class="item-grid"></div>
             
           </div>
         </div>
         </div></div>
-    <div class="item-class" id="weapon-1-darkelf"><h4 class="item-class-title">다크엘프</h4><div class="item-grid">
-        <div class="item-card">
-          <div class="item-ic"></div>
-          <div class="item-meta">
-            <div class="item-name">론드의 이도류</div>
+    <div class="item-class" id="weapon-1-darkelf"><h4 class="item-class-title">다크엘프</h4><div class="item-grid"></div>
             
           </div>
         </div>
         </div></div>
-    <div class="item-class" id="weapon-1-elf"><h4 class="item-class-title">요정</h4><div class="item-grid">
-        <div class="item-card">
-          <div class="item-ic"></div>
-          <div class="item-meta">
-            <div class="item-name">달의 장궁</div>
+    <div class="item-class" id="weapon-1-elf"><h4 class="item-class-title">요정</h4><div class="item-grid"></div>
             
           </div>
         </div>
         </div></div>
-    <div class="item-class" id="weapon-1-mage"><h4 class="item-class-title">마법사</h4><div class="item-grid">
-        <div class="item-card">
-          <div class="item-ic"></div>
-          <div class="item-meta">
-            <div class="item-name">얼음여왕의 지팡이</div>
+    <div class="item-class" id="weapon-1-mage"><h4 class="item-class-title">마법사</h4><div class="item-grid"></div>
             
           </div>
         </div>
@@ -392,40 +555,16 @@ table.skill-table td{
     <div class="item-class" id="weapon-2-lord"><h4 class="item-class-title">군주</h4><div class="item-grid"></div>
         </div>
         </div></div>
-    <div class="item-class" id="weapon-2-knight"><h4 class="item-class-title">기사</h4><div class="item-grid">
-        <div class="item-card">
-          <div class="item-ic"></div>
-          <div class="item-meta">
-            <div class="item-name">나이트발드의 양손검</div>
-            <p class="item-sub">카드 정보 추가 예정</p>
-          </div>
+    <div class="item-class" id="weapon-2-knight"><h4 class="item-class-title">기사</h4><div class="item-grid"></div>
         </div>
         </div></div>
-    <div class="item-class" id="weapon-2-darkelf"><h4 class="item-class-title">다크엘프</h4><div class="item-grid">
-        <div class="item-card">
-          <div class="item-ic"></div>
-          <div class="item-meta">
-            <div class="item-name">포효의 이도류</div>
-            <p class="item-sub">카드 정보 추가 예정</p>
-          </div>
+    <div class="item-class" id="weapon-2-darkelf"><h4 class="item-class-title">다크엘프</h4><div class="item-grid"></div>
         </div>
         </div></div>
-    <div class="item-class" id="weapon-2-elf"><h4 class="item-class-title">요정</h4><div class="item-grid">
-        <div class="item-card">
-          <div class="item-ic"></div>
-          <div class="item-meta">
-            <div class="item-name">악몽의 장궁</div>
-            <p class="item-sub">카드 정보 추가 예정</p>
-          </div>
+    <div class="item-class" id="weapon-2-elf"><h4 class="item-class-title">요정</h4><div class="item-grid"></div>
         </div>
         </div></div>
-    <div class="item-class" id="weapon-2-mage"><h4 class="item-class-title">마법사</h4><div class="item-grid">
-        <div class="item-card">
-          <div class="item-ic"></div>
-          <div class="item-meta">
-            <div class="item-name">제로스의 지팡이</div>
-            <p class="item-sub">카드 정보 추가 예정</p>
-          </div>
+    <div class="item-class" id="weapon-2-mage"><h4 class="item-class-title">마법사</h4><div class="item-grid"></div>
         </div>
         </div></div>
     <div class="item-empty">카드 추가 예정</div>
@@ -436,43 +575,49 @@ table.skill-table td{
     <div class="item-class" id="weapon-3-lord"><h4 class="item-class-title">군주</h4><div class="item-grid"></div>
         </div>
         </div></div>
-    <div class="item-class" id="weapon-3-knight"><h4 class="item-class-title">기사</h4><div class="item-grid">
-        <div class="item-card">
-          <div class="item-ic"></div>
-          <div class="item-meta">
-            <div class="item-name">진명황의 집행검</div>
-            <p class="item-sub">카드 정보 추가 예정</p>
-          </div>
+    <div class="item-class" id="weapon-3-knight"><h4 class="item-class-title">기사</h4><div class="item-grid"></div>
         </div>
         </div></div>
-    <div class="item-class" id="weapon-3-darkelf"><h4 class="item-class-title">다크엘프</h4><div class="item-grid">
-        <div class="item-card">
-          <div class="item-ic"></div>
-          <div class="item-meta">
-            <div class="item-name">붉은그림자의 이도류</div>
-            <p class="item-sub">카드 정보 추가 예정</p>
-          </div>
+    <div class="item-class" id="weapon-3-darkelf"><h4 class="item-class-title">다크엘프</h4><div class="item-grid"></div>
         </div>
         </div></div>
-    <div class="item-class" id="weapon-3-elf"><h4 class="item-class-title">요정</h4><div class="item-grid">
-        <div class="item-card">
-          <div class="item-ic"></div>
-          <div class="item-meta">
-            <div class="item-name">가이아의 격노</div>
-            <p class="item-sub">카드 정보 추가 예정</p>
-          </div>
+    <div class="item-class" id="weapon-3-elf"><h4 class="item-class-title">요정</h4><div class="item-grid"></div>
         </div>
         </div></div>
-    <div class="item-class" id="weapon-3-mage"><h4 class="item-class-title">마법사</h4><div class="item-grid">
-        <div class="item-card">
-          <div class="item-ic"></div>
-          <div class="item-meta">
-            <div class="item-name">수정결정체 지팡이</div>
-            <p class="item-sub">카드 정보 추가 예정</p>
-          </div>
+    <div class="item-class" id="weapon-3-mage"><h4 class="item-class-title">마법사</h4><div class="item-grid"></div>
         </div>
         </div></div>
     <div class="item-empty">카드 추가 예정</div>
   </section>
-</div></main></body>
+</div></main><script>
+(function(){
+  function initScope(scopeEl){
+    var scope = scopeEl.getAttribute('data-scope');
+    var btns = scopeEl.querySelectorAll('.item-tabbtn');
+    if(!btns.length) return;
+
+    function show(id){
+      // only panels within the same section
+      var section = scopeEl.closest('section');
+      if(!section) return;
+      section.querySelectorAll('.tier-panel').forEach(function(p){
+        p.style.display = (p.id === id) ? '' : 'none';
+      });
+      btns.forEach(function(b){
+        b.classList.toggle('is-active', b.getAttribute('data-target') === id);
+      });
+    }
+
+    btns.forEach(function(b){
+      b.addEventListener('click', function(){ show(b.getAttribute('data-target')); });
+    });
+
+    // default
+    show(scope + '-tier-1');
+  }
+
+  document.querySelectorAll('.item-tabs[data-scope]').forEach(initScope);
+})();
+</script>
+</body>
 </html>
