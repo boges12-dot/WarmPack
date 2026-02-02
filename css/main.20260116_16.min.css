@@ -582,3 +582,14 @@
   letter-spacing:-0.5px;
 }
 
+
+
+/* Fairy elemental titles */
+.skill-step-title{
+  margin:32px 0 18px;
+  text-align:center;
+  font-size:26px;
+  font-weight:900;
+  letter-spacing:-0.5px;
+}
+
