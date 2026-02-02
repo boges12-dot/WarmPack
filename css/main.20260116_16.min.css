@@ -622,3 +622,14 @@
   }
 }
 
+
+
+/* Fairy elemental section titles above grids */
+.skill-step-title{
+  margin:40px 0 16px;
+  text-align:center;
+  font-size:26px;
+  font-weight:900;
+  letter-spacing:-0.5px;
+}
+
