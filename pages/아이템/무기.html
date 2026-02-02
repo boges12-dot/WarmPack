@@ -180,7 +180,23 @@ table.skill-table td{
   margin-top: 22px;
 }
 </style>
-<style id="item-icon-style">.item-icon{width:52px;height:52px;object-fit:contain;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.10);} </style></head>
+<style id="item-icon-style">.item-icon{width:52px;height:52px;object-fit:contain;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.10);} </style><style>
+.item-tabbtn{
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.06);
+  color:inherit;
+  padding:8px 10px;
+  border-radius:12px;
+  font-weight:900;
+  font-size:12px;
+  cursor:pointer;
+}
+.item-tabbtn.is-active{
+  border-color:rgba(255,255,255,.35);
+  background:rgba(255,255,255,.14);
+}
+</style>
+</head>
 <body><section class="hero-main"><a aria-label="홈으로 이동" class="hero-home-link" href="/WarmPack/"></a></section><nav aria-label="메인 메뉴" class="main-nav-bar">
 <ul class="nav" id="main-nav">
 <li class="home-link"><a aria-label="홈" class="nav-home" href="/WarmPack/"><svg aria-hidden="true" class="icon-home" focusable="false" height="18" viewbox="0 0 24 24" width="18"><path d="M12 3 2.5 11.2a1 1 0 0 0 .7 1.8H5v7a1 1 0 0 0 1 1h4v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5h4a1 1 0 0 0 1-1v-7h1.8a1 1 0 0 0 .7-1.8L12 3z"></path></svg></a></li>
@@ -267,6 +283,41 @@ table.skill-table td{
   </div>
   <p class="item-note">※ 카드형 구조(뼈대)만 먼저 생성했습니다. 각 무기 카드는 다음 단계에서 채웁니다.</p>
 
+<section class="item-tier" id="lord-weapon">
+  <div class="item-page-head" style="margin-top:0;">
+    <h2>군주 무기</h2>
+  </div>
+  <div style="display:flex;gap:12px;align-items:center;margin:8px 0 12px;">
+    <div class="item-ic" style="width:64px;height:64px;border-radius:16px;"></div>
+    <div style="flex:1;min-width:0;">
+      <p class="item-note" style="margin:0;">※ 1차/2차/3차 버튼으로 무기 카드를 전환합니다.</p>
+    </div>
+  </div>
+
+  <div class="item-tabs" style="display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 12px;">
+    <button class="item-tabbtn" data-target="lord-tier-1" type="button">1차 무기</button>
+    <button class="item-tabbtn" data-target="lord-tier-2" type="button">2차 무기</button>
+    <button class="item-tabbtn" data-target="lord-tier-3" type="button">3차 무기</button>
+  </div>
+
+  <div id="lord-tier-1" class="item-grid lord-tier"><div class="item-card">
+          <div class="item-ic"></div>
+          <div class="item-meta">
+            <div class="item-name">커츠의 검</div>
+  <div id="lord-tier-2" class="item-grid lord-tier" style="display:none;"><div class="item-card">
+          <div class="item-ic"></div>
+          <div class="item-meta">
+            <div class="item-name">데스나이트의 불검</div>
+        <p class="item-sub"><b>군주 / 무기 2차 (드랍)</b></p>
+        <p class="item-sub">타격치: 21/22<br>추가 명중 +3<br>추가 데미지 +6<br>STR +2</p>
+        <p class="item-sub"><b>획득:</b><br>드랍 (그림자신전 1,2층 / 요술 2층, 보스)<br>(중급, 상급) 무기상자<br>초보자의 증표 수집 제작 NPC</p></div>
+  <div id="lord-tier-3" class="item-grid lord-tier" style="display:none;"><div class="item-card">
+          <div class="item-ic"></div>
+          <div class="item-meta">
+            <div class="item-name">바람칼날의 단검</div>
+            <p class="item-sub">카드 정보 추가 예정</p></div>
+</section>
+
   <style>
 .item-page{max-width:980px;margin:0 auto;padding:14px 14px 56px;}
 .item-page-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin:8px 0 10px;}
@@ -288,11 +339,7 @@ table.skill-table td{
 
   <section class="item-tier" id="weapon-1">
     <h3 class="item-tier-title">무기 1차 (상점판매)</h3>
-    <div class="item-class" id="weapon-1-lord"><h4 class="item-class-title">군주</h4><div class="item-grid">
-        <div class="item-card">
-          <div class="item-ic"></div>
-          <div class="item-meta">
-            <div class="item-name">커츠의 검</div>
+    <div class="item-class" id="weapon-1-lord"><h4 class="item-class-title">군주</h4><div class="item-grid"></div>
         
         
         
@@ -342,17 +389,7 @@ table.skill-table td{
 
   <section class="item-tier" id="weapon-2">
     <h3 class="item-tier-title">무기 2차 (드랍)</h3>
-    <div class="item-class" id="weapon-2-lord"><h4 class="item-class-title">군주</h4><div class="item-grid">
-        <div class="item-card">
-          <div class="item-ic"></div>
-          <div class="item-meta">
-            <div class="item-name">데스나이트의 불검</div>
-        <p class="item-sub"><b>군주 / 무기 2차 (드랍)</b></p>
-        <p class="item-sub">타격치: 21/22<br>추가 명중 +3<br>추가 데미지 +6<br>STR +2</p>
-        <p class="item-sub"><b>획득:</b><br>드랍 (그림자신전 1,2층 / 요술 2층, 보스)<br>(중급, 상급) 무기상자<br>초보자의 증표 수집 제작 NPC</p>
-    
-            
-          </div>
+    <div class="item-class" id="weapon-2-lord"><h4 class="item-class-title">군주</h4><div class="item-grid"></div>
         </div>
         </div></div>
     <div class="item-class" id="weapon-2-knight"><h4 class="item-class-title">기사</h4><div class="item-grid">
@@ -396,13 +433,7 @@ table.skill-table td{
 
   <section class="item-tier" id="weapon-3">
     <h3 class="item-tier-title">무기 3차 (제작)</h3>
-    <div class="item-class" id="weapon-3-lord"><h4 class="item-class-title">군주</h4><div class="item-grid">
-        <div class="item-card">
-          <div class="item-ic"></div>
-          <div class="item-meta">
-            <div class="item-name">바람칼날의 단검</div>
-            <p class="item-sub">카드 정보 추가 예정</p>
-          </div>
+    <div class="item-class" id="weapon-3-lord"><h4 class="item-class-title">군주</h4><div class="item-grid"></div>
         </div>
         </div></div>
     <div class="item-class" id="weapon-3-knight"><h4 class="item-class-title">기사</h4><div class="item-grid">
