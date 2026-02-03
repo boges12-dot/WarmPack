@@ -210,7 +210,8 @@ table.skill-table td{
 </style>
 <style>
 /* item card grid (items pages) */
-.item-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px;}
+.tier-panel{width:100%}
+.item-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px;margin-top:12px;}
 @media (max-width: 860px){.item-grid{grid-template-columns:1fr;}}
 .item-card{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);border-radius:16px;padding:12px;display:flex;gap:12px;align-items:flex-start;}
 .item-ic{width:64px;height:64px;border-radius:14px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.08);flex:0 0 auto;display:flex;align-items:center;justify-content:center;overflow:hidden}
@@ -218,6 +219,13 @@ table.skill-table td{
 .item-meta{min-width:0;flex:1}
 .item-name{font-weight:900;font-size:16px;line-height:1.2;margin:2px 0 8px}
 .item-sub{margin:0 0 8px;opacity:.92;line-height:1.5;font-size:13px}
+</style>
+<style>
+.tier-tile{position:relative;height:auto}
+.tier-tile .tile-content{display:none;margin-top:10px;text-align:left}
+.tier-tile.is-active .tile-content{display:block}
+.tier-tile .tile-content .item-grid{margin-top:0}
+.tier-tile .tile-content .item-card{background:rgba(0,0,0,.15)}
 </style>
 </head>
 <body><section class="hero-main"><a aria-label="홈으로 이동" class="hero-home-link" href="/WarmPack/"></a></section><nav aria-label="메인 메뉴" class="main-nav-bar">
@@ -309,33 +317,33 @@ table.skill-table td{
     <button class="tier-tile item-tabbtn" data-target="lord-tier-1" type="button">
       <div class="tile-img"></div>
       <div class="tile-label">1차무기</div>
-    </button>
+    
+  <div class="tile-content"><div class="item-card">
+  <div class="item-ic">
+    <img src="media_item/weapon/커츠의검.png" alt="커츠의 검" onerror="this.style.display='none';"></div>
+</button>
     <button class="tier-tile item-tabbtn" data-target="lord-tier-2" type="button">
       <div class="tile-img"></div>
       <div class="tile-label">2차무기</div>
-    </button>
+    
+  <div class="tile-content"><div class="item-card">
+  <div class="item-ic">
+    <img src="media_item/weapon/데스나이트의불검.png" alt="데스나이트의 불검" onerror="this.style.display='none';"></div>
+</button>
     <button class="tier-tile item-tabbtn" data-target="lord-tier-3" type="button">
       <div class="tile-img"></div>
       <div class="tile-label">3차무기</div>
-    </button>
+    
+  <div class="tile-content"></div>
+</button>
   </div>
 
-  <div id="lord-tier-1" class="item-grid tier-panel">
-<div class="item-card">
-  <div class="item-ic">
-    <img src="media_item/weapon/커츠의검.png" alt="커츠의 검" onerror="this.style.display='none';">
-</div>
   <div class="item-meta">
     <div class="item-name">커츠의 검</div>
     <p class="item-sub">타격치 : 16/17<br>추가 데미지 +5<br>추가 명중 +2<br>STR +1</p>
     <p class="item-sub"><b>획득 방법</b><br>드랍 (본던 2층)<br>(하급, 중급, 상급) 무기 상자</p>
   </div>
 </div>
-</div>
-  <div id="lord-tier-2" class="item-grid tier-panel" style="display:none;">
-<div class="item-card">
-  <div class="item-ic">
-    <img src="media_item/weapon/데스나이트의불검.png" alt="데스나이트의 불검" onerror="this.style.display='none';">
 </div>
   <div class="item-meta">
     <div class="item-name">데스나이트의 불검</div>
@@ -344,8 +352,7 @@ table.skill-table td{
   </div>
 </div>
 </div>
-  <div id="lord-tier-3" class="item-grid tier-panel" style="display:none;"></div>
-</section>
+  </section>
 
 <section class="class-weapon" id="knight-weapon" style="margin-top:22px;">
   <h2 style="font-size:18px;font-weight:900;margin:0 0 10px;text-align:center">기사 무기</h2>
@@ -354,21 +361,24 @@ table.skill-table td{
     <button class="tier-tile item-tabbtn" data-target="knight-tier-1" type="button">
       <div class="tile-img"></div>
       <div class="tile-label">1차무기</div>
-    </button>
+    
+  <div class="tile-content"></div>
+</button>
     <button class="tier-tile item-tabbtn" data-target="knight-tier-2" type="button">
       <div class="tile-img"></div>
       <div class="tile-label">2차무기</div>
-    </button>
+    
+  <div class="tile-content"></div>
+</button>
     <button class="tier-tile item-tabbtn" data-target="knight-tier-3" type="button">
       <div class="tile-img"></div>
       <div class="tile-label">3차무기</div>
-    </button>
+    
+  <div class="tile-content"></div>
+</button>
   </div>
 
-  <div id="knight-tier-1" class="item-grid tier-panel"></div>
-  <div id="knight-tier-2" class="item-grid tier-panel" style="display:none;"></div>
-  <div id="knight-tier-3" class="item-grid tier-panel" style="display:none;"></div>
-</section>
+  </section>
 
 <section class="class-weapon" id="mage-weapon" style="margin-top:22px;">
   <h2 style="font-size:18px;font-weight:900;margin:0 0 10px;text-align:center">마법사 무기</h2>
@@ -377,21 +387,24 @@ table.skill-table td{
     <button class="tier-tile item-tabbtn" data-target="mage-tier-1" type="button">
       <div class="tile-img"></div>
       <div class="tile-label">1차무기</div>
-    </button>
+    
+  <div class="tile-content"></div>
+</button>
     <button class="tier-tile item-tabbtn" data-target="mage-tier-2" type="button">
       <div class="tile-img"></div>
       <div class="tile-label">2차무기</div>
-    </button>
+    
+  <div class="tile-content"></div>
+</button>
     <button class="tier-tile item-tabbtn" data-target="mage-tier-3" type="button">
       <div class="tile-img"></div>
       <div class="tile-label">3차무기</div>
-    </button>
+    
+  <div class="tile-content"></div>
+</button>
   </div>
 
-  <div id="mage-tier-1" class="item-grid tier-panel"></div>
-  <div id="mage-tier-2" class="item-grid tier-panel" style="display:none;"></div>
-  <div id="mage-tier-3" class="item-grid tier-panel" style="display:none;"></div>
-</section>
+  </section>
 
 <section class="class-weapon" id="elf-weapon" style="margin-top:22px;">
   <h2 style="font-size:18px;font-weight:900;margin:0 0 10px;text-align:center">요정 무기</h2>
@@ -400,21 +413,24 @@ table.skill-table td{
     <button class="tier-tile item-tabbtn" data-target="elf-tier-1" type="button">
       <div class="tile-img"></div>
       <div class="tile-label">1차무기</div>
-    </button>
+    
+  <div class="tile-content"></div>
+</button>
     <button class="tier-tile item-tabbtn" data-target="elf-tier-2" type="button">
       <div class="tile-img"></div>
       <div class="tile-label">2차무기</div>
-    </button>
+    
+  <div class="tile-content"></div>
+</button>
     <button class="tier-tile item-tabbtn" data-target="elf-tier-3" type="button">
       <div class="tile-img"></div>
       <div class="tile-label">3차무기</div>
-    </button>
+    
+  <div class="tile-content"></div>
+</button>
   </div>
 
-  <div id="elf-tier-1" class="item-grid tier-panel"></div>
-  <div id="elf-tier-2" class="item-grid tier-panel" style="display:none;"></div>
-  <div id="elf-tier-3" class="item-grid tier-panel" style="display:none;"></div>
-</section>
+  </section>
 
 <section class="class-weapon" id="darkelf-weapon" style="margin-top:22px;">
   <h2 style="font-size:18px;font-weight:900;margin:0 0 10px;text-align:center">다크엘프 무기</h2>
@@ -423,48 +439,43 @@ table.skill-table td{
     <button class="tier-tile item-tabbtn" data-target="darkelf-tier-1" type="button">
       <div class="tile-img"></div>
       <div class="tile-label">1차무기</div>
-    </button>
+    
+  <div class="tile-content"></div>
+</button>
     <button class="tier-tile item-tabbtn" data-target="darkelf-tier-2" type="button">
       <div class="tile-img"></div>
       <div class="tile-label">2차무기</div>
-    </button>
+    
+  <div class="tile-content"></div>
+</button>
     <button class="tier-tile item-tabbtn" data-target="darkelf-tier-3" type="button">
       <div class="tile-img"></div>
       <div class="tile-label">3차무기</div>
-    </button>
+    
+  <div class="tile-content"></div>
+</button>
   </div>
 
-  <div id="darkelf-tier-1" class="item-grid tier-panel"></div>
-  <div id="darkelf-tier-2" class="item-grid tier-panel" style="display:none;"></div>
-  <div id="darkelf-tier-3" class="item-grid tier-panel" style="display:none;"></div>
-</section>
+  </section>
 </div>
 </main>
+
 <script>
 (function(){
   function init(scopeEl){
-    var scope = scopeEl.getAttribute('data-scope');
-    var btns = scopeEl.querySelectorAll('.item-tabbtn');
+    var btns = scopeEl.querySelectorAll('.tier-tile.item-tabbtn');
     if(!btns.length) return;
-
-    function show(id){
-      var section = scopeEl.closest('section');
-      if(!section) return;
-      section.querySelectorAll('.tier-panel').forEach(function(p){
-        p.style.display = (p.id === id) ? '' : 'none';
-      });
-      btns.forEach(function(b){
-        b.classList.toggle('is-active', b.getAttribute('data-target') === id);
-      });
+    function activate(btn){
+      btns.forEach(function(b){ b.classList.toggle('is-active', b===btn); });
     }
-
     btns.forEach(function(b){
-      b.addEventListener('click', function(){ show(b.getAttribute('data-target')); });
+      b.addEventListener('click', function(e){
+        e.preventDefault();
+        activate(b);
+      });
     });
-
-    show(scope + '-tier-1');
+    activate(btns[0]);
   }
-
   document.querySelectorAll('.tier-tiles[data-scope]').forEach(init);
 })();
 </script>
