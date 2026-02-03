@@ -208,6 +208,17 @@ table.skill-table td{
 .item-ic img{width:100%;height:100%;object-fit:contain;display:block}
 .item-ic .ic-fallback{font-weight:900;opacity:.55;font-size:11px;line-height:1;text-align:center;padding:4px}
 </style>
+<style>
+/* item card grid (items pages) */
+.item-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px;}
+@media (max-width: 860px){.item-grid{grid-template-columns:1fr;}}
+.item-card{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);border-radius:16px;padding:12px;display:flex;gap:12px;align-items:flex-start;}
+.item-ic{width:64px;height:64px;border-radius:14px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.08);flex:0 0 auto;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.item-ic img{width:100%;height:100%;object-fit:contain;display:block}
+.item-meta{min-width:0;flex:1}
+.item-name{font-weight:900;font-size:16px;line-height:1.2;margin:2px 0 8px}
+.item-sub{margin:0 0 8px;opacity:.92;line-height:1.5;font-size:13px}
+</style>
 </head>
 <body><section class="hero-main"><a aria-label="홈으로 이동" class="hero-home-link" href="/WarmPack/"></a></section><nav aria-label="메인 메뉴" class="main-nav-bar">
 <ul class="nav" id="main-nav">
@@ -312,9 +323,8 @@ table.skill-table td{
   <div id="lord-tier-1" class="item-grid tier-panel">
 <div class="item-card">
   <div class="item-ic">
-    <img src="media_item/weapon/커츠의검.png" alt="커츠의 검" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
-    <div class="ic-fallback" style="display:none;">NO IMG</div>
-  </div>
+    <img src="media_item/weapon/커츠의검.png" alt="커츠의 검" onerror="this.style.display='none';">
+</div>
   <div class="item-meta">
     <div class="item-name">커츠의 검</div>
     <p class="item-sub">타격치 : 16/17<br>추가 데미지 +5<br>추가 명중 +2<br>STR +1</p>
@@ -325,9 +335,8 @@ table.skill-table td{
   <div id="lord-tier-2" class="item-grid tier-panel" style="display:none;">
 <div class="item-card">
   <div class="item-ic">
-    <img src="media_item/weapon/데스나이트의불검.png" alt="데스나이트의 불검" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
-    <div class="ic-fallback" style="display:none;">NO IMG</div>
-  </div>
+    <img src="media_item/weapon/데스나이트의불검.png" alt="데스나이트의 불검" onerror="this.style.display='none';">
+</div>
   <div class="item-meta">
     <div class="item-name">데스나이트의 불검</div>
     <p class="item-sub">타격치 : 21/22<br>추가 명중 +3<br>추가 데미지 +6<br>STR +2</p>
