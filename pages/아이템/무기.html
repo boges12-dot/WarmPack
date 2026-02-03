@@ -203,6 +203,11 @@ table.skill-table td{
 .tier-tile .tile-img{width:100%;aspect-ratio: 1.6/1;border-radius:12px;background:rgba(255,255,255,.10);margin:0 auto 8px;}
 .tier-tile .tile-label{font-weight:900;font-size:12px;opacity:.95}
 </style>
+<style>
+.item-ic{display:flex;align-items:center;justify-content:center;overflow:hidden}
+.item-ic img{width:100%;height:100%;object-fit:contain;display:block}
+.item-ic .ic-fallback{font-weight:900;opacity:.55;font-size:11px;line-height:1;text-align:center;padding:4px}
+</style>
 </head>
 <body><section class="hero-main"><a aria-label="홈으로 이동" class="hero-home-link" href="/WarmPack/"></a></section><nav aria-label="메인 메뉴" class="main-nav-bar">
 <ul class="nav" id="main-nav">
@@ -305,9 +310,11 @@ table.skill-table td{
   </div>
 
   <div id="lord-tier-1" class="item-grid tier-panel">
-
 <div class="item-card">
-  <div class="item-ic"></div>
+  <div class="item-ic">
+    <img src="media_item/weapon/커츠의검.png" alt="커츠의 검" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+    <div class="ic-fallback" style="display:none;">NO IMG</div>
+  </div>
   <div class="item-meta">
     <div class="item-name">커츠의 검</div>
     <p class="item-sub">타격치 : 16/17<br>추가 데미지 +5<br>추가 명중 +2<br>STR +1</p>
@@ -315,7 +322,19 @@ table.skill-table td{
   </div>
 </div>
 </div>
-  <div id="lord-tier-2" class="item-grid tier-panel" style="display:none;"></div>
+  <div id="lord-tier-2" class="item-grid tier-panel" style="display:none;">
+<div class="item-card">
+  <div class="item-ic">
+    <img src="media_item/weapon/데스나이트의불검.png" alt="데스나이트의 불검" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+    <div class="ic-fallback" style="display:none;">NO IMG</div>
+  </div>
+  <div class="item-meta">
+    <div class="item-name">데스나이트의 불검</div>
+    <p class="item-sub">타격치 : 21/22<br>추가 명중 +3<br>추가 데미지 +6<br>STR +2</p>
+    <p class="item-sub"><b>획득 방법</b><br>드랍 (그림자신전 1,2층 / 요술 2층, 보스)<br>(중급, 상급) 무기상자<br>초보자의 증표 수집 제작 NPC</p>
+  </div>
+</div>
+</div>
   <div id="lord-tier-3" class="item-grid tier-panel" style="display:none;"></div>
 </section>
 
