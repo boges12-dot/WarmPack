@@ -23,8 +23,8 @@
 <link href="../../site.webmanifest" rel="manifest"/>
 <meta content="#ffffff" name="theme-color"/>
 <meta content="https://boges12-dot.github.io/WarmPack/assets/images/og_v3.jpg" property="og:image"/>
-<meta content="https://boges12-dot.github.io/WarmPack/assets/images/og_v3.jpg" property="og:image:secure_url">
-<meta content="https://boges12-dot.github.io/WarmPack/assets/images/og_v3.jpg" name="twitter:image"/>
+<meta content="https://boges12-dot.github.io/WarmPack/assets/images/og_v3.jpg" property="og:image:secure_url"/>
+<meta content="https://boges12-dot.github.io/WarmPack/assets/images/og_v3.jpg" name="twitter:image">
 <meta content="summary_large_image" name="twitter:card"/>
 <link href="../../css/banner_override.css?v=20260126_B2" rel="stylesheet"/>
 <style>
@@ -188,7 +188,12 @@ table.skill-table td{
 .tier-tile .tile-img{width:100%;aspect-ratio: 1.6/1;border-radius:12px;background:rgba(255,255,255,.10);margin:0 auto 8px;}
 .tier-tile .tile-label{font-weight:900;font-size:12px;opacity:.95}
 </style>
-</head>
+<style>
+.jump-nav{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 22px;}
+.jump-link{padding:8px 12px;border:1px solid #3a3a3a;border-radius:999px;text-decoration:none;display:inline-block;}
+.armor-class{scroll-margin-top:90px;}
+.tier-title{margin:18px 0 10px;}
+</style></head>
 <body><section class="hero-main"><a aria-label="홈으로 이동" class="hero-home-link" href="/WarmPack/"></a></section><nav aria-label="메인 메뉴" class="main-nav-bar">
 <ul class="nav" id="main-nav">
 <li class="home-link"><a aria-label="홈" class="nav-home" href="/WarmPack/"><svg aria-hidden="true" class="icon-home" focusable="false" height="18" viewbox="0 0 24 24" width="18"><path d="M12 3 2.5 11.2a1 1 0 0 0 .7 1.8H5v7a1 1 0 0 0 1 1h4v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5h4a1 1 0 0 0 1-1v-7h1.8a1 1 0 0 0 .7-1.8L12 3z"></path></svg></a></li>
@@ -269,7 +274,15 @@ table.skill-table td{
 </nav>
 <header class="site-header">
 </header>
-<main class="site-main"><div class="item-page item-page-armor">
+<main class="site-main">
+<nav aria-label="방어구 바로가기" class="jump-nav">
+<a class="jump-link" href="#armor-lord">군주 방어구</a>
+<a class="jump-link" href="#armor-knight">기사 방어구</a>
+<a class="jump-link" href="#armor-mage">마법사 방어구</a>
+<a class="jump-link" href="#armor-elf">요정 방어구</a>
+<a class="jump-link" href="#armor-darkelf">다크엘프 방어구</a>
+</nav>
+<div class="item-page item-page-armor">
 <div class="item-page-head">
 <h2>방어구</h2>
 </div>
