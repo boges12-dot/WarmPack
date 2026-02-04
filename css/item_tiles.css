@@ -92,3 +92,21 @@
 }
 .tile-detail .k{ opacity:.75; }
 .tile-detail .v{ line-height:1.4; }
+
+
+/* Tier badge next to item name */
+.tier-badge{
+  display:inline-block;
+  margin-left:8px;
+  font-size:11px;
+  padding:2px 8px;
+  border-radius:999px;
+  border:1px solid #444;
+  background:#0e0e0e;
+  color:#ddd;
+  vertical-align:middle;
+  white-space:nowrap;
+}
+.tier-badge.t1{ border-color:#6c8cff; color:#cfd9ff; }
+.tier-badge.t2{ border-color:#f39c12; color:#ffe0a3; }
+.tier-badge.t3{ border-color:#e74c3c; color:#ffb3ad; }
