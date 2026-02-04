@@ -216,5 +216,45 @@ table.skill-table td{
 <script src="/WarmPack/js/top_button.js"></script>
 <script src="/WarmPack/js/hero_shrink.js"></script>
 </main><script defer src="../../js/menu_dedupe.js"></script>
+<script>
+/* MENU_STICKY_OPEN_INLINE_V26 */
+document.addEventListener('DOMContentLoaded', function(){
+  try{
+    var nav = document.getElementById('main-nav');
+    if(!nav) return;
+
+    function openLi(li){
+      if(!li) return;
+      var a = li.querySelector(':scope > a');
+      li.classList.add('is-open','hovering','sticky-open');
+      if(a) a.setAttribute('aria-expanded','true');
+    }
+
+    // Prefer active link
+    var active = nav.querySelector('a.active');
+    if(active){
+      openLi(active.closest('li.has-sub'));
+      return;
+    }
+
+    // Fallback: match by pathname
+    var path = (location.pathname || '').replace(/\/index\.html$/, '');
+    var links = nav.querySelectorAll('a[href]');
+    var best = null;
+    links.forEach(function(a){
+      var href = a.getAttribute('href') || '';
+      if(!href || href === '#') return;
+      // normalize relative href by stripping ../
+      var clean = href.replace(/^(\.\.\/)+/, '/').replace(/^\./,'');
+      if(path.endsWith(clean.replace(/^\//,'')) || path.indexOf(clean.replace(/^\//,'')) !== -1){
+        best = a;
+      }
+    });
+    if(best){
+      openLi(best.closest('li.has-sub'));
+    }
+  }catch(e){}
+});
+</script>
 </body>
 </html>
