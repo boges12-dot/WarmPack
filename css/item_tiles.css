@@ -1,5 +1,11 @@
 /* Item Tiles (screenshot-style panels) */
 .tile-wrap{
+  max-width: 1100px;
+  margin-left:auto;
+  margin-right:auto;
+  padding-left:12px;
+  padding-right:12px;
+  box-sizing:border-box;
   display:grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap:14px;
