@@ -227,6 +227,14 @@ table.skill-table td{
 .tier-tile .tile-content .item-grid{margin-top:0}
 .tier-tile .tile-content .item-card{background:rgba(0,0,0,.15)}
 </style>
+<style>
+/* weapon page: match lord/knight skill accordion layout (single column) */
+.item-weapon-page .skill-grid{grid-template-columns:1fr !important;}
+.item-weapon-page .skill-acc{max-width:920px;margin-left:auto;margin-right:auto;}
+.item-weapon-page h2.page-title,
+.item-weapon-page h3.page-title{max-width:920px;margin-left:auto;margin-right:auto;}
+.item-weapon-page .skill-acc-icon img{display:block;}
+</style>
 </head>
 <body><section class="hero-main"><a aria-label="홈으로 이동" class="hero-home-link" href="/WarmPack/"></a></section><nav aria-label="메인 메뉴" class="main-nav-bar">
 <ul class="nav" id="main-nav">
@@ -309,14 +317,13 @@ table.skill-table td{
 <header class="site-header">
 </header>
 <main class="site-main">
-  <section class="skill-page">
+  <section class="skill-page item-weapon-page">
     <h1 class="page-title">무기</h1>
-    <p class="skill-note">군주/기사 스킬 카드(아코디언) 구조와 동일한 형식으로 무기 정보를 등록합니다.</p>
-<h2 class="page-title" style="margin-top:34px;text-align:center;">군주 무기</h2>
+    <h2 class="page-title" style="margin-top:34px;text-align:center;">군주 무기</h2>
 <h3 class="page-title" style="font-size:18px;margin:22px 0 10px;text-align:center;">1차 무기</h3><div class="skill-grid">
 <details class="skill-acc">
   <summary class="skill-acc-summary">
-    <span class="skill-acc-icon"><img src="/WarmPack/media_item/weapon/커츠의검.png" alt="커츠의 검"></span>
+    <span class="skill-acc-icon"><img src="/WarmPack/media_item/weapon/커츠의검.png" alt="커츠의 검" onerror="this.style.display=\'none\';"></span>
     <span class="skill-acc-head">
       <span class="skill-acc-title">커츠의 검</span>
       <span class="skill-acc-meta"><span class="meta-line">클래스 : 군주, 기사, 요정</span><span class="meta-line">획득 방법 : 드랍 (본던 2층) / (하급, 중급, 상급) 무기 상자</span></span>
@@ -329,7 +336,7 @@ table.skill-table td{
 <h3 class="page-title" style="font-size:18px;margin:22px 0 10px;text-align:center;">2차 무기</h3><div class="skill-grid">
 <details class="skill-acc">
   <summary class="skill-acc-summary">
-    <span class="skill-acc-icon"><img src="/WarmPack/media_item/weapon/데스나이트의불검.png" alt="데스나이트의 불검"></span>
+    <span class="skill-acc-icon"><img src="/WarmPack/media_item/weapon/데스나이트의불검.png" alt="데스나이트의 불검" onerror="this.style.display=\'none\';"></span>
     <span class="skill-acc-head">
       <span class="skill-acc-title">데스나이트의 불검</span>
       <span class="skill-acc-meta"><span class="meta-line">클래스 : 군주, 요정</span><span class="meta-line">획득 방법 : 드랍 (그림자신전 1,2층 / 요술 2층, 보스) / (중급, 상급) 무기상자 / 초보자의 증표 수집 제작 NPC</span></span>
