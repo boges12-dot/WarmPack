@@ -227,25 +227,6 @@ table.skill-table td{
 .tier-tile .tile-content .item-grid{margin-top:0}
 .tier-tile .tile-content .item-card{background:rgba(0,0,0,.15)}
 </style>
-<style>
-/* TIER_TILES_V15 */
-.class-title{font-size:18px;font-weight:900;margin:0 0 10px;text-align:center}
-.tier-tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-@media (max-width: 860px){.tier-tiles{grid-template-columns:1fr}}
-.tier-tile{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);border-radius:18px;padding:14px;cursor:pointer;text-align:center}
-.tier-tile .tile-img{height:170px;border-radius:14px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.08);margin-bottom:10px}
-.tier-tile .tile-label{font-weight:900}
-.tier-tile .tile-content{display:none;margin-top:12px;text-align:left}
-.tier-tile.is-active .tile-content{display:block}
-
-/* cards */
-.item-card{border:1px solid rgba(255,255,255,.14);background:rgba(0,0,0,.18);border-radius:16px;padding:12px;display:flex;gap:12px;align-items:flex-start}
-.item-ic{width:64px;height:64px;border-radius:14px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.08);flex:0 0 auto;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.item-ic img{width:100%;height:100%;object-fit:contain;display:block}
-.item-meta{min-width:0;flex:1}
-.item-name{font-weight:900;font-size:16px;line-height:1.2;margin:2px 0 8px}
-.item-sub{margin:0 0 8px;opacity:.92;line-height:1.55;font-size:13px}
-</style>
 </head>
 <body><section class="hero-main"><a aria-label="홈으로 이동" class="hero-home-link" href="/WarmPack/"></a></section><nav aria-label="메인 메뉴" class="main-nav-bar">
 <ul class="nav" id="main-nav">
@@ -328,145 +309,71 @@ table.skill-table td{
 <header class="site-header">
 </header>
 <main class="site-main">
-<div class="item-page item-page-weapon">
-<section class="class-weapon" id="lord-weapon" style="margin-top:22px;">
-  <h2 class="class-title">군주 무기</h2>
-  <div class="tier-tiles" data-scope="lord">
-    <button class="tier-tile" type="button" data-scope="lord" data-tier="1">
-  <div class="tile-img"></div>
-  <div class="tile-label">1차무기</div>
-  <div class="tile-content"><div class="item-card">
-  <div class="item-ic">
-    <img src="media_item/weapon/커츠의검.png" alt="커츠의 검" onerror="this.style.display='none';">
-  </div>
-  <div class="item-meta">
-    <div class="item-name">커츠의 검</div>
-    <p class="item-sub">타격치 : 16/17<br>추가 데미지 +5<br>추가 명중 +2<br>STR +1</p>
-    <p class="item-sub"><b>획득 방법</b><br>드랍 (본던 2층)<br>(하급, 중급, 상급) 무기 상자</p>
-  </div>
-</div></div>
-</button>
-    <button class="tier-tile" type="button" data-scope="lord" data-tier="2">
-  <div class="tile-img"></div>
-  <div class="tile-label">2차무기</div>
-  <div class="tile-content"><div class="item-card">
-  <div class="item-ic">
-    <img src="media_item/weapon/데스나이트의불검.png" alt="데스나이트의 불검" onerror="this.style.display='none';">
-  </div>
-  <div class="item-meta">
-    <div class="item-name">데스나이트의 불검</div>
-    <p class="item-sub">타격치 : 21/22<br>추가 명중 +3<br>추가 데미지 +6<br>STR +2</p>
-    <p class="item-sub"><b>획득 방법</b><br>드랍 (그림자신전 1,2층 / 요술 2층, 보스)<br>(중급, 상급) 무기상자<br>초보자의 증표 수집 제작 NPC</p>
-  </div>
-</div></div>
-</button>
-    <button class="tier-tile" type="button" data-scope="lord" data-tier="3">
-  <div class="tile-img"></div>
-  <div class="tile-label">3차무기</div>
-  <div class="tile-content"></div>
-</button>
-  </div>
-</section>
-
-<section class="class-weapon" id="knight-weapon" style="margin-top:22px;">
-  <h2 class="class-title">기사 무기</h2>
-  <div class="tier-tiles" data-scope="knight">
-    <button class="tier-tile" type="button" data-scope="knight" data-tier="1">
-  <div class="tile-img"></div>
-  <div class="tile-label">1차무기</div>
-  <div class="tile-content"></div>
-</button>
-    <button class="tier-tile" type="button" data-scope="knight" data-tier="2">
-  <div class="tile-img"></div>
-  <div class="tile-label">2차무기</div>
-  <div class="tile-content"></div>
-</button>
-    <button class="tier-tile" type="button" data-scope="knight" data-tier="3">
-  <div class="tile-img"></div>
-  <div class="tile-label">3차무기</div>
-  <div class="tile-content"></div>
-</button>
-  </div>
-</section>
-
-<section class="class-weapon" id="mage-weapon" style="margin-top:22px;">
-  <h2 class="class-title">마법사 무기</h2>
-  <div class="tier-tiles" data-scope="mage">
-    <button class="tier-tile" type="button" data-scope="mage" data-tier="1">
-  <div class="tile-img"></div>
-  <div class="tile-label">1차무기</div>
-  <div class="tile-content"></div>
-</button>
-    <button class="tier-tile" type="button" data-scope="mage" data-tier="2">
-  <div class="tile-img"></div>
-  <div class="tile-label">2차무기</div>
-  <div class="tile-content"></div>
-</button>
-    <button class="tier-tile" type="button" data-scope="mage" data-tier="3">
-  <div class="tile-img"></div>
-  <div class="tile-label">3차무기</div>
-  <div class="tile-content"></div>
-</button>
-  </div>
-</section>
-
-<section class="class-weapon" id="elf-weapon" style="margin-top:22px;">
-  <h2 class="class-title">요정 무기</h2>
-  <div class="tier-tiles" data-scope="elf">
-    <button class="tier-tile" type="button" data-scope="elf" data-tier="1">
-  <div class="tile-img"></div>
-  <div class="tile-label">1차무기</div>
-  <div class="tile-content"></div>
-</button>
-    <button class="tier-tile" type="button" data-scope="elf" data-tier="2">
-  <div class="tile-img"></div>
-  <div class="tile-label">2차무기</div>
-  <div class="tile-content"></div>
-</button>
-    <button class="tier-tile" type="button" data-scope="elf" data-tier="3">
-  <div class="tile-img"></div>
-  <div class="tile-label">3차무기</div>
-  <div class="tile-content"></div>
-</button>
-  </div>
-</section>
-
-<section class="class-weapon" id="darkelf-weapon" style="margin-top:22px;">
-  <h2 class="class-title">다크엘프 무기</h2>
-  <div class="tier-tiles" data-scope="darkelf">
-    <button class="tier-tile" type="button" data-scope="darkelf" data-tier="1">
-  <div class="tile-img"></div>
-  <div class="tile-label">1차무기</div>
-  <div class="tile-content"></div>
-</button>
-    <button class="tier-tile" type="button" data-scope="darkelf" data-tier="2">
-  <div class="tile-img"></div>
-  <div class="tile-label">2차무기</div>
-  <div class="tile-content"></div>
-</button>
-    <button class="tier-tile" type="button" data-scope="darkelf" data-tier="3">
-  <div class="tile-img"></div>
-  <div class="tile-label">3차무기</div>
-  <div class="tile-content"></div>
-</button>
-  </div>
-</section>
+  <section class="skill-page">
+    <h1 class="page-title">무기</h1>
+    <p class="skill-note">군주/기사 스킬 카드(아코디언) 구조와 동일한 형식으로 무기 정보를 등록합니다.</p>
+<h2 class="page-title" style="margin-top:34px;text-align:center;">군주 무기</h2>
+<h3 class="page-title" style="font-size:18px;margin:22px 0 10px;text-align:center;">1차 무기</h3><div class="skill-grid">
+<details class="skill-acc">
+  <summary class="skill-acc-summary">
+    <span class="skill-acc-icon"><img src="/WarmPack/media_item/weapon/커츠의검.png" alt="커츠의 검"></span>
+    <span class="skill-acc-head">
+      <span class="skill-acc-title">커츠의 검</span>
+      <span class="skill-acc-meta"><span class="meta-line">클래스 : 군주, 기사, 요정</span><span class="meta-line">획득 방법 : 드랍 (본던 2층) / (하급, 중급, 상급) 무기 상자</span></span>
+    </span>
+    <span class="skill-acc-chev" aria-hidden="true"></span>
+  </summary>
+  <div class="skill-acc-body"><p class="skill-acc-desc"><b>옵션</b><br>타격치 : 16/17<br>추가 데미지 +5<br>추가 명중 +2<br>STR +1</p></div>
+</details>
 </div>
+<h3 class="page-title" style="font-size:18px;margin:22px 0 10px;text-align:center;">2차 무기</h3><div class="skill-grid">
+<details class="skill-acc">
+  <summary class="skill-acc-summary">
+    <span class="skill-acc-icon"><img src="/WarmPack/media_item/weapon/데스나이트의불검.png" alt="데스나이트의 불검"></span>
+    <span class="skill-acc-head">
+      <span class="skill-acc-title">데스나이트의 불검</span>
+      <span class="skill-acc-meta"><span class="meta-line">클래스 : 군주, 요정</span><span class="meta-line">획득 방법 : 드랍 (그림자신전 1,2층 / 요술 2층, 보스) / (중급, 상급) 무기상자 / 초보자의 증표 수집 제작 NPC</span></span>
+    </span>
+    <span class="skill-acc-chev" aria-hidden="true"></span>
+  </summary>
+  <div class="skill-acc-body"><p class="skill-acc-desc"><b>옵션</b><br>타격치 : 21/22<br>추가 명중 +3<br>추가 데미지 +6<br>STR +2</p></div>
+</details>
+</div>
+<h3 class="page-title" style="font-size:18px;margin:22px 0 10px;text-align:center;">3차 무기</h3><p class="skill-note" style="text-align:center;opacity:.7;margin:0 0 8px;">등록 예정</p>
+<h2 class="page-title" style="margin-top:34px;text-align:center;">기사 무기</h2>
+<h3 class="page-title" style="font-size:18px;margin:22px 0 10px;text-align:center;">1차 무기</h3><p class="skill-note" style="text-align:center;opacity:.7;margin:0 0 8px;">등록 예정</p>
+<h3 class="page-title" style="font-size:18px;margin:22px 0 10px;text-align:center;">2차 무기</h3><p class="skill-note" style="text-align:center;opacity:.7;margin:0 0 8px;">등록 예정</p>
+<h3 class="page-title" style="font-size:18px;margin:22px 0 10px;text-align:center;">3차 무기</h3><p class="skill-note" style="text-align:center;opacity:.7;margin:0 0 8px;">등록 예정</p>
+<h2 class="page-title" style="margin-top:34px;text-align:center;">마법사 무기</h2>
+<h3 class="page-title" style="font-size:18px;margin:22px 0 10px;text-align:center;">1차 무기</h3><p class="skill-note" style="text-align:center;opacity:.7;margin:0 0 8px;">등록 예정</p>
+<h3 class="page-title" style="font-size:18px;margin:22px 0 10px;text-align:center;">2차 무기</h3><p class="skill-note" style="text-align:center;opacity:.7;margin:0 0 8px;">등록 예정</p>
+<h3 class="page-title" style="font-size:18px;margin:22px 0 10px;text-align:center;">3차 무기</h3><p class="skill-note" style="text-align:center;opacity:.7;margin:0 0 8px;">등록 예정</p>
+<h2 class="page-title" style="margin-top:34px;text-align:center;">요정 무기</h2>
+<h3 class="page-title" style="font-size:18px;margin:22px 0 10px;text-align:center;">1차 무기</h3><p class="skill-note" style="text-align:center;opacity:.7;margin:0 0 8px;">등록 예정</p>
+<h3 class="page-title" style="font-size:18px;margin:22px 0 10px;text-align:center;">2차 무기</h3><p class="skill-note" style="text-align:center;opacity:.7;margin:0 0 8px;">등록 예정</p>
+<h3 class="page-title" style="font-size:18px;margin:22px 0 10px;text-align:center;">3차 무기</h3><p class="skill-note" style="text-align:center;opacity:.7;margin:0 0 8px;">등록 예정</p>
+<h2 class="page-title" style="margin-top:34px;text-align:center;">다크엘프 무기</h2>
+<h3 class="page-title" style="font-size:18px;margin:22px 0 10px;text-align:center;">1차 무기</h3><p class="skill-note" style="text-align:center;opacity:.7;margin:0 0 8px;">등록 예정</p>
+<h3 class="page-title" style="font-size:18px;margin:22px 0 10px;text-align:center;">2차 무기</h3><p class="skill-note" style="text-align:center;opacity:.7;margin:0 0 8px;">등록 예정</p>
+<h3 class="page-title" style="font-size:18px;margin:22px 0 10px;text-align:center;">3차 무기</h3><p class="skill-note" style="text-align:center;opacity:.7;margin:0 0 8px;">등록 예정</p>
+  </section>
 </main>
-
 
 <script>
 (function(){
   function init(scopeEl){
-    var tiles = scopeEl.querySelectorAll('.tier-tile');
-    if(!tiles.length) return;
-    function activate(t){
-      tiles.forEach(function(x){ x.classList.toggle('is-active', x===t); });
+    var btns = scopeEl.querySelectorAll('.tier-tile.item-tabbtn');
+    if(!btns.length) return;
+    function activate(btn){
+      btns.forEach(function(b){ b.classList.toggle('is-active', b===btn); });
     }
-    tiles.forEach(function(t){
-      t.addEventListener('click', function(){ activate(t); });
+    btns.forEach(function(b){
+      b.addEventListener('click', function(e){
+        e.preventDefault();
+        activate(b);
+      });
     });
-    activate(tiles[0]);
+    activate(btns[0]);
   }
   document.querySelectorAll('.tier-tiles[data-scope]').forEach(init);
 })();
