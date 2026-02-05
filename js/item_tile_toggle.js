@@ -1,16 +1,24 @@
-document.addEventListener('click', function(e){
-  var btn = e.target.closest('.tile-btn');
-  if(!btn) return;
+/* item_tile_toggle.js - per-card detail toggle */
+(function () {
+  'use strict';
 
-  var tile = btn.closest('.tile');
-  if(!tile) return;
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('.js-detail-toggle, .tile-btn');
+    if (!btn) return;
 
-  var detail = tile.querySelector('.tile-detail');
-  if(!detail) return;
+    var tile = btn.closest('.tile');
+    if (!tile) return;
 
-  var expanded = btn.getAttribute('aria-expanded') === 'true';
-  btn.setAttribute('aria-expanded', String(!expanded));
-  detail.hidden = expanded;
+    var detail = tile.querySelector('.tile-detail');
+    if (!detail) return;
 
-  btn.textContent = expanded ? '상세' : '접기';
-});
+    var expanded = btn.getAttribute('aria-expanded') === 'true';
+
+    // Toggle only this card
+    btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+    detail.hidden = expanded;
+
+    // Button label (optional)
+    if (btn.textContent) btn.textContent = expanded ? '상세' : '접기';
+  });
+})();
