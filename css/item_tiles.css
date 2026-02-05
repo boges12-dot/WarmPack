@@ -118,6 +118,7 @@
 .tier-badge.t3{ border-color:#e74c3c; color:#ffb3ad; }
 
 
-/* TILE_BTN_CLICKFIX */
-.tile-btn{position:relative;z-index:50;pointer-events:auto;}
+/* TILE_DETAIL_TOGGLE_ULTRA_FIX */
+.tile{position:relative;}
+.tile-btn{position:relative;z-index:9999;pointer-events:auto;}
 .tile-detail{position:relative;z-index:1;}
