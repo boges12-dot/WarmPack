@@ -575,18 +575,25 @@ document.addEventListener('DOMContentLoaded', function(){
     });
   });
 
-  // Detail toggle
+  // Detail toggle (상세 ↔ 접기)
   document.addEventListener('click', function(e){
     var btn = e.target.closest('.js-detail-toggle, .tile-btn');
     if(!btn) return;
+
     var tile = btn.closest('.tile');
     if(!tile) return;
+
     var detail = tile.querySelector('.tile-detail');
     if(!detail) return;
+
     var expanded = btn.getAttribute('aria-expanded') === 'true';
+
+    // toggle
     btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-    if(expanded) detail.setAttribute('hidden','');
-    else detail.removeAttribute('hidden');
+    detail.hidden = expanded; // true면 닫기, false면 열기
+
+    // label
+    btn.textContent = expanded ? '상세' : '접기';
   });
 })();
 </script></body>
