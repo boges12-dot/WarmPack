@@ -116,3 +116,7 @@
 .tier-badge.t1{ border-color:#6c8cff; color:#cfd9ff; }
 .tier-badge.t2{ border-color:#f39c12; color:#ffe0a3; }
 .tier-badge.t3{ border-color:#e74c3c; color:#ffb3ad; }
+
+
+/* ensure detail button is clickable */
+.tile-btn{position:relative;z-index:10;pointer-events:auto;}
