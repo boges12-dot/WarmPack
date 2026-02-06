@@ -1,83 +1,106 @@
-document.addEventListener('click', function(e){
-  var btn = e.target.closest('.tile-btn');
-  if(!btn) return;
+/* item_tile_toggle.js
+   - Each card's "상세" toggles ONLY its own details.
+   - ALSO: move summary "옵션/획득" (tile-sub2) into expanded panel (tile-extra)
+   - If cards are rendered dynamically, observe DOM and apply when tiles appear.
+*/
+(function(){
+  function safeText(el){ return (el && el.textContent ? el.textContent.trim() : ""); }
 
-  var tile = btn.closest('.tile');
-  if(!tile) return;
+  function ensureExtraSection(tile){
+    if(!tile || tile.dataset.extraMoved === "1") return;
+    const sub2 = tile.querySelector('.tile-sub2');
+    const detail = tile.querySelector('.tile-detail');
+    if(!detail) return;
 
-  var detail = tile.querySelector('.tile-detail');
-  if(!detail) return;
-
-  var expanded = btn.getAttribute('aria-expanded') === 'true';
-  btn.setAttribute('aria-expanded', String(!expanded));
-  detail.hidden = expanded;
-
-  btn.textContent = expanded ? '상세' : '접기';
-});
-
-
-// 자동 가나다 정렬 적용
-
-function sortByKoreanName(arr){
-  return arr.sort((a,b)=>a.name.trim().localeCompare(b.name.trim(),'ko'));
-}
-
-if(typeof tier1Items!=='undefined') sortByKoreanName(tier1Items);
-if(typeof tier2Items!=='undefined') sortByKoreanName(tier2Items);
-if(typeof tier3Items!=='undefined') sortByKoreanName(tier3Items);
-
-
-document.addEventListener('DOMContentLoaded', function(){
-  // Move preview "옵션/획득" into expanded detail area and remove from preview.
-  document.querySelectorAll('.tile').forEach(function(tile){
-    var sub2s = Array.from(tile.querySelectorAll('.tile-sub2'));
-    var detail = tile.querySelector('.tile-detail');
-    if(!detail || sub2s.length === 0) return;
-
-    function stripLabel(html, label){
-      var re = new RegExp('^\\s*' + label + '\\s*:?\\s*', 'i');
-      return (html || '').trim().replace(re, '').trim();
+    // Capture from summary (preferred)
+    let optText = "";
+    let getText = "";
+    if(sub2){
+      const lines = sub2.querySelectorAll('div');
+      if(lines[0]) optText = safeText(lines[0]);
+      if(lines[1]) getText = safeText(lines[1]);
     }
 
-    var optVal = stripLabel(sub2s[0].innerHTML, '옵션');
-    var acqVal = sub2s[1] ? stripLabel(sub2s[1].innerHTML, '획득') : '';
-
-    // Remove preview lines
-    sub2s.forEach(function(el){ el.remove(); });
-
-    // Remove small kv lines above item detail (direct children of .tile-detail)
-    Array.from(detail.children).forEach(function(ch){
-      if(ch.classList && ch.classList.contains('kv')) ch.remove();
-    });
+    // Capture from detail rows as fallback
+    const kv = detail.querySelector('.kv');
+    if(kv){
+      kv.querySelectorAll('.kv-row').forEach(row=>{
+        const k = safeText(row.querySelector('.k'));
+        const v = safeText(row.querySelector('.v'));
+        if(!optText && k === '옵션') optText = v;
+        if(!getText && (k === '획득' || k === '획득 방법')) getText = v;
+      });
+    }
 
     // Build extra block
-    var extra = document.createElement('div');
+    const extra = document.createElement('div');
     extra.className = 'tile-extra';
 
-    function makeRow(label, valueHTML){
-      if(!valueHTML) return null;
-      var row = document.createElement('div');
+    function addRow(label, value){
+      if(!value) return;
+      const row = document.createElement('div');
       row.className = 'tile-extra-row';
-
-      var l = document.createElement('div');
+      const l = document.createElement('div');
       l.className = 'tile-extra-label';
       l.textContent = label;
-
-      var v = document.createElement('div');
-      v.className = 'tile-extra-value';
-      v.innerHTML = valueHTML;
-
+      const val = document.createElement('div');
+      val.className = 'tile-extra-value';
+      // Preserve multi-line formatting if commas or line breaks
+      val.textContent = value;
       row.appendChild(l);
-      row.appendChild(v);
-      return row;
+      row.appendChild(val);
+      extra.appendChild(row);
     }
 
-    var r1 = makeRow('옵션', optVal);
-    var r2 = makeRow('획득', acqVal);
-    if(r1) extra.appendChild(r1);
-    if(r2) extra.appendChild(r2);
+    addRow('옵션', optText);
+    addRow('획득', getText);
 
-    // Append after the main detail block
-    detail.appendChild(extra);
+    if(extra.childElementCount){
+      detail.appendChild(extra);
+      // Remove original summary block to avoid duplication inside expanded
+      if(sub2) sub2.remove();
+      // Remove duplicate rows in kv (옵션/획득) if present to avoid double display
+      if(kv){
+        kv.querySelectorAll('.kv-row').forEach(row=>{
+          const k = safeText(row.querySelector('.k'));
+          if(k === '옵션' || k === '획득' || k === '획득 방법') row.remove();
+        });
+      }
+      tile.dataset.extraMoved = "1";
+    }
+  }
+
+  function processAll(root){
+    const scope = root || document;
+    scope.querySelectorAll('.item-tile').forEach(ensureExtraSection);
+  }
+
+  function setupObserver(){
+    const obs = new MutationObserver(muts=>{
+      let touched = false;
+      for(const m of muts){
+        if(m.addedNodes && m.addedNodes.length){
+          touched = true;
+          // process only added nodes for efficiency
+          m.addedNodes.forEach(n=>{
+            if(!(n instanceof HTMLElement)) return;
+            if(n.classList && n.classList.contains('item-tile')) ensureExtraSection(n);
+            else processAll(n);
+          });
+        }
+      }
+      if(touched) { /* no-op */ }
+    });
+    obs.observe(document.body, {childList:true, subtree:true});
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    processAll(document);
+    setupObserver();
+    // Also re-process on tier tab clicks if any
+    document.addEventListener('click', function(e){
+      const btn = e.target.closest && e.target.closest('[data-tier],[data-filter],[data-tab]');
+      if(btn) setTimeout(()=>processAll(document), 50);
+    });
   });
-});
+})();
