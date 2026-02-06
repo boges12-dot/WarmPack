@@ -178,3 +178,14 @@ document.addEventListener('click', function(e){
   e.preventDefault();
   window.location.href = url;
 });
+
+
+// 자동 가나다 정렬 적용
+
+function sortByKoreanName(arr){
+  return arr.sort((a,b)=>a.name.trim().localeCompare(b.name.trim(),'ko'));
+}
+
+if(typeof tier1Items!=='undefined') sortByKoreanName(tier1Items);
+if(typeof tier2Items!=='undefined') sortByKoreanName(tier2Items);
+if(typeof tier3Items!=='undefined') sortByKoreanName(tier3Items);

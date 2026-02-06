@@ -143,3 +143,27 @@
 
 /* Remove tier text badges (use color instead) */
 .tier-badge{ display:none !important; }
+
+
+/* Extra block inside expanded tile: preview 옵션/획득 moved here */
+.tile-extra{
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.tile-extra-row{
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 10px;
+  padding: 8px 0;
+}
+.tile-extra-label{
+  color: rgba(255,255,255,0.75);
+  font-weight: 700;
+  font-size: 13px;
+}
+.tile-extra-value{
+  color: rgba(255,255,255,0.9);
+  font-size: 13px;
+  line-height: 1.4;
+}
