@@ -643,5 +643,44 @@ document.addEventListener('DOMContentLoaded', function(){
   }, true);
 })();
 </script>
+
+<style id="TIER_SECTION_COLORS_FORCE">
+/* ===== TIER SECTION FULL APPLY ===== */
+
+/* 공통 섹션 박스 */
+.tier-panel{
+  margin-top:16px !important;
+  padding:18px !important;
+  border-radius:16px !important;
+}
+
+/* 1차 - 은색 */
+.tier-panel[data-tier="0"]{
+  background: linear-gradient(180deg, rgba(220,220,220,0.12), rgba(15,20,28,0.2)) !important;
+  border:1px solid rgba(200,200,200,0.45) !important;
+  box-shadow: 0 0 25px rgba(200,200,200,0.15) !important;
+}
+
+/* 2차 - 녹색 */
+.tier-panel[data-tier="1"]{
+  background: linear-gradient(180deg, rgba(80,220,120,0.15), rgba(15,20,28,0.25)) !important;
+  border:1px solid rgba(80,200,120,0.55) !important;
+  box-shadow: 0 0 28px rgba(80,200,120,0.25) !important;
+}
+
+/* 3차 - 퍼플 */
+.tier-panel[data-tier="2"]{
+  background: linear-gradient(180deg, rgba(180,90,255,0.18), rgba(15,20,28,0.3)) !important;
+  border:1px solid rgba(170,90,255,0.65) !important;
+  box-shadow: 0 0 32px rgba(170,90,255,0.30) !important;
+}
+
+/* 카드 자체 색상 제거 */
+.tier-panel .tile{
+  border:1px solid rgba(255,255,255,0.08) !important;
+  box-shadow:none !important;
+}
+</style>
+
 </body>
 </html>
