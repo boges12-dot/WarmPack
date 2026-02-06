@@ -1,106 +1,177 @@
 /* item_tile_toggle.js
    - Each card's "상세" toggles ONLY its own details.
-   - ALSO: move summary "옵션/획득" (tile-sub2) into expanded panel (tile-extra)
-   - If cards are rendered dynamically, observe DOM and apply when tiles appear.
+   - Keep a compact "요약" block visible in the card (옵션/획득), styled like a small table.
+   - When expanded, the detail panel shows FULL 옵션/획득 in the detail list as well.
 */
-(function(){
-  function safeText(el){ return (el && el.textContent ? el.textContent.trim() : ""); }
 
-  function ensureExtraSection(tile){
-    if(!tile || tile.dataset.extraMoved === "1") return;
-    const sub2 = tile.querySelector('.tile-sub2');
-    const detail = tile.querySelector('.tile-detail');
-    if(!detail) return;
+(function () {
+  "use strict";
 
-    // Capture from summary (preferred)
-    let optText = "";
-    let getText = "";
-    if(sub2){
-      const lines = sub2.querySelectorAll('div');
-      if(lines[0]) optText = safeText(lines[0]);
-      if(lines[1]) getText = safeText(lines[1]);
+  function normalizeText(t) {
+    return (t || "").replace(/\u00A0/g, " ").trim();
+  }
+
+  // "옵션: AC +1\nDEX +1" -> "AC +1<br>DEX +1"
+  function stripLabelAndFormat(text, label) {
+    var t = normalizeText(text);
+    if (!t) return "";
+    // Remove leading "옵션:" / "획득:" (with optional spaces)
+    var re = new RegExp("^" + label + "\\s*:\\s*", "i");
+    t = t.replace(re, "");
+    // Convert any line breaks to <br>
+    return t.replace(/\r?\n/g, "<br>");
+  }
+
+  function findDetailDD(detailRoot, dtLabel) {
+    if (!detailRoot) return null;
+    var dts = detailRoot.querySelectorAll("dt");
+    for (var i = 0; i < dts.length; i++) {
+      if (normalizeText(dts[i].textContent) === dtLabel) {
+        // dt -> nextElementSibling is dd
+        var dd = dts[i].nextElementSibling;
+        if (dd && dd.tagName && dd.tagName.toLowerCase() === "dd") return dd;
+      }
+    }
+    return null;
+  }
+
+  function ensureDetailRow(detailRoot, dtLabel, htmlValue) {
+    if (!detailRoot) return;
+    var dd = findDetailDD(detailRoot, dtLabel);
+    if (dd) {
+      dd.innerHTML = htmlValue || "-";
+      return;
+    }
+    // If row doesn't exist, append a new row at the end.
+    var dl = detailRoot.querySelector("dl");
+    if (!dl) return;
+    var dt = document.createElement("dt");
+    dt.textContent = dtLabel;
+    var ddNew = document.createElement("dd");
+    ddNew.innerHTML = htmlValue || "-";
+    dl.appendChild(dt);
+    dl.appendChild(ddNew);
+  }
+
+  function buildSummaryBlock(optionHTML, getHTML) {
+    var wrap = document.createElement("div");
+    wrap.className = "tile-summary";
+
+    var row1 = document.createElement("div");
+    row1.className = "tile-summary-row";
+    var k1 = document.createElement("div");
+    k1.className = "tile-summary-key";
+    k1.textContent = "옵션";
+    var v1 = document.createElement("div");
+    v1.className = "tile-summary-val";
+    v1.innerHTML = optionHTML || "-";
+    row1.appendChild(k1);
+    row1.appendChild(v1);
+
+    var row2 = document.createElement("div");
+    row2.className = "tile-summary-row";
+    var k2 = document.createElement("div");
+    k2.className = "tile-summary-key";
+    k2.textContent = "획득";
+    var v2 = document.createElement("div");
+    v2.className = "tile-summary-val";
+    v2.innerHTML = getHTML || "-";
+    row2.appendChild(k2);
+    row2.appendChild(v2);
+
+    wrap.appendChild(row1);
+    wrap.appendChild(row2);
+
+    return wrap;
+  }
+
+  function applySummaryAndDetailSync(tile) {
+    var sub2 = tile.querySelector(".tile-sub2");
+    if (!sub2) return;
+
+    var lines = sub2.querySelectorAll("div");
+    var optRaw = lines[0] ? lines[0].textContent : "";
+    var getRaw = lines[1] ? lines[1].textContent : "";
+
+    var optionHTML = stripLabelAndFormat(optRaw, "옵션");
+    var getHTML = stripLabelAndFormat(getRaw, "획득");
+
+    // 1) Create visible summary block in the card (replaces old tile-sub2)
+    var textCol = tile.querySelector(".tile-text");
+    if (textCol) {
+      // Place after main meta (.tile-sub) if possible
+      var anchor = textCol.querySelector(".tile-sub");
+      var summary = buildSummaryBlock(optionHTML, getHTML);
+
+      // Avoid duplication if already added (re-run safe)
+      var existing = textCol.querySelector(".tile-summary");
+      if (existing) existing.remove();
+
+      if (anchor && anchor.nextSibling) {
+        textCol.insertBefore(summary, anchor.nextSibling);
+      } else {
+        textCol.appendChild(summary);
+      }
     }
 
-    // Capture from detail rows as fallback
-    const kv = detail.querySelector('.kv');
-    if(kv){
-      kv.querySelectorAll('.kv-row').forEach(row=>{
-        const k = safeText(row.querySelector('.k'));
-        const v = safeText(row.querySelector('.v'));
-        if(!optText && k === '옵션') optText = v;
-        if(!getText && (k === '획득' || k === '획득 방법')) getText = v;
+    // Remove old plain summary
+    sub2.remove();
+
+    // 2) When expanded, ensure the detail list shows full 옵션/획득 too
+    var detail = tile.querySelector(".tile-detail .item-detail");
+    if (detail) {
+      ensureDetailRow(detail, "옵션", optionHTML);
+      ensureDetailRow(detail, "획득", getHTML);
+    }
+  }
+
+  function initTiles(root) {
+    var tiles = (root || document).querySelectorAll(".item-tile");
+    tiles.forEach(function (tile) {
+      // Sync summary/detail from existing tile-sub2 content (if present)
+      applySummaryAndDetailSync(tile);
+
+      var btn = tile.querySelector(".detail-btn");
+      var panel = tile.querySelector(".tile-detail");
+      if (!btn || !panel) return;
+
+      // Ensure closed state
+      panel.style.display = "none";
+      btn.setAttribute("aria-expanded", "false");
+
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        var isOpen = panel.style.display !== "none";
+        panel.style.display = isOpen ? "none" : "block";
+        btn.textContent = isOpen ? "상세" : "접기";
+        btn.setAttribute("aria-expanded", String(!isOpen));
       });
-    }
+    });
+  }
 
-    // Build extra block
-    const extra = document.createElement('div');
-    extra.className = 'tile-extra';
+  document.addEventListener("DOMContentLoaded", function () {
+    initTiles(document);
 
-    function addRow(label, value){
-      if(!value) return;
-      const row = document.createElement('div');
-      row.className = 'tile-extra-row';
-      const l = document.createElement('div');
-      l.className = 'tile-extra-label';
-      l.textContent = label;
-      const val = document.createElement('div');
-      val.className = 'tile-extra-value';
-      // Preserve multi-line formatting if commas or line breaks
-      val.textContent = value;
-      row.appendChild(l);
-      row.appendChild(val);
-      extra.appendChild(row);
-    }
+    // In case some pages inject tiles dynamically, observe and init new ones.
+    var target = document.body;
+    if (!target || !window.MutationObserver) return;
 
-    addRow('옵션', optText);
-    addRow('획득', getText);
-
-    if(extra.childElementCount){
-      detail.appendChild(extra);
-      // Remove original summary block to avoid duplication inside expanded
-      if(sub2) sub2.remove();
-      // Remove duplicate rows in kv (옵션/획득) if present to avoid double display
-      if(kv){
-        kv.querySelectorAll('.kv-row').forEach(row=>{
-          const k = safeText(row.querySelector('.k'));
-          if(k === '옵션' || k === '획득' || k === '획득 방법') row.remove();
+    var observer = new MutationObserver(function (mutations) {
+      mutations.forEach(function (m) {
+        (m.addedNodes || []).forEach(function (node) {
+          if (!node || node.nodeType !== 1) return;
+          if (node.classList && node.classList.contains("item-tile")) {
+            initTiles(node.parentNode || document);
+          } else if (node.querySelectorAll) {
+            var hasTile = node.querySelectorAll(".item-tile").length > 0;
+            if (hasTile) initTiles(node);
+          }
         });
-      }
-      tile.dataset.extraMoved = "1";
-    }
-  }
-
-  function processAll(root){
-    const scope = root || document;
-    scope.querySelectorAll('.item-tile').forEach(ensureExtraSection);
-  }
-
-  function setupObserver(){
-    const obs = new MutationObserver(muts=>{
-      let touched = false;
-      for(const m of muts){
-        if(m.addedNodes && m.addedNodes.length){
-          touched = true;
-          // process only added nodes for efficiency
-          m.addedNodes.forEach(n=>{
-            if(!(n instanceof HTMLElement)) return;
-            if(n.classList && n.classList.contains('item-tile')) ensureExtraSection(n);
-            else processAll(n);
-          });
-        }
-      }
-      if(touched) { /* no-op */ }
+      });
     });
-    obs.observe(document.body, {childList:true, subtree:true});
-  }
 
-  document.addEventListener('DOMContentLoaded', function(){
-    processAll(document);
-    setupObserver();
-    // Also re-process on tier tab clicks if any
-    document.addEventListener('click', function(e){
-      const btn = e.target.closest && e.target.closest('[data-tier],[data-filter],[data-tab]');
-      if(btn) setTimeout(()=>processAll(document), 50);
-    });
+    observer.observe(target, { childList: true, subtree: true });
   });
 })();
