@@ -711,37 +711,5 @@ document.addEventListener('DOMContentLoaded', function(){
 .item-spec li span{color:#9ca3af}
 .item-spec li em{font-style:normal;color:#fff;text-align:right;max-width:70%}
 </style>
-<script>
-/* ARMOR_DOM_SORT_KO_V1 */
-(function(){
-  function norm(s){
-    return (s||'').replace(/\s+/g,'').trim();
-  }
-  function getTitle(tile){
-    var el = tile.querySelector('.tile-title');
-    if(!el) return '';
-    // clone and remove badge
-    var txt = el.textContent || '';
-    return txt.replace(/\s+/g,' ').trim();
-  }
-  function sortPanel(panel){
-    var grid = panel.querySelector('.tiles-grid');
-    if(!grid) return;
-    var tiles = Array.from(grid.querySelectorAll('article.tile'));
-    tiles.sort(function(a,b){
-      return getTitle(a).localeCompare(getTitle(b),'ko');
-    });
-    tiles.forEach(t=>grid.appendChild(t));
-  }
-  function run(){
-    document.querySelectorAll('.tier-panel').forEach(sortPanel);
-  }
-  if(document.readyState==='loading'){
-    document.addEventListener('DOMContentLoaded', run);
-  }else{
-    run();
-  }
-})();
-</script>
 </body>
 </html>
