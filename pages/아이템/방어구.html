@@ -365,16 +365,24 @@ main{max-width:1200px;margin:0 auto;padding:0 18px;}
   .tile-wrap{grid-template-columns: 1fr !important;}
 }
 </style><style>
-/* ARMOR_TILE_COMPACT_V33 */
+/* ARMOR_TILE_COMPACT_V34 */
+/* 상시 보임: 이미지+이름만 (부제/요약 문구 숨김) */
 .tile-text .tile-sub,
 .tile-text .tile-sub2{display:none !important;}
-.tile-btn{display:none !important;}
-/* make tile clickable */
-article.tile{cursor:pointer;}
-/* remove 3rd column reserved for button */
-.tile{grid-template-columns:92px 1fr !important;}
-/* detail divider */
-.tile-detail .detail-divider{height:1px;background:rgba(255,255,255,.12);margin:12px 0;}
+
+/* 상세 버튼은 다시 표시 */
+.tile-btn{display:inline-flex !important; align-self:center;}
+
+/* 타일 레이아웃: 아이콘 / 텍스트 / 버튼 */
+.tile{grid-template-columns:92px 1fr auto !important;}
+article.tile{cursor:default;}
+
+/* 상세 영역 안에서 옵션/획득을 구분선 아래로 */
+.tile-detail .detail-divider{
+  height:1px;
+  background:rgba(255,255,255,.12);
+  margin:12px 0;
+}
 /* kv group spacing */
 .tile-detail .kv-group .kv + .kv{margin-top:8px;}
 </style></head>
