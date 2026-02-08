@@ -202,15 +202,3 @@
   line-height: 1.35;
   opacity: 0.95;
 }
-
-
-/* Hide summary lines; details shown only when expanded */
-.tile-sub,
-.tile-sub2{display:none;}
-
-/* hide legacy summary block; options/acquire are inside item-detail */
-.tile-summary{display:none;}
-
-
-/* Hide summary option/acquire when expanded (moved into detail block) */
-.item-tile.is-open .tile-sub2{display:none !important;}
