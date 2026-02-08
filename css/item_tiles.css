@@ -202,3 +202,11 @@
   line-height: 1.35;
   opacity: 0.95;
 }
+
+
+/* Hide summary lines; details shown only when expanded */
+.tile-sub,
+.tile-sub2{display:none;}
+
+/* hide legacy summary block; options/acquire are inside item-detail */
+.tile-summary{display:none;}
