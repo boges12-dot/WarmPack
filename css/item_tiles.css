@@ -210,3 +210,7 @@
 
 /* hide legacy summary block; options/acquire are inside item-detail */
 .tile-summary{display:none;}
+
+
+/* Hide summary option/acquire when expanded (moved into detail block) */
+.item-tile.is-open .tile-sub2{display:none !important;}

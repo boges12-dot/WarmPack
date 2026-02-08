@@ -231,6 +231,7 @@ function applySummaryAndDetailSync(tile){
       // Ensure closed state
       panel.style.display = "none";
       btn.setAttribute("aria-expanded", "false");
+      tile.classList.remove("is-open");
 
       btn.addEventListener("click", function (e) {
         e.preventDefault();
@@ -240,6 +241,7 @@ function applySummaryAndDetailSync(tile){
         panel.style.display = isOpen ? "none" : "block";
         btn.textContent = isOpen ? "상세" : "접기";
         btn.setAttribute("aria-expanded", String(!isOpen));
+        tile.classList.toggle("is-open", !isOpen);
       });
     });
   }
