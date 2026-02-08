@@ -89,11 +89,21 @@
   function normalizeDetailBox(tile){
     const detail = tile.querySelector('.tile-detail');
     if(!detail) return;
-    // Remove duplicated option/acquire blocks outside the main spec list
-    detail.querySelectorAll('.kv').forEach(kv=>{
+    // Capture & remove legacy option/acquire blocks (outside the main spec list).
+    // We'll re-inject them inside the spec box to avoid duplicates.
+    const legacy = { optionHTML: null, acquireHTML: null };
+    detail.querySelectorAll('.kv').forEach((kv) => {
       const k = kv.querySelector('.k')?.textContent?.trim();
-      if(k==='옵션' || k==='획득') kv.remove();
+      if (k !== '옵션' && k !== '획득') return;
+
+      const v = kv.querySelector('.v');
+      const html = v ? v.innerHTML.trim() : '';
+      if (k === '옵션') legacy.optionHTML = html;
+      if (k === '획득') legacy.acquireHTML = html;
+      kv.remove();
     });
+    if (legacy.optionHTML !== null) tile.dataset.legacyOptionHTML = legacy.optionHTML;
+    if (legacy.acquireHTML !== null) tile.dataset.legacyAcquireHTML = legacy.acquireHTML;
 
     // Ensure there is an item-detail box and item-spec list
     let box = detail.querySelector('.item-detail');
@@ -157,28 +167,60 @@ function applySummaryAndDetailSync(tile){
     const ul = tile.querySelector('.tile-detail .item-detail .item-spec');
     if(!ul) return;
 
-    // helper to set or create a row in the spec list
-    const upsertRow = (key, value) => {
+    const escapeHtml = (s) => String(s)
+      .replace(/&/g,'&amp;')
+      .replace(/</g,'&lt;')
+      .replace(/>/g,'&gt;')
+      .replace(/"/g,'&quot;')
+      .replace(/'/g,'&#39;');
+
+    // helper to set or create a row in the spec list (supports <br> etc.)
+    const upsertRow = (key, valueHtml) => {
       const rows = Array.from(ul.querySelectorAll('li'));
       let row = rows.find(li => li.querySelector('span')?.textContent?.trim() === key);
+      const safeHtml = (valueHtml && String(valueHtml).trim()) ? String(valueHtml) : '-';
       if(!row){
         row = document.createElement('li');
-        row.innerHTML = `<span>${key}</span><b>${value || '-'}</b>`;
+        row.innerHTML = `<span>${escapeHtml(key)}</span><b>${safeHtml}</b>`;
         ul.appendChild(row);
       }else{
         const b = row.querySelector('b');
-        if(b) b.textContent = value || '-';
+        if(b) b.innerHTML = safeHtml;
       }
     };
 
-    // Put "옵션" and "획득" inside the block
-    if(optText) upsertRow('옵션', optText); else upsertRow('옵션', '-');
-    if(acqText) upsertRow('획득', acqText); else upsertRow('획득', '-');
+    // Extra option/acquire come from the legacy kv blocks (stored by normalizeDetailBox),
+    // or from the summary lines as fallback.
+    const tileSub2 = tile.querySelector('.tile-sub2');
+    let extraOpt = '';
+    let extraAcq = '';
+    if(tileSub2){
+      const lines = tileSub2.textContent.split('\n').map(s=>s.trim()).filter(Boolean);
+      const optLine = lines.find(l=>l.startsWith('옵션:'));
+      const acqLine = lines.find(l=>l.startsWith('획득:'));
+      extraOpt = optLine ? optLine.replace(/^옵션:\s*/,'') : '';
+      extraAcq = acqLine ? acqLine.replace(/^획득:\s*/,'') : '';
+    }
+
+    const extraOptHtml = tile.dataset.extraOptionHTML ? tile.dataset.extraOptionHTML : (extraOpt ? escapeHtml(extraOpt).replace(/\n/g,'<br>') : '');
+    const acqHtml = tile.dataset.acquireHTML ? tile.dataset.acquireHTML : (extraAcq ? escapeHtml(extraAcq) : (acqText ? escapeHtml(acqText) : ''));
+
+    // Don't overwrite the main "옵션" row (official stats). Put the secondary options as "추가 옵션".
+    const hasMainOptionRow = Array.from(ul.querySelectorAll('li')).some(li => li.querySelector('span')?.textContent?.trim() === '옵션');
+    if(extraOptHtml){
+      if(hasMainOptionRow) upsertRow('추가 옵션', extraOptHtml);
+      else upsertRow('옵션', extraOptHtml);
+    }
+
+    // Always show "획득" inside the block
+    if(acqHtml) upsertRow('획득', acqHtml); else upsertRow('획득', '-');
   }
 
   function initTiles(root) {
     var tiles = (root || document).querySelectorAll(".item-tile");
     tiles.forEach(function (tile) {
+      // First normalize the detail box (move legacy rows into dataset).
+      normalizeDetailBox(tile);
       // Sync summary/detail from existing tile-sub2 content (if present)
       applySummaryAndDetailSync(tile);
 
