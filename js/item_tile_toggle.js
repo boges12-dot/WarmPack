@@ -123,8 +123,12 @@
       box.appendChild(ul);
     }
 
-    // If there are remaining .kv rows (legacy layout), move them into the spec list
-    Array.from(detail.querySelectorAll(':scope > .kv')).forEach(kv=>{
+    // If there are remaining .kv rows (legacy layout), move them into the spec list.
+    // Avoid using ':scope' (can be flaky depending on DOM/compat). We only want
+    // direct child .kv rows of the detail box.
+    Array.from(detail.children)
+      .filter(el => el && el.classList && el.classList.contains('kv'))
+      .forEach(kv=>{
       const k = kv.querySelector('.k')?.textContent?.trim();
       const v = kv.querySelector('.v')?.textContent?.trim();
       if(!k) return;
