@@ -1279,5 +1279,23 @@ document.addEventListener('DOMContentLoaded', function(){
 .item-spec li span{color:#9ca3af}
 .item-spec li em{font-style:normal;color:#fff;text-align:right;max-width:70%}
 </style>
+
+<script>
+/* EXECUTOR_PLATE_HIDE */
+(function(){
+  const bad = ["어둠의 집행자의 판금 갑옷","어둠의집행자의판금갑옷","어둠의 집행자의 판금갑옷","어둠의집행자의 판금갑옷"];
+  function norm(s){ return (s||"").replace(/\s+/g,""); }
+  document.addEventListener('DOMContentLoaded', function(){
+    document.querySelectorAll('.tile .tile-title').forEach(function(el){
+      const t = norm(el.textContent || "");
+      if(bad.some(n => t.includes(norm(n)))){
+        const tile = el.closest('.tile');
+        if(tile){ tile.remove(); }
+      }
+    });
+  });
+})();
+</script>
+
 </body>
 </html>
