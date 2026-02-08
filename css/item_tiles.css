@@ -202,3 +202,15 @@
   line-height: 1.35;
   opacity: 0.95;
 }
+
+
+
+/* === Armor tile overrides: minimal header + remove duplicate summary lines === */
+.tile.tile--minimal .tile-sub,
+.tile.tile--minimal .tile-sub2 { display:none !important; }
+
+.tile-detail[hidden] { display:none !important; }
+
+/* Keep header spacing tidy when only title is shown */
+.tile.tile--minimal .tile-text { padding-top: 6px; padding-bottom: 6px; }
+.tile.tile--minimal .tile-title { margin-bottom: 0; }
