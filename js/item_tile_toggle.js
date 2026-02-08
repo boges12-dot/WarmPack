@@ -85,49 +85,146 @@
     return wrap;
   }
 
-  function applySummaryAndDetailSync(tile) {
-    var sub2 = tile.querySelector(".tile-sub2");
-    if (!sub2) return;
+  
+  function normalizeDetailBox(tile){
+    const detail = tile.querySelector('.tile-detail');
+    if(!detail) return;
+    // Capture & remove legacy option/acquire blocks (outside the main spec list).
+    // We'll re-inject them inside the spec box to avoid duplicates.
+    const legacy = { optionHTML: null, acquireHTML: null };
+    detail.querySelectorAll('.kv').forEach((kv) => {
+      const k = kv.querySelector('.k')?.textContent?.trim();
+      if (k !== '옵션' && k !== '획득') return;
 
-    var lines = sub2.querySelectorAll("div");
-    var optRaw = lines[0] ? lines[0].textContent : "";
-    var getRaw = lines[1] ? lines[1].textContent : "";
+      const v = kv.querySelector('.v');
+      const html = v ? v.innerHTML.trim() : '';
+      if (k === '옵션') legacy.optionHTML = html;
+      if (k === '획득') legacy.acquireHTML = html;
+      kv.remove();
+    });
+    if (legacy.optionHTML !== null) tile.dataset.legacyOptionHTML = legacy.optionHTML;
+    if (legacy.acquireHTML !== null) tile.dataset.legacyAcquireHTML = legacy.acquireHTML;
 
-    var optionHTML = stripLabelAndFormat(optRaw, "옵션");
-    var getHTML = stripLabelAndFormat(getRaw, "획득");
+    // Ensure there is an item-detail box and item-spec list
+    let box = detail.querySelector('.item-detail');
+    if(!box){
+      box = document.createElement('div');
+      box.className = 'item-detail';
+      const ul = document.createElement('ul');
+      ul.className = 'item-spec';
+      box.appendChild(ul);
+      // Put the spec box at the top of the detail area
+      detail.prepend(box);
+    }
+    let ul = box.querySelector('.item-spec');
+    if(!ul){
+      ul = document.createElement('ul');
+      ul.className = 'item-spec';
+      box.appendChild(ul);
+    }
 
-    // 1) Create visible summary block in the card (replaces old tile-sub2)
-    var textCol = tile.querySelector(".tile-text");
-    if (textCol) {
-      // Place after main meta (.tile-sub) if possible
-      var anchor = textCol.querySelector(".tile-sub");
-      var summary = buildSummaryBlock(optionHTML, getHTML);
+    // If there are remaining .kv rows (legacy layout), move them into the spec list.
+    // Avoid using ':scope' (can be flaky depending on DOM/compat). We only want
+    // direct child .kv rows of the detail box.
+    Array.from(detail.children)
+      .filter(el => el && el.classList && el.classList.contains('kv'))
+      .forEach(kv=>{
+      const k = kv.querySelector('.k')?.textContent?.trim();
+      const v = kv.querySelector('.v')?.textContent?.trim();
+      if(!k) return;
+      const li = document.createElement('li');
+      li.innerHTML = `<span>${k}</span><b>${v || '-'}</b>`;
+      ul.appendChild(li);
+      kv.remove();
+    });
+  }
 
-      // Avoid duplication if already added (re-run safe)
-      var existing = textCol.querySelector(".tile-summary");
-      if (existing) existing.remove();
+function applySummaryAndDetailSync(tile){
+    // Make sure the expanded "block" exists and remove duplicated option/acquire blocks
+    normalizeDetailBox(tile);
 
-      if (anchor && anchor.nextSibling) {
-        textCol.insertBefore(summary, anchor.nextSibling);
-      } else {
-        textCol.appendChild(summary);
+    const title = tile.querySelector('.tile-lines h3')?.textContent?.trim();
+    if(!title) return;
+
+    // Prefer the structured data if present, otherwise fall back to the existing summary lines
+    const data = (window.ARMOR_DATA && window.ARMOR_DATA[title]) ? window.ARMOR_DATA[title] : null;
+
+    let optText = '';
+    let acqText = '';
+
+    if(data){
+      optText = Array.isArray(data.options) ? data.options.join(', ') : (data.options || '');
+      acqText = data.acquire || '';
+    }else{
+      // Fallback: read from the (now hidden) summary lines
+      const tileSub2 = tile.querySelector('.tile-sub2');
+      if(tileSub2){
+        const lines = tileSub2.textContent.split('\n').map(s=>s.trim()).filter(Boolean);
+        // expected like: ["옵션: ...", "획득: ..."]
+        const optLine = lines.find(l=>l.startsWith('옵션:'));
+        const acqLine = lines.find(l=>l.startsWith('획득:'));
+        optText = optLine ? optLine.replace(/^옵션:\s*/,'') : '';
+        acqText = acqLine ? acqLine.replace(/^획득:\s*/,'') : '';
       }
     }
 
-    // Remove old plain summary
-    sub2.remove();
+    const ul = tile.querySelector('.tile-detail .item-detail .item-spec');
+    if(!ul) return;
 
-    // 2) When expanded, ensure the detail list shows full 옵션/획득 too
-    var detail = tile.querySelector(".tile-detail .item-detail");
-    if (detail) {
-      ensureDetailRow(detail, "옵션", optionHTML);
-      ensureDetailRow(detail, "획득", getHTML);
+    const escapeHtml = (s) => String(s)
+      .replace(/&/g,'&amp;')
+      .replace(/</g,'&lt;')
+      .replace(/>/g,'&gt;')
+      .replace(/"/g,'&quot;')
+      .replace(/'/g,'&#39;');
+
+    // helper to set or create a row in the spec list (supports <br> etc.)
+    const upsertRow = (key, valueHtml) => {
+      const rows = Array.from(ul.querySelectorAll('li'));
+      let row = rows.find(li => li.querySelector('span')?.textContent?.trim() === key);
+      const safeHtml = (valueHtml && String(valueHtml).trim()) ? String(valueHtml) : '-';
+      if(!row){
+        row = document.createElement('li');
+        row.innerHTML = `<span>${escapeHtml(key)}</span><b>${safeHtml}</b>`;
+        ul.appendChild(row);
+      }else{
+        const b = row.querySelector('b');
+        if(b) b.innerHTML = safeHtml;
+      }
+    };
+
+    // Extra option/acquire come from the legacy kv blocks (stored by normalizeDetailBox),
+    // or from the summary lines as fallback.
+    const tileSub2 = tile.querySelector('.tile-sub2');
+    let extraOpt = '';
+    let extraAcq = '';
+    if(tileSub2){
+      const lines = tileSub2.textContent.split('\n').map(s=>s.trim()).filter(Boolean);
+      const optLine = lines.find(l=>l.startsWith('옵션:'));
+      const acqLine = lines.find(l=>l.startsWith('획득:'));
+      extraOpt = optLine ? optLine.replace(/^옵션:\s*/,'') : '';
+      extraAcq = acqLine ? acqLine.replace(/^획득:\s*/,'') : '';
     }
+
+    const extraOptHtml = tile.dataset.extraOptionHTML ? tile.dataset.extraOptionHTML : (extraOpt ? escapeHtml(extraOpt).replace(/\n/g,'<br>') : '');
+    const acqHtml = tile.dataset.acquireHTML ? tile.dataset.acquireHTML : (extraAcq ? escapeHtml(extraAcq) : (acqText ? escapeHtml(acqText) : ''));
+
+    // Don't overwrite the main "옵션" row (official stats). Put the secondary options as "추가 옵션".
+    const hasMainOptionRow = Array.from(ul.querySelectorAll('li')).some(li => li.querySelector('span')?.textContent?.trim() === '옵션');
+    if(extraOptHtml){
+      if(hasMainOptionRow) upsertRow('추가 옵션', extraOptHtml);
+      else upsertRow('옵션', extraOptHtml);
+    }
+
+    // Always show "획득" inside the block
+    if(acqHtml) upsertRow('획득', acqHtml); else upsertRow('획득', '-');
   }
 
   function initTiles(root) {
     var tiles = (root || document).querySelectorAll(".item-tile");
     tiles.forEach(function (tile) {
+      // First normalize the detail box (move legacy rows into dataset).
+      normalizeDetailBox(tile);
       // Sync summary/detail from existing tile-sub2 content (if present)
       applySummaryAndDetailSync(tile);
 
@@ -138,6 +235,7 @@
       // Ensure closed state
       panel.style.display = "none";
       btn.setAttribute("aria-expanded", "false");
+      tile.classList.remove("is-open");
 
       btn.addEventListener("click", function (e) {
         e.preventDefault();
@@ -147,6 +245,7 @@
         panel.style.display = isOpen ? "none" : "block";
         btn.textContent = isOpen ? "상세" : "접기";
         btn.setAttribute("aria-expanded", String(!isOpen));
+        tile.classList.toggle("is-open", !isOpen);
       });
     });
   }
@@ -175,49 +274,3 @@
     observer.observe(target, { childList: true, subtree: true });
   });
 })();
-  function normalizeDetail(tile, detail){
-    if(!tile || !detail) return;
-    if(tile.dataset.kvMerged === "1") return;
-
-    // Ensure item-detail / item-spec exists
-    let itemDetail = detail.querySelector(":scope > .item-detail");
-    if(!itemDetail){
-      itemDetail = document.createElement("div");
-      itemDetail.className = "item-detail";
-      const ul = document.createElement("ul");
-      ul.className = "item-spec";
-      itemDetail.appendChild(ul);
-      // Put the spec box first inside detail
-      detail.insertBefore(itemDetail, detail.firstChild);
-    }
-    let ul = itemDetail.querySelector("ul.item-spec");
-    if(!ul){
-      ul = document.createElement("ul");
-      ul.className = "item-spec";
-      itemDetail.appendChild(ul);
-    }
-
-    // Move bottom kv blocks (옵션/획득 등) into the spec list
-    const kvs = Array.from(detail.querySelectorAll(":scope > .kv"));
-    kvs.forEach(kv => {
-      const kEl = kv.querySelector(".k");
-      const vEl = kv.querySelector(".v");
-      if(!kEl || !vEl) return;
-
-      const li = document.createElement("li");
-      const s = document.createElement("span");
-      s.textContent = kEl.textContent.trim();
-      const em = document.createElement("em");
-      // Preserve line breaks in value
-      em.innerHTML = vEl.innerHTML;
-      li.appendChild(s);
-      li.appendChild(em);
-      ul.appendChild(li);
-
-      kv.remove();
-    });
-
-    tile.dataset.kvMerged = "1";
-  }
-
-
