@@ -334,7 +334,7 @@ main{min-height:60vh}
   gap: 14px;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;
 
   /* style */
   border-radius: 0 0 14px 14px;
@@ -371,9 +371,9 @@ main{min-height:60vh}
 }
 
 
-#main-nav.nav .submenu li a{
-  width: 100%;
-  justify-content: flex-start;
+#main-nav.nav .submenu li{flex:0 0 auto;}#main-nav.nav .submenu li a{
+  width:auto;
+  justify-content:center;
   font-size: 14px;
   padding: 6px 10px;
   border-radius: 10px;
