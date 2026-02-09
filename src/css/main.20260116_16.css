@@ -961,3 +961,25 @@ main{min-height:60vh}
   letter-spacing:-0.5px;
 }
 
+/* ===== Submenu full-width bar + centered (STEP: submenu-bar) ===== */
+@media (min-width: 981px){
+  .main-nav-bar{ position: relative; }
+  /* allow submenu positioning relative to the nav bar (full width) */
+  #main-nav.nav > li{ position: static; }
+  #main-nav.nav .submenu{
+    left: 0;
+    top: calc(100% + 0px);
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 10px 16px;
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+    justify-content: center;
+  }
+  /* keep the slide-down animation while also being full-width */
+  #main-nav.nav .submenu{ transform: translateY(6px); }
+  #main-nav.nav li.has-sub.is-open > .submenu,
+  #main-nav.nav li.has-sub.hovering > .submenu{ transform: translateY(0); }
+}
