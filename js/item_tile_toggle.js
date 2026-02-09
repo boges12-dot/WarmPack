@@ -1,7 +1,7 @@
 /* item_tile_toggle.js
    - Compact item cards: show only image + item name (and tier badge if present).
-   - Hide meta (착용/옵션/획득) in the card body.
-   - Show meta inside the detail panel when clicking "상세".
+   - Hide meta (옵션/획득) in the card body.
+   - Show meta (옵션/획득) inside the detail panel when clicking "상세".
    - Works with current markup: .tile / .tile-btn / .tile-detail / .tile-sub / .tile-sub2
 */
 (function () {
@@ -53,8 +53,8 @@
     // Collect meta
     var equipEl = textCol.querySelector(".tile-sub");
     var sub2Els = Array.prototype.slice.call(textCol.querySelectorAll(".tile-sub2"));
-
-    var equip = equipEl ? stripPrefix(equipEl.textContent, "착용") : "";
+    // NOTE: 착용 정보는 사용하지 않음 (요청에 따라 삭제)
+    var equip = "";
     var option = "";
     var get = "";
 
@@ -71,7 +71,6 @@
     // Build detail spec rows
     var ul = ensureSpecList(detail);
     ul.innerHTML = "";
-    if(equip) addRow(ul, "착용", equip);
     if(option) addRow(ul, "옵션", option);
     if(get) addRow(ul, "획득", get);
 
@@ -83,11 +82,87 @@
     btn.addEventListener("click", function(e){
       e.preventDefault();
       e.stopPropagation();
-      var open = !detail.hidden;
-      detail.hidden = open;
-      btn.textContent = open ? "상세" : "접기";
-      btn.setAttribute("aria-expanded", String(!open));
+
+      // Accordion: close any other open tiles
+      document.querySelectorAll("article.tile.is-open").forEach(function(other){
+        if(other !== tile) closeTile(other);
+      });
+
+      if(tile.classList.contains("is-open")){
+        closeTile(tile);
+      }else{
+        openTile(tile);
+      }
     });
+
+    // --- Animation helpers (per-tile) ---
+    function openTile(t){
+      var b = t.querySelector(".tile-btn");
+      var d = t.querySelector(".tile-detail");
+      if(!b || !d) return;
+
+      // If previously closed, ensure measurable
+      d.hidden = false;
+      d.style.maxHeight = "0px";
+      d.style.opacity = "0";
+      d.style.transform = "translateY(-2px)";
+
+      // Force reflow
+      void d.offsetHeight;
+
+      t.classList.add("is-open");
+      b.textContent = "접기";
+      b.setAttribute("aria-expanded", "true");
+
+      // Animate open
+      var target = d.scrollHeight;
+      d.style.maxHeight = target + "px";
+      d.style.opacity = "1";
+      d.style.transform = "translateY(0)";
+
+      var onEnd = function(ev){
+        if(ev.propertyName === "max-height"){
+          // Let it grow naturally after opening
+          d.style.maxHeight = "none";
+          d.removeEventListener("transitionend", onEnd);
+        }
+      };
+      d.addEventListener("transitionend", onEnd);
+    }
+
+    function closeTile(t){
+      var b = t.querySelector(".tile-btn");
+      var d = t.querySelector(".tile-detail");
+      if(!b || !d) return;
+
+      t.classList.remove("is-open");
+      b.textContent = "상세";
+      b.setAttribute("aria-expanded", "false");
+
+      // If maxHeight is 'none', fix it to current height before collapsing
+      if(d.style.maxHeight === "none" || !d.style.maxHeight){
+        d.style.maxHeight = d.scrollHeight + "px";
+      }
+
+      // Force reflow
+      void d.offsetHeight;
+
+      d.style.maxHeight = "0px";
+      d.style.opacity = "0";
+      d.style.transform = "translateY(-2px)";
+
+      var onEnd = function(ev){
+        if(ev.propertyName === "max-height"){
+          d.hidden = true;
+          // cleanup
+          d.style.maxHeight = "";
+          d.style.opacity = "";
+          d.style.transform = "";
+          d.removeEventListener("transitionend", onEnd);
+        }
+      };
+      d.addEventListener("transitionend", onEnd);
+    }
   }
 
   function initAll(){

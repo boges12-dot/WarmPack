@@ -87,6 +87,14 @@
   margin-top:10px;
   padding-top:10px;
   border-top:1px solid rgba(255,255,255,.10);
+  overflow: hidden;
+  max-height: none;
+  transition: max-height 0.25s ease, opacity 0.20s ease, transform 0.20s ease;
+}
+
+/* Closed state handled by [hidden] + inline styles, but keep safe defaults */
+article.tile:not(.is-open) .tile-detail{
+  opacity: 0;
 }
 
 .tile-detail .kv{
