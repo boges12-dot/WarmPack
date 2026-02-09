@@ -61,12 +61,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.tile-sub2{
-  font-size: 12px;
-  line-height: 1.5;
-  opacity: .92;
-  margin: 0;
-}
+.tile-sub2{display:none !important;}
 
 .tile-btn{
   margin-top:10px;
@@ -202,3 +197,5 @@
   line-height: 1.35;
   opacity: 0.95;
 }
+
+.tile-sub{display:none !important;}
