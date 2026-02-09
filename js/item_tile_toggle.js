@@ -86,32 +86,95 @@
   }
 
   function applySummaryAndDetailSync(tile) {
-    // We keep the raw "옵션/획득" text in hidden .tile-sub2, parse it,
-    // then move those rows INSIDE the detail table (.item-detail) to avoid duplication.
-    var textCol = tile.querySelector(".tile-text");
-    if (!textCol) return;
-
-    // Source: hidden text block
-    var sub2 = textCol.querySelector(".tile-sub2");
+    var sub2 = tile.querySelector(".tile-sub2");
     if (!sub2) return;
 
-    // Parse "옵션:" and "획득:"
-    var optHTML = "";
-    var getHTML = "";
-    (sub2.textContent || "").split(/\n+/).forEach(function (line) {
-      line = (line || "").trim();
-      if (!line) return;
-      if (line.indexOf("옵션:") === 0) optHTML = escapeHtml(line.replace(/^옵션:\s*/, ""));
-      if (line.indexOf("획득:") === 0) getHTML = escapeHtml(line.replace(/^획득:\s*/, ""));
-    });
+    var lines = sub2.querySelectorAll("div");
+    var optRaw = lines[0] ? lines[0].textContent : "";
+    var getRaw = lines[1] ? lines[1].textContent : "";
 
-    // Remove outside block (prevents duplicate display)
+    var optionHTML = stripLabelAndFormat(optRaw, "옵션");
+    var getHTML = stripLabelAndFormat(getRaw, "획득");
+
+    // 1) Create visible summary block in the card (replaces old tile-sub2)
+    var textCol = tile.querySelector(".tile-text");
+    if (textCol) {
+      // Place after main meta (.tile-sub) if possible
+      var anchor = textCol.querySelector(".tile-sub");
+      var summary = buildSummaryBlock(optionHTML, getHTML);
+
+      // Avoid duplication if already added (re-run safe)
+      var existing = textCol.querySelector(".tile-summary");
+      if (existing) existing.remove();
+
+      if (anchor && anchor.nextSibling) {
+        textCol.insertBefore(summary, anchor.nextSibling);
+      } else {
+        textCol.appendChild(summary);
+      }
+    }
+
+    // Remove old plain summary
     sub2.remove();
 
-    // Ensure rows exist INSIDE the spec table (detail area)
-    ensureDetailRow(tile, "옵션", optHTML || "—");
-    ensureDetailRow(tile, "획득", getHTML || "—");
-  })();
+    // 2) When expanded, ensure the detail list shows full 옵션/획득 too
+    var detail = tile.querySelector(".tile-detail .item-detail");
+    if (detail) {
+      ensureDetailRow(detail, "옵션", optionHTML);
+      ensureDetailRow(detail, "획득", getHTML);
+    }
+  }
+
+  function initTiles(root) {
+    var tiles = (root || document).querySelectorAll(".item-tile");
+    tiles.forEach(function (tile) {
+      // Sync summary/detail from existing tile-sub2 content (if present)
+      applySummaryAndDetailSync(tile);
+
+      var btn = tile.querySelector(".detail-btn");
+      var panel = tile.querySelector(".tile-detail");
+      if (!btn || !panel) return;
+
+      // Ensure closed state
+      panel.style.display = "none";
+      btn.setAttribute("aria-expanded", "false");
+
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        var isOpen = panel.style.display !== "none";
+        panel.style.display = isOpen ? "none" : "block";
+        btn.textContent = isOpen ? "상세" : "접기";
+        btn.setAttribute("aria-expanded", String(!isOpen));
+      });
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    initTiles(document);
+
+    // In case some pages inject tiles dynamically, observe and init new ones.
+    var target = document.body;
+    if (!target || !window.MutationObserver) return;
+
+    var observer = new MutationObserver(function (mutations) {
+      mutations.forEach(function (m) {
+        (m.addedNodes || []).forEach(function (node) {
+          if (!node || node.nodeType !== 1) return;
+          if (node.classList && node.classList.contains("item-tile")) {
+            initTiles(node.parentNode || document);
+          } else if (node.querySelectorAll) {
+            var hasTile = node.querySelectorAll(".item-tile").length > 0;
+            if (hasTile) initTiles(node);
+          }
+        });
+      });
+    });
+
+    observer.observe(target, { childList: true, subtree: true });
+  });
+})();
   function normalizeDetail(tile, detail){
     if(!tile || !detail) return;
     if(tile.dataset.kvMerged === "1") return;
