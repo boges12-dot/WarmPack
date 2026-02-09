@@ -115,7 +115,7 @@
     // Desktop: keep submenu open briefly while moving cursor
     if(!canHover) return;
 
-    var CLOSE_DELAY_MS = 0;
+    var CLOSE_DELAY_MS = 250;
     qsa('#main-nav li.has-sub', nav).forEach(function(li){
       var t = null;
 

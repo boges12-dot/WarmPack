@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta content="strict-origin-when-cross-origin" name="referrer"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>· </title>
+<meta content="군주 스킬 · " name="description"/>
+<meta content="website" property="og:type"/>
+<meta content="" property="og:site_name"/>
+<meta content="군주 스킬 · " property="og:title"/>
+<meta content="군주 스킬 · " property="og:description"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="군주 스킬 · " name="twitter:title"/>
+<meta content="군주 스킬 · " name="twitter:description">
+<link href="/WarmPack/css/main.20260116_16.min.css" rel="stylesheet"/>
+<!-- STEP9: icons/manifest -->
+<link href="../../favicon.ico" rel="icon" sizes="any"/>
+<link href="../../assets/icons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../../assets/icons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="../../assets/icons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="../../site.webmanifest" rel="manifest"/>
+<meta content="#ffffff" name="theme-color"/>
+<meta content="https://boges12-dot.github.io/WarmPack/assets/images/og_v3.jpg" property="og:image"/>
+<meta content="https://boges12-dot.github.io/WarmPack/assets/images/og_v3.jpg" property="og:image:secure_url"/>
+<meta content="https://boges12-dot.github.io/WarmPack/assets/images/og_v3.jpg" name="twitter:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="/WarmPack/css/banner_override.css?v=20260126_B2" rel="stylesheet"/>
+</meta><style id="skill-table-center">
+/* Skill tables center alignment */
+main table{
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+main h2, main h3{
+  text-align:center;
+}
+
+
+/* FIX: 스킬 표 헤더(회색) -> 검정 */
+main table thead{
+  background:#000 !important;
+  color:#fff !important;
+}
+main table thead th{
+  background:#000 !important;
+  color:#fff !important;
+}
+
+
+/* FIX: 스킬 표 헤더 글자색 검정 */
+main table thead{
+  background:#f2f2f2 !important;
+}
+main table thead th{
+  color:#000 !important;
+  background:#f2f2f2 !important;
+}
+
+
+/* FIX: 스킬 표가 글자 영역보다 작아 보이는 문제(폭/패딩 확대) */
+main table{
+  width:100% !important;
+  max-width:980px !important;
+  border-collapse:collapse !important;
+}
+main table th, main table td{
+  padding:10px !important;
+}
+
+/* --- 카드형 스킬 레이아웃 (표 삭제 후 대체) --- */
+.skill-cards{
+  width:100%;
+  max-width:1100px;
+  margin:0 auto;
+  padding:18px 14px 60px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:18px;
+}
+.skill-card{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  background:rgba(15,18,22,.75);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:14px;
+  padding:14px 14px;
+}
+.skill-card-icon{
+  width:64px;
+  height:64px;
+  flex:0 0 64px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(0,0,0,.35);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:12px;
+  overflow:hidden;
+}
+.skill-card-icon img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  image-rendering:auto;
+}
+.skill-card-body h3{
+  margin:0;
+  font-size:18px;
+  line-height:1.2;
+}
+.skill-card-meta{
+  margin-top:6px;
+  font-size:12px;
+  opacity:.8;
+}
+.skill-card-body p{
+  margin:8px 0 0;
+  font-size:13px;
+  line-height:1.4;
+  opacity:.95;
+}
+@media (max-width:640px){
+  .skill-cards{ grid-template-columns:1fr; }
+}
+
+/* === SKILL ACCORDION UNIFIED (lord template) === */
+.skill-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+@media (max-width:1024px){ .skill-grid{ grid-template-columns:repeat(2,1fr);} }
+@media (max-width:640px){ .skill-grid{ grid-template-columns:1fr;} }
+
+.skill-acc{ background: rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:14px; overflow:hidden; }
+.skill-acc-summary{ list-style:none; cursor:pointer; display:flex; gap:12px; align-items:center; padding:16px; }
+.skill-acc-summary::-webkit-details-marker{ display:none; }
+
+.skill-acc-icon{ flex:0 0 80px; width:80px; height:80px; display:flex; align-items:center; justify-content:center; }
+.skill-acc-icon img{ width:80px; height:80px; object-fit:contain; display:block; }
+
+.skill-acc-head{ flex:1; min-width:0; display:flex; flex-direction:column; gap:8px; }
+.skill-acc-title{ font-size:18px; line-height:1.2; font-weight:700; }
+.skill-acc-meta{display:flex;gap:10px;flex-wrap:wrap;}
+.skill-acc-meta .meta-line{ font-size:13px; opacity:.85; }
+
+.skill-acc-chev{ flex:0 0 24px; width:24px; height:24px; position:relative; }
+.skill-acc-chev::before{ content:""; position:absolute; inset:0; margin:auto; width:10px; height:10px; border-right:2px solid rgba(255,255,255,.7); border-bottom:2px solid rgba(255,255,255,.7); transform:rotate(45deg); transition:transform .15s ease; }
+details.skill-acc[open] .skill-acc-chev::before{ transform:rotate(225deg); }
+
+.skill-acc-body{ padding:0 16px 16px 16px; }
+.skill-acc-desc{ margin:0; font-size:13px; line-height:1.45; opacity:.9; }
+
+
+/* === SKILL PAGE WRAP (uniform) === */
+.skill-page{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 18px 14px 60px;
+}
+
+</style><style>
+/* FIX: 스크롤 시 메뉴 떨림 방지 */
+header, nav, .header, .navbar {
+  will-change: auto !important;
+  transform: none !important;
+}
+body {
+  overflow-anchor: none;
+}
+</style>
+<style>
+/* FORCE: 스킬 표 셀/폭 강제 통일 */
+table.skill-table{
+  width:100% !important;
+  max-width:1100px !important;
+  margin:0 auto !important;
+  border-collapse:collapse !important;
+}
+table.skill-table th,
+table.skill-table td{
+  padding:12px 14px !important;
+  font-size:15px !important;
+  line-height:1.6 !important;
+}
+</style>
+<style>
+/* FONT FIX: 스킬 표 글자 크기 조정 */
+table.skill-table th,
+table.skill-table td{
+  font-size:14px !important;
+  line-height:1.55 !important;
+}
+</style>
+<style id="skill-icon-style">
+.skill-icon{
+  width:48px;height:48px;object-fit:contain;
+  border-radius:12px;background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.10);
+}
+</style>
+<style id="skill-ui-polish">
+/* SKILL UI POLISH v2: 아이콘 표시 강제 */
+.skill-page{ max-width:1100px; margin:0 auto; padding:18px 14px 60px; }
+.skill-page h1{ font-size:26px; font-weight:900; text-align:center; margin: 6px 0 10px; }
+.skill-note{ text-align:center; opacity:.85; margin:0 0 18px; font-size:13px; line-height:1.6; }
+.skill-table{ width:100%; border-collapse:separate; border-spacing:0; border:1px solid rgba(255,255,255,.10); border-radius:18px; background:rgba(255,255,255,.04); overflow:hidden; }
+.skill-table th{ background:rgba(255,255,255,.06); font-weight:900; padding:14px 16px; text-align:center; border-bottom:1px solid rgba(255,255,255,.10); }
+.skill-table td{ padding:18px 16px; vertical-align:middle; border-bottom:1px solid rgba(255,255,255,.07); }
+.skill-table tr:last-child td{ border-bottom:0; }
+.skill-table td:nth-child(2){ width:90px; text-align:center; }
+.skill-table td:nth-child(3){ width:140px; text-align:center; white-space:nowrap; }
+.skill-table td:nth-child(5){ width:160px; text-align:center; font-weight:800; white-space:nowrap; }
+
+/* 아이콘 강제 표시 */
+.skill-table td:nth-child(2) img,
+.skill-icon{
+  display:block !important;
+  width:48px !important;
+  height:48px !important;
+  object-fit:contain !important;
+  margin:0 auto !important;
+  border-radius:12px !important;
+  background:rgba(255,255,255,.04) !important;
+  border:1px solid rgba(255,255,255,.10) !important;
+}
+
+@media (max-width: 860px){
+  .skill-table{ display:block; overflow:auto; min-width: 980px; }
+}
+</style></head>
+<body><section class="hero-main"><a aria-label="홈으로 이동" class="hero-home-link" href="/WarmPack/"></a></section><nav aria-label="메인 메뉴" class="main-nav-bar">
+<ul class="nav" id="main-nav">
+<li class="home-link"><a aria-label="홈" class="nav-home" href="/WarmPack/"><svg aria-hidden="true" class="icon-home" focusable="false" height="18" viewbox="0 0 24 24" width="18"><path d="M12 3 2.5 11.2a1 1 0 0 0 .7 1.8H5v7a1 1 0 0 0 1 1h4v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5h4a1 1 0 0 0 1-1v-7h1.8a1 1 0 0 0 .7-1.8L12 3z"></path></svg></a></li>
+<li class="has-sub">
+<a href="../../pages/공지/index.html">소개</a>
+<ul class="submenu">
+<li><a href="../../pages/공지/index.html">공지사항</a></li>
+<li><a href="../../pages/공지/서버규정.html">서버규정</a></li>
+<li><a href="../../pages/공지/서버점검.html">서버점검</a></li>
+<li><a href="../../pages/공지/업데이트.html">업데이트</a></li>
+<li><a href="../../pages/공지/이벤트.html">이벤트</a></li>
+</ul>
+</li>
+<li class="has-sub">
+<a href="../../pages/가이드/index.html">가이드</a>
+<ul class="submenu">
+<li><a href="../../pages/가이드/클래스-가이드.html">클래스</a></li>
+<li><a href="../../pages/가이드/index.html">서버가이드</a></li>
+<li><a href="../../pages/가이드/낚시가이드.html">낚시가이드</a></li>
+<li><a href="../../pages/가이드/도감가이드.html">도감가이드</a></li>
+</ul>
+</li>
+<li class="has-sub">
+<a href="../../pages/제작/index.html">제작</a>
+<ul class="submenu">
+<li><a href="../../pages/제작/인형-제작.html">인형 제작</a></li>
+<li><a href="../../pages/제작/오만의탑-이동-부적.html">오만의탑 이동 부적</a></li>
+<li><a href="../../pages/제작/아이템-제작.html">아이템 제작</a></li>
+</ul>
+</li>
+<li class="has-sub">
+<a href="../../pages/스킬/index.html">스킬</a>
+<ul class="submenu">
+<li><a href="../../pages/스킬/군주-스킬.html">군주 스킬</a></li>
+<li><a href="../../pages/스킬/기사-스킬.html">기사 스킬</a></li>
+<li><a href="../../pages/스킬/마법사-스킬.html">마법사 스킬</a></li>
+<li><a href="../../pages/스킬/요정-스킬.html">요정 스킬</a></li>
+<li><a href="../../pages/스킬/다크엘프-스킬.html">다크엘프 스킬</a></li>
+</ul>
+</li>
+<li class="has-sub">
+<a href="../../pages/아이템/index.html">아이템</a>
+<ul class="submenu">
+<li><a href="../../pages/아이템/무기.html">무기</a></li>
+<li><a href="../../pages/아이템/방어구.html">방어구</a></li>
+<li><a href="../../pages/아이템/악세사리.html">악세사리</a></li>
+<li><a href="../../pages/아이템/인형.html">인형</a></li>
+<li><a href="../../pages/아이템/마안.html">마안</a></li>
+<li><a href="../../pages/아이템/주문서.html">주문서</a></li>
+</ul>
+</li>
+<li class="has-sub">
+<a href="../../pages/사냥터/index.html">사냥터</a>
+<ul class="submenu">
+<li><a href="../../pages/사냥터/필드.html">필드</a></li>
+<li><a href="../../pages/사냥터/던전.html">던전</a></li>
+<li><a href="../../pages/사냥터/로테이션-던전.html">로테이션 던전</a></li>
+</ul>
+</li>
+<li class="has-sub">
+<a href="../../pages/홍보/index.html">홍보</a>
+<ul class="submenu">
+<li><a href="../../pages/홍보/홍보글.html">홍보글</a></li>
+<li><a href="../../pages/홍보/홍보보상받기.html">홍보보상받기</a></li>
+</ul>
+</li>
+<li class="has-sub">
+<a href="../../pages/커뮤니티/index.html">커뮤니티</a>
+<ul class="submenu">
+<li><a href="../../pages/커뮤니티/카카오톡.html">카카오톡</a></li>
+<li><a href="../../pages/커뮤니티/텔레그램.html">텔레그램</a></li>
+<li><a href="../../pages/커뮤니티/질문답변.html">질문답변</a></li>
+<li><a href="../../pages/커뮤니티/고객지원.html">고객지원</a></li>
+</ul>
+</li>
+<li><a href="../../pages/다운로드/index.html">다운로드</a></li>
+</ul>
+</nav>
+<header class="site-header">
+</header>
+<main class="site-main"><section class="skill-page"><h1 class="page-title">군주 스킬</h1><p class="skill-note">군주 스킬 표 기준으로 다른 클래스도 동일한 구조로 통일합니다.</p><div class="skill-grid">
+<details class="skill-acc">
+  <summary class="skill-acc-summary">
+    <span class="skill-acc-icon"><img src="/WarmPack/media_skill/lord/shock_stun.png" alt="쇼크 스턴 (군주)"></span>
+    <span class="skill-acc-head">
+      <span class="skill-acc-title">쇼크 스턴 (군주)</span>
+      <span class="skill-acc-meta"><span class="meta-line">소모: MP : 20</span></span><span class="meta-line"></span></span>
+        <span class="meta-line">획득 방법 : 중급 마법상인</span>
+      </span>
+    </span>
+    <span class="skill-acc-chev" aria-hidden="true"></span>
+  </summary>
+  <div class="skill-acc-body"><p class="skill-acc-desc">설명: 순간적인 대미지와 함께 상대를 모든 행동이 불가능한 스턴 상태 로 만듦 (2칸턴).</p></div>
+
+</details>
+<details class="skill-acc">
+  <summary class="skill-acc-summary">
+    <span class="skill-acc-icon"><img src="/WarmPack/media_skill/lord/true_target.png" alt="트루 타겟 (군주)"></span>
+    <span class="skill-acc-head">
+      <span class="skill-acc-title">트루 타겟 (군주)</span>
+      <span class="skill-acc-meta"><span class="meta-line">소모: MP : 1</span></span><span class="meta-line"></span></span>
+        <span class="meta-line">획득 방법 : 하급 마법상인</span>
+      </span>
+    </span>
+    <span class="skill-acc-chev" aria-hidden="true"></span>
+  </summary>
+  <div class="skill-acc-body"><p class="skill-acc-desc">설명: 사일런스 상태에서도 사용 가능. 대상 또는 지점을 혈맹원 화면에 강조 표시 . 강조된 PC는 혈맹/파티원에게 더 큰 대미지를 입음. ※ NPC에는 효과 없음.</p></div>
+</details>
+<details class="skill-acc">
+  <summary class="skill-acc-summary">
+    <span class="skill-acc-icon"><img src="/WarmPack/media_skill/lord/glowing_weapon.png" alt="글로잉 웨폰 (군주)"></span>
+    <span class="skill-acc-head">
+      <span class="skill-acc-title">글로잉 웨폰 (군주)</span>
+      <span class="skill-acc-meta"><span class="meta-line">소모: MP : 25</span></span><span class="meta-line"></span></span>
+        <span class="meta-line">획득 방법 : 하급 마법상인</span>
+      </span>
+    </span>
+    <span class="skill-acc-chev" aria-hidden="true"></span>
+  </summary>
+  <div class="skill-acc-body"><p class="skill-acc-desc">설명: 술자에게 근거리 명중 +5 , 추가 타격 대미지 +5 부여.</p></div>
+</details>
+<details class="skill-acc">
+  <summary class="skill-acc-summary">
+    <span class="skill-acc-icon"><img src="/WarmPack/media_skill/lord/shining_shield.png" alt="샤이닝 실드 (군주)"></span>
+    <span class="skill-acc-head">
+      <span class="skill-acc-title">샤이닝 실드 (군주)</span>
+      <span class="skill-acc-meta"><span class="meta-line">소모: MP : 25</span></span><span class="meta-line"></span></span>
+        <span class="meta-line">획득 방법 : 하급 마법상인</span>
+      </span>
+    </span>
+    <span class="skill-acc-chev" aria-hidden="true"></span>
+  </summary>
+  <div class="skill-acc-body"><p class="skill-acc-desc">설명: 사용 시 640초간 AC -8 효과 부여.</p></div>
+</details>
+<details class="skill-acc">
+  <summary class="skill-acc-summary">
+    <span class="skill-acc-icon"><img src="/WarmPack/media_skill/lord/call_clan.png" alt="콜 클랜 (군주)"></span>
+    <span class="skill-acc-head">
+      <span class="skill-acc-title">콜 클랜 (군주)</span>
+      <span class="skill-acc-meta"><span class="meta-line">소모: MP : 30</span></span><span class="meta-line"></span></span>
+        <span class="meta-line">획득 방법 : 하급 마법상인</span>
+      </span>
+    </span>
+    <span class="skill-acc-chev" aria-hidden="true"></span>
+  </summary>
+  <div class="skill-acc-body"><p class="skill-acc-desc">설명: 지정한 혈맹원 1명을 자신 위치로 소환 . ※ 특정 지역/공성 지역에서는 사용 불가.</p></div>
+</details>
+<details class="skill-acc">
+  <summary class="skill-acc-summary">
+    <span class="skill-acc-icon"><img src="/WarmPack/media_skill/lord/brave_mental.png" alt="브레이브 멘탈 (군주)"></span>
+    <span class="skill-acc-head">
+      <span class="skill-acc-title">브레이브 멘탈 (군주)</span>
+      <span class="skill-acc-meta"><span class="meta-line">소모: MP : 25</span></span><span class="meta-line"></span></span>
+        <span class="meta-line">획득 방법 : 드랍</span>
+      </span>
+    </span>
+    <span class="skill-acc-chev" aria-hidden="true"></span>
+  </summary>
+  <div class="skill-acc-body"><p class="skill-acc-desc">설명: 지속 시간 동안 일정 확률로 1.5배 대미지 발생.</p></div>
+</details>
+</div>
+</main>
+<script defer src="../../js/main.20260116_16.min.js"></script>
+<script src="../../js/banner_home.js"></script>
+<script src="../../js/top_button.js"></script>
+<script src="../../js/hero_shrink.js"></script>
+
+<script defer src="../../js/skill_accordion.js"></script>
+<script defer src="../../js/menu_dedupe.js"></script>
+<script>
+/* MENU_STICKY_OPEN_INLINE_V26 */
+document.addEventListener('DOMContentLoaded', function(){
+  try{
+    var nav = document.getElementById('main-nav');
+    if(!nav) return;
+
+    function openLi(li){
+      if(!li) return;
+      var a = li.querySelector(':scope > a');
+      li.classList.add('is-open','hovering','sticky-open');
+      if(a) a.setAttribute('aria-expanded','true');
+    }
+
+    // Prefer active link
+    var active = nav.querySelector('a.active');
+    if(active){
+      openLi(active.closest('li.has-sub'));
+      return;
+    }
+
+    // Fallback: match by pathname
+    var path = (location.pathname || '').replace(/\/index\.html$/, '');
+    var links = nav.querySelectorAll('a[href]');
+    var best = null;
+    links.forEach(function(a){
+      var href = a.getAttribute('href') || '';
+      if(!href || href === '#') return;
+      // normalize relative href by stripping ../
+      var clean = href.replace(/^(\.\.\/)+/, '/').replace(/^\./,'');
+      if(path.endsWith(clean.replace(/^\//,'')) || path.indexOf(clean.replace(/^\//,'')) !== -1){
+        best = a;
+      }
+    });
+    if(best){
+      openLi(best.closest('li.has-sub'));
+    }
+  }catch(e){}
+});
+</script>
+</body>
+</html>

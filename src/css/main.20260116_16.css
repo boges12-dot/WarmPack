@@ -301,6 +301,12 @@ main{min-height:60vh}
   color: var(--text);
   opacity: .92;
 }
+#main-nav.nav > li > a{
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
 #main-nav.nav a:hover{
   border-color: var(--line);
   background: rgba(255,255,255,.04);
