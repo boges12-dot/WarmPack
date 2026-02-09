@@ -6,7 +6,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>마안 · </title>
-<meta content="마안 · " name="description">
+<meta content="마안 · " name="description"/>
 <meta content="website" property="og:type"/>
 <meta content="" property="og:site_name"/>
 <meta content="마안 · " property="og:title"/>
@@ -23,10 +23,10 @@
 <link href="../../site.webmanifest" rel="manifest"/>
 <meta content="#ffffff" name="theme-color"/>
 <meta content="https://boges12-dot.github.io/WarmPack/assets/images/og_v3.jpg" property="og:image"/>
-<meta content="https://boges12-dot.github.io/WarmPack/assets/images/og_v3.jpg" property="og:image:secure_url"/>
+<meta content="https://boges12-dot.github.io/WarmPack/assets/images/og_v3.jpg" property="og:image:secure_url">
 <meta content="https://boges12-dot.github.io/WarmPack/assets/images/og_v3.jpg" name="twitter:image"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<link href="../../css/banner_override.css?v=20260126_B2" rel="stylesheet"/>
+<link href="../../css/banner_override.css?v=20260126_B2" rel="stylesheet"/><link href="../../css/item_tiles.css" rel="stylesheet"/>
 <style>
 /* FIX: 스크롤 시 메뉴 떨림 방지 */
 header, nav, .header, .navbar {
@@ -45,7 +45,215 @@ table.skill-table td{
   line-height:1.55 !important;
 }
 </style>
-</meta></head>
+</meta>
+<style id="item-table-force">
+/* ITEM TABLE FORCE: 공통 CSS가 table을 block으로 깨는 문제 방지 */
+.item-page table{ display: table !important; width:100% !important; border-collapse: collapse !important; }
+.item-page thead{ display: table-header-group !important; }
+.item-page tbody{ display: table-row-group !important; }
+.item-page tr{ display: table-row !important; }
+.item-page th, .item-page td{ display: table-cell !important; vertical-align: middle !important; }
+.item-page .item-table-wrap{ overflow:auto; }
+</style>
+<style id="item-table-skin">
+/* ITEM TABLE SKIN: 스샷처럼 카드형 표 스타일 */
+.item-page{ max-width: 1100px; margin: 0 auto; padding: 18px 14px 60px; }
+.item-page h2{ font-size: 22px; font-weight: 900; margin: 8px 0 18px; }
+.item-class-title{ font-size: 18px; font-weight: 900; margin: 18px 0 10px; }
+
+.item-table-wrap{
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.04);
+  overflow: hidden;
+}
+
+.item-table{
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 860px;
+}
+
+.item-table thead th{
+  background: rgba(255,255,255,.06);
+  font-weight: 900;
+  padding: 14px 16px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,.10);
+}
+
+.item-table tbody td{
+  padding: 18px 16px;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  text-align: center;
+  vertical-align: middle;
+}
+
+.item-table tbody tr:last-child td{ border-bottom: 0; }
+
+.item-table td.item-name{ text-align: left; font-weight: 800; }
+.item-table td.item-opt{ opacity: .9; }
+.item-table td.item-method{ font-weight: 800; }
+
+.item-table td.item-img{ width: 84px; }
+.item-table td.item-img .img-ph{
+  width: 52px; height: 52px;
+  border-radius: 14px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.10);
+}
+
+.item-table tbody tr:hover{
+  background: rgba(255,255,255,.03);
+}
+
+/* 모바일: 표는 가로 스크롤로 */
+.item-table-wrap{ overflow:auto; }
+</style>
+<style id="item-toc-style">
+/* TOC CENTER: 제목/바로가기 버튼을 가운데 정렬 (무기/방어구/악세 공통) */
+.item-page-head{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+  margin-bottom: 14px;
+  text-align:center;
+}
+.item-page-head > h2{
+  width:100%;
+}
+.item-toc{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  align-items:center;
+  width: 100%;
+}
+.item-toc-title{ font-weight:900; opacity:.9; }
+.item-toc-group{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+  justify-content:center;
+  width:100%;
+}
+.item-toc-stage{
+  font-size:12px;
+  font-weight:900;
+  padding:4px 8px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.04);
+  opacity:.9;
+}
+.item-toc-links{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+.item-toc-link{
+  display:inline-flex;
+  align-items:center;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.04);
+  font-size: 13px;
+  text-decoration:none;
+  color: inherit;
+}
+.item-toc-link:hover{ background: rgba(255,255,255,.07); }
+</style>
+<style id="item-title-size">
+/* 아이템 페이지 공통 제목 크기 */
+.item-page h2{
+  font-size: 26px;
+  font-weight: 900;
+  margin-top: 28px;
+}
+.item-page h3{
+  font-size: 20px;
+  font-weight: 800;
+  margin-top: 22px;
+}
+</style>
+<style id="item-icon-style">.item-icon{width:52px;height:52px;object-fit:contain;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.10);} </style><style>
+.item-tabbtn{
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.06);
+  color:inherit;
+  padding:8px 10px;
+  border-radius:12px;
+  font-weight:900;
+  font-size:12px;
+  cursor:pointer;
+}
+.item-tabbtn.is-active{
+  border-color:rgba(255,255,255,.35);
+  background:rgba(255,255,255,.14);
+}
+</style>
+<style>
+.tier-tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:10px 0 14px;}
+.tier-tile{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:inherit;border-radius:16px;padding:10px;cursor:pointer;text-align:center}
+.tier-tile.is-active{border-color:rgba(255,255,255,.38);background:rgba(255,255,255,.14);}
+.tier-tile .tile-img{width:100%;aspect-ratio: 1.6/1;border-radius:12px;background:rgba(255,255,255,.10);margin:0 auto 8px;}
+.tier-tile .tile-label{font-weight:900;font-size:12px;opacity:.95}
+</style>
+<style>
+.item-ic{display:flex;align-items:center;justify-content:center;overflow:hidden}
+.item-ic img{width:100%;height:100%;object-fit:contain;display:block}
+.item-ic .ic-fallback{font-weight:900;opacity:.55;font-size:11px;line-height:1;text-align:center;padding:4px}
+</style>
+<style>
+/* item card grid (items pages) */
+.tier-panel{width:100%}
+.item-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px;margin-top:12px;}
+@media (max-width: 860px){.item-grid{grid-template-columns:1fr;}}
+.item-card{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);border-radius:16px;padding:12px;display:flex;gap:12px;align-items:flex-start;}
+.item-ic{width:64px;height:64px;border-radius:14px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.08);flex:0 0 auto;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.item-ic img{width:100%;height:100%;object-fit:contain;display:block}
+.item-meta{min-width:0;flex:1}
+.item-name{font-weight:900;font-size:16px;line-height:1.2;margin:2px 0 8px}
+.item-sub{margin:0 0 8px;opacity:.92;line-height:1.5;font-size:13px}
+</style>
+<style>
+.tier-tile{position:relative;height:auto}
+.tier-tile .tile-content{display:none;margin-top:10px;text-align:left}
+.tier-tile.is-active .tile-content{display:block}
+.tier-tile .tile-content .item-grid{margin-top:0}
+.tier-tile .tile-content .item-card{background:rgba(0,0,0,.15)}
+</style>
+<style>
+/* weapon page: match lord/knight skill accordion layout (single column) */
+.item-weapon-page .skill-grid{grid-template-columns:1fr !important;}
+.item-weapon-page .skill-acc{max-width:920px;margin-left:auto;margin-right:auto;}
+.item-weapon-page h2.page-title,
+.item-weapon-page h3.page-title{max-width:920px;margin-left:auto;margin-right:auto;}
+.item-weapon-page .skill-acc-icon img{display:block;}
+</style>
+<style>
+/* fallback tile styles (ensures layout even if css link fails) */
+.tile-wrap{max-width:1100px;margin-left:auto;margin-right:auto;padding-left:12px;padding-right:12px;box-sizing:border-box;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+@media (max-width:960px){.tile-wrap{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.tile-wrap{grid-template-columns:1fr}}
+.tile{position:relative;display:grid;grid-template-columns:64px 1fr auto;gap:12px;align-items:center;background:#161616;border:1px solid #3a3a3a;border-radius:6px;padding:10px 12px}
+.tile-icon{width:64px;height:64px;background:#0a0a0a;border:1px solid #2c2c2c;border-radius:6px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.tile-icon img{width:100%;height:auto;image-rendering:pixelated}
+.tile-text{min-width:0}
+.tile-title{font-size:15px;font-weight:700;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tile-sub{font-size:12px;color:#b5b5b5;margin-bottom:3px}
+.tile-sub2{font-size:12px;color:#d7d7d7;opacity:.95}
+.tile-btn{padding:7px 10px;background:#222;border:1px solid #3a3a3a;border-radius:6px;color:#fff;font-size:12px;cursor:pointer;white-space:nowrap}
+.tile-detail{grid-column:1/-1;margin-top:8px;padding-top:10px;border-top:1px solid #2c2c2c}
+.kv{display:grid;grid-template-columns:64px 1fr;gap:10px;padding:4px 0;font-size:12px}
+.k{color:#aaa}.v{color:#eee;line-height:1.4}
+.ui-badge{position:fixed;right:12px;bottom:12px;padding:6px 10px;border-radius:999px;border:1px solid #444;background:rgba(0,0,0,.5);font-size:12px;color:#fff;z-index:9999}
+</style>
+</head>
 <body><section class="hero-main"><a aria-label="홈으로 이동" class="hero-home-link" href="/WarmPack/"></a></section><nav aria-label="메인 메뉴" class="main-nav-bar">
 <ul class="nav" id="main-nav">
 <li class="home-link"><a aria-label="홈" class="nav-home" href="/WarmPack/"><svg aria-hidden="true" class="icon-home" focusable="false" height="18" viewbox="0 0 24 24" width="18"><path d="M12 3 2.5 11.2a1 1 0 0 0 .7 1.8H5v7a1 1 0 0 0 1 1h4v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5h4a1 1 0 0 0 1-1v-7h1.8a1 1 0 0 0 .7-1.8L12 3z"></path></svg></a></li>
@@ -125,33 +333,127 @@ table.skill-table td{
 </ul>
 </nav>
 <header class="site-header">
-
 </header>
-
 <main class="site-main">
-<div id="top"></div>
-<a class="skip-link" href="#main-content">본문 바로가기</a>
-<main id="main-content">
-<section class="page-head">
-<div class="container">
-<h1 class="page-title">(임시) 백업 서버</h1>
-<p class="page-sub">아이템 하위: 마안 페이지입니다.</p>
+<section class="skill-page item-weapon-page item-maan-page">
+  <h1 class="page-title">마안</h1>
+  <section class="tile-wrap">
+    <article class="tile">
+<div class="tile-icon"><img alt="화룡의 마안" height="90" src="../../assets/maan/화룡의 마안.png" width="80" onerror="this.style.visibility='hidden';"/></div>
+<div class="tile-text">
+<div class="tile-title">화룡의 마안</div>
 </div>
-</section>
-<section class="page-body">
-<div class="container">
-<div class="card section">
-<h2>내용</h2>
-<p>여기에 마안 콘텐츠를 채우면 됩니다.</p>
+<button aria-expanded="false" class="tile-btn js-detail-toggle" type="button" onclick="return window.__tileToggle(this);">상세</button>
+<div class="tile-detail" hidden="">
+<div class="item-detail"><ul class="item-spec">
+<li class="spec-extra spec-opt"><span>옵션</span><em>일정 확률로 근거리 데미지 +2<br>스턴 내성 +5%</em></li>
+<li class="spec-extra spec-acq"><span>획득</span><em>마안제작 NPC<br>화룡의 비늘 10개 + 30만 아데나</em></li>
+</ul></div>
 </div>
+</article>
+    <article class="tile">
+<div class="tile-icon"><img alt="풍룡의 마안" height="90" src="../../assets/maan/풍룡의 마안.png" width="80" onerror="this.style.visibility='hidden';"/></div>
+<div class="tile-text">
+<div class="tile-title">풍룡의 마안</div>
 </div>
+<button aria-expanded="false" class="tile-btn js-detail-toggle" type="button" onclick="return window.__tileToggle(this);">상세</button>
+<div class="tile-detail" hidden="">
+<div class="item-detail"><ul class="item-spec">
+<li class="spec-extra spec-opt"><span>옵션</span><em>원거리 치명타 +2%<br>ER +10</em></li>
+<li class="spec-extra spec-acq"><span>획득</span><em>마안제작 NPC<br>풍룡의 비늘 10개 + 30만 아데나</em></li>
+</ul></div>
+</div>
+</article>
+    <article class="tile">
+<div class="tile-icon"><img alt="수룡의 마안" height="90" src="../../assets/maan/수룡의 마안.png" width="80" onerror="this.style.visibility='hidden';"/></div>
+<div class="tile-text">
+<div class="tile-title">수룡의 마안</div>
+</div>
+<button aria-expanded="false" class="tile-btn js-detail-toggle" type="button" onclick="return window.__tileToggle(this);">상세</button>
+<div class="tile-detail" hidden="">
+<div class="item-detail"><ul class="item-spec">
+<li class="spec-extra spec-opt"><span>옵션</span><em>일정 확률로 받는 마법 데미지 50% 감소<br>정령 내성 +5%</em></li>
+<li class="spec-extra spec-acq"><span>획득</span><em>마안제작 NPC<br>수룡의 비늘 10개 + 30만 아데나</em></li>
+</ul></div>
+</div>
+</article>
+    <article class="tile">
+<div class="tile-icon"><img alt="지룡의 마안" height="90" src="../../assets/maan/지룡의 마안.png" width="80" onerror="this.style.visibility='hidden';"/></div>
+<div class="tile-text">
+<div class="tile-title">지룡의 마안</div>
+</div>
+<button aria-expanded="false" class="tile-btn js-detail-toggle" type="button" onclick="return window.__tileToggle(this);">상세</button>
+<div class="tile-detail" hidden="">
+<div class="item-detail"><ul class="item-spec">
+<li class="spec-extra spec-opt"><span>옵션</span><em>일정 확률로 물리 공격에 대한 회피 상승</em></li>
+<li class="spec-extra spec-acq"><span>획득</span><em>마안제작 NPC<br>지룡의 비늘 10개 + 30만 아데나</em></li>
+</ul></div>
+</div>
+</article>
+    <article class="tile">
+<div class="tile-icon"><img alt="탄생의 마안" height="90" src="../../assets/maan/탄생의 마안.png" width="80" onerror="this.style.visibility='hidden';"/></div>
+<div class="tile-text">
+<div class="tile-title">탄생의 마안</div>
+</div>
+<button aria-expanded="false" class="tile-btn js-detail-toggle" type="button" onclick="return window.__tileToggle(this);">상세</button>
+<div class="tile-detail" hidden="">
+<div class="item-detail"><ul class="item-spec">
+<li class="spec-extra spec-opt"><span>옵션</span><em>일정 확률로 물리 회피 상승<br>받는 마법 데미지 50% 감소<br>정령 내성 +5%</em></li>
+<li class="spec-extra spec-acq"><span>획득</span><em>마안제작 NPC<br>지룡의 마안 + 수룡의 마안 + 100만 아데나<br>성공확률 30%</em></li>
+</ul></div>
+</div>
+</article>
+    <article class="tile">
+<div class="tile-icon"><img alt="형상의 마안" height="90" src="../../assets/maan/형상의 마안.png" width="80" onerror="this.style.visibility='hidden';"/></div>
+<div class="tile-text">
+<div class="tile-title">형상의 마안</div>
+</div>
+<button aria-expanded="false" class="tile-btn js-detail-toggle" type="button" onclick="return window.__tileToggle(this);">상세</button>
+<div class="tile-detail" hidden="">
+<div class="item-detail"><ul class="item-spec">
+<li class="spec-extra spec-opt"><span>옵션</span><em>일정 확률로 물리 회피 상승<br>받는 마법 데미지 50% 감소<br>마법 치명타 +2%<br>정령 내성 +5%, ER +10</em></li>
+<li class="spec-extra spec-acq"><span>획득</span><em>마안제작 NPC<br>탄생의 마안 + 풍룡의 마안 + 300만 아데나<br>성공확률 20%</em></li>
+</ul></div>
+</div>
+</article>
+    <article class="tile">
+<div class="tile-icon"><img alt="생명의 마안" height="90" src="../../assets/maan/생명의 마안.png" width="80" onerror="this.style.visibility='hidden';"/></div>
+<div class="tile-text">
+<div class="tile-title">생명의 마안</div>
+</div>
+<button aria-expanded="false" class="tile-btn js-detail-toggle" type="button" onclick="return window.__tileToggle(this);">상세</button>
+<div class="tile-detail" hidden="">
+<div class="item-detail"><ul class="item-spec">
+<li class="spec-extra spec-opt"><span>옵션</span><em>일정 확률로 물리 회피 상승<br>받는 마법 데미지 50% 감소<br>근거리/원거리 데미지 +2<br>마법 치명타 +2%, ER +10<br>스턴/정령 내성 +5%</em></li>
+<li class="spec-extra spec-acq"><span>획득</span><em>마안제작 NPC<br>형상의 마안 + 화룡의 마안 + 500만 아데나<br>성공확률 5%</em></li>
+</ul></div>
+</div>
+</article>
+  </section>
 </section>
 </main>
-<script defer="" src="../../js/main.20260116_16.min.js"></script>
-<script src="../../js/banner_home.js"></script>
-<script src="../../js/top_button.js"></script>
-<script src="../../js/hero_shrink.js"></script>
-</main><script>
+<script>
+(function(){
+  function init(scopeEl){
+    var btns = scopeEl.querySelectorAll('.tier-tile.item-tabbtn');
+    if(!btns.length) return;
+    function activate(btn){
+      btns.forEach(function(b){ b.classList.toggle('is-active', b===btn); });
+    }
+    btns.forEach(function(b){
+      b.addEventListener('click', function(e){
+        e.preventDefault();
+        activate(b);
+      });
+    });
+    activate(btns[0]);
+  }
+  document.querySelectorAll('.tier-tiles[data-scope]').forEach(init);
+})();
+</script>
+<script src="../../js/item_tile_toggle.js"></script>
+<script src="../../js/main.20260116_16.min.js"></script>
+<script>
 /* MENU_STICKY_OPEN_INLINE_V26 */
 document.addEventListener('DOMContentLoaded', function(){
   try{
@@ -191,5 +493,60 @@ document.addEventListener('DOMContentLoaded', function(){
   }catch(e){}
 });
 </script>
+<style id="SOLID_TILE_BG_FORCE">
+/* ===== SOLID TILE BG (카드 배경 완전 통일) ===== */
+.tile{
+  background: #0f141c !important;
+  background-image: none !important;
+}
+.tile::before,
+.tile::after{
+  content: none !important;
+  display: none !important;
+}
+.tile .tile-body,
+.tile .tile-content,
+.tile .tile-inner{
+  background: transparent !important;
+  background-image: none !important;
+}
+</style>
+
+<script>
+
+/* TILE_DETAIL_TOGGLE_ULTRA_FIX */
+(function () {
+  'use strict';
+
+  function toggle(btn){
+    var tile = btn.closest('.tile');
+    if(!tile) return false;
+    var detail = tile.querySelector('.tile-detail');
+    if(!detail) return false;
+
+    var expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+    detail.hidden = expanded;
+    btn.textContent = expanded ? '상세' : '접기';
+    return false;
+  }
+
+  window.__tileToggle = function(btn){
+    try { return toggle(btn); } catch(e){ return false; }
+  };
+
+  // Capture-phase listener to beat other scripts/overlays
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('.js-detail-toggle, .tile-btn');
+    if(!btn) return;
+    e.preventDefault();
+    e.stopPropagation();
+    if(e.stopImmediatePropagation) e.stopImmediatePropagation();
+    toggle(btn);
+  }, true);
+})();
+
+</script>
+
 </body>
 </html>
