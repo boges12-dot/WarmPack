@@ -101,7 +101,7 @@ article.tile:not(.is-open) .tile-detail{
 
 .tile-detail .kv{
   display:grid;
-  grid-template-columns: 84px 1fr;
+  grid-template-columns: 70px 1fr;
   gap:10px;
   padding:6px 0;
   font-size:12px;
@@ -166,7 +166,7 @@ article.tile:not(.is-open) .tile-detail{
 }
 .tile-extra-row{
   display: grid;
-  grid-template-columns: 84px 1fr;
+  grid-template-columns: 70px 1fr;
   gap: 10px;
   padding: 8px 0;
 }
@@ -225,15 +225,13 @@ article.tile:not(.is-open) .tile-detail{
 }
 .tile-detail .item-spec .spec-row{
   display:grid;
-  grid-template-columns: 84px 1fr;
+  grid-template-columns: 70px 1fr;
   gap:10px;
   padding:6px 0;
   font-size:12px;
 }
 .tile-detail .item-spec .spec-row span{
   opacity:.75;
-  text-align:right;
-  padding-top:2px;
 }
 .tile-detail .item-spec .spec-row em{
   font-style:normal;
@@ -291,11 +289,4 @@ article.tile:not(.is-open) .tile-detail{
 }
 .tile-detail .item-spec .spec-row em .opt-line:last-child{
   border-bottom:none;
-}
-
-
-/* Emphasize signed numeric modifiers in option values */
-.opt-num{
-  font-weight:700;
-  letter-spacing:0.2px;
 }
