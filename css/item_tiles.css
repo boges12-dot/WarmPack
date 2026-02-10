@@ -202,3 +202,33 @@
   line-height: 1.35;
   opacity: 0.95;
 }
+
+
+/* PATCH: 무기 카드 - 이미지 상단 무기명 표시 + 옵션/획득 하단 고정 */
+.item-weapon-page .tile{ align-items:stretch; }
+.item-weapon-page .tile-text{
+  display:flex;
+  flex-direction:column;
+  min-height:64px;
+}
+.item-weapon-page .tile-title{ display:none !important; }
+
+.item-weapon-page .tile-icon{ position:relative; }
+.item-weapon-page .tile-img-name{
+  position:absolute;
+  top:4px;
+  left:4px;
+  right:4px;
+  font-size:12px;
+  font-weight:900;
+  text-align:center;
+  line-height:1.2;
+  padding:3px 6px;
+  border-radius:8px;
+  background: rgba(0,0,0,.55);
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.25);
+  pointer-events:none;
+}
+
+.item-weapon-page .tile-bottom{ margin-top:auto; }
