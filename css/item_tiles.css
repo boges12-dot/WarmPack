@@ -21,7 +21,7 @@
 .tile{
   position:relative;
   display:grid;
-  grid-template-columns: 64px 1fr auto;
+  grid-template-columns: 64px 1fr;
   gap:12px;
   align-items:center;
 
@@ -69,9 +69,7 @@
 }
 
 .tile-btn{
-  align-self: center;
-  justify-self: end;
-  margin-top:0;
+  margin-top:10px;
   padding:7px 10px;
   background: rgba(255,255,255,.06);
   border: 1px solid rgba(255,255,255,.14);
@@ -89,14 +87,6 @@
   margin-top:10px;
   padding-top:10px;
   border-top:1px solid rgba(255,255,255,.10);
-  overflow: hidden;
-  max-height: none;
-  transition: max-height 0.25s ease, opacity 0.20s ease, transform 0.20s ease;
-}
-
-/* Closed state handled by [hidden] + inline styles, but keep safe defaults */
-article.tile:not(.is-open) .tile-detail{
-  opacity: 0;
 }
 
 .tile-detail .kv{
@@ -130,10 +120,7 @@ article.tile:not(.is-open) .tile-detail{
 
 /* TILE_DETAIL_TOGGLE_ULTRA_FIX */
 .tile{position:relative;}
-.tile-btn{
-  margin-top: 0;
-  align-self: center;
-  justify-self: end;position:relative;z-index:9999;pointer-events:auto;}
+.tile-btn{position:relative;z-index:9999;pointer-events:auto;}
 .tile-detail{position:relative;z-index:1;}
 
 
@@ -193,7 +180,7 @@ article.tile:not(.is-open) .tile-detail{
 
 .tile-summary-row{
   display: grid;
-  grid-template-columns: 64px 1fr auto;
+  grid-template-columns: 64px 1fr;
   gap: 10px;
   padding: 10px 12px;
   align-items: start;
@@ -214,79 +201,4 @@ article.tile:not(.is-open) .tile-detail{
   font-size: 13px;
   line-height: 1.35;
   opacity: 0.95;
-}
-
-
-/* Detail list (옵션/획득/착용) */
-.tile-detail .item-spec{
-  list-style:none;
-  margin:0;
-  padding:0;
-}
-.tile-detail .item-spec .spec-row{
-  display:grid;
-  grid-template-columns: 70px 1fr;
-  gap:10px;
-  padding:6px 0;
-  font-size:12px;
-}
-.tile-detail .item-spec .spec-row span{
-  opacity:.75;
-}
-.tile-detail .item-spec .spec-row em{
-  font-style:normal;
-  line-height:1.4;
-}
-
-
-/* Open state highlight */
-.tile.is-open{
-  border-color: rgba(255,255,255,.28);
-  box-shadow: 0 0 0 1px rgba(255,255,255,.10), inset 0 0 0 1px rgba(0,0,0,.35);
-}
-.tile.is-open .tile-btn{
-  background: rgba(255,255,255,.10);
-  border-color: rgba(255,255,255,.22);
-}
-
-/* 옵션 줄바꿈(세로 표기) */
-.tile-detail .item-spec .spec-row em.spec-multiline{
-  line-height: 1.5;
-}
-.tile-detail .item-spec .spec-row em .opt-line{
-  display:flex;
-  flex-wrap:wrap;
-  gap: 8px;
-  padding: 3px 0;
-  border-bottom: 1px solid rgba(255,255,255,.06);
-}
-.item-spec .spec-row em .opt-key{
-  font-weight: 700;
-}
-.item-spec .spec-row em .opt-key.is-stat{
-  display:inline-flex;
-  align-items:center;
-  padding: 1px 7px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.18);
-  background: rgba(255,255,255,.06);
-  letter-spacing: .2px;
-}
-.item-spec .spec-row em .opt-val{
-  opacity: .95;
-}
-
-/* 획득 줄바꿈(세로 표기) */
-.tile-detail .item-spec .spec-row em .get-line{
-  padding: 3px 0;
-  border-bottom: 1px solid rgba(255,255,255,.06);
-}
-.tile-detail .item-spec .spec-row em .get-line:last-child{
-  border-bottom: none;
-}
-.item-spec .spec-row em .opt-line:last-child{
-  border-bottom: none;
-}
-.tile-detail .item-spec .spec-row em .opt-line:last-child{
-  border-bottom:none;
 }
