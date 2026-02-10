@@ -577,3 +577,7 @@ html{ scroll-behavior: smooth; }
   margin-right: auto;
 }
 
+
+
+/* PATCH: 텍스쳐(상단 컨텐츠) 가려짐 방지 - 카드/컨텐츠 섹션을 아래로 내림 */
+.site-main{ padding-top: 18px; }
