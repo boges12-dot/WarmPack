@@ -43,34 +43,14 @@
   }
 
   function applyWeaponCardRule(tile) {
-    // 1) 카드 본문(.tile-text) 숨김 -> 이미지+무기명만 노출
-    var textCol = tile.querySelector(".tile-text");
-    if (textCol) textCol.style.display = 'block';
+    // 카드에는 이미지 + 무기명만(타이틀) 유지, 상세에는 착용/옵션/획득이 이미 마크업되어 있음
+    var btn = tile.querySelector("button.tile-btn");
+    if (btn) btn.style.display = "none";
 
-    // 2) 옵션/획득 값을 기존 카드 요약에서 읽어 상세로 이동
-    //    (기존 마크업: .tile-bottom > .tile-sub2 2개 라인)
-    var opt = "";
-    var acq = "";
-
-    var bottom = tile.querySelector(".tile-bottom");
-    if (bottom) {
-      var lines = bottom.querySelectorAll(".tile-sub2");
-      lines.forEach(function (el) {
-        var t = normalizeText(el.textContent);
-        if (t.indexOf("옵션") === 0) opt = stripLabel(t, "옵션");
-        if (t.indexOf("획득") === 0) acq = stripLabel(t, "획득");
-      });
-      // 카드 안에서는 더 이상 필요 없으니 제거 (카드가 숨김이라도 중복 방지)
-      bottom.remove();
-    }
-
-    // 3) 상세 패널에 옵션/획득을 반드시 표시
-    var detail = tile.querySelector(".tile-detail");
-    if (detail) {
-      // detail 내부에 ul.item-spec이 이미 있음
-      var ul = detail.querySelector("ul.item-spec");
-      ensureSpecRow(ul, "옵션", opt);
-      ensureSpecRow(ul, "획득", acq);
+    var panel = tile.querySelector(".tile-detail");
+    if (panel) {
+      panel.hidden = false; // 항상 표시
+      panel.removeAttribute("hidden");
     }
   }
 
@@ -89,7 +69,7 @@
       if (!panel) return;
 
       // 초기: 닫힘
-      panel.hidden = false;
+      panel.hidden = true;
       btn.setAttribute("aria-expanded", "false");
 
       btn.addEventListener("click", function (e) {

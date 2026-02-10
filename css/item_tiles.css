@@ -210,32 +210,3 @@
 .item-weapon-page .tile-icon img{display:block; margin:0 auto;}
 .item-weapon-page .tile-btn{justify-self:center; margin-top:8px;}
 .item-weapon-page .tile-detail{grid-column:1 / -1; width:100%; margin-top:10px;}
-
-
-/* PATCH: 옵션/획득/착용 상세 정렬(줄 맞춤) */
-.item-detail .item-spec{
-  list-style:none;
-  margin: 12px 0 0 0;
-  padding: 0;
-}
-.item-detail .item-spec li{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap: 12px;
-  padding: 10px 0;
-  border-top: 1px solid rgba(255,255,255,0.08);
-}
-.item-detail .item-spec li:first-child{
-  border-top: none;
-}
-.item-detail .item-spec span{
-  opacity: .85;
-  white-space: nowrap;
-}
-.item-detail .item-spec em{
-  font-style: normal;
-  text-align: right;
-  white-space: nowrap;
-}
-
