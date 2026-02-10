@@ -625,3 +625,30 @@ html{ scroll-behavior: smooth; }
 
 .item-weapon-page .item-spec .spec-row{display:flex !important; visibility:visible !important; opacity:1 !important; height:auto !important; max-height:none !important;}
 .item-weapon-page .item-spec .spec-row[hidden]{display:flex !important;}
+
+
+/* PATCH: 무기 상세(옵션/획득) 방어구처럼 줄맞춤 */
+.item-weapon-page .tile-detail{display:block !important;}
+.item-weapon-page .item-spec{list-style:none; padding:0; margin:18px 0 0;}
+.item-weapon-page .item-spec li{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  padding:12px 0;
+  border-top:1px solid rgba(255,255,255,.08);
+}
+.item-weapon-page .item-spec li:first-child{border-top:0;}
+.item-weapon-page .item-spec li span{
+  width:72px;
+  opacity:.85;
+  white-space:nowrap;
+}
+.item-weapon-page .item-spec li em{
+  flex:1;
+  text-align:right;
+  font-style:normal;
+  font-weight:600;
+}
+.item-weapon-page .item-spec li span:empty{visibility:hidden;}
+
