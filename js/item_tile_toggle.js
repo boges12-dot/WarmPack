@@ -45,7 +45,7 @@
   function applyWeaponCardRule(tile) {
     // 1) 카드 본문(.tile-text) 숨김 -> 이미지+무기명만 노출
     var textCol = tile.querySelector(".tile-text");
-    if (textCol) textCol.style.display = "none";
+    if (textCol) textCol.style.display = 'block';
 
     // 2) 옵션/획득 값을 기존 카드 요약에서 읽어 상세로 이동
     //    (기존 마크업: .tile-bottom > .tile-sub2 2개 라인)
@@ -88,13 +88,17 @@
       var panel = tile.querySelector(".tile-detail");
       if (!panel) return;
 
-      // 초기: 열림(상시 표시)
+      // 초기: 닫힘
       panel.hidden = false;
-      btn.setAttribute("aria-expanded", "true");
+      btn.setAttribute("aria-expanded", "false");
 
-      // 토글 버튼은 숨김 (상세 패널을 항상 보여주기 위함)
-      btn.style.display = "none";
-});
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        var isOpen = btn.getAttribute("aria-expanded") === "true";
+        btn.setAttribute("aria-expanded", String(!isOpen));
+        panel.hidden = isOpen;
+      });
+    });
   }
 
   if (document.readyState === "loading") {

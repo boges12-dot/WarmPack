@@ -577,3 +577,14 @@ html{ scroll-behavior: smooth; }
   margin-right: auto;
 }
 
+
+/* PATCH: 카드 섹션 옵션/획득/착용 상시 표시 */
+.tile-detail{display:block !important; max-height:none !important; height:auto !important; opacity:1 !important; visibility:visible !important;}
+.tile-detail[hidden]{display:block !important;}
+.tile-detail.is-collapsed{display:block !important;}
+/* 상세 토글 버튼이 있으면 숨김(선택) */
+.tile .btn-detail, .tile .detail-toggle, .tile .toggle-detail{display:none !important;}
+/* 무기명은 이미지 영역에서만 보이도록 상세 영역의 중복 타이틀 숨김(있을 경우) */
+.tile-detail .weapon-name, .tile-detail .item-title, .tile-detail h3, .tile-detail h4{margin-top:0;}
+.tile-detail .weapon-name, .tile-detail .item-title{display:none !important;}
+
