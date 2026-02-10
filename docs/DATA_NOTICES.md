@@ -28,13 +28,13 @@
 ```
 
 ## 페이지
-- 전체 목록: `pages/k_0b1a0f2e49/index.html_d4fd36f6f8
+- 전체 목록: `pages/공지/index.html`
 - 카테고리별 목록: 
-  - `pages/k_0b1a0f2e49/.html_669bd31827
-  - `pages/k_0b1a0f2e49/.html_2585bc7ea6
-  - `pages/k_0b1a0f2e49/.html_72f10274fa
-  - `pages/k_0b1a0f2e49/.html_1ada3171b8
-- 상세: `pages/k_0b1a0f2e49/notice_view.html_id_ID_f720dca049
+  - `pages/공지/서버규정.html`
+  - `pages/공지/서버점검.html`
+  - `pages/공지/업데이트.html`
+  - `pages/공지/이벤트.html`
+- 상세: `pages/공지/notice_view.html?id=공지ID`
 
 카테고리 페이지는 HTML 안의 예: `data-category="업데이트"` 값으로 JSON을 자동 필터링합니다.
 

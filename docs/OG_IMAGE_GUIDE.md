@@ -1,6 +1,6 @@
 # OG 이미지(공유 썸네일) 커스터마이즈 가이드
 
-이 사이트는 기본 공유 썸네일로 `assets/images/og-default.png_f0fd6463dc 사용합니다.
+이 사이트는 기본 공유 썸네일로 `assets/images/og-default.png`를 사용합니다.
 
 ## 파일 위치
 - 기본 OG 이미지: `site/assets/images/og-default.png`

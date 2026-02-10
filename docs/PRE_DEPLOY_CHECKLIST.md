@@ -18,7 +18,7 @@
   - 404 page exists and links back to home
 
 ## 4) Deploy
-- Apache: `.htaccess` is included (optional caching/gzip)
+- Apache: `htaccess_8052c42ab3` is included (optional caching/gzip)
 - Netlify: `_headers` is included (optional caching)
 - (선택) STEP18 보안 헤더/CSP 적용: `docs/SECURITY_HEADERS.md` 참고
 

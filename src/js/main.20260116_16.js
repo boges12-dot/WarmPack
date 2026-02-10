@@ -34,7 +34,7 @@
   }
 
   function markActive(){
-    // Active based on pathname; supports both /pages/k_af1729c2ba and /pages/k_af1729c2ba/index.html
+    // Active based on pathname; supports both /pages/섹션/ and /pages/섹션/index.html
     var path = location.pathname.replace(/\/index\.html$/, '/');
     var links = qsa('#main-nav a, #main-nav .submenu a', document);
 
