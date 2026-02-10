@@ -41,7 +41,7 @@
 
     // 옵션/획득은 '/' 구분자를 줄바꿈(세로)로 표시
     if((key === "옵션" || key === "획득") && val){
-      var parts = String(val).split("/").map(function(v){ return norm(v); }).filter(function(v){ return v; });
+      var parts = String(val).split(/\s+\/\s+/).map(function(v){ return norm(v); }).filter(function(v){ return v; });
       if(parts.length){
         em.className = "spec-multiline";
 
