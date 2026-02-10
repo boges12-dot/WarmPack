@@ -607,3 +607,20 @@ html{ scroll-behavior: smooth; }
   font-weight:600;
 }
 .item-weapon-page .item-spec .spec-row span:empty{visibility:hidden;}
+
+/* CLEAN PATCH: spec-row layout (옵션/획득 줄맞춤) */
+.item-weapon-page .tile-detail{display:block !important; max-height:none !important; height:auto !important; opacity:1 !important; visibility:visible !important;}
+.item-weapon-page .tile-detail[hidden]{display:block !important;}
+.item-weapon-page .item-spec{list-style:none; padding:0; margin:18px 0 0;}
+.item-weapon-page .item-spec .spec-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  padding:12px 0;
+  border-top:1px solid rgba(255,255,255,.08);
+}
+.item-weapon-page .item-spec .spec-row:first-child{border-top:0;}
+.item-weapon-page .item-spec .spec-row span{width:72px; opacity:.85; white-space:nowrap;}
+.item-weapon-page .item-spec .spec-row em{flex:1; text-align:left; font-style:normal; font-weight:600;}
+.item-weapon-page .item-spec .spec-row span:empty{visibility:hidden;}
