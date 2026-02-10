@@ -13,7 +13,7 @@ So we can use a **strict** Content Security Policy (CSP) and a small set of base
 
 These are applied via:
 - `site/_headers` (Netlify-style)
-- `site/htaccess_8052c42ab3` (Apache)
+- `site/.htaccess` (Apache)
 
 ## CSP notes
 
@@ -31,4 +31,4 @@ HSTS is **commented out** by default. Only enable it when:
 
 Then uncomment one of:
 - Netlify `_headers`: `Strict-Transport-Security: max-age=31536000; includeSubDomains; preload`
-- Apache `htaccess_8052c42ab3`: `Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"`
+- Apache `.htaccess`: `Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"`

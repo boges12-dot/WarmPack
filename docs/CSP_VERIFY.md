@@ -43,5 +43,5 @@ Add domains to `font-src` and (if needed) `style-src`:
 4. Re-check until Console is clean.
 
 ## 5) Notes
-- CSP rules are applied via `/_headers` (Netlify-like) and `htaccess_8052c42ab3` (Apache).
+- CSP rules are applied via `/_headers` (Netlify-like) and `.htaccess` (Apache).
 - Keep `object-src 'none'` and `frame-ancestors 'none'` unless you have a specific embed requirement.

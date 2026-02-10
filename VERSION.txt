@@ -11,7 +11,7 @@ STEP9: 2026-01-16 - Add favicon.ico, generated icons, and site.webmanifest; inje
 
 STEP10: Added canonical + Open Graph + Twitter meta tags across HTML pages (placeholders use YOUR_DOMAIN_HERE).
 
-STEP11: 404.html + optional caching headers (htaccess_8052c42ab3/_headers) + deploy doc added
+STEP11: 404.html + optional caching headers (.htaccess/_headers) + deploy doc added
 STEP12: Accessibility baseline (skip-link, alt, focus-visible)
 STEP13: HTML 기본 메타/보안(rel noopener) 정리 (2026-01-16)
 
@@ -22,7 +22,7 @@ STEP15: 2026-01-16 - Pre-deploy validation: add tools/preflight_check.py + docs/
 STEP16: Added minified CSS/JS (.min) and updated HTML references.
 STEP16 -> STEP17: Added SRI integrity attributes for local minified CSS/JS + generated assets_hashes.json
 
-STEP18: 2026-01-16 - Add baseline security headers + strict CSP in _headers/htaccess_8052c42ab3; added docs/SECURITY_HEADERS.md
+STEP18: 2026-01-16 - Add baseline security headers + strict CSP in _headers/.htaccess; added docs/SECURITY_HEADERS.md
 STEP19  (2026-01-17)  CSP verify guide + pre-deploy checklist hardening
 STEP20  (2026-01-17)  Tooling improvement: fixed preflight_check.py (absolute-path aware) + docs/STEP20_IMPROVEMENTS.md
 STEP21  (2026-01-17)  Fix Korean (UTF-8) folder/file names under /pages to prevent broken links on Linux/GitHub Pages
