@@ -578,7 +578,6 @@ html{ scroll-behavior: smooth; }
 }
 
 
-/* PATCH: 무기 카드 옵션/획득 줄맞춤(예시 이미지) */
 .item-weapon-page .tile-btn{display:none !important;}
 .item-weapon-page .tile-sub,
 .item-weapon-page .tile-sub2{display:none !important;}
@@ -608,7 +607,6 @@ html{ scroll-behavior: smooth; }
 }
 .item-weapon-page .item-spec .spec-row span:empty{visibility:hidden;}
 
-/* CLEAN PATCH: spec-row layout (옵션/획득 줄맞춤) */
 .item-weapon-page .tile-detail{display:block !important; max-height:none !important; height:auto !important; opacity:1 !important; visibility:visible !important;}
 .item-weapon-page .tile-detail[hidden]{display:block !important;}
 .item-weapon-page .item-spec{list-style:none; padding:0; margin:18px 0 0;}
@@ -624,3 +622,6 @@ html{ scroll-behavior: smooth; }
 .item-weapon-page .item-spec .spec-row span{width:72px; opacity:.85; white-space:nowrap;}
 .item-weapon-page .item-spec .spec-row em{flex:1; text-align:left; font-style:normal; font-weight:600;}
 .item-weapon-page .item-spec .spec-row span:empty{visibility:hidden;}
+
+.item-weapon-page .item-spec .spec-row{display:flex !important; visibility:visible !important; opacity:1 !important; height:auto !important; max-height:none !important;}
+.item-weapon-page .item-spec .spec-row[hidden]{display:flex !important;}
