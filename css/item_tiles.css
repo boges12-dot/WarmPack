@@ -202,11 +202,3 @@
   line-height: 1.35;
   opacity: 0.95;
 }
-
-/* PATCH: weapon cards show only image+name; details in '상세' */
-.item-weapon-page .tile-text{display:none;}
-.item-weapon-page .tile{grid-template-columns: 1fr; justify-items:center; text-align:center;}
-.item-weapon-page .tile-icon{width:auto; height:auto; border:none; background:transparent;}
-.item-weapon-page .tile-icon img{display:block; margin:0 auto;}
-.item-weapon-page .tile-btn{justify-self:center; margin-top:8px;}
-.item-weapon-page .tile-detail{grid-column:1 / -1; width:100%; margin-top:10px;}
