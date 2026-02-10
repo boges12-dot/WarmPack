@@ -581,3 +581,18 @@ html{ scroll-behavior: smooth; }
 
 /* PATCH: 텍스쳐(상단 컨텐츠) 가려짐 방지 - 카드/컨텐츠 섹션을 아래로 내림 */
 .site-main{ padding-top: 18px; }
+
+/* PATCH: 하위 메뉴(서브메뉴) 가로형 + 100% 폭 */
+.main-nav-bar #main-nav.nav .submenu{
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+  width: 100% !important;
+  left: 0 !important;
+  right: 0 !important;
+}
+.main-nav-bar #main-nav.nav .submenu li a{
+  width: auto !important;
+  justify-content: center !important;
+}
