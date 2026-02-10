@@ -36,6 +36,17 @@ header, nav, .header, .navbar {
 body {
   overflow-anchor: none;
 }
+
+
+/* Open state highlight */
+.tile.is-open{
+  border-color: rgba(255,255,255,.28);
+  box-shadow: 0 0 0 1px rgba(255,255,255,.10), inset 0 0 0 1px rgba(0,0,0,.35);
+}
+.tile.is-open .tile-btn{
+  background: rgba(255,255,255,.10);
+  border-color: rgba(255,255,255,.22);
+}
 </style>
 <style>
 /* FONT FIX: 스킬 표 글자 크기 조정 */
@@ -43,6 +54,17 @@ table.skill-table th,
 table.skill-table td{
   font-size:14px !important;
   line-height:1.55 !important;
+}
+
+
+/* Open state highlight */
+.tile.is-open{
+  border-color: rgba(255,255,255,.28);
+  box-shadow: 0 0 0 1px rgba(255,255,255,.10), inset 0 0 0 1px rgba(0,0,0,.35);
+}
+.tile.is-open .tile-btn{
+  background: rgba(255,255,255,.10);
+  border-color: rgba(255,255,255,.22);
 }
 </style>
 </meta>
@@ -195,6 +217,17 @@ table.skill-table td{
   border-color:rgba(255,255,255,.35);
   background:rgba(255,255,255,.14);
 }
+
+
+/* Open state highlight */
+.tile.is-open{
+  border-color: rgba(255,255,255,.28);
+  box-shadow: 0 0 0 1px rgba(255,255,255,.10), inset 0 0 0 1px rgba(0,0,0,.35);
+}
+.tile.is-open .tile-btn{
+  background: rgba(255,255,255,.10);
+  border-color: rgba(255,255,255,.22);
+}
 </style>
 <style>
 .tier-tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:10px 0 14px;}
@@ -202,11 +235,33 @@ table.skill-table td{
 .tier-tile.is-active{border-color:rgba(255,255,255,.38);background:rgba(255,255,255,.14);}
 .tier-tile .tile-img{width:100%;aspect-ratio: 1.6/1;border-radius:12px;background:rgba(255,255,255,.10);margin:0 auto 8px;}
 .tier-tile .tile-label{font-weight:900;font-size:12px;opacity:.95}
+
+
+/* Open state highlight */
+.tile.is-open{
+  border-color: rgba(255,255,255,.28);
+  box-shadow: 0 0 0 1px rgba(255,255,255,.10), inset 0 0 0 1px rgba(0,0,0,.35);
+}
+.tile.is-open .tile-btn{
+  background: rgba(255,255,255,.10);
+  border-color: rgba(255,255,255,.22);
+}
 </style>
 <style>
 .item-ic{display:flex;align-items:center;justify-content:center;overflow:hidden}
 .item-ic img{width:100%;height:100%;object-fit:contain;display:block}
 .item-ic .ic-fallback{font-weight:900;opacity:.55;font-size:11px;line-height:1;text-align:center;padding:4px}
+
+
+/* Open state highlight */
+.tile.is-open{
+  border-color: rgba(255,255,255,.28);
+  box-shadow: 0 0 0 1px rgba(255,255,255,.10), inset 0 0 0 1px rgba(0,0,0,.35);
+}
+.tile.is-open .tile-btn{
+  background: rgba(255,255,255,.10);
+  border-color: rgba(255,255,255,.22);
+}
 </style>
 <style>
 /* item card grid (items pages) */
@@ -219,6 +274,17 @@ table.skill-table td{
 .item-meta{min-width:0;flex:1}
 .item-name{font-weight:900;font-size:16px;line-height:1.2;margin:2px 0 8px}
 .item-sub{margin:0 0 8px;opacity:.92;line-height:1.5;font-size:13px}
+
+
+/* Open state highlight */
+.tile.is-open{
+  border-color: rgba(255,255,255,.28);
+  box-shadow: 0 0 0 1px rgba(255,255,255,.10), inset 0 0 0 1px rgba(0,0,0,.35);
+}
+.tile.is-open .tile-btn{
+  background: rgba(255,255,255,.10);
+  border-color: rgba(255,255,255,.22);
+}
 </style>
 <style>
 .tier-tile{position:relative;height:auto}
@@ -226,6 +292,17 @@ table.skill-table td{
 .tier-tile.is-active .tile-content{display:block}
 .tier-tile .tile-content .item-grid{margin-top:0}
 .tier-tile .tile-content .item-card{background:rgba(0,0,0,.15)}
+
+
+/* Open state highlight */
+.tile.is-open{
+  border-color: rgba(255,255,255,.28);
+  box-shadow: 0 0 0 1px rgba(255,255,255,.10), inset 0 0 0 1px rgba(0,0,0,.35);
+}
+.tile.is-open .tile-btn{
+  background: rgba(255,255,255,.10);
+  border-color: rgba(255,255,255,.22);
+}
 </style>
 <style>
 /* weapon page: match lord/knight skill accordion layout (single column) */
@@ -234,6 +311,17 @@ table.skill-table td{
 .item-weapon-page h2.page-title,
 .item-weapon-page h3.page-title{max-width:920px;margin-left:auto;margin-right:auto;}
 .item-weapon-page .skill-acc-icon img{display:block;}
+
+
+/* Open state highlight */
+.tile.is-open{
+  border-color: rgba(255,255,255,.28);
+  box-shadow: 0 0 0 1px rgba(255,255,255,.10), inset 0 0 0 1px rgba(0,0,0,.35);
+}
+.tile.is-open .tile-btn{
+  background: rgba(255,255,255,.10);
+  border-color: rgba(255,255,255,.22);
+}
 </style>
 <style>
 /* fallback tile styles (ensures layout even if css link fails) */
@@ -247,11 +335,25 @@ table.skill-table td{
 .tile-title{font-size:15px;font-weight:700;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .tile-sub{font-size:12px;color:#b5b5b5;margin-bottom:3px}
 .tile-sub2{font-size:12px;color:#d7d7d7;opacity:.95}
-.tile-btn{padding:7px 10px;background:#222;border:1px solid #3a3a3a;border-radius:6px;color:#fff;font-size:12px;cursor:pointer;white-space:nowrap}
+.tile-btn{
+  margin-top: 0;
+  align-self: center;
+  justify-self: end;padding:7px 10px;background:#222;border:1px solid #3a3a3a;border-radius:6px;color:#fff;font-size:12px;cursor:pointer;white-space:nowrap}
 .tile-detail{grid-column:1/-1;margin-top:8px;padding-top:10px;border-top:1px solid #2c2c2c}
-.kv{display:grid;grid-template-columns:64px 1fr;gap:10px;padding:4px 0;font-size:12px}
+.kv{display:grid;grid-template-columns: 64px 1fr auto;gap:10px;padding:4px 0;font-size:12px}
 .k{color:#aaa}.v{color:#eee;line-height:1.4}
 .ui-badge{position:fixed;right:12px;bottom:12px;padding:6px 10px;border-radius:999px;border:1px solid #444;background:rgba(0,0,0,.5);font-size:12px;color:#fff;z-index:9999}
+
+
+/* Open state highlight */
+.tile.is-open{
+  border-color: rgba(255,255,255,.28);
+  box-shadow: 0 0 0 1px rgba(255,255,255,.10), inset 0 0 0 1px rgba(0,0,0,.35);
+}
+.tile.is-open .tile-btn{
+  background: rgba(255,255,255,.10);
+  border-color: rgba(255,255,255,.22);
+}
 </style>
 </head>
 <body><section class="hero-main"><a aria-label="홈으로 이동" class="hero-home-link" href="/WarmPack/"></a></section><nav aria-label="메인 메뉴" class="main-nav-bar">

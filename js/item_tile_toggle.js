@@ -38,7 +38,25 @@
     var s = document.createElement("span");
     s.textContent = key;
     var em = document.createElement("em");
-    em.textContent = val || "-";
+
+    // 옵션은 '/' 구분자를 줄바꿈으로 보여주기 (세로 표기)
+    if(key === "옵션" && val){
+      var parts = String(val).split("/").map(function(v){ return norm(v); }).filter(function(v){ return v; });
+      if(parts.length){
+        em.className = "spec-multiline";
+        parts.forEach(function(p, i){
+          var d = document.createElement("div");
+          d.className = "opt-line";
+          d.textContent = p;
+          em.appendChild(d);
+        });
+      }else{
+        em.textContent = "-";
+      }
+    }else{
+      em.textContent = val || "-";
+    }
+
     li.appendChild(s);
     li.appendChild(em);
     ul.appendChild(li);
