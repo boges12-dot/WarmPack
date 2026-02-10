@@ -203,32 +203,16 @@
   opacity: 0.95;
 }
 
+/* PATCH: weapon cards show only image+name; details in '상세' */
+.item-weapon-page .tile-text{display:none;}
+.item-weapon-page .tile{grid-template-columns: 1fr; justify-items:center; text-align:center;}
+.item-weapon-page .tile-icon{width:auto; height:auto; border:none; background:transparent;}
+.item-weapon-page .tile-icon img{display:block; margin:0 auto;}
+.item-weapon-page .tile-btn{justify-self:center; margin-top:8px;}
+.item-weapon-page .tile-detail{grid-column:1 / -1; width:100%; margin-top:10px;}
 
-/* PATCH: 무기 카드 - 이미지 상단 무기명 표시 + 옵션/획득 하단 고정 */
-.item-weapon-page .tile{ align-items:stretch; }
-.item-weapon-page .tile-text{
-  display:flex;
-  flex-direction:column;
-  min-height:64px;
+
+/* PATCH: 상세(옵션/획득) 패널 상시 노출 */
+.tile-detail[hidden]{
+  display:block !important;
 }
-.item-weapon-page .tile-title{ display:none !important; }
-
-.item-weapon-page .tile-icon{ position:relative; }
-.item-weapon-page .tile-img-name{
-  position:absolute;
-  top:4px;
-  left:4px;
-  right:4px;
-  font-size:12px;
-  font-weight:900;
-  text-align:center;
-  line-height:1.2;
-  padding:3px 6px;
-  border-radius:8px;
-  background: rgba(0,0,0,.55);
-  border: 1px solid rgba(255,255,255,.14);
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,.25);
-  pointer-events:none;
-}
-
-.item-weapon-page .tile-bottom{ margin-top:auto; }
