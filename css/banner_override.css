@@ -638,3 +638,43 @@ html{ scroll-behavior: smooth; }
   padding:8px 14px !important;
 }
 
+
+/* PATCH: 드롭다운 하위메뉴 가운데 정렬 + 홈 100% (강제 우선순위) */
+#main-nav.nav > li.has-sub{position:relative;}
+#main-nav.nav > li.has-sub > ul.submenu{
+  left:0 !important;
+  right:0 !important;
+  width:100% !important;
+  max-width:100% !important;
+  box-sizing:border-box !important;
+
+  display:flex !important;
+  flex-direction:row !important;
+  flex-wrap:wrap !important;
+  justify-content:center !important;
+  align-items:center !important;
+
+  /* 기존 max-content/고정폭 무력화 */
+  min-width:0 !important;
+}
+
+#main-nav.nav > li.has-sub:hover > ul.submenu,
+#main-nav.nav > li.has-sub:focus-within > ul.submenu{
+  display:flex !important; /* hover 시에도 flex 유지 */
+}
+
+#main-nav.nav > li.has-sub > ul.submenu > li{
+  display:inline-flex !important;
+  width:auto !important;
+  float:none !important;
+}
+
+#main-nav.nav > li.has-sub > ul.submenu > li > a{
+  width:auto !important;
+  display:inline-flex !important;
+  white-space:nowrap;
+}
+
+/* 혹시라도 a가 블록 100%로 강제되면 무력화 */
+#main-nav.nav > li.has-sub > ul.submenu li a{width:auto !important;}
+
