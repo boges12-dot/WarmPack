@@ -720,7 +720,7 @@ nav ul ul a,
 
   width:100% !important;
   min-width:100% !important;
-  max-width:calc(100vw - 24px) !important;
+  max-width:calc(100% - 24px) !important;
 
   /* 기존 max-content 영향 제거 */
   left:0 !important;
@@ -812,7 +812,7 @@ nav ul ul a,
 #main-nav.nav li.has-sub{position:relative;}
 #main-nav.nav li.has-sub > .submenu{
   width:max-content !important;
-  max-width:calc(100vw - 24px) !important;
+  max-width:calc(100% - 24px) !important;
   flex-wrap:nowrap !important;
   white-space:nowrap;
   left:0;
@@ -878,7 +878,7 @@ nav ul ul a,
 
 
 /* PATCH: 서브바 한줄 + 스크롤 완전 제거(가로 오버플로우 방지) */
-html, body{overflow-x:hidden !important;}
+
 
 .subnav-bar{
   width:100% !important;
@@ -896,4 +896,48 @@ html, body{overflow-x:hidden !important;}
   text-overflow:ellipsis;
   justify-content:center;
   padding:7px 10px !important;     /* 폭 줄임 */
+}
+
+
+
+
+.subnav-bar{
+  width:100% !important;          /* 화면 전체 폭 */
+  max-width:100% !important;
+  margin-left:calc(50% - 50vw) !important;  /* 중앙 컨테이너 제한 해제 */
+  margin-right:calc(50% - 50vw) !important;
+  border-radius:0 !important;      /* 전체폭 느낌 */
+  padding-left:20px !important;
+  padding-right:20px !important;
+}
+
+
+
+/* PATCH: 가로 스크롤 완전 제거 */
+
+
+.subnav-bar{
+  width:100% !important;      /* vw 사용 금지 */
+  max-width:100% !important;
+  margin:0 !important;
+  overflow:hidden !important;
+}
+
+
+
+/* PATCH: 가로 스크롤 원인 구조 제거 (차단 아님) */
+.subnav-bar{
+  width:100% !important;
+  max-width:100% !important;
+  box-sizing:border-box !important;
+  margin:0 !important;
+  padding-left:0 !important;
+  padding-right:0 !important;
+  white-space:normal !important;     /* nowrap 제거 */
+}
+
+.subnav-bar a{
+  flex:1 1 auto !important;          /* 자동 축소 허용 */
+  min-width:0 !important;
+  white-space:normal !important;     /* 줄넘침 방지 */
 }
