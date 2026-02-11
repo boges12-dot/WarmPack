@@ -578,36 +578,13 @@ html{ scroll-behavior: smooth; }
 }
 
 
-/* PATCH: 기존 하위(드롭다운) 메뉴를 가로 정렬로 표시 (새 가로바 생성 X) */
-#main-nav.nav ul.submenu{
-  /* 기존 absolute 드롭다운 유지, 폭은 상단 메뉴 폭에 묶이지 않게 */
-  left: 0 !important;
-  right: 0 !important;
-  width: 100% !important;
-  max-width: 100% !important;
-  box-sizing: border-box;
-  display: flex !important;
-  flex-direction: row !important;
-  flex-wrap: wrap !important;         /* 자동 줄바꿈(스크롤 없음) */
-  gap: 8px 12px;
-  padding: 10px 12px !important;
-}
+
 
 /* 세로 스택 원인 제거 */
-#main-nav.nav ul.submenu > li{
-  width: auto !important;
-  float: none !important;
-  display: inline-flex !important;
-}
+
 
 /* 핵심: a의 width:100% 강제 제거 */
-#main-nav.nav ul.submenu > li > a{
-  width: auto !important;
-  display: inline-flex !important;
-  align-items: center;
-  white-space: nowrap;
-  padding: 8px 12px !important;
-}
+
 
 /* 혹시 더 강한 규칙이 있어도 막기 */
 #main-nav.nav ul.submenu li a{ width: auto !important; }
