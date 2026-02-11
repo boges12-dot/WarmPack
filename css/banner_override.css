@@ -583,20 +583,44 @@ html{ scroll-behavior: smooth; }
 .hunt-table{
   width:100%;
   border-collapse:collapse;
-  margin-bottom:40px;
+  margin:28px 0 44px;
   table-layout:fixed;
 }
 .hunt-table th,
 .hunt-table td{
-  border:1px solid #444;
+  border:1px solid rgba(255,255,255,.18);
   padding:14px;
   vertical-align:top;
 }
 .hunt-title{
   text-align:center;
   font-size:20px;
-  font-weight:bold;
-  background:#1f2937;
+  font-weight:800;
+  background:rgba(31,41,55,.85);
   color:#fff;
 }
-.hunt-boss{font-weight:bold;color:#c0392b;}
+.hunt-boss{font-weight:800;color:#ff6b6b;}
+.hunt-section-title{
+  margin:26px 0 10px;
+  font-size:18px;
+  font-weight:800;
+}
+.hunt-links{
+  display:flex;
+  gap:10px 12px;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin:18px 0 10px;
+}
+.hunt-links a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px 14px;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:12px;
+  text-decoration:none;
+  background:rgba(255,255,255,.04);
+  white-space:nowrap;
+}
+.hunt-links a:hover{background:rgba(255,255,255,.08);}
