@@ -579,102 +579,24 @@ html{ scroll-behavior: smooth; }
 
 
 
-
-/* 세로 스택 원인 제거 */
-
-
-/* 핵심: a의 width:100% 강제 제거 */
-
-
-/* 혹시 더 강한 규칙이 있어도 막기 */
-#main-nav.nav ul.submenu li a{ width: auto !important; }
-
-
-/* PATCH: 드롭다운 하위 메뉴 가로 정렬 (구조 변경 없음) */
-#main-nav.nav ul.submenu{
-  display:flex !important;
-  flex-direction:row !important;   /* 가로 정렬 */
-  flex-wrap:wrap !important;       /* 공간 부족 시 다음 줄 (가로 유지) */
+/* === 사냥터 표 공통 스타일 === */
+.hunt-table{
+  width:100%;
+  border-collapse:collapse;
+  margin-bottom:40px;
+  table-layout:fixed;
 }
-
-#main-nav.nav ul.submenu > li{
-  width:auto !important;
-  float:none !important;
+.hunt-table th,
+.hunt-table td{
+  border:1px solid #444;
+  padding:14px;
+  vertical-align:top;
 }
-
-#main-nav.nav ul.submenu > li > a{
-  display:inline-flex !important;
-  width:auto !important;           /* 세로 강제폭 제거 */
-  white-space:nowrap;
+.hunt-title{
+  text-align:center;
+  font-size:20px;
+  font-weight:bold;
+  background:#1f2937;
+  color:#fff;
 }
-
-/* 혹시 강제 width:100% 규칙이 있어도 무력화 */
-#main-nav.nav ul.submenu li a{ width:auto !important; }
-
-
-/* PATCH: 드롭다운 하위메뉴 가로 + 가운데 정렬 + 홈페이지 기준 100% */
-#main-nav.nav ul.submenu{
-  display:flex !important;
-  flex-direction:row !important;
-  flex-wrap:wrap !important;
-  justify-content:center !important;   /* 가운데 정렬 */
-  width:100% !important;               /* 홈페이지 기준 100% */
-  max-width:100% !important;
-  left:0 !important;
-  right:0 !important;
-  box-sizing:border-box;
-}
-
-#main-nav.nav ul.submenu > li{
-  display:inline-flex !important;
-  width:auto !important;
-  float:none !important;
-}
-
-#main-nav.nav ul.submenu > li > a{
-  display:inline-flex !important;
-  width:auto !important;
-  white-space:nowrap;
-  padding:8px 14px !important;
-}
-
-
-/* PATCH: 드롭다운 하위메뉴 가운데 정렬 + 홈 100% (강제 우선순위) */
-#main-nav.nav > li.has-sub{position:relative;}
-#main-nav.nav > li.has-sub > ul.submenu{
-  left:0 !important;
-  right:0 !important;
-  width:100% !important;
-  max-width:100% !important;
-  box-sizing:border-box !important;
-
-  display:flex !important;
-  flex-direction:row !important;
-  flex-wrap:wrap !important;
-  justify-content:center !important;
-  align-items:center !important;
-
-  /* 기존 max-content/고정폭 무력화 */
-  min-width:0 !important;
-}
-
-#main-nav.nav > li.has-sub:hover > ul.submenu,
-#main-nav.nav > li.has-sub:focus-within > ul.submenu{
-  display:flex !important; /* hover 시에도 flex 유지 */
-}
-
-#main-nav.nav > li.has-sub > ul.submenu > li{
-  display:inline-flex !important;
-  width:auto !important;
-  float:none !important;
-}
-
-#main-nav.nav > li.has-sub > ul.submenu > li > a{
-  width:auto !important;
-  display:inline-flex !important;
-  white-space:nowrap;
-}
-
-/* 혹시라도 a가 블록 100%로 강제되면 무력화 */
-#main-nav.nav > li.has-sub > ul.submenu li a{width:auto !important;}
-
+.hunt-boss{font-weight:bold;color:#c0392b;}
