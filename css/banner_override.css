@@ -861,3 +861,16 @@ nav ul ul a,
   background: rgba(255,255,255,.10);
 }
 
+
+
+
+/* PATCH: 서브바 한줄 고정 (스크롤/줄바꿈 없음) */
+.subnav-bar{
+  display:flex !important;
+  flex-wrap:nowrap !important;   /* 줄바꿈 제거 */
+  overflow:hidden !important;    /* 스크롤 제거 */
+  white-space:nowrap;
+}
+.subnav-bar a{
+  flex:0 0 auto;
+}
