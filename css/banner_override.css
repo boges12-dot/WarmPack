@@ -874,3 +874,26 @@ nav ul ul a,
 .subnav-bar a{
   flex:0 0 auto;
 }
+
+
+
+/* PATCH: 서브바 한줄 + 스크롤 완전 제거(가로 오버플로우 방지) */
+html, body{overflow-x:hidden !important;}
+
+.subnav-bar{
+  width:100% !important;
+  max-width:100% !important;
+  overflow:hidden !important;      /* 바 자체 스크롤 제거 */
+  flex-wrap:nowrap !important;
+  white-space:nowrap;
+}
+
+/* 링크가 폭을 나눠 가져서 한줄에 우겨 넣기(넘치면 말줄임) */
+.subnav-bar a{
+  flex:1 1 0 !important;           /* 자동 축소 */
+  min-width:0 !important;          /* 말줄임을 위해 필수 */
+  overflow:hidden !important;
+  text-overflow:ellipsis;
+  justify-content:center;
+  padding:7px 10px !important;     /* 폭 줄임 */
+}
