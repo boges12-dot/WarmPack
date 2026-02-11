@@ -768,3 +768,40 @@ nav ul ul a,
   white-space:nowrap !important;
 }
 
+
+
+
+/* PATCH: 하위 메뉴(드롭다운) 가로 + 자동줄바꿈 (강제 적용) */
+#main-nav.nav .submenu{
+  position:absolute;           /* 기존 유지 */
+  left:0;
+  right:0;
+  width:100% !important;
+  max-width:100% !important;
+  box-sizing:border-box;
+  display:flex !important;
+  flex-direction:row !important;
+  flex-wrap:wrap !important;
+  align-items:center;
+  justify-content:flex-start;
+  gap:10px 14px;
+}
+
+/* li는 가로 아이템 */
+#main-nav.nav .submenu > li{
+  display:inline-flex !important;
+  width:auto !important;
+  float:none !important;
+}
+
+/* 핵심: a width:100% 제거 -> 가로 정렬 가능 */
+#main-nav.nav .submenu > li > a{
+  display:inline-flex !important;
+  width:auto !important;
+  max-width:100% !important;
+  white-space:nowrap;
+  padding:8px 14px !important;
+}
+
+/* 혹시 더 강한 규칙이 있어도 막기 */
+#main-nav.nav .submenu li a{ width:auto !important; }
