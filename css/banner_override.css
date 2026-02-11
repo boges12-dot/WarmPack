@@ -739,3 +739,32 @@ nav ul ul a,
   padding:8px 12px !important;
 }
 
+
+/* PATCH: 하위(드롭다운) 메뉴 가로 + 자동줄바꿈 (우선순위 강제) */
+#main-nav.nav li.has-sub > ul.submenu{
+  display:flex !important;
+  flex-direction:row !important;
+  flex-wrap:wrap !important;
+  align-items:center !important;
+  gap:10px !important;
+
+  /* 드롭다운 패널을 가로로 넓게 */
+  left:0 !important;
+  right:0 !important;
+  width:100% !important;
+  max-width:100% !important;
+  min-width:0 !important;
+}
+
+#main-nav.nav li.has-sub > ul.submenu > li{
+  display:inline-flex !important;
+  width:auto !important;
+}
+
+#main-nav.nav li.has-sub > ul.submenu > li > a{
+  width:auto !important;
+  display:inline-flex !important;
+  justify-content:center !important;
+  white-space:nowrap !important;
+}
+
