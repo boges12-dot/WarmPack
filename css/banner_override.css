@@ -611,3 +611,30 @@ html{ scroll-behavior: smooth; }
 /* 혹시 강제 width:100% 규칙이 있어도 무력화 */
 #main-nav.nav ul.submenu li a{ width:auto !important; }
 
+
+/* PATCH: 드롭다운 하위메뉴 가로 + 가운데 정렬 + 홈페이지 기준 100% */
+#main-nav.nav ul.submenu{
+  display:flex !important;
+  flex-direction:row !important;
+  flex-wrap:wrap !important;
+  justify-content:center !important;   /* 가운데 정렬 */
+  width:100% !important;               /* 홈페이지 기준 100% */
+  max-width:100% !important;
+  left:0 !important;
+  right:0 !important;
+  box-sizing:border-box;
+}
+
+#main-nav.nav ul.submenu > li{
+  display:inline-flex !important;
+  width:auto !important;
+  float:none !important;
+}
+
+#main-nav.nav ul.submenu > li > a{
+  display:inline-flex !important;
+  width:auto !important;
+  white-space:nowrap;
+  padding:8px 14px !important;
+}
+
