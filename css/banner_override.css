@@ -682,3 +682,29 @@ html{ scroll-behavior: smooth; }
   display: inline-block;
   white-space: nowrap;
 }
+
+
+
+/* PATCH: 하위 드롭다운 메뉴 가로 정렬 */
+nav ul ul,
+.gnb ul ul,
+.main-menu ul ul {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  width: 100% !important;
+}
+
+nav ul ul li,
+.gnb ul ul li,
+.main-menu ul ul li {
+  width: auto !important;
+  white-space: nowrap;
+}
+
+nav ul ul a,
+.gnb ul ul a,
+.main-menu ul ul a {
+  display: inline-block !important;
+  padding: 8px 14px;
+}
