@@ -652,3 +652,33 @@ html{ scroll-behavior: smooth; }
 }
 .item-weapon-page .item-spec li span:empty{visibility:hidden;}
 
+
+
+
+/* PATCH: 서브메뉴 가로 자동 정렬 */
+.sub-menu,
+.submenu,
+.nav-sub,
+.depth-2 {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center;
+  gap: 18px;
+  width: 100% !important;
+}
+
+.sub-menu li,
+.submenu li,
+.nav-sub li,
+.depth-2 li {
+  display: inline-block !important;
+  width: auto !important;
+}
+
+.sub-menu a,
+.submenu a,
+.nav-sub a,
+.depth-2 a {
+  display: inline-block;
+  white-space: nowrap;
+}
