@@ -602,3 +602,15 @@ html{ scroll-behavior: smooth; }
 .hunt-boss{font-weight:800;color:#ff6b6b;}
 
 
+
+
+/* PATCH: 사냥터 페이지 폭 조절 */
+.pages-hunt-wrapper{
+  max-width:1200px;
+  margin:0 auto;
+  padding:0 20px;
+}
+
+.pages-hunt-wrapper .hunt-table{
+  width:100%;
+}
