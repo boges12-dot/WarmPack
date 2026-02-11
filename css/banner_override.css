@@ -589,3 +589,25 @@ html{ scroll-behavior: smooth; }
 /* 혹시 더 강한 규칙이 있어도 막기 */
 #main-nav.nav ul.submenu li a{ width: auto !important; }
 
+
+/* PATCH: 드롭다운 하위 메뉴 가로 정렬 (구조 변경 없음) */
+#main-nav.nav ul.submenu{
+  display:flex !important;
+  flex-direction:row !important;   /* 가로 정렬 */
+  flex-wrap:wrap !important;       /* 공간 부족 시 다음 줄 (가로 유지) */
+}
+
+#main-nav.nav ul.submenu > li{
+  width:auto !important;
+  float:none !important;
+}
+
+#main-nav.nav ul.submenu > li > a{
+  display:inline-flex !important;
+  width:auto !important;           /* 세로 강제폭 제거 */
+  white-space:nowrap;
+}
+
+/* 혹시 강제 width:100% 규칙이 있어도 무력화 */
+#main-nav.nav ul.submenu li a{ width:auto !important; }
+
