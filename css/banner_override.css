@@ -805,3 +805,59 @@ nav ul ul a,
 
 /* 혹시 더 강한 규칙이 있어도 막기 */
 #main-nav.nav .submenu li a{ width:auto !important; }
+
+
+
+/* PATCH: 하위 메뉴 가로 1줄(자동 폭) - li 기준 폭 문제 해결 */
+#main-nav.nav li.has-sub{position:relative;}
+#main-nav.nav li.has-sub > .submenu{
+  width:max-content !important;
+  max-width:calc(100vw - 24px) !important;
+  flex-wrap:nowrap !important;
+  white-space:nowrap;
+  left:0;
+  right:auto;
+}
+#main-nav.nav li.has-sub > .submenu{overflow-x:auto; -webkit-overflow-scrolling:touch;}
+
+
+/* PATCH: 세로 드롭다운 서브메뉴 비활성 + 상단 메뉴 아래 가로 서브바 생성 */
+#main-nav.nav .submenu{display:none !important;}
+
+/* 상단 메뉴 바로 아래 가로 서브바 */
+.subnav-bar{
+  width:100%;
+  box-sizing:border-box;
+  margin-top:8px;
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(17,24,38,.55);
+  display:none;                 /* 메뉴 있을 때만 표시 */
+}
+.subnav-bar.is-active{display:flex;}
+.subnav-bar{
+  display:flex;
+  flex-wrap:wrap;               /* 자동 줄바꿈 */
+  gap:10px 12px;
+  align-items:center;
+  justify-content:flex-start;
+}
+.subnav-bar a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:8px 12px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.04);
+  white-space:nowrap;
+  text-decoration:none;
+  font-size:14px;
+}
+.subnav-bar a:hover{background: rgba(255,255,255,.08);}
+.subnav-bar a.is-current{
+  border-color: rgba(255,255,255,.28);
+  background: rgba(255,255,255,.10);
+}
+
