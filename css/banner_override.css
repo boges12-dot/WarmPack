@@ -602,16 +602,3 @@ html{ scroll-behavior: smooth; }
 .hunt-boss{font-weight:800;color:#ff6b6b;}
 
 
-/* PATCH: 사냥터 하위메뉴 텍스쳐(아이콘) 표시 */
-#main-nav.nav ul.submenu a .submenu-icon{
-  width:22px;
-  height:22px;
-  object-fit:cover;
-  border-radius:6px;
-  margin-right:8px;
-  flex:0 0 auto;
-}
-#main-nav.nav ul.submenu a{
-  display:flex;
-  align-items:center;
-}
