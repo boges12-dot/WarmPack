@@ -708,3 +708,34 @@ nav ul ul a,
   display: inline-block !important;
   padding: 8px 14px;
 }
+
+
+/* PATCH: 실제 하위(submenu) 드롭다운 가로 + 자동 줄바꿈 (메인CSS 우선순위 이김) */
+#main-nav.nav .submenu{
+  display:flex !important;
+  flex-direction:row !important;
+  flex-wrap:wrap !important;
+  align-items:center !important;
+  gap:10px !important;
+
+  width:100% !important;
+  min-width:100% !important;
+  max-width:calc(100vw - 24px) !important;
+
+  /* 기존 max-content 영향 제거 */
+  left:0 !important;
+  right:auto !important;
+}
+
+#main-nav.nav .submenu li{
+  width:auto !important;
+  display:inline-flex !important;
+}
+
+#main-nav.nav .submenu li a{
+  width:auto !important;
+  justify-content:flex-start !important;
+  white-space:nowrap !important;
+  padding:8px 12px !important;
+}
+
