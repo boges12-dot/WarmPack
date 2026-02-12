@@ -652,3 +652,16 @@ body.page-darkelf-skill .skill-acc-icon img{
 .accessory-table td:nth-child(4){ width:auto; }
 .accessory-table th:nth-child(5),
 .accessory-table td:nth-child(5){ width:160px; text-align:center; }
+
+
+/* PATCH: 표 안 이미지 중앙 + 80x90 고정 */
+table img{
+  display:block;
+  margin:0 auto;
+  width:80px;
+  height:90px;
+  object-fit:contain;
+}
+table td{
+  overflow:hidden; /* 표 밖 튀어나옴 방지 */
+}
