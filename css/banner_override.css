@@ -614,3 +614,11 @@ html{ scroll-behavior: smooth; }
 .pages-hunt-wrapper .hunt-table{
   width:100%;
 }
+
+
+/* PATCH: 다크엘프 스킬 아이콘 사이즈 */
+body.page-darkelf-skill .skill-acc-icon img{
+  width:80px;
+  height:90px;
+  object-fit:cover;
+}
