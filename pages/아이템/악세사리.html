@@ -5,16 +5,16 @@
 <meta content="strict-origin-when-cross-origin" name="referrer"/>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>악세사리 · </title>
-<meta content="악세사리 · " name="description"/>
+<title>악세사리</title>
+<meta content="사냥터 · " name="description"/>
 <meta content="website" property="og:type"/>
 <meta content="" property="og:site_name"/>
-<meta content="악세사리 · " property="og:title"/>
-<meta content="악세사리 · " property="og:description"/>
+<meta content="사냥터 · " property="og:title"/>
+<meta content="사냥터 · " property="og:description"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="악세사리 · " name="twitter:title"/>
-<meta content="악세사리 · " name="twitter:description"/>
-<link href="../../css/main.20260116_16.min.css" rel="stylesheet"/><link href="../../css/item_tiles.css" rel="stylesheet"/>
+<meta content="아이템 · " name="twitter:title"/>
+<meta content="아이템 · " name="twitter:description"/>
+<link href="../../css/main.20260116_16.min.css" rel="stylesheet"/>
 <!-- STEP9: icons/manifest -->
 <link href="../../favicon.ico" rel="icon" sizes="any"/>
 <link href="../../assets/icons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
@@ -22,7 +22,7 @@
 <link href="../../assets/icons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
 <link href="../../site.webmanifest" rel="manifest"/>
 <meta content="#ffffff" name="theme-color"/>
-<meta content="https://boges12-dot.github.io/WarmPack/assets/images/og_v3.jpg" property="og:image"/>
+<meta content="https://boges12-dot.github.io/WarmPack/assets/images/og_v3.jpg" property="og:image">
 <meta content="https://boges12-dot.github.io/WarmPack/assets/images/og_v3.jpg" property="og:image:secure_url"/>
 <meta content="https://boges12-dot.github.io/WarmPack/assets/images/og_v3.jpg" name="twitter:image"/>
 <meta content="summary_large_image" name="twitter:card"/>
@@ -45,142 +45,33 @@ table.skill-table td{
   line-height:1.55 !important;
 }
 </style>
-<style id="item-table-force">
-/* ITEM TABLE FORCE: 공통 CSS가 table을 block으로 깨는 문제 방지 */
-.item-page table{ display: table !important; width:100% !important; border-collapse: collapse !important; }
-.item-page thead{ display: table-header-group !important; }
-.item-page tbody{ display: table-row-group !important; }
-.item-page tr{ display: table-row !important; }
-.item-page th, .item-page td{ display: table-cell !important; vertical-align: middle !important; }
-.item-page .item-table-wrap{ overflow:auto; }
-</style>
-<style id="item-table-skin">
-/* ITEM TABLE SKIN: 스샷처럼 카드형 표 스타일 */
-.item-page{ max-width: 1100px; margin: 0 auto; padding: 18px 14px 60px; }
-.item-page h2{ font-size: 22px; font-weight: 900; margin: 8px 0 18px; }
-.item-class-title{ font-size: 18px; font-weight: 900; margin: 18px 0 10px; }
-
-.item-table-wrap{
-  border-radius: 18px;
-  border: 1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.04);
-  overflow: hidden;
+</meta><style>
+.maahn-table {
+  width:100%;
+  max-width:1200px;
+  margin:40px auto;
+  border-collapse:collapse;
 }
-
-.item-table{
-  width: 100%;
-  border-collapse: collapse;
-  min-width: 860px;
+.maahn-table th,
+.maahn-table td {
+  border:1px solid rgba(255,255,255,0.15);
+  padding:14px;
+  vertical-align:top;
 }
-
-.item-table thead th{
-  background: rgba(255,255,255,.06);
-  font-weight: 900;
-  padding: 14px 16px;
-  text-align: center;
-  border-bottom: 1px solid rgba(255,255,255,.10);
-}
-
-.item-table tbody td{
-  padding: 18px 16px;
-  border-bottom: 1px solid rgba(255,255,255,.07);
-  text-align: center;
-  vertical-align: middle;
-}
-
-.item-table tbody tr:last-child td{ border-bottom: 0; }
-
-.item-table td.item-name{ text-align: left; font-weight: 800; }
-.item-table td.item-opt{ opacity: .9; }
-.item-table td.item-method{ font-weight: 800; }
-
-.item-table td.item-img{ width: 84px; }
-.item-table td.item-img .img-ph{
-  width: 52px; height: 52px;
-  border-radius: 14px;
-  background: rgba(255,255,255,.05);
-  border: 1px solid rgba(255,255,255,.10);
-}
-
-.item-table tbody tr:hover{
-  background: rgba(255,255,255,.03);
-}
-
-/* 모바일: 표는 가로 스크롤로 */
-.item-table-wrap{ overflow:auto; }
-</style>
-<style id="item-toc-style">
-/* TOC CENTER: 제목/바로가기 버튼을 가운데 정렬 (무기/방어구/악세 공통) */
-.item-page-head{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:10px;
-  margin-bottom: 14px;
+.maahn-table th {
+  background:#2a3442;
   text-align:center;
+  font-weight:700;
 }
-.item-page-head > h2{
-  width:100%;
+.maahn-table img {
+  width:60px;
+  height:60px;
+  object-fit:cover;
 }
-.item-toc{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  align-items:center;
-  width: 100%;
-}
-.item-toc-title{ font-weight:900; opacity:.9; }
-.item-toc-group{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  flex-wrap:wrap;
-  justify-content:center;
-  width:100%;
-}
-.item-toc-stage{
-  font-size:12px;
-  font-weight:900;
-  padding:4px 8px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.04);
-  opacity:.9;
-}
-.item-toc-links{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-  justify-content:center;
-}
-.item-toc-link{
-  display:inline-flex;
-  align-items:center;
-  padding:6px 10px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.04);
-  font-size: 13px;
-  text-decoration:none;
-  color: inherit;
-}
-.item-toc-link:hover{ background: rgba(255,255,255,.07); }
-</style>
-<style id="item-title-size">
-/* 아이템 페이지 공통 제목 크기 */
-.item-page h2{
-  font-size: 26px;
-  font-weight: 900;
-  margin-top: 28px;
-}
-.item-page h3{
-  font-size: 20px;
-  font-weight: 800;
-  margin-top: 22px;
-}
-</style>
-</head>
-<body><nav aria-label="메인 메뉴" class="main-nav-bar">
+.success { color:#00cc66; font-weight:600; }
+.acquire { color:#ff4d4d; }
+</style></head>
+<body><section class="hero-main"><a aria-label="홈으로 이동" class="hero-home-link" href="/WarmPack/"></a></section><nav aria-label="메인 메뉴" class="main-nav-bar">
 <ul class="nav" id="main-nav">
 <li class="home-link"><a aria-label="홈" class="nav-home" href="/WarmPack/"><svg aria-hidden="true" class="icon-home" focusable="false" height="18" viewbox="0 0 24 24" width="18"><path d="M12 3 2.5 11.2a1 1 0 0 0 .7 1.8H5v7a1 1 0 0 0 1 1h4v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5h4a1 1 0 0 0 1-1v-7h1.8a1 1 0 0 0 .7-1.8L12 3z"></path></svg></a></li>
 <li class="has-sub">
@@ -255,5 +146,53 @@ table.skill-table td{
 </nav>
 <header class="site-header">
 </header>
-<main id="main-content"><h1 style="text-align:center;margin:30px 0;">악세사리</h1><div class="pages-hunt-wrapper"><h2 style="margin:40px 0 15px 0;">반지</h2><table class="maahn-table"><tr><th>이미지</th><th>아이템 이름</th><th>옵션</th><th>획득 방법</th></tr><tr><td>이미지</td><td>수련의 반지 (1차)</td><td>-</td><td>상점 판매</td></tr></table><h2 style="margin:40px 0 15px 0;">귀걸이</h2><table class="maahn-table"><tr><th>이미지</th><th>아이템 이름</th><th>옵션</th><th>획득 방법</th></tr><tr><td>이미지</td><td>수련의 귀걸이 (1차)</td><td>-</td><td>상점 판매</td></tr></table><h2 style="margin:40px 0 15px 0;">목걸이</h2><table class="maahn-table"><tr><th>이미지</th><th>아이템 이름</th><th>옵션</th><th>획득 방법</th></tr><tr><td>이미지</td><td>수련의 목걸이 (1차)</td><td>-</td><td>상점 판매</td></tr><tr><td>이미지</td><td>신성한 완력의 목걸이 (2차)</td><td>-</td><td>드롭</td></tr><tr><td>이미지</td><td>신성한 민첩의 목걸이 (2차)</td><td>-</td><td>드롭</td></tr><tr><td>이미지</td><td>신성한 지식의 목걸이 (2차)</td><td>-</td><td>드롭</td></tr></table><h2 style="margin:40px 0 15px 0;">벨트</h2><table class="maahn-table"><tr><th>이미지</th><th>아이템 이름</th><th>옵션</th><th>획득 방법</th></tr><tr><td>이미지</td><td>트롤의 벨트 (1차)</td><td>-</td><td>상점 판매</td></tr><tr><td>이미지</td><td>오우거의 벨트 (1차)</td><td>-</td><td>상점 판매</td></tr><tr><td>이미지</td><td>신성한 완력의 벨트 (2차)</td><td>-</td><td>드롭</td></tr><tr><td>이미지</td><td>신성한 민첩의 벨트 (2차)</td><td>-</td><td>드롭</td></tr><tr><td>이미지</td><td>신성한 지식의 벨트 (2차)</td><td>-</td><td>드롭</td></tr><tr><td>이미지</td><td>오우거킹의 벨트 (3차) (군주)</td><td>-</td><td>드롭</td></tr><tr><td>이미지</td><td>에이션트자이언트의 벨트 (3차) (기사)</td><td>-</td><td>드롭</td></tr><tr><td>이미지</td><td>어둠의 벨트 (3차) (다크엘프)</td><td>-</td><td>드롭</td></tr><tr><td>이미지</td><td>테베오시리스의 벨트 (3차) (마법사)</td><td>-</td><td>드롭</td></tr><tr><td>이미지</td><td>타이탄의 벨트 (3차) (요정)</td><td>-</td><td>드롭</td></tr></table></div></main></body>
+<main class="site-main">
+<div id="top"></div>
+<a class="skip-link" href="#main-content">본문 바로가기</a>
+<main id="main-content"><h1 style="text-align:center;margin:30px 0;">악세사리</h1><div class="pages-hunt-wrapper"><h2 style="margin:40px 0 15px 0;">반지</h2><table class="maahn-table"><tr><th>이미지</th><th>아이템 이름</th><th>옵션</th><th>획득 방법</th></tr><tr><td>이미지</td><td>수련의 반지 (1차)</td><td>-</td><td>상점 판매</td></tr></table><h2 style="margin:40px 0 15px 0;">귀걸이</h2><table class="maahn-table"><tr><th>이미지</th><th>아이템 이름</th><th>옵션</th><th>획득 방법</th></tr><tr><td>이미지</td><td>수련의 귀걸이 (1차)</td><td>-</td><td>상점 판매</td></tr></table><h2 style="margin:40px 0 15px 0;">목걸이</h2><table class="maahn-table"><tr><th>이미지</th><th>아이템 이름</th><th>옵션</th><th>획득 방법</th></tr><tr><td>이미지</td><td>수련의 목걸이 (1차)</td><td>-</td><td>상점 판매</td></tr><tr><td>이미지</td><td>신성한 완력의 목걸이 (2차)</td><td>-</td><td>드롭</td></tr><tr><td>이미지</td><td>신성한 민첩의 목걸이 (2차)</td><td>-</td><td>드롭</td></tr><tr><td>이미지</td><td>신성한 지식의 목걸이 (2차)</td><td>-</td><td>드롭</td></tr></table><h2 style="margin:40px 0 15px 0;">벨트</h2><table class="maahn-table"><tr><th>이미지</th><th>아이템 이름</th><th>옵션</th><th>획득 방법</th></tr><tr><td>이미지</td><td>트롤의 벨트 (1차)</td><td>-</td><td>상점 판매</td></tr><tr><td>이미지</td><td>오우거의 벨트 (1차)</td><td>-</td><td>상점 판매</td></tr><tr><td>이미지</td><td>신성한 완력의 벨트 (2차)</td><td>-</td><td>드롭</td></tr><tr><td>이미지</td><td>신성한 민첩의 벨트 (2차)</td><td>-</td><td>드롭</td></tr><tr><td>이미지</td><td>신성한 지식의 벨트 (2차)</td><td>-</td><td>드롭</td></tr><tr><td>이미지</td><td>오우거킹의 벨트 (3차) (군주)</td><td>-</td><td>드롭</td></tr><tr><td>이미지</td><td>에이션트자이언트의 벨트 (3차) (기사)</td><td>-</td><td>드롭</td></tr><tr><td>이미지</td><td>어둠의 벨트 (3차) (다크엘프)</td><td>-</td><td>드롭</td></tr><tr><td>이미지</td><td>테베오시리스의 벨트 (3차) (마법사)</td><td>-</td><td>드롭</td></tr><tr><td>이미지</td><td>타이탄의 벨트 (3차) (요정)</td><td>-</td><td>드롭</td></tr></table></div></main>
+<script defer="" src="../../js/main.20260116_16.min.js"></script>
+<script src="../../js/banner_home.js"></script>
+<script src="../../js/top_button.js"></script>
+<script src="../../js/hero_shrink.js"></script>
+</main><script>
+/* MENU_STICKY_OPEN_INLINE_V26 */
+document.addEventListener('DOMContentLoaded', function(){
+  try{
+    var nav = document.getElementById('main-nav');
+    if(!nav) return;
+
+    function openLi(li){
+      if(!li) return;
+      var a = li.querySelector(':scope > a');
+      li.classList.add('is-open','hovering','sticky-open');
+      if(a) a.setAttribute('aria-expanded','true');
+    }
+
+    // Prefer active link
+    var active = nav.querySelector('a.active');
+    if(active){
+      openLi(active.closest('li.has-sub'));
+      return;
+    }
+
+    // Fallback: match by pathname
+    var path = (location.pathname || '').replace(/\/index\.html$/, '');
+    var links = nav.querySelectorAll('a[href]');
+    var best = null;
+    links.forEach(function(a){
+      var href = a.getAttribute('href') || '';
+      if(!href || href === '#') return;
+      // normalize relative href by stripping ../
+      var clean = href.replace(/^(\.\.\/)+/, '/').replace(/^\./,'');
+      if(path.endsWith(clean.replace(/^\//,'')) || path.indexOf(clean.replace(/^\//,'')) !== -1){
+        best = a;
+      }
+    });
+    if(best){
+      openLi(best.closest('li.has-sub'));
+    }
+  }catch(e){}
+});
+</script>
+</body>
 </html>
