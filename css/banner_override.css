@@ -622,3 +622,33 @@ body.page-darkelf-skill .skill-acc-icon img{
   height:90px;
   object-fit:cover;
 }
+
+
+/* PATCH: 악세사리 표 대칭 정렬 */
+.accessory-table{
+  width:100%;
+  border-collapse:collapse;
+  table-layout:fixed; /* 중요: 컬럼 폭 고정 */
+}
+.accessory-table th,
+.accessory-table td{
+  border:1px solid rgba(255,255,255,0.15);
+  padding:14px;
+  vertical-align:top;
+}
+.accessory-table th{
+  text-align:center;
+  font-weight:700;
+  background:rgba(42,52,66,0.95);
+}
+/* 컬럼 폭 */
+.accessory-table th:nth-child(1),
+.accessory-table td:nth-child(1){ width:90px; text-align:center; }
+.accessory-table th:nth-child(2),
+.accessory-table td:nth-child(2){ width:240px; }
+.accessory-table th:nth-child(3),
+.accessory-table td:nth-child(3){ width:130px; text-align:center; }
+.accessory-table th:nth-child(4),
+.accessory-table td:nth-child(4){ width:auto; }
+.accessory-table th:nth-child(5),
+.accessory-table td:nth-child(5){ width:160px; text-align:center; }
