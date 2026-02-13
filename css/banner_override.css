@@ -665,3 +665,55 @@ table img{
 table td{
   overflow:hidden; /* 표 밖 튀어나옴 방지 */
 }
+
+
+/* PATCH: 무기/방어구/스킬 화면 폭 조절 (꽉참 방지) */
+.site-main .skill-page{
+  max-width:1200px;
+  margin-left:auto;
+  margin-right:auto;
+  padding-left:16px;
+  padding-right:16px;
+  box-sizing:border-box;
+}
+
+/* PATCH: 스크롤 내려도 하위메뉴(드롭다운) 항상 정상 오픈 */
+.main-nav-bar{
+  position:sticky;
+  top:0;
+  z-index:9999;
+  overflow:visible;
+}
+#main-nav{
+  position:relative;
+  overflow:visible;
+}
+#main-nav > li.has-sub{
+  position:relative;
+}
+#main-nav > li.has-sub > .submenu{
+  position:absolute;
+  top:100%;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:10000;
+  overflow:visible;
+}
+#main-nav > li.has-sub:hover > .submenu,
+#main-nav > li.has-sub:focus-within > .submenu{
+  display:flex !important;
+}
+
+
+/* PATCH: hover/focus 시 submenu 표시 보장 */
+#main-nav > li.has-sub:hover > .submenu,
+#main-nav > li.has-sub:focus-within > .submenu{
+  opacity:1 !important;
+  visibility:visible !important;
+  pointer-events:auto !important;
+  transform:translateY(0) translateX(-50%) !important;
+  transition:none !important;
+}
+#main-nav > li.has-sub > .submenu{
+  left:50% !important;
+}
