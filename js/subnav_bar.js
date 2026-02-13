@@ -3,8 +3,8 @@
 (function () {
   function samePath(a, b) {
     try {
-      const ua = new URL(a, location.origin);
-      const ub = new URL(b, location.origin);
+      const ua = new URL(resolveHref(a), location.origin);
+      const ub = new URL(resolveHref(b), location.origin);
       // normalize: remove trailing index.html
       const pa = ua.pathname.replace(/index\.html$/,'').replace(/\/$/,'');
       const pb = ub.pathname.replace(/index\.html$/,'').replace(/\/$/,'');
@@ -12,7 +12,34 @@
     } catch (e) { return false; }
   }
 
-  function build() {
+  
+  function resolveHref(href) {
+    if (!href) return href;
+    // absolute URLs or anchors
+    if (/^(https?:)?\/\//i.test(href) || href.startsWith('#') || href.startsWith('mailto:')) return href;
+
+    // Build base prefix for GitHub Pages project sites:
+    // If current path includes "/pages/", base is everything before that.
+    const path = location.pathname;
+    const idx = path.indexOf('/pages/');
+    let base = '';
+    if (idx !== -1) {
+      base = path.slice(0, idx + 1); // include trailing "/"
+    } else {
+      // root file or other: base is directory of current page
+      base = path.replace(/[^\/]*$/, '');
+    }
+
+    // normalize leading "./"
+    href = href.replace(/^\.\//, '');
+
+    // If href already starts with "pages/" or "css/" or "js/" etc, make it base-relative.
+    if (/^(pages|css|js|media|assets)\//.test(href)) {
+      return base + href;
+    }
+    return href;
+  }
+function build() {
     const nav = document.getElementById('main-nav');
     const bar = document.getElementById('subnav-bar');
     if (!nav || !bar) return;
@@ -69,6 +96,9 @@
     items.forEach(a => {
       const li = document.createElement('li');
       const clone = a.cloneNode(true);
+      // fix relative hrefs across nested pages
+      const _h = clone.getAttribute('href');
+      if (_h) clone.setAttribute('href', resolveHref(_h));
       // mark active
       if (samePath(clone.getAttribute('href'), current)) {
         clone.classList.add('is-active');
