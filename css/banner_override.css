@@ -735,7 +735,6 @@ table td{
 }
 
 
-/* === DESKTOP ONLY NAV MODE === */
 /* Hide mobile hamburger button */
 .nav-toggle,
 .hamburger,
@@ -789,3 +788,48 @@ table td{
 }
 
 .main-menu{flex-wrap:nowrap !important; white-space:nowrap !important; overflow-x:auto !important;}
+
+
+/* === NAV FIX: Horizontal dropdown only (no vertical/mobile dropdown states) === */
+/* Base submenu: keep it in the DOM flow for hover to work reliably on all pages */
+#main-nav > li.has-sub > .submenu{
+  display:flex !important;
+  flex-direction:row !important;
+  flex-wrap:wrap !important;
+  gap:10px !important;
+  align-items:center !important;
+  justify-content:center !important;
+  opacity:0 !important;
+  visibility:hidden !important;
+  pointer-events:none !important;
+}
+
+/* Show on hover/focus */
+#main-nav > li.has-sub:hover > .submenu,
+#main-nav > li.has-sub:focus-within > .submenu{
+  opacity:1 !important;
+  visibility:visible !important;
+  pointer-events:auto !important;
+}
+
+/* Kill any click-open / vertical menu states */
+#main-nav.nav li.has-sub.is-open > .submenu,
+.has-sub.is-open > .submenu,
+.menu-item.is-open > .sub{
+  opacity:0 !important;
+  visibility:hidden !important;
+  pointer-events:none !important;
+}
+
+/* Hide mobile hamburger toggles if any template adds them later */
+.nav-toggle, .hamburger, .menu-toggle{ display:none !important; }
+
+/* Prevent main nav wrapping into vertical stacks */
+#main-nav.nav{
+  flex-wrap: nowrap !important;
+  white-space: nowrap !important;
+  overflow-x: auto !important;
+  overflow-y: visible !important;
+}
+#main-nav.nav::-webkit-scrollbar{ height: 6px; }
+
