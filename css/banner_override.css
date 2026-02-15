@@ -721,3 +721,52 @@ table td{
 
 /* Ensure nav layers never clip */
 .main-nav-bar, #main-nav { overflow: visible !important; }
+
+
+
+/* PATCH: Prevent vertical submenu staying open on desktop (avoid is-open conflict) */
+@media (min-width: 901px){
+  #main-nav.nav li.has-sub.is-open > .submenu{
+    opacity:0 !important;
+    visibility:hidden !important;
+    pointer-events:none !important;
+    transform:translateY(6px) !important;
+  }
+}
+
+
+/* === DESKTOP ONLY NAV MODE === */
+/* Hide mobile hamburger button */
+.nav-toggle,
+.hamburger,
+.menu-toggle {
+  display: none !important;
+}
+
+/* Prevent click-open mobile state */
+.has-sub.is-open > .submenu {
+  display: none !important;
+}
+
+/* Desktop hover only */
+.submenu {
+  display: none;
+  position: absolute;
+}
+
+.has-sub.hovering > .submenu {
+  display: block !important;
+}
+
+/* Force desktop layout even on small screens */
+@media (max-width: 900px) {
+  nav,
+  .main-nav,
+  .gnb {
+    display: flex !important;
+    flex-direction: row !important;
+  }
+  .submenu {
+    position: absolute !important;
+  }
+}
