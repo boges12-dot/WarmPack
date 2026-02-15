@@ -16,7 +16,6 @@
 }
 
 /* 메뉴는 배너 아래에 위치(스크롤 시 배너 높이가 줄어들면 메뉴도 같이 올라옴) */
-.main-nav-bar{
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -408,13 +407,11 @@ body{
 }
 
 /* 메뉴 높이가 변해도 안정적으로 */
-.main-nav-bar #main-nav.nav{
   min-height: var(--nav-fixed-h);
 }
 
 
 /* CLEAN NAV (B): 배너 아래에서 시작 → 스크롤 시 최상단 고정(사라지지 않음) */
-/* 구조 전제: .hero-main(배너) 다음에 .main-nav-bar(메인메뉴)가 '형제'로 존재해야 함 */
 
 :root{
   --hero-h-base: 260px;
@@ -428,7 +425,6 @@ body{
 }
 
 /* 메인 메뉴: 배너 아래에 위치, 스크롤하면 화면 최상단에 고정 */
-.main-nav-bar{
   position: sticky;
   top: 0;
   z-index: 3000;
@@ -444,7 +440,6 @@ html, body{
 
 /* HERO+NAV TOP: 배너 바로 아래에 메뉴가 붙도록 */
 .hero-main{ display:block; }
-.main-nav-bar{ margin-top: 0; }
 
 
 html{ scroll-behavior: smooth; }
@@ -678,20 +673,16 @@ table td{
 }
 
 /* PATCH: 스크롤 내려도 하위메뉴(드롭다운) 항상 정상 오픈 */
-.main-nav-bar{
   position:sticky;
   top:0;
   z-index:9999;
   overflow:visible;
 }
-#main-nav{
   position:relative;
   overflow:visible;
 }
-#main-nav > li.has-sub{
   position:relative;
 }
-#main-nav > li.has-sub > .submenu{
   position:absolute;
   top:100%;
   left:50%;
@@ -699,34 +690,25 @@ table td{
   z-index:10000;
   overflow:visible;
 }
-#main-nav > li.has-sub:hover > .submenu,
-#main-nav > li.has-sub:focus-within > .submenu{
   display:flex !important;
 }
 
 
-/* PATCH: hover/focus 시 submenu 표시 보장 */
-#main-nav > li.has-sub:hover > .submenu,
-#main-nav > li.has-sub:focus-within > .submenu{
   opacity:1 !important;
   visibility:visible !important;
   pointer-events:auto !important;
   transform:translateY(0) translateX(-50%) !important;
   transition:none !important;
 }
-#main-nav > li.has-sub > .submenu{
   left:50% !important;
 }
 
 
 /* Ensure nav layers never clip */
-.main-nav-bar, #main-nav { overflow: visible !important; }
 
 
 
-/* PATCH: Prevent vertical submenu staying open on desktop (avoid is-open conflict) */
 @media (min-width: 901px){
-  #main-nav.nav li.has-sub.is-open > .submenu{
     opacity:0 !important;
     visibility:hidden !important;
     pointer-events:none !important;
@@ -735,64 +717,50 @@ table td{
 }
 
 
-/* Hide mobile hamburger button */
-.nav-toggle,
-.hamburger,
-.menu-toggle {
   display: none !important;
 }
 
 /* Prevent click-open mobile state */
-.has-sub.is-open > .submenu {
   display: none !important;
 }
 
 /* Desktop hover only */
-.submenu {
   display: none;
   position: absolute;
 }
 
-.has-sub.hovering > .submenu {
   display: block !important;
 }
 
 /* Force desktop layout even on small screens */
 @media (max-width: 900px) {
   nav,
-  .main-nav,
   .gnb {
     display: flex !important;
     flex-direction: row !important;
   }
-  .submenu {
     position: absolute !important;
   }
 }
 
 
 /* === DESKTOP NAV: prevent vertical stacking/wrapping === */
-#main-nav.nav{
   flex-wrap: nowrap !important;
   white-space: nowrap !important;
 }
 @media (max-width: 980px){
-  #main-nav.nav{
     flex-wrap: nowrap !important;
     white-space: nowrap !important;
     overflow-x: auto !important;
     overflow-y: hidden !important;
     -webkit-overflow-scrolling: touch;
   }
-  #main-nav.nav::-webkit-scrollbar{ height: 0; }
 }
 
 .main-menu{flex-wrap:nowrap !important; white-space:nowrap !important; overflow-x:auto !important;}
 
 
 /* === NAV FIX: Horizontal dropdown only (no vertical/mobile dropdown states) === */
-/* Base submenu: keep it in the DOM flow for hover to work reliably on all pages */
-#main-nav > li.has-sub > .submenu{
   display:flex !important;
   flex-direction:row !important;
   flex-wrap:wrap !important;
@@ -805,31 +773,140 @@ table td{
 }
 
 /* Show on hover/focus */
-#main-nav > li.has-sub:hover > .submenu,
-#main-nav > li.has-sub:focus-within > .submenu{
   opacity:1 !important;
   visibility:visible !important;
   pointer-events:auto !important;
 }
 
 /* Kill any click-open / vertical menu states */
-#main-nav.nav li.has-sub.is-open > .submenu,
-.has-sub.is-open > .submenu,
 .menu-item.is-open > .sub{
   opacity:0 !important;
   visibility:hidden !important;
   pointer-events:none !important;
 }
 
-/* Hide mobile hamburger toggles if any template adds them later */
-.nav-toggle, .hamburger, .menu-toggle{ display:none !important; }
 
 /* Prevent main nav wrapping into vertical stacks */
-#main-nav.nav{
   flex-wrap: nowrap !important;
   white-space: nowrap !important;
   overflow-x: auto !important;
   overflow-y: visible !important;
 }
-#main-nav.nav::-webkit-scrollbar{ height: 6px; }
 
+
+
+/* === FINAL NAV OVERRIDE (authoritative): ensure dropdown shows and stays horizontal === */
+
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  gap: 10px !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  /* hidden by default */
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+
+  /* keep dropdown layer above content */
+  z-index: 9999 !important;
+}
+
+/* Show on hover/focus */
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+/* Never allow vertical/mobile click-open states */
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* Keep main nav from stacking vertically */
+  flex-wrap: nowrap !important;
+  white-space: nowrap !important;
+  overflow-x: auto !important;
+  overflow-y: visible !important;
+}
+
+
+/* =====================================================================
+   NAV: Single authoritative ruleset (no conflicts)
+   Goal: dropdown labels always show correctly on ANY page.
+   - Desktop hover/focus only
+   - Horizontal dropdown (flex row)
+   - No click-open / no vertical dropdown states
+   ===================================================================== */
+
+nav.main-nav-bar ul#main-nav.nav{
+  display:flex !important;
+  flex-direction:row !important;
+  flex-wrap:nowrap !important;
+  align-items:center !important;
+  gap:16px !important;
+  white-space:nowrap !important;
+  overflow-x:auto !important;
+  overflow-y:visible !important;
+}
+
+nav.main-nav-bar ul#main-nav.nav > li.has-sub{
+  position:relative !important;
+}
+
+nav.main-nav-bar ul#main-nav.nav > li.has-sub > ul.submenu{
+  display:flex !important;
+  flex-direction:row !important;
+  flex-wrap:wrap !important;
+  gap:10px !important;
+  align-items:center !important;
+  justify-content:center !important;
+
+  position:absolute !important;
+  left:50% !important;
+  transform:translateX(-50%) !important;
+  top:100% !important;
+  margin-top:10px !important;
+
+  opacity:0 !important;
+  visibility:hidden !important;
+  pointer-events:none !important;
+
+  z-index:9999 !important;
+
+  background:rgba(0,0,0,0.75) !important;
+  border:1px solid rgba(255,255,255,0.12) !important;
+  border-radius:12px !important;
+  padding:10px 12px !important;
+  backdrop-filter: blur(6px) !important;
+}
+
+nav.main-nav-bar ul#main-nav.nav > li.has-sub:hover > ul.submenu,
+nav.main-nav-bar ul#main-nav.nav > li.has-sub:focus-within > ul.submenu{
+  opacity:1 !important;
+  visibility:visible !important;
+  pointer-events:auto !important;
+}
+
+nav.main-nav-bar ul#main-nav.nav > li.has-sub > ul.submenu > li > a{
+  white-space:nowrap !important;
+}
+
+/* Disable any click-open / vertical states */
+nav.main-nav-bar ul#main-nav.nav li.has-sub.is-open > ul.submenu,
+.has-sub.is-open > ul.submenu{
+  opacity:0 !important;
+  visibility:hidden !important;
+  pointer-events:none !important;
+}
+
+.nav-toggle, .hamburger, .menu-toggle{
+  display:none !important;
+}
+
+/* Prevent clipping */
+.header, .header-inner, .main-nav-bar, nav.main-nav-bar{
+  overflow: visible !important;
+}
