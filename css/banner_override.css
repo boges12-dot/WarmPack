@@ -770,3 +770,22 @@ table td{
     position: absolute !important;
   }
 }
+
+
+/* === DESKTOP NAV: prevent vertical stacking/wrapping === */
+#main-nav.nav{
+  flex-wrap: nowrap !important;
+  white-space: nowrap !important;
+}
+@media (max-width: 980px){
+  #main-nav.nav{
+    flex-wrap: nowrap !important;
+    white-space: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch;
+  }
+  #main-nav.nav::-webkit-scrollbar{ height: 0; }
+}
+
+.main-menu{flex-wrap:nowrap !important; white-space:nowrap !important; overflow-x:auto !important;}
