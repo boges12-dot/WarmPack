@@ -719,35 +719,5 @@ table td{
 }
 
 
-/* PATCH: Subnav horizontal bar (no dropdown conflicts) */
-#subnav-bar{
-  width:100%;
-  background: rgba(0,0,0,0.35);
-  border-bottom: 1px solid rgba(255,255,255,0.10);
-}
-#subnav-bar .subnav-list{
-  list-style:none;
-  margin:0 auto;
-  padding:8px 12px;
-  max-width: 1200px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:12px;
-  flex-wrap:nowrap;
-  overflow:hidden; /* no horizontal scroll */
-  white-space:nowrap;
-}
-#subnav-bar .subnav-list li{ display:inline-flex; }
-#subnav-bar .subnav-list a{
-  display:inline-flex;
-  padding:6px 10px;
-  border-radius:10px;
-  text-decoration:none;
-}
-#subnav-bar .subnav-list a.is-active{
-  outline: 1px solid rgba(255,255,255,0.35);
-}
-
 /* Ensure nav layers never clip */
 .main-nav-bar, #main-nav { overflow: visible !important; }
