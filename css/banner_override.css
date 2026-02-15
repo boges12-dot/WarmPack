@@ -953,14 +953,7 @@ nav.main-nav-bar{
 
 
 
-/* === Dropdown UX: close delay (grace period) ===
-   Keeps submenu from snapping shut instantly when mouse leaves.
-   Adjust the 0.22s value to taste.
-*/
-nav.main-nav-bar ul#main-nav.nav > li.has-sub > ul.submenu{
-  transition:
-    opacity 0.14s ease,
-    visibility 0s linear 0.22s; /* delay hiding visibility */
+/* delay hiding visibility */
 }
 
 nav.main-nav-bar ul#main-nav.nav > li.has-sub:hover > ul.submenu,
@@ -968,5 +961,26 @@ nav.main-nav-bar ul#main-nav.nav > li.has-sub:focus-within > ul.submenu{
   transition:
     opacity 0.14s ease,
     visibility 0s linear 0s; /* show instantly */
+}
+
+
+/* === Dropdown UX: close delay (grace period) v2 ===
+   Behavior:
+   - On hover out: wait 0.25s, then fade out (0.14s), then hide.
+   Change 0.25s to taste.
+*/
+nav.main-nav-bar ul#main-nav.nav > li.has-sub > ul.submenu{
+  /* delay only applies on closing (i.e., when :hover is lost) */
+  transition:
+    opacity 0.14s ease 0.25s,
+    visibility 0s linear 0.39s; /* 0.25 + 0.14 */
+}
+
+/* On open: show immediately */
+nav.main-nav-bar ul#main-nav.nav > li.has-sub:hover > ul.submenu,
+nav.main-nav-bar ul#main-nav.nav > li.has-sub:focus-within > ul.submenu{
+  transition:
+    opacity 0.14s ease 0s,
+    visibility 0s linear 0s;
 }
 
