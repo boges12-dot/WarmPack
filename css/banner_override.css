@@ -401,7 +401,7 @@ body{
 
 /* 메뉴 높이가 변해도 안정적으로 */
   min-height: var(--nav-fixed-h);
-}
+
 
 
 /* CLEAN NAV (B): 배너 아래에서 시작 → 스크롤 시 최상단 고정(사라지지 않음) */
@@ -418,10 +418,7 @@ body{
 }
 
 /* 메인 메뉴: 배너 아래에 위치, 스크롤하면 화면 최상단에 고정 */
-  position: sticky;
-  top: 0;
-  z-index: 3000;
-}
+
 
 /* 스크롤이 막히지 않도록 기본값 보정 (강제 hidden 방지) */
 html, body{
@@ -665,38 +662,6 @@ table td{
   box-sizing:border-box;
 }
 
-/* PATCH: 스크롤 내려도 하위메뉴(드롭다운) 항상 정상 오픈 */
-  position:sticky;
-  top:0;
-  z-index:9999;
-  overflow:visible;
-}
-  position:relative;
-  overflow:visible;
-}
-  position:relative;
-}
-  position:absolute;
-  top:100%;
-  left:50%;
-  transform:translateX(-50%);
-  z-index:10000;
-  overflow:visible;
-}
-  display:flex !important;
-}
-
-
-  opacity:1 !important;
-  visibility:visible !important;
-  pointer-events:auto !important;
-  transform:translateY(0) translateX(-50%) !important;
-  transition:none !important;
-}
-  left:50% !important;
-}
-
-
 /* Ensure nav layers never clip */
 
 
@@ -707,23 +672,18 @@ table td{
     pointer-events:none !important;
     transform:translateY(6px) !important;
   }
-}
 
 
-  display: none !important;
-}
+
+
 
 /* Prevent click-open mobile state */
-  display: none !important;
-}
+
 
 /* Desktop hover only */
-  display: none;
-  position: absolute;
-}
 
-  display: block !important;
-}
+
+
 
 /* Force desktop layout even on small screens */
 @media (max-width: 900px) {
@@ -734,13 +694,13 @@ table td{
   }
     position: absolute !important;
   }
-}
+
 
 
 /* === DESKTOP NAV: prevent vertical stacking/wrapping === */
   flex-wrap: nowrap !important;
   white-space: nowrap !important;
-}
+
 @media (max-width: 980px){
     flex-wrap: nowrap !important;
     white-space: nowrap !important;
@@ -748,16 +708,13 @@ table td{
     overflow-y: hidden !important;
     -webkit-overflow-scrolling: touch;
   }
-}
+
 
 .main-menu{flex-wrap:nowrap !important; white-space:nowrap !important; overflow-x:auto !important;}
 
 
 /* Show on hover/focus */
-  opacity:1 !important;
-  visibility:visible !important;
-  pointer-events:auto !important;
-}
+
 
 /* Kill any click-open / vertical menu states */
 .menu-item.is-open > .sub{
@@ -772,37 +729,27 @@ table td{
   white-space: nowrap !important;
   overflow-x: auto !important;
   overflow-y: visible !important;
-}
+
 
 
 
 /* hidden by default */
-  opacity: 0 !important;
-  visibility: hidden !important;
-  pointer-events: none !important;
 
   /* keep dropdown layer above content */
-  z-index: 9999 !important;
-}
+
 
 /* Show on hover/focus */
-  opacity: 1 !important;
-  visibility: visible !important;
-  pointer-events: auto !important;
-}
+
 
 /* Never allow vertical/mobile click-open states */
-  opacity: 0 !important;
-  visibility: hidden !important;
-  pointer-events: none !important;
-}
+
 
 /* Keep main nav from stacking vertically */
   flex-wrap: nowrap !important;
   white-space: nowrap !important;
   overflow-x: auto !important;
   overflow-y: visible !important;
-}
+
 
 
 /* =====================================================================
@@ -986,4 +933,20 @@ nav.main-nav-bar ul#main-nav.nav li.has-sub.is-open > ul.submenu,
 main, .site-main, .content, .page-content{
   overflow: visible !important;
 }
+
+
+/* === Root-cause fix: nav dropdown behind content (targeted) ===
+   Removed malformed patch that broke CSS parsing.
+   Keep nav layer above content with minimal, stable stacking.
+*/
+nav.main-nav-bar{
+  position: sticky;
+  top: 0;
+  z-index: 200;          /* modest; main CSS uses ~40-60 */
+  isolation: isolate;    /* independent stacking context */
+  overflow: visible;
+}
+#main-nav.nav{ overflow: visible; }
+#main-nav.nav .submenu{ z-index: 300; }
+.site-main, main{ position: relative; z-index: 1; }
 
