@@ -910,3 +910,52 @@ nav.main-nav-bar ul#main-nav.nav li.has-sub.is-open > ul.submenu,
 .header, .header-inner, .main-nav-bar, nav.main-nav-bar{
   overflow: visible !important;
 }
+
+
+/* Put header/nav above all page content */
+header, .header, .header-inner, .main-nav-bar, nav.main-nav-bar{
+  position: relative !important;
+  z-index: 100000 !important;
+  overflow: visible !important;
+  isolation: isolate !important; /* clean stacking context */
+}
+
+/* Ensure main/content never overlaps the nav layer */
+main, .site-main, .content, .page-content{
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Submenu should be above everything */
+nav.main-nav-bar ul#main-nav.nav > li.has-sub > ul.submenu{
+  z-index: 100001 !important;
+}
+
+/* Prevent clipping from common wrappers */
+.section, .container, .wrap, .wrapper{
+  overflow: visible !important;
+}
+
+
+/* === STRUCTURAL NAV LAYER (no brute-force z-index stacking) ===
+   Make the nav its own isolated sticky layer so dropdown is always in front.
+*/
+nav.main-nav-bar{
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+  isolation: isolate !important;
+  overflow: visible !important;
+}
+
+/* Keep dropdown above page content inside nav layer */
+nav.main-nav-bar ul#main-nav.nav > li.has-sub > ul.submenu{
+  z-index: 1001 !important;
+}
+
+/* Ensure common content wrappers don't clip the dropdown */
+main, .site-main, .content, .page-content,
+.section, .container, .wrap, .wrapper{
+  overflow: visible !important;
+}
+
