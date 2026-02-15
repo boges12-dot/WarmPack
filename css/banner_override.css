@@ -16,13 +16,6 @@
 }
 
 /* 메뉴는 배너 아래에 위치(스크롤 시 배너 높이가 줄어들면 메뉴도 같이 올라옴) */
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-
-
 /* 배너 위 전체 클릭(홈) */
 .hero-home-link{ position:absolute; inset:0; display:block; }
 
@@ -760,18 +753,6 @@ table td{
 .main-menu{flex-wrap:nowrap !important; white-space:nowrap !important; overflow-x:auto !important;}
 
 
-/* === NAV FIX: Horizontal dropdown only (no vertical/mobile dropdown states) === */
-  display:flex !important;
-  flex-direction:row !important;
-  flex-wrap:wrap !important;
-  gap:10px !important;
-  align-items:center !important;
-  justify-content:center !important;
-  opacity:0 !important;
-  visibility:hidden !important;
-  pointer-events:none !important;
-}
-
 /* Show on hover/focus */
   opacity:1 !important;
   visibility:visible !important;
@@ -795,16 +776,7 @@ table td{
 
 
 
-/* === FINAL NAV OVERRIDE (authoritative): ensure dropdown shows and stays horizontal === */
-
-  display: flex !important;
-  flex-direction: row !important;
-  flex-wrap: wrap !important;
-  gap: 10px !important;
-  align-items: center !important;
-  justify-content: center !important;
-
-  /* hidden by default */
+/* hidden by default */
   opacity: 0 !important;
   visibility: hidden !important;
   pointer-events: none !important;
@@ -937,17 +909,6 @@ nav.main-nav-bar ul#main-nav.nav > li.has-sub > ul.submenu{
 }
 
 
-/* === STRUCTURAL NAV LAYER (no brute-force z-index stacking) ===
-   Make the nav its own isolated sticky layer so dropdown is always in front.
-*/
-nav.main-nav-bar{
-  position: sticky !important;
-  top: 0 !important;
-  z-index: 1000 !important;
-  isolation: isolate !important;
-  overflow: visible !important;
-}
-
 /* Keep dropdown above page content inside nav layer */
 nav.main-nav-bar ul#main-nav.nav > li.has-sub > ul.submenu{
   z-index: 1001 !important;
@@ -956,6 +917,73 @@ nav.main-nav-bar ul#main-nav.nav > li.has-sub > ul.submenu{
 /* Ensure common content wrappers don't clip the dropdown */
 main, .site-main, .content, .page-content,
 .section, .container, .wrap, .wrapper{
+  overflow: visible !important;
+}
+
+
+/* =====================================================================
+   NAV LAYER: Sticky + Isolated (stable, not "brute force")
+   - nav is its own stacking context (isolation:isolate)
+   - dropdown always renders in front of page content
+   - horizontal dropdown only (flex row)
+   ===================================================================== */
+
+nav.main-nav-bar{
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 20000 !important;         /* above any content cards/modals that use ~9999 */
+  isolation: isolate !important;     /* isolated stacking context */
+  overflow: visible !important;
+}
+
+nav.main-nav-bar ul#main-nav.nav{
+  overflow: visible !important;
+}
+
+nav.main-nav-bar ul#main-nav.nav > li.has-sub{
+  position: relative !important;
+}
+
+nav.main-nav-bar ul#main-nav.nav > li.has-sub > ul.submenu{
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  gap: 10px !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  position: absolute !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  top: 100% !important;
+  margin-top: 10px !important;
+
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+
+  z-index: 20001 !important;
+}
+
+nav.main-nav-bar ul#main-nav.nav > li.has-sub:hover > ul.submenu,
+nav.main-nav-bar ul#main-nav.nav > li.has-sub:focus-within > ul.submenu{
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+/* Prevent any click-open / vertical dropdown states from ever showing */
+nav.main-nav-bar ul#main-nav.nav li.has-sub.is-open > ul.submenu,
+.has-sub.is-open > ul.submenu,
+.menu-item.is-open > .sub{
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* Avoid clipping */
+.header, .header-inner, .main-nav-bar, nav.main-nav-bar,
+main, .site-main, .content, .page-content{
   overflow: visible !important;
 }
 
