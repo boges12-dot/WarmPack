@@ -950,3 +950,23 @@ nav.main-nav-bar{
 #main-nav.nav .submenu{ z-index: 300; }
 .site-main, main{ position: relative; z-index: 1; }
 
+
+
+
+/* === Dropdown UX: close delay (grace period) ===
+   Keeps submenu from snapping shut instantly when mouse leaves.
+   Adjust the 0.22s value to taste.
+*/
+nav.main-nav-bar ul#main-nav.nav > li.has-sub > ul.submenu{
+  transition:
+    opacity 0.14s ease,
+    visibility 0s linear 0.22s; /* delay hiding visibility */
+}
+
+nav.main-nav-bar ul#main-nav.nav > li.has-sub:hover > ul.submenu,
+nav.main-nav-bar ul#main-nav.nav > li.has-sub:focus-within > ul.submenu{
+  transition:
+    opacity 0.14s ease,
+    visibility 0s linear 0s; /* show instantly */
+}
+
