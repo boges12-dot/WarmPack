@@ -1002,24 +1002,22 @@ nav.main-nav-bar ul#main-nav.nav > li.has-sub > ul.submenu a{
 
 
 
-/* move dropdown lower */
-  margin-top: 0 !important;           /* avoid double offset */
-}
-
-/* Keep common "news/notice" sections below the nav layer */
-.news, .news-box, .notice, .notice-box, .updates, .updates-box{
-  position: relative;
-  z-index: 1;
-}
-
-
-/* === Layout: reserve space under nav so page boxes don't cover dropdown ===
-   We keep the dropdown position as-is, and instead push the first page content down.
-   Tune 80px if you want more/less space.
+/* === Layout: push page content down so dropdown is not covered by "소식" and other boxes ===
+   Dropdown 위치는 유지하고, 네비 아래에 바로 붙는 컨텐츠(홈 소식/공지 박스 등)를 내려준다.
+   1) 홈(index): header.site-header가 nav 바로 아래에 붙어 있으므로 margin-top 적용
+   2) 기타 페이지: .site-main/main에도 동일한 상단 여백 적용
 */
-main.site-main, main, .site-main, .page-content, .content{
-  padding-top: 80px !important;
+header.site-header{
+  margin-top: 90px !important;
 }
 
-/* If some pages already have padding, avoid doubling too much (keep max of existing). */
+main.site-main, .site-main, main, .page-content, .content{
+  padding-top: 90px !important;
+}
+
+/* Avoid double spacing if a page uses both header.site-header + site-main */
+header.site-header + main.site-main,
+header.site-header + .site-main{
+  padding-top: 0 !important;
+}
 
