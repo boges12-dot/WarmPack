@@ -999,3 +999,27 @@ nav.main-nav-bar ul#main-nav.nav > li.has-sub > ul.submenu a{
   pointer-events: auto !important;
 }
 
+
+
+
+/* move dropdown lower */
+  margin-top: 0 !important;           /* avoid double offset */
+}
+
+/* Keep common "news/notice" sections below the nav layer */
+.news, .news-box, .notice, .notice-box, .updates, .updates-box{
+  position: relative;
+  z-index: 1;
+}
+
+
+/* === Layout: reserve space under nav so page boxes don't cover dropdown ===
+   We keep the dropdown position as-is, and instead push the first page content down.
+   Tune 80px if you want more/less space.
+*/
+main.site-main, main, .site-main, .page-content, .content{
+  padding-top: 80px !important;
+}
+
+/* If some pages already have padding, avoid doubling too much (keep max of existing). */
+
