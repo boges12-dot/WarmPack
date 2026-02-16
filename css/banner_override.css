@@ -984,3 +984,18 @@ nav.main-nav-bar ul#main-nav.nav > li.has-sub:focus-within > ul.submenu{
     visibility 0s linear 0s;
 }
 
+
+
+
+/* === Submenu click fix: ensure links are clickable === */
+nav.main-nav-bar ul#main-nav.nav > li.has-sub > a[data-no-nav="1"]{
+  position: relative;
+  z-index: 1; /* keep label above background, but below submenu */
+}
+nav.main-nav-bar ul#main-nav.nav > li.has-sub > ul.submenu{
+  z-index: 10; /* above the top-level anchor */
+}
+nav.main-nav-bar ul#main-nav.nav > li.has-sub > ul.submenu a{
+  pointer-events: auto !important;
+}
+
