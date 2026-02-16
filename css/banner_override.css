@@ -1021,3 +1021,9 @@ header.site-header + .site-main{
   padding-top: 0 !important;
 }
 
+
+
+/* Early item tables */
+.item-table{width:100%;border-collapse:collapse;}
+.item-table th,.item-table td{border:1px solid rgba(255,255,255,.12);padding:10px;vertical-align:top;}
+.item-icon{width:42px;height:42px;object-fit:contain;}
