@@ -414,5 +414,17 @@ document.addEventListener('DOMContentLoaded', function(){
   background-image: none !important;
 }
 </style>
-</body>
+<script>/* Early page nav reset: prevent submenu-open state from persisting */
+document.addEventListener('DOMContentLoaded', function () {
+  try {
+    var nav = document.getElementById('main-nav');
+    if (!nav) return;
+    var items = nav.querySelectorAll('.has-sub');
+    for (var i = 0; i < items.length; i++) {
+      items[i].classList.remove('is-open','open','active','hovering');
+      var a = items[i].querySelector(':scope > a');
+      if (a) a.setAttribute('aria-expanded','false');
+    }
+  } catch (e) {}
+});</script></body>
 </html>
