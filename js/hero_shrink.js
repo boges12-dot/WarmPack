@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const c = clamp(y, 0, BASE);
     if (c === last) return;
     last = c;
-    root.style.setProperty("--hero-collapse", c + "px");
+// [hero-disabled]     root.style.setProperty("--hero-collapse", c + "px");
   };
 
   let ticking = false;
