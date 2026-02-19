@@ -1027,20 +1027,3 @@ header.site-header + .site-main{
 .item-table{width:100%;border-collapse:collapse;}
 .item-table th,.item-table td{border:1px solid rgba(255,255,255,.12);padding:10px;vertical-align:top;}
 .item-icon{width:42px;height:42px;object-fit:contain;}
-
-/* --- HERO MAIN HEIGHT FIX (reduce empty banner space) --- */
-.hero-main{
-  min-height: 0 !important;
-  height: auto !important;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-  margin: 0 !important;
-}
-/* If hero-main has no visible content, collapse it completely */
-.hero-main:empty{
-  display: none !important;
-}
-/* In case whitespace/newlines exist inside, also collapse if it contains no elements */
-.hero-main:not(:has(*)){
-  display: none !important;
-}
