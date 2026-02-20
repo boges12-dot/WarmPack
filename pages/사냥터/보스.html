@@ -55,6 +55,23 @@ table.skill-table td{
   border-radius: 10px;
 }
 </style>
+<style>
+/* 표가 화면을 꽉 채우지 않도록 폭 제한 + 가운데 정렬 */
+.hunt-table {
+  width: 100%;
+  max-width: 1100px;
+  margin: 24px auto;
+  table-layout: fixed;
+}
+
+.hunt-table td, .hunt-table th {
+  word-break: keep-all;
+}
+
+@media (max-width: 1200px) {
+  .hunt-table { max-width: 95vw; }
+}
+</style>
 </head>
 <body><section class="hero-main"><a aria-label="홈으로 이동" class="hero-home-link" href="/WarmPack/"></a></section><nav aria-label="메인 메뉴" class="main-nav-bar">
 <ul class="nav" id="main-nav">
