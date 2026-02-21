@@ -88,3 +88,42 @@ header, .header, .topbar{
     opacity:.70;
   }
 }
+
+
+/* === NAV DROPDOWN: 가로형 === */
+/* 드롭다운(서브메뉴)을 세로 리스트 -> 가로(행) 배치로 변경 */
+#main-nav.nav .submenu{
+  display:flex !important;
+  flex-direction:row !important;
+  flex-wrap:wrap;                 /* 항목이 많으면 다음 줄로 */
+  gap:6px 10px;
+  width:auto !important;
+  padding:10px 12px !important;
+  white-space:normal;
+}
+
+#main-nav.nav .submenu > li{
+  margin:0 !important;
+}
+
+#main-nav.nav .submenu > li > a{
+  display:block;
+  padding:8px 10px;
+  white-space:nowrap;             /* 각 항목은 한 줄 유지 */
+}
+
+/* 서브메뉴가 너무 왼쪽에 붙어보이면 살짝 띄움 */
+#main-nav.nav li.has-sub > .submenu{
+  left:0;
+}
+
+/* 모바일에서 너무 빽빽하면 약간 줄임 */
+@media (max-width:768px){
+  #main-nav.nav .submenu{
+    gap:6px 8px;
+    padding:8px 10px !important;
+  }
+  #main-nav.nav .submenu > li > a{
+    padding:7px 9px;
+  }
+}
