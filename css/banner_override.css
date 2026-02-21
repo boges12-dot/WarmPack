@@ -128,3 +128,64 @@ header, .header, .topbar{
   background: rgba(255,255,255,.18);
   border-radius: 999px;
 }
+
+
+
+/* === FIX: 드롭다운 중앙 정렬 + 가림(레이어) 문제 해결 === */
+/* nav바가 z-index가 적용되도록 position 지정 + overflow 보장 */
+.main-nav-bar{
+  position: relative;
+  z-index: 20000;
+  overflow: visible;
+}
+#main-nav.nav{
+  position: relative;
+  z-index: 20001;
+  overflow: visible;
+}
+/* ✅ 드롭다운을 '전체 네비 기준으로' 중앙정렬하기 위해 li를 기준점으로 쓰지 않음 */
+#main-nav.nav > li{ position: static !important; }
+
+/* 드롭다운 패널 자체를 '중앙 정렬' (항목 좌측 정렬 X) */
+#main-nav.nav > li > .submenu{
+  position: absolute !important;
+  left: 50% !important;                 /* 기존 left:0 덮기 */
+  transform: translateX(-50%) translateY(6px) !important;
+  right: auto !important;
+  z-index: 20010 !important;
+}
+
+/* 패널 안의 항목들도 중앙 정렬 */
+#main-nav.nav .submenu{
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+/* 홈 '소식' 박스가 드롭다운을 덮지 않게 레이어 우선순위 조정 */
+.home-section, .home, .home-wrap, .home-list, .home-grid, .news, .news-box{
+  position: relative;
+  z-index: 0 !important;
+}
+/* (배너는 메뉴 위에 있지만, 레이어는 메뉴가 더 위여도 문제 없음) */
+.main-banner{ position: relative; z-index: 10; }
+
+/* (혹시 상위 컨테이너가 overflow로 드롭다운을 자르면) 강제 해제 */
+header, .site-header, .header, .topbar, .page-header{
+  overflow: visible !important;
+}
+
+
+/* open 상태에서도 중앙정렬 유지 (기본 CSS transform 덮기) */
+#main-nav.nav li.has-sub.is-open > .submenu,
+#main-nav.nav li.has-sub.hovering > .submenu{
+  left: 50% !important;
+  transform: translateX(-50%) translateY(0) !important;
+  z-index: 20010 !important;
+}
+
+/* ✅ 혹시 본문(소식 박스 포함)에 transform/필터가 걸려 새로운 스태킹 컨텍스트가 생기면 드롭다운이 가려질 수 있어 방지 */
+main, .main, .content, .container, .wrap, .page, .page-wrap{
+  position: relative;
+  z-index: 0;
+  overflow: visible;
+}
