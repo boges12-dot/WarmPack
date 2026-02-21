@@ -3,8 +3,6 @@
 STEP4_JS_CLEANUP_20260116
 STEP5: 2026-01-16 - loading performance: add img dimensions/lazy, defer scripts, remove stray .bak
 STEP6: Added WebP versions of logo/banner and <picture> fallback in index; preload WebP only (2026-01-16).
-STEP7: Optimized logo.png (strip/compress) and optimized banner.gif (-layers Optimize); added fetchpriority=high to hero images (2026-01-16).
-
 STEP8: 2026-01-16 - SEO basics: add robots.txt and sitemap.xml (replace YOUR_DOMAIN_HERE).
 
 STEP9: 2026-01-16 - Add favicon.ico, generated icons, and site.webmanifest; inject icon/manifest links into all HTML heads.
