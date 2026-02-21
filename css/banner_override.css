@@ -1027,3 +1027,42 @@ header.site-header + .site-main{
 .item-table{width:100%;border-collapse:collapse;}
 .item-table th,.item-table td{border:1px solid rgba(255,255,255,.12);padding:10px;vertical-align:top;}
 .item-icon{width:42px;height:42px;object-fit:contain;}
+
+
+/* =====================================================================
+   BANNER (HOME): Texture-only background + remove logo elements
+   - Wide & short banner (no photo-style image)
+   - Subtle texture that "reveals" via gradients
+   - PC: 150px / Mobile: 110px
+   ===================================================================== */
+
+:root{ --hero-h-base: 150px; }
+
+@media (max-width:768px){
+  :root{ --hero-h-base: 110px; }
+}
+
+.hero-main{
+  height: var(--hero-h-base) !important;
+  min-height: var(--hero-h-base) !important;
+  background:
+    /* soft center impact */
+    radial-gradient(circle at 50% 45%, rgba(255,255,255,0.06), transparent 60%),
+    /* subtle "texture" fade */
+    linear-gradient(to bottom, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.00) 55%),
+    /* deep ocean base */
+    linear-gradient(to bottom, #071923 0%, #0f2e45 100%)
+    !important;
+  background-size: cover !important;
+  background-position: center top !important;
+}
+
+/* If any logo/illustration exists in the banner, kill it */
+.hero-main img,
+.hero-main .hero-logo,
+.hero-main .banner-logo,
+.hero-main .logo,
+.hero-main .brand,
+.hero-main .banner-icon{
+  display:none !important;
+}
