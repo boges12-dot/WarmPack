@@ -1,6 +1,10 @@
 /* === 전복 서버: 텍스처(텍스트) 배너 전용 === */
 /* 기존 히어로 배너/로고/배너이미지 의존 코드는 제거하고 이 파일만 유지합니다. */
 
+:root{
+  --accent: #00e5ff; /* 강조 색상 (원하면 여기만 변경) */
+}
+
 .main-banner{
   width:100%;
   height:150px;
@@ -24,7 +28,7 @@
   position:absolute;
   inset:0;
   pointer-events:none;
-  opacity:.10;
+  opacity:.14;
   background:
     repeating-linear-gradient(
       135deg,
@@ -46,16 +50,16 @@
   line-height:1;
   margin:0;
 
-  /* 텍스트 자체를 텍스처처럼: 그라데이션 + 아주 얕은 줄무늬 */
+  /* 텍스트 자체를 텍스처처럼: 강조 색상 + 줄무늬 */
   color:transparent;
   background:
-    linear-gradient(to bottom, rgba(255,255,255,.45), rgba(255,255,255,.10)),
+    linear-gradient(to bottom, rgba(0,229,255,.85), rgba(255,255,255,.18)),
     repeating-linear-gradient(
       90deg,
-      rgba(255,255,255,.18) 0px,
-      rgba(255,255,255,.18) 2px,
-      rgba(255,255,255,.06) 4px,
-      rgba(255,255,255,.06) 8px
+      rgba(0,229,255,.35) 0px,
+      rgba(0,229,255,.35) 2px,
+      rgba(255,255,255,.10) 4px,
+      rgba(255,255,255,.10) 9px
     );
   -webkit-background-clip:text;
   background-clip:text;
@@ -89,41 +93,38 @@ header, .header, .topbar{
   }
 }
 
-
-/* === NAV DROPDOWN: 가로형 === */
-/* 드롭다운(서브메뉴)을 세로 리스트 -> 가로(행) 배치로 변경 */
+/* === NAV DROPDOWN: 가로 1줄(줄바꿈 제거) === */
 #main-nav.nav .submenu{
   display:flex !important;
   flex-direction:row !important;
-  flex-wrap:wrap;                 /* 항목이 많으면 다음 줄로 */
+  flex-wrap:nowrap !important;          /* ✅ 자동 줄맞춤(랩) 제거 */
   gap:6px 10px;
   width:auto !important;
   padding:10px 12px !important;
-  white-space:normal;
+  overflow-x:auto;                      /* ✅ 항목이 많으면 가로 스크롤 */
+  overflow-y:hidden !important;
+  max-width:min(92vw, 980px);
+  -webkit-overflow-scrolling:touch;
+  white-space:nowrap !important;        /* 텍스트 줄바꿈 금지 */
 }
 
-#main-nav.nav .submenu > li{
-  margin:0 !important;
+/* ✅ 세로로 보이게 만드는 기본 CSS(폭 100%)를 강제 해제 */
+#main-nav.nav .submenu li{
+  flex:0 0 auto !important;
+  display:flex !important;
+  align-items:center;
 }
 
-#main-nav.nav .submenu > li > a{
-  display:block;
-  padding:8px 10px;
-  white-space:nowrap;             /* 각 항목은 한 줄 유지 */
+#main-nav.nav .submenu li a{
+  width:auto !important;                /* 기본 CSS의 width:100% 제거 */
+  display:inline-flex !important;
+  white-space:nowrap !important;
+  justify-content:center !important;
 }
 
-/* 서브메뉴가 너무 왼쪽에 붙어보이면 살짝 띄움 */
-#main-nav.nav li.has-sub > .submenu{
-  left:0;
-}
-
-/* 모바일에서 너무 빽빽하면 약간 줄임 */
-@media (max-width:768px){
-  #main-nav.nav .submenu{
-    gap:6px 8px;
-    padding:8px 10px !important;
-  }
-  #main-nav.nav .submenu > li > a{
-    padding:7px 9px;
-  }
+/* 스크롤바 최소 */
+#main-nav.nav .submenu::-webkit-scrollbar{ height:6px; }
+#main-nav.nav .submenu::-webkit-scrollbar-thumb{
+  background: rgba(255,255,255,.18);
+  border-radius: 999px;
 }
