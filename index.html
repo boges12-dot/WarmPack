@@ -15,6 +15,8 @@
 <meta content=" · " name="twitter:title"/>
 <meta content=" · " name="twitter:description"/>
 <link href="css/main.20260116_16.min.css" rel="stylesheet"/>
+<link as="image" fetchpriority="high" href="assets/images/logo.webp" rel="preload" type="image/webp"/>
+<link as="image" fetchpriority="high" href="assets/images/banner.webp" rel="preload" type="image/webp"/>
 <!-- STEP9: icons/manifest -->
 <link href="favicon.ico" rel="icon" sizes="any"/>
 <link href="assets/icons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
@@ -57,8 +59,7 @@ table.skill-table td{
 .home-notice-foot { margin-top: 12px; opacity: 0.85; text-align: center; }
 </style>
 </head>
-<body><section class="main-banner" aria-label="전복 서버 배너"><div class="banner-text" aria-hidden="true">전 복 서 버</div></section>
-<nav aria-label="메인 메뉴" class="main-nav-bar">
+<body><section aria-hidden="true" class="hero-main"><a aria-label="홈으로 이동" class="hero-home-link" href="/WarmPack/"></a></section><nav aria-label="메인 메뉴" class="main-nav-bar">
 <ul class="nav" id="main-nav">
 <li class="home-link"><a aria-label="홈" class="nav-home" href="/WarmPack/"><svg aria-hidden="true" class="icon-home" focusable="false" height="18" viewbox="0 0 24 24" width="18"><path d="M12 3 2.5 11.2a1 1 0 0 0 .7 1.8H5v7a1 1 0 0 0 1 1h4v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5h4a1 1 0 0 0 1-1v-7h1.8a1 1 0 0 0 .7-1.8L12 3z"></path></svg></a></li>
 <li class="has-sub">
@@ -189,13 +190,14 @@ table.skill-table td{
 <main class="site-main">
 <div id="top"></div>
 <a class="skip-link" href="#main-content">본문 바로가기</a>
-<section class="main-banner" aria-label="메인 배너">
-  <div class="banner-text" aria-hidden="true">전&nbsp;복&nbsp;서&nbsp;버</div>
-</section>
+<header class="hero-bar">
+</header>
 <main id="main-content">
 </main>
 <script defer="" src="js/main.20260116_16.min.js"></script>
+<script src="js/banner_home.js"></script>
 <script src="js/top_button.js"></script>
+<script src="./js/hero_shrink.js"></script>
 <script src="js/server_status_toggle.js"></script>
 </main>
 <script>
