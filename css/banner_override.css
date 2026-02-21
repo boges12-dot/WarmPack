@@ -16,10 +16,8 @@
   position:relative;
   overflow:hidden;
 
-  /* 그림/사진 없이: 딥블루 그라데이션 + 은은한 임팩트 */
-  background:
-    radial-gradient(circle at 50% 55%, rgba(255,255,255,.07), transparent 62%),
-    linear-gradient(to bottom, #071923 0%, #0f2e45 100%);
+  /* 그림/사진 없이: 딥블루 그라데이션 (기본 바탕) */
+  background: linear-gradient(135deg, #061621 0%, #0b2a3f 55%, #071923 100%);
 }
 
 /* 아주 미세한 텍스처(노이즈/그레인) 느낌: CSS 패턴 */
@@ -28,54 +26,106 @@
   position:absolute;
   inset:0;
   pointer-events:none;
-  opacity:.14;
+
+  /* 미세 텍스처(그레인) */
+  opacity:.18;
   background:
     repeating-linear-gradient(
       135deg,
-      rgba(255,255,255,.10) 0px,
-      rgba(255,255,255,.10) 1px,
+      rgba(255,255,255,.11) 0px,
+      rgba(255,255,255,.11) 1px,
       rgba(0,0,0,0) 2px,
-      rgba(0,0,0,0) 6px
+      rgba(0,0,0,0) 7px
     );
   mix-blend-mode: overlay;
+}
+
+/* 부드럽게 움직이는 슬라이드(임팩트): 라이트가 천천히 흐르는 느낌 */
+.main-banner::after{
+  content:"";
+  position:absolute;
+  inset:-35% -20%;
+  pointer-events:none;
+  opacity:.40;
+
+  background:
+    radial-gradient(circle at 30% 45%, rgba(0,229,255,.22), transparent 52%),
+    radial-gradient(circle at 70% 55%, rgba(255,255,255,.10), transparent 56%),
+    linear-gradient(90deg, rgba(0,229,255,.10), rgba(0,0,0,0), rgba(0,229,255,.10));
+  mix-blend-mode: screen;
+  filter: blur(2px);
+
+  animation: bannerSlide 10s ease-in-out infinite alternate;
+}
+
+@keyframes bannerSlide{
+  0%   { transform: translateX(-6%) translateY(-2%); }
+  50%  { transform: translateX(4%)  translateY(1%); }
+  100% { transform: translateX(10%) translateY(-1%); }
 }
 
 /* 텍스처 문구: "전 복 서 버" — 서서히 보이는(페이드) 형식 */
 .banner-text{
   position:relative;
   z-index:1;
-  font-weight:800;
+  font-weight:900;
   font-size:34px;
   letter-spacing:14px;
   line-height:1;
   margin:0;
 
-  /* 텍스트 자체를 텍스처처럼: 강조 색상 + 줄무늬 */
+  /* ✅ 배경과 확실히 분리되는 '찐한' 강조 텍스처 */
   color:transparent;
   background:
-    linear-gradient(to bottom, rgba(0,229,255,.85), rgba(255,255,255,.18)),
+    linear-gradient(to bottom, rgba(0,229,255,1), rgba(255,255,255,.30)),
     repeating-linear-gradient(
       90deg,
-      rgba(0,229,255,.35) 0px,
-      rgba(0,229,255,.35) 2px,
-      rgba(255,255,255,.10) 4px,
-      rgba(255,255,255,.10) 9px
+      rgba(0,229,255,.55) 0px,
+      rgba(0,229,255,.55) 2px,
+      rgba(255,255,255,.18) 4px,
+      rgba(255,255,255,.18) 10px
     );
+  background-size: 200% 100%;
+  background-position: 0% 0%;
   -webkit-background-clip:text;
   background-clip:text;
   -webkit-text-fill-color:transparent;
 
-  /* 서서히 사라지는(양 끝 페이드) + 위→아래 살짝 페이드 */
+  /* ✅ 서서히 보였다가(리빌) 은은하게 사라지는 마스크 애니메이션 */
   -webkit-mask-image:
     linear-gradient(to right, transparent 0%, #000 18%, #000 82%, transparent 100%),
-    linear-gradient(to bottom, rgba(0,0,0,.2) 0%, #000 55%, rgba(0,0,0,.25) 100%);
-  -webkit-mask-composite: source-in;
+    linear-gradient(to bottom, transparent 0%, #000 55%, transparent 100%);
+  -webkit-mask-size: 220% 100%, 100% 220%;
+  -webkit-mask-position: 0% 0%, 0% 0%;
+  -webkit-mask-repeat: no-repeat;
+
   mask-image:
     linear-gradient(to right, transparent 0%, #000 18%, #000 82%, transparent 100%),
-    linear-gradient(to bottom, rgba(0,0,0,.2) 0%, #000 55%, rgba(0,0,0,.25) 100%);
+    linear-gradient(to bottom, transparent 0%, #000 55%, transparent 100%);
+  mask-size: 220% 100%, 100% 220%;
+  mask-position: 0% 0%, 0% 0%;
+  mask-repeat: no-repeat;
 
-  opacity:.65;
-  filter: drop-shadow(0 2px 10px rgba(0,0,0,.35));
+  /* 가독성 강화 */
+  opacity:1;
+  text-shadow:
+    0 1px 0 rgba(0,0,0,.45),
+    0 10px 26px rgba(0,0,0,.45);
+  filter: drop-shadow(0 2px 14px rgba(0,0,0,.35));
+
+  animation: textReveal 6.5s ease-in-out infinite, textShimmer 2.8s linear infinite;
+}
+
+@keyframes textReveal{
+  0%   { opacity:.18; -webkit-mask-position: 0% 0%, 0% 0%;  mask-position: 0% 0%, 0% 0%; }
+  45%  { opacity:1;   -webkit-mask-position: 100% 0%, 0% 100%; mask-position: 100% 0%, 0% 100%; }
+  70%  { opacity:.85; -webkit-mask-position: 120% 0%, 0% 120%; mask-position: 120% 0%, 0% 120%; }
+  100% { opacity:.30; -webkit-mask-position: 0% 0%, 0% 0%;  mask-position: 0% 0%, 0% 0%; }
+}
+
+@keyframes textShimmer{
+  0%   { background-position: 0% 0%; }
+  100% { background-position: 200% 0%; }
 }
 
 /* 네비 아래 빈공간 방지: 배너/헤더 주변 여백이 있으면 제거 */
@@ -89,7 +139,9 @@ header, .header, .topbar{
   .banner-text{
     font-size:22px;
     letter-spacing:6px;
-    opacity:.70;
+    text-shadow:
+      0 1px 0 rgba(0,0,0,.45),
+      0 8px 20px rgba(0,0,0,.45);
   }
 }
 
@@ -131,8 +183,8 @@ header, .header, .topbar{
 
 
 
-/* === FIX: 드롭다운 중앙 정렬 + 가림(레이어) 문제 해결 === */
-/* nav바가 z-index가 적용되도록 position 지정 + overflow 보장 */
+/* === FIX: 드롭다운 '각 상위메뉴 기준' 정렬 + 가림(레이어) 문제 해결 === */
+/* nav바에 z-index 적용되도록 position 지정 + overflow 보장 */
 .main-nav-bar{
   position: relative;
   z-index: 20000;
@@ -143,19 +195,33 @@ header, .header, .topbar{
   z-index: 20001;
   overflow: visible;
 }
-/* ✅ 드롭다운을 '전체 네비 기준으로' 중앙정렬하기 위해 li를 기준점으로 쓰지 않음 */
-#main-nav.nav > li{ position: static !important; }
 
-/* 드롭다운 패널 자체를 '중앙 정렬' (항목 좌측 정렬 X) */
+/* ✅ 각 상위 메뉴(li)를 기준점으로: 해당 메뉴 아래에 드롭다운이 붙도록 */
+#main-nav.nav > li{
+  position: relative !important;
+}
+
+/* ✅ 드롭다운 패널: 해당 메뉴 기준 중앙 정렬 (클릭 접근성 ↑) */
 #main-nav.nav > li > .submenu{
   position: absolute !important;
-  left: 50% !important;                 /* 기존 left:0 덮기 */
-  transform: translateX(-50%) translateY(6px) !important;
+  left: 50% !important;
   right: auto !important;
+  transform: translateX(-50%) translateY(6px) !important;
+  z-index: 20010 !important;
+
+  /* 화면 밖으로 너무 튀지 않게 */
+  max-width: min(92vw, 980px);
+}
+
+/* open/hover 상태에서도 정렬 유지 (기본 CSS transform 덮기) */
+#main-nav.nav li.has-sub.is-open > .submenu,
+#main-nav.nav li.has-sub.hovering > .submenu{
+  left: 50% !important;
+  transform: translateX(-50%) translateY(0) !important;
   z-index: 20010 !important;
 }
 
-/* 패널 안의 항목들도 중앙 정렬 */
+/* 패널 안 가로 정렬은 그대로 유지 */
 #main-nav.nav .submenu{
   justify-content: center !important;
   align-items: center !important;
@@ -166,6 +232,7 @@ header, .header, .topbar{
   position: relative;
   z-index: 0 !important;
 }
+
 /* (배너는 메뉴 위에 있지만, 레이어는 메뉴가 더 위여도 문제 없음) */
 .main-banner{ position: relative; z-index: 10; }
 
@@ -174,16 +241,7 @@ header, .site-header, .header, .topbar, .page-header{
   overflow: visible !important;
 }
 
-
-/* open 상태에서도 중앙정렬 유지 (기본 CSS transform 덮기) */
-#main-nav.nav li.has-sub.is-open > .submenu,
-#main-nav.nav li.has-sub.hovering > .submenu{
-  left: 50% !important;
-  transform: translateX(-50%) translateY(0) !important;
-  z-index: 20010 !important;
-}
-
-/* ✅ 혹시 본문(소식 박스 포함)에 transform/필터가 걸려 새로운 스태킹 컨텍스트가 생기면 드롭다운이 가려질 수 있어 방지 */
+/* ✅ 혹시 본문(소식 박스 포함)에 transform/필터가 걸려 새로운 스태킹 컨텍스트가 생겨도 가림 방지 */
 main, .main, .content, .container, .wrap, .page, .page-wrap{
   position: relative;
   z-index: 0;

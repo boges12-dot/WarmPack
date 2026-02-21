@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta content="strict-origin-when-cross-origin" name="referrer"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>초반 지급 아이템 | HOT PACK SERVER</title>
+<meta content="무기 · " name="description"/>
+<meta content="website" property="og:type"/>
+<meta content="" property="og:site_name"/>
+<meta content="무기 · " property="og:title"/>
+<meta content="무기 · " property="og:description"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="무기 · " name="twitter:title"/>
+<meta content="무기 · " name="twitter:description"/>
+<link href="../../css/main.20260116_16.min.css" rel="stylesheet"/>
+<!-- STEP9: icons/manifest -->
+<link href="../../favicon.ico" rel="icon" sizes="any"/>
+<link href="../../assets/icons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../../assets/icons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="../../assets/icons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="../../site.webmanifest" rel="manifest"/>
+<meta content="#ffffff" name="theme-color"/>
+<meta content="https://boges12-dot.github.io/WarmPack/assets/images/og_v3.jpg" property="og:image"/>
+<meta content="https://boges12-dot.github.io/WarmPack/assets/images/og_v3.jpg" property="og:image:secure_url"/>
+<meta content="https://boges12-dot.github.io/WarmPack/assets/images/og_v3.jpg" name="twitter:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="../../css/banner_override.css?v=20260126_B2" rel="stylesheet"/><link href="../../css/item_tiles.css" rel="stylesheet"/>
+<style>
+/* FIX: 스크롤 시 메뉴 떨림 방지 */
+header, nav, .header, .navbar {
+  will-change: auto !important;
+  transform: none !important;
+}
+body {
+  overflow-anchor: none;
+}
+</style>
+<style>
+/* FONT FIX: 스킬 표 글자 크기 조정 */
+table.skill-table th,
+table.skill-table td{
+  font-size:14px !important;
+  line-height:1.55 !important;
+}
+</style>
+<style id="item-table-force">
+/* ITEM TABLE FORCE: 공통 CSS가 table을 block으로 깨는 문제 방지 */
+.item-page table{ display: table !important; width:100% !important; border-collapse: collapse !important; }
+.item-page thead{ display: table-header-group !important; }
+.item-page tbody{ display: table-row-group !important; }
+.item-page tr{ display: table-row !important; }
+.item-page th, .item-page td{ display: table-cell !important; vertical-align: middle !important; }
+.item-page .item-table-wrap{ overflow:auto; }
+</style>
+<style id="item-table-skin">
+/* ITEM TABLE SKIN: 스샷처럼 카드형 표 스타일 */
+.item-page{ max-width: 1100px; margin: 0 auto; padding: 18px 14px 60px; }
+.item-page h2{ font-size: 22px; font-weight: 900; margin: 8px 0 18px; }
+.item-class-title{ font-size: 18px; font-weight: 900; margin: 18px 0 10px; }
+
+.item-table-wrap{
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.04);
+  overflow: hidden;
+}
+
+.item-table{
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 860px;
+}
+
+.item-table thead th{
+  background: rgba(255,255,255,.06);
+  font-weight: 900;
+  padding: 14px 16px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,.10);
+}
+
+.item-table tbody td{
+  padding: 18px 16px;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  text-align: center;
+  vertical-align: middle;
+}
+
+.item-table tbody tr:last-child td{ border-bottom: 0; }
+
+.item-table td.item-name{ text-align: left; font-weight: 800; }
+.item-table td.item-opt{ opacity: .9; }
+.item-table td.item-method{ font-weight: 800; }
+
+.item-table td.item-img{ width: 84px; }
+.item-table td.item-img .img-ph{
+  width: 52px; height: 52px;
+  border-radius: 14px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.10);
+}
+
+.item-table tbody tr:hover{
+  background: rgba(255,255,255,.03);
+}
+
+/* 모바일: 표는 가로 스크롤로 */
+.item-table-wrap{ overflow:auto; }
+</style>
+<style id="item-toc-style">
+/* TOC CENTER: 제목/바로가기 버튼을 가운데 정렬 (무기/방어구/악세 공통) */
+.item-page-head{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+  margin-bottom: 14px;
+  text-align:center;
+}
+.item-page-head > h2{
+  width:100%;
+}
+.item-toc{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  align-items:center;
+  width: 100%;
+}
+.item-toc-title{ font-weight:900; opacity:.9; }
+.item-toc-group{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+  justify-content:center;
+  width:100%;
+}
+.item-toc-stage{
+  font-size:12px;
+  font-weight:900;
+  padding:4px 8px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.04);
+  opacity:.9;
+}
+.item-toc-links{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+.item-toc-link{
+  display:inline-flex;
+  align-items:center;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.04);
+  font-size: 13px;
+  text-decoration:none;
+  color: inherit;
+}
+.item-toc-link:hover{ background: rgba(255,255,255,.07); }
+</style>
+<style id="item-title-size">
+/* 아이템 페이지 공통 제목 크기 */
+.item-page h2{
+  font-size: 26px;
+  font-weight: 900;
+  margin-top: 28px;
+}
+.item-page h3{
+  font-size: 20px;
+  font-weight: 800;
+  margin-top: 22px;
+}
+</style>
+<style id="item-icon-style">.item-icon{width:52px;height:52px;object-fit:contain;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.10);} </style><style>
+.item-tabbtn{
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.06);
+  color:inherit;
+  padding:8px 10px;
+  border-radius:12px;
+  font-weight:900;
+  font-size:12px;
+  cursor:pointer;
+}
+.item-tabbtn.is-active{
+  border-color:rgba(255,255,255,.35);
+  background:rgba(255,255,255,.14);
+}
+</style>
+<style>
+.tier-tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:10px 0 14px;}
+.tier-tile{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:inherit;border-radius:16px;padding:10px;cursor:pointer;text-align:center}
+.tier-tile.is-active{border-color:rgba(255,255,255,.38);background:rgba(255,255,255,.14);}
+.tier-tile .tile-img{width:100%;aspect-ratio: 1.6/1;border-radius:12px;background:rgba(255,255,255,.10);margin:0 auto 8px;}
+.tier-tile .tile-label{font-weight:900;font-size:12px;opacity:.95}
+</style>
+<style>
+.item-ic{display:flex;align-items:center;justify-content:center;overflow:hidden}
+.item-ic img{width:100%;height:100%;object-fit:contain;display:block}
+.item-ic .ic-fallback{font-weight:900;opacity:.55;font-size:11px;line-height:1;text-align:center;padding:4px}
+</style>
+<style>
+/* item card grid (items pages) */
+.tier-panel{width:100%}
+.item-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px;margin-top:12px;}
+@media (max-width: 860px){.item-grid{grid-template-columns:1fr;}}
+.item-card{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);border-radius:16px;padding:12px;display:flex;gap:12px;align-items:flex-start;}
+.item-ic{width:64px;height:64px;border-radius:14px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.08);flex:0 0 auto;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.item-ic img{width:100%;height:100%;object-fit:contain;display:block}
+.item-meta{min-width:0;flex:1}
+.item-name{font-weight:900;font-size:16px;line-height:1.2;margin:2px 0 8px}
+.item-sub{margin:0 0 8px;opacity:.92;line-height:1.5;font-size:13px}
+</style>
+<style>
+.tier-tile{position:relative;height:auto}
+.tier-tile .tile-content{display:none;margin-top:10px;text-align:left}
+.tier-tile.is-active .tile-content{display:block}
+.tier-tile .tile-content .item-grid{margin-top:0}
+.tier-tile .tile-content .item-card{background:rgba(0,0,0,.15)}
+</style>
+<style>
+/* weapon page: match lord/knight skill accordion layout (single column) */
+.item-weapon-page .skill-grid{grid-template-columns:1fr !important;}
+.item-weapon-page .skill-acc{max-width:920px;margin-left:auto;margin-right:auto;}
+.item-weapon-page h2.page-title,
+.item-weapon-page h3.page-title{max-width:920px;margin-left:auto;margin-right:auto;}
+.item-weapon-page .skill-acc-icon img{display:block;}
+</style>
+<style>
+/* fallback tile styles (ensures layout even if css link fails) */
+.tile-wrap{max-width:1100px;margin-left:auto;margin-right:auto;padding-left:12px;padding-right:12px;box-sizing:border-box;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+@media (max-width:960px){.tile-wrap{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.tile-wrap{grid-template-columns:1fr}}
+.tile{position:relative;display:grid;grid-template-columns:64px 1fr auto;gap:12px;align-items:center;background:#161616;border:1px solid #3a3a3a;border-radius:6px;padding:10px 12px}
+.tile-icon{width:64px;height:64px;background:#0a0a0a;border:1px solid #2c2c2c;border-radius:6px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.tile-icon img{width:100%;height:auto;image-rendering:pixelated}
+.tile-text{min-width:0}
+.tile-title{font-size:15px;font-weight:700;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tile-sub{font-size:12px;color:#b5b5b5;margin-bottom:3px}
+.tile-sub2{font-size:12px;color:#d7d7d7;opacity:.95}
+.tile-btn{padding:7px 10px;background:#222;border:1px solid #3a3a3a;border-radius:6px;color:#fff;font-size:12px;cursor:pointer;white-space:nowrap}
+.tile-detail{grid-column:1/-1;margin-top:8px;padding-top:10px;border-top:1px solid #2c2c2c}
+.kv{display:grid;grid-template-columns:64px 1fr;gap:10px;padding:4px 0;font-size:12px}
+.k{color:#aaa}.v{color:#eee;line-height:1.4}
+.ui-badge{position:fixed;right:12px;bottom:12px;padding:6px 10px;border-radius:999px;border:1px solid #444;background:rgba(0,0,0,.5);font-size:12px;color:#fff;z-index:9999}
+</style>
+</head>
+<body><section class="main-banner" aria-label="전복 서버 배너"><div class="banner-text" aria-hidden="true">전 복 서 버</div></section>
+<nav aria-label="메인 메뉴" class="main-nav-bar">
+<ul class="nav" id="main-nav">
+<li class="home-link"><a aria-label="홈" class="nav-home" href="/WarmPack/"><svg aria-hidden="true" class="icon-home" focusable="false" height="18" viewbox="0 0 24 24" width="18"><path d="M12 3 2.5 11.2a1 1 0 0 0 .7 1.8H5v7a1 1 0 0 0 1 1h4v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5h4a1 1 0 0 0 1-1v-7h1.8a1 1 0 0 0 .7-1.8L12 3z"></path></svg></a></li>
+<li class="has-sub">
+<a aria-expanded="false" aria-haspopup="true" data-no-nav="1" href="#" onclick="return false;">소개</a>
+<ul class="submenu">
+<li><a href="../../pages/공지/index.html">공지사항</a></li>
+<li><a href="../../pages/공지/서버규정.html">서버규정</a></li>
+<li><a href="../../pages/공지/서버점검.html">서버점검</a></li>
+<li><a href="../../pages/공지/업데이트.html">업데이트</a></li>
+<li><a href="../../pages/공지/이벤트.html">이벤트</a></li>
+</ul>
+</li>
+<li class="has-sub">
+<a aria-expanded="false" aria-haspopup="true" data-no-nav="1" href="#" onclick="return false;">가이드</a>
+<ul class="submenu">
+<li><a href="../../pages/가이드/클래스-가이드.html">클래스</a></li>
+<li><a href="../../pages/가이드/index.html">서버가이드</a></li>
+<li><a href="../../pages/가이드/낚시가이드.html">낚시가이드</a></li>
+<li><a href="../../pages/가이드/도감가이드.html">도감가이드</a></li>
+</ul>
+</li>
+<li class="has-sub">
+<a aria-expanded="false" aria-haspopup="true" data-no-nav="1" href="#" onclick="return false;">제작</a>
+<ul class="submenu">
+<li><a href="../../pages/제작/인형-제작.html">인형 제작</a></li>
+<li><a href="../../pages/제작/오만의탑-이동-부적.html">오만의탑 이동 부적</a></li>
+<li><a href="../../pages/제작/아이템-제작.html">아이템 제작</a></li>
+</ul>
+</li>
+<li class="has-sub">
+<a aria-expanded="false" aria-haspopup="true" data-no-nav="1" href="#" onclick="return false;">스킬</a>
+<ul class="submenu">
+<li><a href="../../pages/스킬/군주-스킬.html">군주 스킬</a></li>
+<li><a href="../../pages/스킬/기사-스킬.html">기사 스킬</a></li>
+<li><a href="../../pages/스킬/마법사-스킬.html">마법사 스킬</a></li>
+<li><a href="../../pages/스킬/요정-스킬.html">요정 스킬</a></li>
+<li><a href="../../pages/스킬/다크엘프-스킬.html">다크엘프 스킬</a></li>
+</ul>
+</li>
+<li class="has-sub">
+<a aria-expanded="false" aria-haspopup="true" data-no-nav="1" href="pages/아이템/index.html" onclick="return false;">아이템</a>
+<ul class="submenu">
+<li><a href="/WarmPack/pages/아이템/초반-지급-아이템.html">초반 지급 아이템</a></li>
+<li><a href="pages/아이템/무기.html">무기</a></li>
+<li><a href="pages/아이템/방어구.html">방어구</a></li>
+<li><a href="../../pages/아이템/악세사리.html">악세사리</a></li>
+<li><a href="../../pages/아이템/인형.html">인형</a></li>
+<li><a href="../../pages/아이템/마안.html">마안</a></li>
+<li><a href="../../pages/아이템/주문서.html">주문서</a></li>
+</ul>
+</li>
+<li class="has-sub">
+<a aria-expanded="false" aria-haspopup="true" data-no-nav="1" href="#" onclick="return false;">사냥터</a>
+<ul class="submenu"><li><a href="../사냥터/초급.html">초급 사냥터</a></li><li><a href="../사냥터/중급.html">중급 사냥터</a></li><li><a href="../사냥터/상급.html">상급 사냥터</a></li><li><a href="../사냥터/이벤트.html">이벤트 사냥터</a></li></ul></li>
+<li class="has-sub">
+<a aria-expanded="false" aria-haspopup="true" data-no-nav="1" href="#" onclick="return false;">홍보</a>
+<ul class="submenu">
+<li><a href="../../pages/홍보/홍보글.html">홍보글</a></li>
+<li><a href="../../pages/홍보/홍보보상받기.html">홍보보상받기</a></li>
+</ul>
+</li>
+<li class="has-sub">
+<a aria-expanded="false" aria-haspopup="true" data-no-nav="1" href="#" onclick="return false;">커뮤니티</a>
+<ul class="submenu">
+<li><a href="../../pages/커뮤니티/카카오톡.html">카카오톡</a></li>
+<li><a href="../../pages/커뮤니티/텔레그램.html">텔레그램</a></li>
+<li><a href="../../pages/커뮤니티/질문답변.html">질문답변</a></li>
+<li><a href="../../pages/커뮤니티/고객지원.html">고객지원</a></li>
+</ul>
+</li>
+<li><a href="../../pages/다운로드/index.html">다운로드</a></li>
+</ul>
+</nav>
+<header class="site-header">
+</header>
+<main class="site-main item-page">
+<div class="item-table-wrap">
+</div>
+<div class="item-table-wrap">
+</div>
+<section class="earlyitem-tables"><h2>초반 지원 (무기)</h2><table class="item-table"><thead><tr><th>이미지</th><th>아이템 이름</th><th>착용 클래스</th><th>타격치</th><th>옵션</th><th>획득 방법</th></tr></thead><tbody><tr><td><img alt="+9 달의 장궁" class="item-icon" loading="lazy" src="../../assets/images/items/weapon/t1/달의장궁.png"/></td><td>+9 달의 장궁</td><td>요정</td><td>1+9 / 1+9</td><td>기본 타격 15추가 데미지 +5추가 명중 +2</td><td>초반 지급</td></tr><tr><td><img alt="+9 론드의 이도류" class="item-icon" loading="lazy" src="../../assets/images/items/weapon/t1/론드의이도류.png"/></td><td>+9 론드의 이도류</td><td>기사</td><td>18+9/8+9</td><td>기본 타격 17추가 명중 +2추가 데미지 +7</td><td>초반 지급</td></tr><tr><td><img alt="+9 무관의 양손검" class="item-icon" loading="lazy" src="../../assets/images/items/weapon/t1/무관의양손검.png"/></td><td>+9 무관의 양손검</td><td>군주 / 기사</td><td>19+9/ 23+9</td><td>기본 타격 17추가 데미지 +2추가 명중 +1</td><td>초반 지급</td></tr><tr><td><img alt="+9 얼음 여왕의 지팡이" class="item-icon" loading="lazy" src="../../assets/images/items/weapon/t1/얼음여왕의지팡이.png"/></td><td>+9 얼음 여왕의 지팡이</td><td>마법사</td><td>7+9 / 8+9</td><td>INT +1SP +1마나 흡수추가 명중 +4추가 데미지 +2</td><td>초반 지급</td></tr><tr><td><img alt="+9 커츠의 검" class="item-icon" loading="lazy" src="../../assets/images/items/weapon/t1/커츠의검.png"/></td><td>+9 커츠의 검</td><td>기사 / 요정</td><td>16+9 / 17+9</td><td>STR +1추가 데미지 +5추가 명중 +2</td><td>초반 지급</td></tr></tbody></table><h2>초반 지원 (방어구,악세)</h2><table class="item-table"><thead><tr><th>이미지</th><th>아이템 이름</th><th>착용 클래스</th><th>방어력</th><th>옵션</th><th>획득 방법</th></tr></thead><tbody><tr><td><img alt="고대의 로브" class="item-icon" loading="lazy" src="../../assets/images/items/armor/t1/고대의로브.png"/></td><td>고대의 로브</td><td>마법사</td><td>AC -12</td><td>-</td><td>초반 지급</td></tr><tr><td><img alt="고대의 비늘 갑옷" class="item-icon" loading="lazy" src="../../assets/images/items/armor/t1/고대의비늘갑옷.png"/></td><td>고대의 비늘 갑옷</td><td>군주</td><td>AC -14</td><td>-</td><td>초반 지급</td></tr><tr><td><img alt="고대의 판금 갑옷" class="item-icon" loading="lazy" src="../../assets/images/items/armor/t1/고대의판금갑옷.png"/></td><td>고대의 판금 갑옷</td><td>기사</td><td>AC -16</td><td>-</td><td>초반 지급</td></tr><tr><td><img alt="+7 마나망토" class="item-icon" loading="lazy" src="../../assets/placeholder.png"/></td><td>+7 마나망토</td><td>마법사</td><td>AC -2</td><td>-</td><td>초반 지급</td></tr><tr><td><img alt="+7 마나수정구" class="item-icon" loading="lazy" src="../../assets/images/items/armor/t1/마나수정구.png"/></td><td>+7 마나수정구</td><td>마법사</td><td>AC -2</td><td>-</td><td>초반 지급</td></tr><tr><td><img alt="+7 마법방어투구" class="item-icon" loading="lazy" src="../../assets/images/items/armor/t1/마법방어투구.png"/></td><td>+7 마법방어투구</td><td>요정 / 마법사</td><td>AC -17</td><td>-</td><td>초반 지급</td></tr><tr><td><img alt="+7 고대명궁의가더" class="item-icon" loading="lazy" src="../../assets/images/items/armor/t1/고대명궁의가더.png"/></td><td>+7 고대명궁의가더</td><td>요정</td><td>AC -14</td><td>-</td><td>초반 지급</td></tr><tr><td><img alt="+7 고대투사의가더" class="item-icon" loading="lazy" src="../../assets/images/items/armor/t1/고대투사의가더.png"/></td><td>+7 고대투사의가더</td><td>기사</td><td>AC -14</td><td>-</td><td>초반 지급</td></tr><tr><td><img alt="고대의 가죽 갑옷" class="item-icon" loading="lazy" src="../../assets/images/items/armor/t1/고대의가죽갑옷.png"/></td><td>고대의 가죽 갑옷</td><td>요정</td><td>AC -14</td><td>-</td><td>초반 지급</td></tr><tr><td><img alt="+7 엘름의 축복" class="item-icon" loading="lazy" src="../../assets/images/items/armor/t1/엘름의축복.png"/></td><td>+7 엘름의 축복</td><td>요정</td><td>AC -2</td><td>-</td><td>초반 지급</td></tr><tr><td><img alt="+3 오우거의 벨트" class="item-icon" loading="lazy" src="../../assets/placeholder.png"/></td><td>+3 오우거의 벨트</td><td>전체</td><td>AC -3</td><td>-</td><td>초반 지급</td></tr><tr><td><img alt="+7 요정족 망토" class="item-icon" loading="lazy" src="../../assets/images/items/armor/t1/요정족망토.png"/></td><td>+7 요정족 망토</td><td>요정 / 마법사</td><td>AC -8</td><td>-</td><td>초반 지급</td></tr><tr><td><img alt="+7 티셔츠" class="item-icon" loading="lazy" src="../../assets/images/items/armor/t1/티셔츠.png"/></td><td>+7 티셔츠</td><td>기사 / 요정 / 마법사</td><td>AC -7</td><td>-</td><td>초반 지급</td></tr><tr><td><img alt="+7 파워 글로브" class="item-icon" loading="lazy" src="../../assets/images/items/armor/t1/파워글로브.png"/></td><td>+7 파워 글로브</td><td>기사 / 요정 / 마법사</td><td>AC -6</td><td>-</td><td>초반 지급</td></tr><tr><td><img alt="+7 활 골무" class="item-icon" loading="lazy" src="../../assets/images/items/armor/t1/활골무.png"/></td><td>+7 활 골무</td><td>요정</td><td>AC -5</td><td>-</td><td>초반 지급</td></tr><tr><td><img alt="+7 보호 망토" class="item-icon" loading="lazy" src="../../assets/images/items/armor/t1/보호망토.png"/></td><td>+7 보호 망토</td><td>기사 / 요정</td><td>AC -3</td><td>-</td><td>초반 지급</td></tr><tr><td><img alt="+3 수련의 반지" class="item-icon" loading="lazy" src="../../assets/placeholder.png"/></td><td>+3 수련의 반지</td><td>기사 / 요정 / 마법사</td><td>AC -3</td><td>-</td><td>초반 지급</td></tr></tbody></table></section></main>
+<script>
+(function(){
+  function init(scopeEl){
+    var btns = scopeEl.querySelectorAll('.tier-tile.item-tabbtn');
+    if(!btns.length) return;
+    function activate(btn){
+      btns.forEach(function(b){ b.classList.toggle('is-active', b===btn); });
+    }
+    btns.forEach(function(b){
+      b.addEventListener('click', function(e){
+        e.preventDefault();
+        activate(b);
+      });
+    });
+    activate(btns[0]);
+  }
+  document.querySelectorAll('.tier-tiles[data-scope]').forEach(init);
+})();
+</script>
+<script src="../../js/item_tile_toggle.js"></script>
+<script src="../../js/main.20260116_16.min.js"></script>
+<script>
+/* MENU_STICKY_OPEN_INLINE_V26 */
+document.addEventListener('DOMContentLoaded', function(){
+  try{
+    var nav = document.getElementById('main-nav');
+    if(!nav) return;
+
+    function openLi(li){
+      if(!li) return;
+      var a = li.querySelector(':scope > a');
+      li.classList.add('is-open','hovering','sticky-open');
+      if(a) a.setAttribute('aria-expanded','true');
+    }
+
+    // Prefer active link
+    var active = nav.querySelector('a.active');
+    if(active){
+      openLi(active.closest('li.has-sub'));
+      return;
+    }
+
+    // Fallback: match by pathname
+    var path = (location.pathname || '').replace(/\/index\.html$/, '');
+    var links = nav.querySelectorAll('a[href]');
+    var best = null;
+    links.forEach(function(a){
+      var href = a.getAttribute('href') || '';
+      if(!href || href === '#') return;
+      // normalize relative href by stripping ../
+      var clean = href.replace(/^(\.\.\/)+/, '/').replace(/^\./,'');
+      if(path.endsWith(clean.replace(/^\//,'')) || path.indexOf(clean.replace(/^\//,'')) !== -1){
+        best = a;
+      }
+    });
+    if(best){
+      openLi(best.closest('li.has-sub'));
+    }
+  }catch(e){}
+});
+</script>
+<style id="SOLID_TILE_BG_FORCE">
+/* ===== SOLID TILE BG (카드 배경 완전 통일) ===== */
+.tile{
+  background: #0f141c !important;
+  background-image: none !important;
+}
+.tile::before,
+.tile::after{
+  content: none !important;
+  display: none !important;
+}
+.tile .tile-body,
+.tile .tile-content,
+.tile .tile-inner{
+  background: transparent !important;
+  background-image: none !important;
+}
+</style>
+<script>/* Early page nav reset: prevent submenu-open state from persisting */
+document.addEventListener('DOMContentLoaded', function () {
+  try {
+    var nav = document.getElementById('main-nav');
+    if (!nav) return;
+    var items = nav.querySelectorAll('.has-sub');
+    for (var i = 0; i < items.length; i++) {
+      items[i].classList.remove('is-open','open','active','hovering');
+      var a = items[i].querySelector(':scope > a');
+      if (a) a.setAttribute('aria-expanded','false');
+    }
+  } catch (e) {}
+});</script></body>
+</html>
