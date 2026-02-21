@@ -1027,8 +1027,3 @@ header.site-header + .site-main{
 .item-table{width:100%;border-collapse:collapse;}
 .item-table th,.item-table td{border:1px solid rgba(255,255,255,.12);padding:10px;vertical-align:top;}
 .item-icon{width:42px;height:42px;object-fit:contain;}
-
-.hl-red { color:#ff4d4d; font-weight:bold;}
-.hl-yellow { color:#ffd700; font-weight:bold;}
-.hl-blue { color:#4da6ff; font-weight:bold;}
-.hl-green { color:#00c853; font-weight:bold;}
