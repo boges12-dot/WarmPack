@@ -665,3 +665,23 @@ table.hunt-table{
 }
 /* ================================================================ */
 
+
+
+/* ===== PATCH: 사냥터 표 이미지 크기 확대(강제) ===== */
+table.hunt-table td:first-child img.hunt-thumb,
+table.hunt-table td:first-child img{
+  width: 100% !important;
+  height: 320px !important;   /* 더 크게 */
+  object-fit: cover !important;
+  display: block !important;
+  border-radius: 12px !important;
+}
+/* 모바일에서는 높이 조금 줄임 */
+@media (max-width: 640px){
+  table.hunt-table td:first-child img.hunt-thumb,
+  table.hunt-table td:first-child img{
+    height: 220px !important;
+  }
+}
+/* ================================================ */
+
