@@ -640,3 +640,6 @@
 /* PATCH: homepage not full-screen */
 html,body{height:auto !important;}
 main{min-height:auto !important;}
+
+/* PATCH: 사냥터 이미지 표에 맞게 확대 */
+.hunt-thumb{width:100%;height:260px;object-fit:cover;border-radius:10px;display:block;}
