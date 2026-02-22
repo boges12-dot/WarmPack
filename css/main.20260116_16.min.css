@@ -635,12 +635,33 @@
 
 
 
-/* PATCH: 배너/상단 빈공간 제거 + 배너 높이 축소 */
-.hero-bar{padding:0 !important; margin:0 !important; height:0 !important; overflow:hidden !important; display:none !important;}
-/* 혹시 남아있는 히어로/배너 패딩이 있으면 축소 */
-.hero{padding:12px 0 10px !important;}
-.banner-wrap{padding:8px !important;}
-.banner-img{max-height:160px !important; width:100% !important; object-fit:cover !important;}
-/* 배너 섹션이 너무 높게 잡히면 제한 */
-.main-banner,.banner{min-height:0 !important;}
+/* ===== PATCH: 사냥터 표 전체폭 줄이기 ===== */
+.hunt-table{
+  width: 100% !important;
+  max-width: 1100px !important;   /* 화면 전체 대신 고정 최대폭 */
+  margin: 0 auto 40px auto !important;  /* 가운데 정렬 */
+}
+/* =========================================== */
+
+
+
+/* ===== PATCH v2: 사냥터(초급/중급/상급/이벤트) 표 폭 동일 적용 ===== */
+/* 모든 사냥터 페이지의 hunt-table을 동일한 최대폭으로 가운데 정렬 */
+table.hunt-table{
+  width: 100% !important;
+  max-width: 1100px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-bottom: 40px !important;
+  box-sizing: border-box !important;
+}
+
+/* 모바일에서는 좌우 여백 확보 */
+@media (max-width: 1200px){
+  table.hunt-table{
+    width: calc(100% - 24px) !important;
+    max-width: 1100px !important;
+  }
+}
+/* ================================================================ */
 
