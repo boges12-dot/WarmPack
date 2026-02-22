@@ -633,3 +633,10 @@
   letter-spacing:-0.5px;
 }
 
+
+/* 사냥터 이미지 썸네일 패치 */
+.hunt-thumb{max-width:100%;height:auto;border-radius:10px;display:block;}
+
+/* PATCH: homepage not full-screen */
+html,body{height:auto !important;}
+main{min-height:auto !important;}
