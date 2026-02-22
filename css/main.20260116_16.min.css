@@ -633,3 +633,14 @@
   letter-spacing:-0.5px;
 }
 
+
+
+/* PATCH: 배너/상단 빈공간 제거 + 배너 높이 축소 */
+.hero-bar{padding:0 !important; margin:0 !important; height:0 !important; overflow:hidden !important; display:none !important;}
+/* 혹시 남아있는 히어로/배너 패딩이 있으면 축소 */
+.hero{padding:12px 0 10px !important;}
+.banner-wrap{padding:8px !important;}
+.banner-img{max-height:160px !important; width:100% !important; object-fit:cover !important;}
+/* 배너 섹션이 너무 높게 잡히면 제한 */
+.main-banner,.banner{min-height:0 !important;}
+
