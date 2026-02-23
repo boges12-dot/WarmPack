@@ -36,3 +36,26 @@ function sortByKoreanName(arr){
 if(typeof tier1Items!=='undefined') sortByKoreanName(tier1Items);
 if(typeof tier2Items!=='undefined') sortByKoreanName(tier2Items);
 if(typeof tier3Items!=='undefined') sortByKoreanName(tier3Items);
+
+
+/* ===== PATCH: 드롭다운 겹침 방지 (항상 하나만 열기) ===== */
+document.addEventListener("DOMContentLoaded", function () {
+  const menus = document.querySelectorAll(".nav-item");
+  menus.forEach(menu => {
+    menu.addEventListener("mouseenter", function () {
+      menus.forEach(m => {
+        const dd = m.querySelector(".dropdown");
+        if (dd) dd.style.display = "none";
+      });
+      const dropdown = menu.querySelector(".dropdown");
+      if (dropdown) dropdown.style.display = "block";
+    });
+
+    menu.addEventListener("mouseleave", function () {
+      const dropdown = menu.querySelector(".dropdown");
+      if (dropdown) dropdown.style.display = "none";
+    });
+  });
+});
+/* ================================================ */
+
