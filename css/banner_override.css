@@ -670,7 +670,7 @@ table td{
     opacity:0 !important;
     visibility:hidden !important;
     pointer-events:none !important;
-    transform:translateY(6px) !important;
+    transform:none;!important;
   }
 
 
@@ -958,9 +958,7 @@ nav.main-nav-bar{
 
 nav.main-nav-bar ul#main-nav.nav > li.has-sub:hover > ul.submenu,
 nav.main-nav-bar ul#main-nav.nav > li.has-sub:focus-within > ul.submenu{
-  transition:
-    opacity 0.14s ease,
-    visibility 0s linear 0s; /* show instantly */
+  transition:none; /* show instantly */
 }
 
 
@@ -971,17 +969,13 @@ nav.main-nav-bar ul#main-nav.nav > li.has-sub:focus-within > ul.submenu{
 */
 nav.main-nav-bar ul#main-nav.nav > li.has-sub > ul.submenu{
   /* delay only applies on closing (i.e., when :hover is lost) */
-  transition:
-    opacity 0.14s ease 0.25s,
-    visibility 0s linear 0.39s; /* 0.25 + 0.14 */
+  transition:none; /* 0.25 + 0.14 */
 }
 
 /* On open: show immediately */
 nav.main-nav-bar ul#main-nav.nav > li.has-sub:hover > ul.submenu,
 nav.main-nav-bar ul#main-nav.nav > li.has-sub:focus-within > ul.submenu{
-  transition:
-    opacity 0.14s ease 0s,
-    visibility 0s linear 0s;
+  transition:none;
 }
 
 

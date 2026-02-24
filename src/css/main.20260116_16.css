@@ -189,7 +189,7 @@ main{min-height:60vh}
 /* keep dropdown usable on small widths */
 @media (max-width: 560px){
   .main-menu{justify-content:flex-start}
-  .menu-item .sub{left:0; transform: translateY(6px)}
+  .menu-item .sub{left:0; transform:none;}
   .menu-item.is-open > .sub{transform:none;
 }
 }
@@ -339,7 +339,7 @@ main{min-height:60vh}
   visibility: hidden;
   pointer-events: none;
   transform:none;
-  transition: none;
+  transition:none;
   will-change: opacity, transform;
 }
 
@@ -389,7 +389,7 @@ main{min-height:60vh}
 
 @media (prefers-reduced-motion: reduce){
   #main-nav.nav .submenu{
-    transition: none;
+    transition:none;
     transform: none;
   }
   .menu-item .sub{
@@ -709,7 +709,7 @@ main{min-height:60vh}
 
 /* 바로가기 카드가 살짝 내려가 보이면 보정 */
 .home-widgets .home-card.home-shortcuts{
-  transform: translateY(0) !important;
+  transform:none;!important;
 }
 
 /* (디버그) 필요시 주석 해제해서 상단 기준선 확인
