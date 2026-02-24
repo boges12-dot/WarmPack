@@ -176,10 +176,7 @@ main{min-height:60vh}
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition:
-    opacity 150ms ease,
-    transform 150ms ease,
-    visibility 0s linear 150ms;
+  transition: none;
   will-change: opacity, transform;
 }
 .menu-item.is-open > .sub{
@@ -193,7 +190,8 @@ main{min-height:60vh}
 @media (max-width: 560px){
   .main-menu{justify-content:flex-start}
   .menu-item .sub{left:0; transform: translateY(6px)}
-  .menu-item.is-open > .sub{transform: translateY(0);}
+  .menu-item.is-open > .sub{transform:none;
+}
 }
 
 
@@ -340,11 +338,8 @@ main{min-height:60vh}
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transform: translateY(6px);
-  transition:
-    opacity 150ms ease,
-    transform 150ms ease,
-    visibility 0s linear 150ms;
+  transform:none;
+  transition: none;
   will-change: opacity, transform;
 }
 
@@ -362,7 +357,7 @@ main{min-height:60vh}
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transform: translateY(0);
+  transform:none;
 }
 
 /* ===== Dropdown caret (next to text) ===== */
