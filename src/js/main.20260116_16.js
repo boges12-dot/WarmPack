@@ -112,17 +112,24 @@
   }
 
   function initUlNavHoverDelay(){
-    // Desktop: close submenu immediately on mouse leave (no delay)
+    // Desktop: allow brief grace period so users can move to submenu and click
     if(!canHover) return;
 
+    var CLOSE_DELAY_MS = 150;
     qsa('#main-nav li.has-sub', nav).forEach(function(li){
+      var t = null;
+
       li.addEventListener('mouseenter', function(){
+        if(t){ clearTimeout(t); t = null; }
         li.classList.add('hovering');
       });
 
       li.addEventListener('mouseleave', function(){
-        li.classList.remove('hovering');
-        li.classList.remove('is-open');
+        if(t) clearTimeout(t);
+        t = setTimeout(function(){
+          li.classList.remove('hovering');
+          li.classList.remove('is-open');
+        }, CLOSE_DELAY_MS);
       });
     });
   }
