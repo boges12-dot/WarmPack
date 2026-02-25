@@ -710,3 +710,42 @@ table.hunt-table td:first-child img{
 }
 /* ========================================================================== */
 
+
+/* ===== Gap fix: hero/top spacing + dropdown hover bridge ===== */
+
+/* 1) Remove any top gap between nav/header and hero/banner area */
+.hero, .hero-section, .main-hero, .banner, .banner-wrap, .home-hero, #hero {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+header, .site-header, #header, #main-header, #main-nav, nav, .nav, .navbar {
+  margin-bottom: 0 !important;
+}
+
+/* 2) Dropdown: eliminate hover "dead zone" between top menu and submenu */
+#main-nav.nav li.has-sub { position: relative; }
+
+/* Hover bridge: invisible strip that keeps :hover active while moving cursor */
+#main-nav.nav li.has-sub::after{
+  content:"";
+  position:absolute;
+  left:0; right:0;
+  top:100%;
+  height:10px;            /* bridge size */
+  background:transparent;
+}
+
+/* Ensure submenu is flush to the trigger (no gap) */
+#main-nav.nav .submenu{
+  top:100%;
+  margin-top:0 !important;
+}
+
+/* Optional: avoid translateY creating a visual gap (keep opacity-only animation) */
+#main-nav.nav .has-sub .submenu{ transform:none !important; }
+#main-nav.nav .has-sub:hover > .submenu,
+#main-nav.nav .has-sub.hovering > .submenu,
+#main-nav.nav .has-sub.is-open > .submenu{ transform:none !important; }
+
+/* ============================================================= */
+
