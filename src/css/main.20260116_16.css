@@ -957,3 +957,25 @@ main{min-height:60vh}
   letter-spacing:-0.5px;
 }
 
+
+/* ===== Dropdown submenu: restore 150ms transition (for easier move+click) ===== */
+#main-nav.nav .submenu{
+  transition: opacity 100ms ease, transform 100ms ease, visibility 0s linear 100ms !important;
+}
+#main-nav.nav .has-sub .submenu{
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  pointer-events: none;
+}
+#main-nav.nav .has-sub:hover > .submenu,
+#main-nav.nav .has-sub.hovering > .submenu,
+#main-nav.nav .has-sub.is-open > .submenu{
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+  transition: opacity 100ms ease, transform 100ms ease, visibility 0s linear 0s !important;
+}
+/* ========================================================================== */
+
