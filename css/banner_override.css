@@ -1040,3 +1040,14 @@ header.site-header + .site-main{
 
 /* FIX: remove forced main min-height that creates blank space */
 main{min-height:auto !important;}
+
+
+/* PATCH: 마안 표 이미지 크기 강제(전역 td:first-child img 규칙 오버라이드) */
+table.maahn-table td:first-child img{
+  width:80px !important;
+  height:90px !important;
+  max-width:80px !important;
+  max-height:90px !important;
+  object-fit:contain !important;
+  border-radius:0 !important;
+}
