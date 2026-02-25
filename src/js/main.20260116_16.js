@@ -115,7 +115,7 @@
     // Desktop: allow brief grace period so users can move to submenu and click
     if(!canHover) return;
 
-    var CLOSE_DELAY_MS = 100;
+    var CLOSE_DELAY_MS = 150;
     qsa('#main-nav li.has-sub', nav).forEach(function(li){
       var t = null;
 

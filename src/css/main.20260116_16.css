@@ -960,7 +960,7 @@ main{min-height:60vh}
 
 /* ===== Dropdown submenu: restore 150ms transition (for easier move+click) ===== */
 #main-nav.nav .submenu{
-  transition: opacity 100ms ease, transform 100ms ease, visibility 0s linear 100ms !important;
+  transition: opacity 150ms ease, transform 150ms ease, visibility 0s linear 150ms !important;
 }
 #main-nav.nav .has-sub .submenu{
   opacity: 0;
@@ -975,7 +975,7 @@ main{min-height:60vh}
   visibility: visible;
   transform: translateY(0);
   pointer-events: auto;
-  transition: opacity 100ms ease, transform 100ms ease, visibility 0s linear 0s !important;
+  transition: opacity 150ms ease, transform 150ms ease, visibility 0s linear 0s !important;
 }
 /* ========================================================================== */
 
