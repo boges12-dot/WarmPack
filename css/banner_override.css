@@ -1023,6 +1023,16 @@ header.site-header + .site-main{
 .item-icon{width:42px;height:42px;object-fit:contain;}
 
 
-/* SUBPAGE: remove top banner space completely */
-.hero-subpage{height:0 !important;min-height:0 !important;overflow:hidden !important;background:none !important;}
-.hero-subpage .hero-home-link{display:none !important;}
+
+/* SUBPAGE: slim banner (keep banner, reduce empty space) */
+.hero-subpage{
+  height: calc(var(--hero-h-base) - var(--hero-collapse)) !important;
+  min-height: calc(var(--hero-h-base) - var(--hero-collapse)) !important;
+  background-position: center top !important; /* crop from bottom */
+}
+
+
+/* SUBPAGE: keep banner but shrink height */
+.hero-subpage{
+  background-position: center top !important;
+}
