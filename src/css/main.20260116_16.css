@@ -84,7 +84,7 @@ a{color:inherit;text-decoration:none}
 .tile a.inline{display:inline-block;margin-top:10px;color:var(--accent);font-weight:750}
 
 /* Page layout */
-main{min-height:60vh}
+main{min-height:auto}
 .page-head{padding:18px 0 10px}
 .page-title{font-size:22px;margin:0 0 6px;font-weight:850}
 .page-sub{margin:0;color:var(--muted)}

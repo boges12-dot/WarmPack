@@ -1036,3 +1036,7 @@ header.site-header + .site-main{
 .hero-subpage{
   background-position: center top !important;
 }
+
+
+/* FIX: remove forced main min-height that creates blank space */
+main{min-height:auto !important;}
