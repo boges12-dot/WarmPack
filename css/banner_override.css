@@ -1021,3 +1021,8 @@ header.site-header + .site-main{
 .item-table{width:100%;border-collapse:collapse;}
 .item-table th,.item-table td{border:1px solid rgba(255,255,255,.12);padding:10px;vertical-align:top;}
 .item-icon{width:42px;height:42px;object-fit:contain;}
+
+
+/* SUBPAGE: remove top banner space completely */
+.hero-subpage{height:0 !important;min-height:0 !important;overflow:hidden !important;background:none !important;}
+.hero-subpage .hero-home-link{display:none !important;}
