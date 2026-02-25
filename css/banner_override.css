@@ -1,5 +1,5 @@
 :root{
-  --hero-h-base: 180px /* 홈과 동일 배너 높이 */; /* 기본 배너 높이 */
+  --hero-h-base: 32px /* 홈과 동일 배너 높이 */; /* 기본 배너 높이 */
   --hero-collapse: 0px;  /* 스크롤로 줄어드는 값 */
 }
 
@@ -9,7 +9,7 @@
   width:100%;
   height:calc(var(--hero-h-base) - var(--hero-collapse));
   min-height:calc(var(--hero-h-base) - var(--hero-collapse));
-  background:url("../assets/images/banner_main.webp") center top / cover no-repeat;
+  background: url("../assets/images/banner_main.webp") center center / 320px 32px no-repeat;
   position:relative;
   overflow:hidden;
   transition: height .12s linear;
@@ -407,7 +407,7 @@ body{
 /* CLEAN NAV (B): 배너 아래에서 시작 → 스크롤 시 최상단 고정(사라지지 않음) */
 
 :root{
-  --hero-h-base: 180px /* 홈과 동일 배너 높이 */;
+  --hero-h-base: 32px /* 홈과 동일 배너 높이 */;
 }
 
 /* 배너 높이 (JS로 조작하지 않음) */
@@ -1045,3 +1045,50 @@ main{min-height:auto !important;}
 /* 상단 배너 공간 추가 축소 */
 .hero-main{height: var(--hero-h-base); min-height: 0;}
 .hero-main .hero-banner{max-height: 80px;}
+
+
+/* ===== 강제 배너 높이 축소 (최종 오버라이드) ===== */
+/* 배너 영역 자체가 상단 공간을 과도하게 잡는 문제를 강제로 제어 */
+:root{
+  --hero-h-base: 32px !important;
+}
+
+/* hero 컨테이너 높이/여백 강제 축소 */
+.hero-main{
+  height: var(--hero-h-base) !important;
+  min-height: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  overflow: hidden !important;
+}
+
+/* 배너 이미지 자체 크기 강제 */
+.hero-main .hero-banner,
+.hero-banner{
+  max-height: 32px !important;
+  height: auto !important;
+  width: auto !important;
+  object-fit: contain !important;
+  display: block !important;
+  margin: 0 auto !important;
+}
+
+/* 혹시 wrapper가 높이를 잡는 경우 대비 */
+.hero-main > *{
+  max-height: 32px !important;
+}
+
+/* 헤더 아래 여백이 남는 경우 축소 */
+main{
+  padding-top: 0 !important;
+}
+
+
+/* ===== 배너 320x32 고정 ===== */
+.hero-main{
+  height: 32px !important;
+  min-height: 32px !important;
+  background-size: 320px 32px !important;
+}
