@@ -262,12 +262,13 @@ table.skill-table td{
     if (p.indexOf("/WarmPack/") !== -1 && !p.endsWith("/WarmPack/") && !p.endsWith("/WarmPack/index.html")) {
       var rel = p.split("/WarmPack/")[1] || "index.html";
       if (location.search) rel += location.search;
-      sessionStorage.setItem("spa_target", rel);
+      sessionStorage.setItem("iframe_target", rel);
       location.replace(base);
     }
   } catch(e) {}
 })();
 </script>
+
 <div class="top-banner"><a class="top-banner-link" href="../../index.html"><img alt="HOT PACK SERVER 배너" class="top-banner-img" src="../../assets/images/banner_main.webp"/></a></div>
 <nav aria-label="메인 메뉴" class="main-nav-bar">
 <ul class="nav" id="main-nav">
@@ -327,7 +328,6 @@ table.skill-table td{
 <a aria-expanded="false" aria-haspopup="true" data-no-nav="1" href="#" onclick="return false;">홍보</a>
 <ul class="submenu">
 <li><a href="../../pages/홍보/홍보글.html">홍보글</a></li>
-
 </ul>
 </li>
 <li class="has-sub">
@@ -335,8 +335,6 @@ table.skill-table td{
 <ul class="submenu">
 <li><a href="../../pages/커뮤니티/카카오톡.html">카카오톡</a></li>
 <li><a href="../../pages/커뮤니티/텔레그램.html">텔레그램</a></li>
-
-
 </ul>
 </li>
 <li><a href="../../pages/다운로드/index.html">다운로드</a></li>
