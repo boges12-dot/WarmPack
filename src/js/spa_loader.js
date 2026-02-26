@@ -81,7 +81,10 @@
 
     const pageUrl = new URL(targetPath, BASE_URL).href;
     const res = await fetch(pageUrl, { cache: "no-cache" });
-    if (!res.ok) throw new Error("Failed to load: " + pageUrl);
+    if (!res.ok) {
+      setAppHtml(`<div style="padding:16px">페이지를 불러오지 못했습니다. 새로고침 후 다시 시도해주세요.<br><small>${pageUrl}</small></div>`);
+      throw new Error("Failed to load: " + pageUrl);
+    }
     const text = await res.text();
     const doc = new DOMParser().parseFromString(text, "text/html");
 
@@ -103,7 +106,7 @@
           e.preventDefault();
           const t = normalizeTargetFromHref(u.href);
           sessionStorage.setItem("spa_last_target", t);
-          loadPage(t).catch(console.error);
+          loadPage(t).catch((err)=>{console.error(err); window.location.href = u.href;});
         });
       }
     });
@@ -125,7 +128,7 @@
         e.preventDefault();
         const t = normalizeTargetFromHref(u.href);
         sessionStorage.setItem("spa_last_target", t);
-        loadPage(t).catch(console.error);
+        loadPage(t).catch((err)=>{console.error(err); window.location.href = u.href;});
       });
     });
   }
@@ -134,7 +137,7 @@
     const target = sessionStorage.getItem("spa_target") || sessionStorage.getItem("spa_last_target");
     if (target) {
       sessionStorage.removeItem("spa_target");
-      loadPage(target).catch(console.error);
+      loadPage(target).catch((err)=>{console.error(err);});
     }
     bindNavInterception();
   }
