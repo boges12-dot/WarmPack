@@ -63,35 +63,68 @@
     });
   }
 
-  function initUlNavDropdown(){
-    // submenu item click => close immediately (prevents dropdown residue)
+  
+    function initUlNavDropdown(){
+    // Submenu item click: close immediately (prevents dropdown residue) but DO NOT block navigation
     nav.addEventListener('click', function(e){
       var sub = e.target && e.target.closest ? e.target.closest('.submenu a') : null;
-      if(sub){ closeAll(); }
+      if(sub){ closeAll(); return; }
+
+      // Only intercept clicks on top labels when they are NOT real links.
+      var top = e.target && e.target.closest ? e.target.closest('#main-nav li.has-sub > a') : null;
+      if(!top) return;
+
+      var href = (top.getAttribute('href') || '').trim();
+      var isHash = (href === '' || href === '#' || href.toLowerCase().indexOf('javascript:') === 0);
+
+      if(isHash){
+        e.preventDefault();
+        var li = top.closest('#main-nav li.has-sub');
+        if(!li) return;
+
+        var willOpen = !li.classList.contains('is-open');
+        closeAll(li);
+        if(willOpen){
+          li.classList.add('is-open','hovering');
+          top.setAttribute('aria-expanded','true');
+        } else {
+          li.classList.remove('is-open','hovering');
+          top.setAttribute('aria-expanded','false');
+        }
+      }
+      // If it has a real href, DO NOT preventDefault: browser will navigate on first click.
     });
 
-    // Click/tap support (mobile + desktop). Parent links do not navigate; they toggle.
+    // Clicking outside nav closes open menus
     document.addEventListener('click', function(e){
-      var a = e.target && e.target.closest ? e.target.closest('#main-nav li.has-sub > a') : null;
+      if(!e.target || !e.target.closest || !e.target.closest('#main-nav')){
+        closeAll();
+      }
+    });
 
-      // Clicking outside nav closes open menus
-      if(!a){
-        if(!e.target || !e.target.closest || !e.target.closest('#main-nav')){
-          closeAll();
-        }
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape') closeAll();
+    });
+
+    // Desktop: close when cursor leaves entire nav region (replaces old document mousemove)
+    if(canHover){
+      nav.addEventListener('mouseleave', function(){
+        closeAll();
+      });
+    }
+  }
         return;
       }
 
       var li = a.closest('#main-nav li.has-sub');
       if(!li) return;
 
-      // Desktop: allow navigation on second click. Mobile: tap toggles only.
-      var href = a.getAttribute('href') || '';
+      var href = (a.getAttribute('href') || '').trim();
       var isHash = (href === '' || href === '#' || href.toLowerCase().indexOf('javascript:') === 0);
 
-      // If device can't hover (mobile/touch) OR parent has no real href -> toggle only.
-      if(!canHover || isHash){
-        if(!canHover){ /* mobile: first tap handled below */ }
+      // If no real href, always toggle only
+      if(isHash){
+        e.preventDefault();
         var willOpen = !li.classList.contains('is-open');
         closeAll(li);
         if(willOpen){
@@ -104,28 +137,19 @@
         return;
       }
 
-      // Desktop (canHover): first click opens, second click navigates.
+      // Has real href: first tap opens, second tap navigates
       if(!li.classList.contains('is-open')){
         e.preventDefault();
         closeAll(li);
         li.classList.add('is-open','hovering');
         a.setAttribute('aria-expanded','true');
-      } else {
-        // let it navigate naturally
-        closeAll();
+        return;
       }
-});
 
-    document.addEventListener('keydown', function(e){
-      if(e.key === 'Escape') closeAll();
+      // Already open: navigate explicitly (more reliable than relying on default)
+      closeAll();
+      window.location.href = a.href;
     });
-
-    // Desktop: close when cursor leaves entire nav region (replaces old document mousemove)
-    if(canHover){
-      nav.addEventListener('mouseleave', function(){
-        closeAll();
-      });
-    }
   }
 
   function initUlNavHoverDelay(){
