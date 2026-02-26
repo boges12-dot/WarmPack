@@ -10,23 +10,33 @@ header, .site-header, .header, #header, .topbar, .navbar {
   z-index: 9999 !important;
 }
 
-/* === Move news/notice box downward (stronger) ===
-   Previous: 30px -> Now: 60px (about 0.6칸 정도)
+/* === Move '소식' box downward (targets actual home classes) ===
+   Home '소식' section/classes found in this project:
+   - section.home-section.home-news-top
+   - div.home-card.home-news
 */
+.home-section.home-news-top {
+  position: relative;
+  z-index: 1;
+  margin-top: 60px !important;
+}
+
+.home-card.home-news {
+  margin-top: 0 !important; /* keep card internal spacing stable */
+}
+
+/* Fallback selectors (other pages/components) */
 .hero, .hero-section, .banner, .banner-wrap,
 .news, .news-box, .notice, .notice-box,
 .updates, .updates-box {
   position: relative;
   z-index: 1;
-  margin-top: 60px;
 }
 
-/* If some pages have tight spacing, keep it slightly smaller on very small screens */
+/* Smaller screens: slightly less margin */
 @media (max-width: 480px) {
-  .hero, .hero-section, .banner, .banner-wrap,
-  .news, .news-box, .notice, .notice-box,
-  .updates, .updates-box {
-    margin-top: 50px;
+  .home-section.home-news-top {
+    margin-top: 50px !important;
   }
 }
 
