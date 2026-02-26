@@ -1095,3 +1095,13 @@ main{
 
 .top-banner-link{display:block;}
 .top-banner-link:hover{opacity:0.98;}
+
+/* STEP12: dropdown overlap - push home "소식" box slightly down */
+.home-section.home-news-top{
+  margin-top: 18px;
+}
+@media (max-width: 768px){
+  .home-section.home-news-top{
+    margin-top: 22px;
+  }
+}

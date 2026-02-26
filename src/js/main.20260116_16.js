@@ -91,7 +91,7 @@
 
       // If device can't hover (mobile/touch) OR parent has no real href -> toggle only.
       if(!canHover || isHash){
-        e.preventDefault();
+        if(!canHover){ /* mobile: first tap handled below */ }
         var willOpen = !li.classList.contains('is-open');
         closeAll(li);
         if(willOpen){
