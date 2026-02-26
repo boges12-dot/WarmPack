@@ -1,0 +1,39 @@
+/* icon_90.css
+   STEP11: Force icon-like images to 90x90 across pages (weapons/armor/skills/maahn/accessory/doll).
+   Scope: avoid affecting banners/hero images.
+*/
+
+/* Tile-based item icons */
+.item-ic{
+  width: 90px !important;
+  height: 90px !important;
+}
+.item-card{
+  grid-template-columns: 90px 1fr !important;
+}
+@media (max-width: 480px){
+  .item-card{ grid-template-columns: 90px 1fr !important; }
+}
+
+/* Table icons (accessory/maahn/doll) */
+.table-wrap img:not(.top-banner-img){
+  width: 90px !important;
+  height: 90px !important;
+  object-fit: contain !important;
+}
+
+/* Explicit icon class (skills etc.) */
+img.icon-90{
+  width: 90px !important;
+  height: 90px !important;
+  object-fit: contain !important;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Class guide images */
+img.class-detail-img{
+  width: 90px !important;
+  height: 90px !important;
+  object-fit: contain !important;
+}

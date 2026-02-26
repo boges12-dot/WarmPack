@@ -1,0 +1,45 @@
+/* item_tiles_unify.css
+   STEP9: unify tile/item-card visuals across 무기/방어구/초반-지급 pages
+*/
+.item-grid{
+  align-items: stretch;
+}
+.item-card{
+  height: 100%;
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 12px;
+  align-items: start;
+}
+.item-ic{
+  width: 72px;
+  height: 72px;
+  border-radius: 14px;
+}
+.item-ic img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.item-meta{
+  min-width: 0;
+}
+.item-name{
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+.item-sub{
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+/* Tier tiles content */
+.tier-tile .tile-content{
+  margin-top: 10px;
+}
+/* Mobile tweaks */
+@media (max-width: 480px){
+  .item-card{
+    grid-template-columns: 64px 1fr;
+  }
+  .item-ic{ width:64px; height:64px; }
+}

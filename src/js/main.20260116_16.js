@@ -85,21 +85,36 @@
       var li = a.closest('#main-nav li.has-sub');
       if(!li) return;
 
-      // Toggle only; no navigation on parent
-      e.preventDefault();
+      // Desktop: allow navigation on second click. Mobile: tap toggles only.
+      var href = a.getAttribute('href') || '';
+      var isHash = (href === '' || href === '#' || href.toLowerCase().indexOf('javascript:') === 0);
 
-      var willOpen = !li.classList.contains('is-open');
-      closeAll(li);
-      if(willOpen){
-                li.classList.add('is-open');
-        li.classList.add('hovering');
+      // If device can't hover (mobile/touch) OR parent has no real href -> toggle only.
+      if(!canHover || isHash){
+        e.preventDefault();
+        var willOpen = !li.classList.contains('is-open');
+        closeAll(li);
+        if(willOpen){
+          li.classList.add('is-open','hovering');
+          a.setAttribute('aria-expanded','true');
+        } else {
+          li.classList.remove('is-open','hovering');
+          a.setAttribute('aria-expanded','false');
+        }
+        return;
+      }
+
+      // Desktop (canHover): first click opens, second click navigates.
+      if(!li.classList.contains('is-open')){
+        e.preventDefault();
+        closeAll(li);
+        li.classList.add('is-open','hovering');
         a.setAttribute('aria-expanded','true');
       } else {
-                li.classList.remove('is-open');
-        li.classList.remove('hovering');
-        a.setAttribute('aria-expanded','false');
+        // let it navigate naturally
+        closeAll();
       }
-    });
+});
 
     document.addEventListener('keydown', function(e){
       if(e.key === 'Escape') closeAll();
