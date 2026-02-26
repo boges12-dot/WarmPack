@@ -1095,19 +1095,3 @@ main{
 
 .top-banner-link{display:block;}
 .top-banner-link:hover{opacity:0.98;}
-
-
-/* ===== 페이지 로드(iframe) 모드: 홈 레이아웃 숨김 ===== */
-body.view-page .site-header,
-body.view-page .home-news-top,
-body.view-page .home-news,
-body.view-page .news-box,
-body.view-page .news-section,
-body.view-page .home-section,
-body.view-page .home-card,
-body.view-page .home-container{
-  display:none !important;
-}
-
-.iframe-page-wrap{ width:100%; }
-#page-frame{ background: transparent; }

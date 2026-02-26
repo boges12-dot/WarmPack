@@ -22,11 +22,11 @@
 <link href="../../assets/icons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
 <link href="../../site.webmanifest" rel="manifest"/>
 <meta content="#ffffff" name="theme-color"/>
-<meta content="https://boges12-dot.github.io/WarmPack/assets/images/og_v3.jpg" property="og:image"/>
-<meta content="https://boges12-dot.github.io/WarmPack/assets/images/og_v3.jpg" property="og:image:secure_url">
+<meta content="https://boges12-dot.github.io/WarmPack/assets/images/og_v3.jpg" property="og:image">
+<meta content="https://boges12-dot.github.io/WarmPack/assets/images/og_v3.jpg" property="og:image:secure_url"/>
 <meta content="https://boges12-dot.github.io/WarmPack/assets/images/og_v3.jpg" name="twitter:image"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<link href="../../css/banner_override.css?v=20260126_B2" rel="stylesheet"/>
+<link href="../../css/banner_override.css" rel="stylesheet"/>
 <style>
 /* FIX: 스크롤 시 메뉴 떨림 방지 */
 header, nav, .header, .navbar {
@@ -55,42 +55,15 @@ table.skill-table td{
     if (p.indexOf("/WarmPack/") !== -1 && !p.endsWith("/WarmPack/") && !p.endsWith("/WarmPack/index.html")) {
       var rel = p.split("/WarmPack/")[1] || "index.html";
       if (location.search) rel += location.search;
-      sessionStorage.setItem("iframe_target", rel);
+      sessionStorage.setItem("spa_target", rel);
       location.replace(base);
     }
   } catch(e) {}
 })();
 </script>
-
 <div class="top-banner"><a class="top-banner-link" href="../../index.html"><img alt="HOT PACK SERVER 배너" class="top-banner-img" src="../../assets/images/banner_main.webp"/></a></div>
 <nav aria-label="메인 메뉴" class="main-nav-bar">
 <ul class="nav" id="main-nav">
-<li class="home-link"><a aria-label="홈" class="nav-home" href="../../index.html"><svg aria-hidden="true" class="icon-home" focusable="false" height="18" viewbox="0 0 24 24" width="18"><path d="M12 3 2.5 11.2a1 1 0 0 0 .7 1.8H5v7a1 1 0 0 0 1 1h4v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5h4a1 1 0 0 0 1-1v-7h1.8a1 1 0 0 0 .7-1.8L12 3z"></path></svg></a></li>
-<li class="has-sub">
-<a aria-expanded="false" aria-haspopup="true" data-no-nav="1" href="#" onclick="return false;">소개</a>
-<ul class="submenu">
-<li><a href="../../pages/공지/index.html">공지사항</a></li>
-<li><a href="../../pages/공지/서버규정.html">서버규정</a></li>
-<li><a href="../../pages/공지/서버점검.html">서버점검</a></li>
-<li><a href="../../pages/공지/업데이트.html">업데이트</a></li>
-<li><a href="../../pages/공지/이벤트.html">이벤트</a></li>
-</ul>
-</li>
-<li class="has-sub">
-<a aria-expanded="false" aria-haspopup="true" data-no-nav="1" href="#" onclick="return false;">가이드</a>
-<ul class="submenu">
-<li><a href="../../pages/가이드/클래스-가이드.html">클래스</a></li>
-<li><a href="../../pages/가이드/index.html">서버가이드</a></li>
-<li><a href="../../pages/가이드/낚시가이드.html">낚시가이드</a></li>
-<li><a href="../../pages/가이드/도감가이드.html">도감가이드</a></li>
-</ul>
-</li>
-<li class="has-sub">
-<a aria-expanded="false" aria-haspopup="true" data-no-nav="1" href="#" onclick="return false;">제작</a>
-<ul class="submenu">
-<li><a href="../../pages/제작/인형-제작.html">인형 제작</a></li>
-<li><a href="../../pages/제작/오만의탑-이동-부적.html">오만의탑 이동 부적</a></li>
-<li><a href="../../pages/제작/아이템-제작.html">아이템 제작</a></li>
 </ul>
 </li>
 <li class="has-sub">
@@ -121,6 +94,7 @@ table.skill-table td{
 <a aria-expanded="false" aria-haspopup="true" data-no-nav="1" href="#" onclick="return false;">홍보</a>
 <ul class="submenu">
 <li><a href="../../pages/홍보/홍보글.html">홍보글</a></li>
+
 </ul>
 </li>
 <li class="has-sub">
@@ -128,6 +102,8 @@ table.skill-table td{
 <ul class="submenu">
 <li><a href="../../pages/커뮤니티/카카오톡.html">카카오톡</a></li>
 <li><a href="../../pages/커뮤니티/텔레그램.html">텔레그램</a></li>
+
+
 </ul>
 </li>
 <li><a href="../../pages/다운로드/index.html">다운로드</a></li>
@@ -135,7 +111,7 @@ table.skill-table td{
 </nav>
 <header class="site-header">
 </header>
-<main class="site-main">
+<div class="site-main">
 <div id="top"></div>
 <a class="skip-link" href="#main-content">본문 바로가기</a>
 <main id="main-content">
@@ -170,45 +146,5 @@ table.skill-table td{
 <script src="../../js/banner_home.js"></script>
 <script src="../../js/top_button.js"></script>
 <script src="../../js/hero_shrink.js"></script>
-</main><script>
-/* MENU_STICKY_OPEN_INLINE_V26 */
-document.addEventListener('DOMContentLoaded', function(){
-  try{
-    var nav = document.getElementById('main-nav');
-    if(!nav) return;
-
-    function openLi(li){
-      if(!li) return;
-      var a = li.querySelector(':scope > a');
-      li.classList.add('is-open','hovering','sticky-open');
-      if(a) a.setAttribute('aria-expanded','true');
-    }
-
-    // Prefer active link
-    var active = nav.querySelector('a.active');
-    if(active){
-      openLi(active.closest('li.has-sub'));
-      return;
-    }
-
-    // Fallback: match by pathname
-    var path = (location.pathname || '').replace(/\/index\.html$/, '');
-    var links = nav.querySelectorAll('a[href]');
-    var best = null;
-    links.forEach(function(a){
-      var href = a.getAttribute('href') || '';
-      if(!href || href === '#') return;
-      // normalize relative href by stripping ../
-      var clean = href.replace(/^(\.\.\/)+/, '/').replace(/^\./,'');
-      if(path.endsWith(clean.replace(/^\//,'')) || path.indexOf(clean.replace(/^\//,'')) !== -1){
-        best = a;
-      }
-    });
-    if(best){
-      openLi(best.closest('li.has-sub'));
-    }
-  }catch(e){}
-});
-</script>
-</body>
+</div></body>
 </html>

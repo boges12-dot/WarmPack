@@ -28,7 +28,7 @@
 <meta content="https://boges12-dot.github.io/WarmPack/assets/images/og_v3.jpg" property="og:image:secure_url"/>
 <meta content="https://boges12-dot.github.io/WarmPack/assets/images/og_v3.jpg" name="twitter:image"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<link href="css/banner_override.css?v=20260126_B2" rel="stylesheet"/>
+<link href="css/banner_override.css" rel="stylesheet"/>
 <style>
 /* FIX: 스크롤 시 메뉴 떨림 방지 */
 header, nav, .header, .navbar {
@@ -119,8 +119,7 @@ table.skill-table td{
 </li>
 <li><a href="pages/다운로드/index.html">다운로드</a></li>
 </ul>
-</nav>
-<header class="site-header">
+</nav><div id="app-content"><header class="site-header">
 <section class="home-section home-news-top">
 <div class="container">
 <div class="home-card home-news">
@@ -174,8 +173,7 @@ table.skill-table td{
 </div>
 <div class="shortcut-divider"></div><div class="shortcut-boss-head"><div class="shortcut-boss-title"><span class="shortcut-boss-icon">👑</span> 서버 보스</div><a class="shortcut-boss-more" href="pages/사냥터/보스.html">더보기</a></div><ul class="shortcut-boss-list"><li data-name="데스나이트" data-rule="daily" data-time="21:00"><span class="boss-name">데스나이트</span><span class="boss-time">매일 21:00</span></li><li data-name="커츠" data-rule="daily" data-time="22:00"><span class="boss-name">커츠</span><span class="boss-time">매일 22:00</span></li><li data-name="바포메트" data-rule="weekend" data-time="20:30"><span class="boss-name">바포메트</span><span class="boss-time">주말 20:30</span></li><li data-name="그림리퍼" data-rule="weekday" data-time="20:30"><span class="boss-name">그림리퍼</span><span class="boss-time">평일 20:30</span></li></ul></div></div></div>
 </section>
-</header>
-<main class="site-main"><div class="iframe-page-wrap"><iframe id="page-frame" loading="lazy" src="about:blank" style="width:100%;border:0;display:none;" title="WarmPack Page"></iframe></div><div id="app-content">
+</header><div class="site-main"><div id="app-content">
 <div id="top"></div>
 <a class="skip-link" href="#main-content">본문 바로가기</a>
 <header class="hero-bar">
@@ -193,14 +191,13 @@ table.skill-table td{
 <header class="hero-bar">
 </header>
 <main id="main-content">
-</main>
-<script defer="" src="js/main.20260116_16.min.js"></script>
-<script src="js/banner_home.js"></script>
-<script src="js/top_button.js"></script>
-<script src="./js/hero_shrink.js"></script>
-<script src="js/server_status_toggle.js"></script>
-</template>
-<script>
+</div>
+
+
+
+
+
+</template><script>
 (function(){
   const list = document.querySelector('.shortcut-boss-list');
   if(!list) return;
@@ -269,46 +266,6 @@ table.skill-table td{
     if(nameEl) nameEl.insertAdjacentElement('afterend', badge);
   }
 })();
-</script>
-<script>
-/* MENU_STICKY_OPEN_INLINE_V26 */
-document.addEventListener('DOMContentLoaded', function(){
-  try{
-    var nav = document.getElementById('main-nav');
-    if(!nav) return;
-
-    function openLi(li){
-      if(!li) return;
-      var a = li.querySelector(':scope > a');
-      li.classList.add('is-open','hovering','sticky-open');
-      if(a) a.setAttribute('aria-expanded','true');
-    }
-
-    // Prefer active link
-    var active = nav.querySelector('a.active');
-    if(active){
-      openLi(active.closest('li.has-sub'));
-      return;
-    }
-
-    // Fallback: match by pathname
-    var path = (location.pathname || '').replace(/\/index\.html$/, '');
-    var links = nav.querySelectorAll('a[href]');
-    var best = null;
-    links.forEach(function(a){
-      var href = a.getAttribute('href') || '';
-      if(!href || href === '#') return;
-      // normalize relative href by stripping ../
-      var clean = href.replace(/^(\.\.\/)+/, '/').replace(/^\./,'');
-      if(path.endsWith(clean.replace(/^\//,'')) || path.indexOf(clean.replace(/^\//,'')) !== -1){
-        best = a;
-      }
-    });
-    if(best){
-      openLi(best.closest('li.has-sub'));
-    }
-  }catch(e){}
-});
-</script>
-<script defer="defer" src="src/js/iframe_router.js"></script></body>
+</script></div>
+</body>
 </html>

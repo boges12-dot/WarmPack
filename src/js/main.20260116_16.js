@@ -23,9 +23,7 @@
   }
 
   function closeAll(except){
-    qsa('#main-nav li.has-sub.is-open', document).forEach(function(li){
-      if(li.classList.contains('sticky-open')) return;
-      if(except && li === except) return;
+    qsa('#main-nav li.has-sub.is-open', document).forEach(function(li){      if(except && li === except) return;
       li.classList.remove('is-open');
       li.classList.remove('hovering');
       var a = li.querySelector(':scope > a, :scope > button');
@@ -66,6 +64,12 @@
   }
 
   function initUlNavDropdown(){
+    // submenu item click => close immediately (prevents dropdown residue)
+    nav.addEventListener('click', function(e){
+      var sub = e.target && e.target.closest ? e.target.closest('.submenu a') : null;
+      if(sub){ closeAll(); }
+    });
+
     // Click/tap support (mobile + desktop). Parent links do not navigate; they toggle.
     document.addEventListener('click', function(e){
       var a = e.target && e.target.closest ? e.target.closest('#main-nav li.has-sub > a') : null;
@@ -87,13 +91,11 @@
       var willOpen = !li.classList.contains('is-open');
       closeAll(li);
       if(willOpen){
-        li.classList.add('sticky-open');
-        li.classList.add('is-open');
+                li.classList.add('is-open');
         li.classList.add('hovering');
         a.setAttribute('aria-expanded','true');
       } else {
-        li.classList.remove('sticky-open');
-        li.classList.remove('is-open');
+                li.classList.remove('is-open');
         li.classList.remove('hovering');
         a.setAttribute('aria-expanded','false');
       }
@@ -133,30 +135,6 @@
       });
     });
   }
-
-
-  function setStickyOpenForSection(){
-    // Keep top menu open for the current section (e.g., 아이템/가이드/스킬...)
-    var path = location.pathname.replace(/\/index\.html$/, '/');
-    var section = null;
-    // Detect major section under /pages/
-    var m = path.match(/\/pages\/([^\/]+)\//);
-    if(m && m[1]) section = decodeURIComponent(m[1]);
-
-    if(!section) return;
-
-    // Find the corresponding top-level li.has-sub whose href includes '/pages/<section>/'
-    var lis = qsa('#main-nav li.has-sub', document);
-    lis.forEach(function(li){
-      var a = li.querySelector(':scope > a');
-      if(!a) return;
-      var href = a.getAttribute('href') || '';
-      if(href.indexOf('pages/' + section + '/') !== -1){
-        li.classList.add('is-open');
-        li.classList.add('hovering');
-        li.classList.add('sticky-open');
-        a.setAttribute('aria-expanded','true');
-      }
     });
   }
 
@@ -165,7 +143,6 @@
     initUlNavHoverDelay();
     initToTop();
     markActive();
-    setStickyOpenForSection();
   });
 })();
 
