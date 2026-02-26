@@ -20,7 +20,7 @@
   }
 
   document.addEventListener("DOMContentLoaded", function(){
-    document.querySelectorAll(".hero-home-link").forEach(function(a){
+    document.querySelectorAll(".nav-home, .top-banner-link").forEach(function(a){
       a.addEventListener("click", goHome);
     });
   });

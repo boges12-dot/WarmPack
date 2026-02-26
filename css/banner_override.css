@@ -1072,3 +1072,26 @@ main{
 /* ===== Top Banner (Hero 제거 버전) ===== */
 .top-banner{width:100%;}
 .top-banner-img{width:100%;height:auto;display:block;}
+
+
+/* ===== 하위메뉴-소식 간격 추가 축소 ===== */
+/* nav(하위 드롭다운) 아래 첫 섹션/소식박스 상단 여백을 더 줄임 */
+.main-nav-bar + main,
+.main-nav-bar + .content,
+.main-nav-bar + section,
+.main-nav-bar + .news-section,
+.main-nav-bar + .news-box{
+  margin-top: 8px !important;
+  padding-top: 0 !important;
+}
+
+/* 소식 박스 자체 상단 여백이 큰 경우 대비 */
+.news-box,
+.news-section,
+.home-news,
+.news-container{
+  margin-top: 8px !important;
+}
+
+.top-banner-link{display:block;}
+.top-banner-link:hover{opacity:0.98;}
