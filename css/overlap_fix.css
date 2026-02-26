@@ -1,45 +1,28 @@
-/* overlap_fix.css
-   Fix: '소식' box overlapping with dropdown sub-menu
-   Strategy:
-   - Ensure header/nav stays above content with consistent stacking context
-   - Ensure dropdown menu is above hero/news sections
-   - Add safe top spacing for the first section below header when needed
-*/
-
-/* Make sure header/nav has stacking priority */
+/* === Dropdown always above everything === */
 header, .site-header, .header, #header, .topbar, .navbar {
   position: relative;
-  z-index: 1000;
+  z-index: 5000;
 }
 
-/* Dropdown menus should float above page content */
-.dropdown-menu, .nav-dropdown, .sub-menu, .submenu, .dropdown-content, .menu-dropdown {
+.dropdown-menu, .nav-dropdown, .sub-menu, .submenu,
+.dropdown-content, .menu-dropdown {
   position: absolute;
-  z-index: 2000;
+  z-index: 9999 !important;
 }
 
-/* Any fixed/sticky header should stay above too */
-.sticky, .is-sticky, .fixed, .header-fixed, .fixed-header {
-  z-index: 3000;
-}
-
-/* Prevent common hero/news sections from covering dropdowns */
-.hero, .hero-section, .banner, .banner-wrap, .news, .news-box, .notice, .notice-box, .updates, .updates-box {
+/* === Move news/notice box slightly downward === */
+.hero, .hero-section, .banner, .banner-wrap,
+.news, .news-box, .notice, .notice-box,
+.updates, .updates-box {
   position: relative;
   z-index: 1;
+  margin-top: 30px;   /* 약 0.3칸 아래 이동 */
 }
 
-/* If the page has a fixed header, ensure content starts below it.
-   This is a conservative padding that only applies when body has a class hint. */
-body.has-fixed-header main,
-body.has-fixed-header .main,
-body.has-fixed-header #main {
-  padding-top: 84px;
-}
-
-/* Mobile safety: dropdown often becomes full-width; keep it visible */
+/* Mobile safety */
 @media (max-width: 768px) {
-  .dropdown-menu, .nav-dropdown, .sub-menu, .submenu, .dropdown-content, .menu-dropdown {
-    z-index: 4000;
+  .dropdown-menu, .nav-dropdown, .sub-menu, .submenu,
+  .dropdown-content, .menu-dropdown {
+    z-index: 10000 !important;
   }
 }
