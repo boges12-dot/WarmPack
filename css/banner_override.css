@@ -990,7 +990,7 @@ nav.main-nav-bar ul#main-nav.nav > li.has-sub > ul.submenu a{
    2) 기타 페이지: .site-main/main에도 동일한 상단 여백 적용
 */
 header.site-header{
-  margin-top: 90px !important;
+  margin-top: 40px !important;
 }
 
 main.site-main, .site-main, main, .page-content, .content{
