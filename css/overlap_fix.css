@@ -10,13 +10,24 @@ header, .site-header, .header, #header, .topbar, .navbar {
   z-index: 9999 !important;
 }
 
-/* === Move news/notice box slightly downward === */
+/* === Move news/notice box downward (stronger) ===
+   Previous: 30px -> Now: 60px (about 0.6칸 정도)
+*/
 .hero, .hero-section, .banner, .banner-wrap,
 .news, .news-box, .notice, .notice-box,
 .updates, .updates-box {
   position: relative;
   z-index: 1;
-  margin-top: 30px;   /* 약 0.3칸 아래 이동 */
+  margin-top: 60px;
+}
+
+/* If some pages have tight spacing, keep it slightly smaller on very small screens */
+@media (max-width: 480px) {
+  .hero, .hero-section, .banner, .banner-wrap,
+  .news, .news-box, .notice, .notice-box,
+  .updates, .updates-box {
+    margin-top: 50px;
+  }
 }
 
 /* Mobile safety */
