@@ -1,21 +1,8 @@
 // SPA loader for GitHub Pages (WarmPack)
-// Keeps address fixed at https://boges12-dot.github.io/WarmPack/ and loads subpages via fetch into #app-content.
+// URL stays at https://boges12-dot.github.io/WarmPack/ while swapping page body region (after nav).
 (() => {
   const BASE_URL = "https://boges12-dot.github.io/WarmPack/";
   const APP_ID = "app-content";
-  const HOME_ID = "home-content-template";
-
-  function isInternalLink(href) {
-    if (!href) return false;
-    if (href.startsWith("mailto:") || href.startsWith("tel:") || href.startsWith("javascript:")) return false;
-    if (href.startsWith("#")) return true;
-    try {
-      const u = new URL(href, window.location.href);
-      return u.origin === window.location.origin;
-    } catch(e) {
-      return false;
-    }
-  }
 
   function looksLikeHtmlPath(pathname) {
     return pathname.endsWith(".html") || pathname.includes("/pages/");
@@ -35,11 +22,7 @@
     if (!urlStr) return urlStr;
     if (urlStr.startsWith("data:") || urlStr.startsWith("blob:")) return urlStr;
     if (urlStr.startsWith("#")) return urlStr;
-    try {
-      return new URL(urlStr, pageUrl).href;
-    } catch(e) {
-      return urlStr;
-    }
+    try { return new URL(urlStr, pageUrl).href; } catch(e) { return urlStr; }
   }
 
   function rewriteRelativeUrls(rootEl, pageUrl) {
@@ -60,86 +43,90 @@
     }
   }
 
-  function getHomeTemplateHtml() {
-    const tpl = document.getElementById(HOME_ID);
-    return tpl ? tpl.innerHTML : "";
-  }
-
-  function setAppHtml(html) {
+  function setRegionHtml(html) {
     const app = document.getElementById(APP_ID);
     if (!app) return;
     app.innerHTML = html;
     window.scrollTo(0, 0);
   }
 
-  async function loadPage(targetPath) {
-    if (!targetPath || targetPath === "index.html" || targetPath === "/" ) {
-      document.title = "WarmPack";
-      setAppHtml(getHomeTemplateHtml());
-      return;
+  function getRegionFromDoc(doc) {
+    const nav = doc.querySelector("nav.main-nav-bar");
+    if (!nav) {
+      // fallback: main only
+      const main = doc.querySelector("main");
+      return main ? main.outerHTML : doc.body.innerHTML;
     }
+    // Collect siblings after nav until end of body
+    const out = document.createElement("div");
+    let node = nav.nextElementSibling;
+    while (node) {
+      // Ignore the SPA loader script itself if present
+      if (node.tagName === "SCRIPT" && (node.src || "").includes("spa_loader")) {
+        node = node.nextElementSibling;
+        continue;
+      }
+      out.appendChild(node.cloneNode(true));
+      node = node.nextElementSibling;
+    }
+    return out.innerHTML;
+  }
 
-    const pageUrl = new URL(targetPath, BASE_URL).href;
+  async function loadPage(targetPath) {
+    const t = targetPath || "index.html";
+    const pageUrl = new URL(t, BASE_URL).href;
+
     const res = await fetch(pageUrl, { cache: "no-cache" });
     if (!res.ok) {
-      setAppHtml(`<div style="padding:16px">페이지를 불러오지 못했습니다. 새로고침 후 다시 시도해주세요.<br><small>${pageUrl}</small></div>`);
+      setRegionHtml(`<div style="padding:16px">페이지를 불러오지 못했습니다.<br><small>${pageUrl}</small></div>`);
       throw new Error("Failed to load: " + pageUrl);
     }
     const text = await res.text();
     const doc = new DOMParser().parseFromString(text, "text/html");
 
-    let content = doc.querySelector("main");
-    if (!content) content = doc.body;
+    const regionHtml = getRegionFromDoc(doc);
 
     const wrapper = document.createElement("div");
-    wrapper.innerHTML = content.innerHTML;
-
+    wrapper.innerHTML = regionHtml;
     rewriteRelativeUrls(wrapper, pageUrl);
 
-    wrapper.querySelectorAll("a").forEach(a => {
-      const href = a.getAttribute("href");
-      if (!href) return;
-      if (!isInternalLink(href)) return;
-      const u = new URL(href, pageUrl);
-      if (looksLikeHtmlPath(u.pathname)) {
-        a.addEventListener("click", (e) => {
-          e.preventDefault();
-          const t = normalizeTargetFromHref(u.href);
-          sessionStorage.setItem("spa_last_target", t);
-          loadPage(t).catch((err)=>{console.error(err); window.location.href = u.href;});
-        });
-      }
-    });
+    // Update title
+    const tt = doc.querySelector("title");
+    if (tt && tt.textContent) document.title = tt.textContent;
 
-    const t = doc.querySelector("title");
-    if (t && t.textContent) document.title = t.textContent;
-
-    setAppHtml(wrapper.innerHTML);
+    setRegionHtml(wrapper.innerHTML);
+    bindInterception(); // rebind links inside new region
   }
 
-  function bindNavInterception() {
+  function bindInterception() {
     document.querySelectorAll("a").forEach(a => {
       const href = a.getAttribute("href");
       if (!href) return;
-      if (!isInternalLink(href)) return;
-      const u = new URL(href, window.location.href);
+      if (href.startsWith("#") || href.startsWith("mailto:") || href.startsWith("tel:") || href.startsWith("javascript:")) return;
+
+      let u;
+      try { u = new URL(href, window.location.href); } catch(e) { return; }
+      if (u.origin !== window.location.origin) return;
       if (!looksLikeHtmlPath(u.pathname)) return;
+
       a.addEventListener("click", (e) => {
         e.preventDefault();
-        const t = normalizeTargetFromHref(u.href);
-        sessionStorage.setItem("spa_last_target", t);
-        loadPage(t).catch((err)=>{console.error(err); window.location.href = u.href;});
+        const target = normalizeTargetFromHref(u.href);
+        sessionStorage.setItem("spa_last_target", target);
+        loadPage(target).catch((err)=>{ console.error(err); window.location.href = u.href; });
       });
     });
   }
 
   function boot() {
-    const target = sessionStorage.getItem("spa_target") || sessionStorage.getItem("spa_last_target");
-    if (target) {
-      sessionStorage.removeItem("spa_target");
-      loadPage(target).catch((err)=>{console.error(err);});
+    const target = sessionStorage.getItem("spa_target") || sessionStorage.getItem("spa_last_target") || "index.html";
+    sessionStorage.removeItem("spa_target");
+    // Only auto-load if not already on index shell content mismatch.
+    if (target && target !== "index.html") {
+      loadPage(target).catch(console.error);
+    } else {
+      bindInterception();
     }
-    bindNavInterception();
   }
 
   document.addEventListener("DOMContentLoaded", boot);
