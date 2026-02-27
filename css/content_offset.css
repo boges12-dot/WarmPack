@@ -1,18 +1,25 @@
-/* content_offset.css
-   Purpose: Push PAGE CONTENT down by a fixed offset (default 60px)
-   Note: Does NOT touch dropdown/menu positioning.
+/* subtitle_area_adjust.css
+   Goal:
+   - Remove excessive empty space
+   - Move subtitle/hero area up so it sits directly under menu
+   - Keep minimal safe spacing only
 */
 
 :root {
-  --content-offset: 60px;
+  --content-offset: 10px; /* reduced from large offset */
 }
 
+/* Main page content */
 main,
 .main,
 #main,
 .content,
 .page-section,
-.home-section,
+.home-section {
+  margin-top: var(--content-offset) !important;
+}
+
+/* Sub title / hero area */
 .sub-hero,
 .subhero,
 .page-hero,
@@ -27,10 +34,19 @@ main,
 .page-hero-wrap,
 .hero-wrap,
 .hero-container {
-  margin-top: var(--content-offset) !important;
+  margin-top: 0 !important;
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
 }
 
-/* Mobile: slightly smaller */
+/* Remove hidden spacer blocks if any */
+.header-spacer,
+.nav-spacer,
+.top-spacer {
+  display: none !important;
+}
+
+/* Mobile tuning */
 @media (max-width: 480px) {
-  :root { --content-offset: 50px; }
+  :root { --content-offset: 8px; }
 }
