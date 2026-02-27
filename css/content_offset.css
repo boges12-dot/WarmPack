@@ -1,0 +1,36 @@
+/* content_offset.css
+   Purpose: Push PAGE CONTENT down by a fixed offset (default 60px)
+   Note: Does NOT touch dropdown/menu positioning.
+*/
+
+:root {
+  --content-offset: 60px;
+}
+
+main,
+.main,
+#main,
+.content,
+.page-section,
+.home-section,
+.sub-hero,
+.subhero,
+.page-hero,
+.hero-sub,
+.hero--sub,
+.page-title-bar,
+.page-title-area,
+.page-header,
+.sub-banner,
+.subpage-hero,
+.section-hero,
+.page-hero-wrap,
+.hero-wrap,
+.hero-container {
+  margin-top: var(--content-offset) !important;
+}
+
+/* Mobile: slightly smaller */
+@media (max-width: 480px) {
+  :root { --content-offset: 50px; }
+}
