@@ -1,0 +1,19 @@
+/* header_position_fix.css
+   Move top navigation upward to sit directly under banner
+*/
+
+/* remove spacing between banner and header */
+header,
+.site-header,
+.navbar,
+.topbar {
+  margin-top: -20px !important;
+  padding-top: 0 !important;
+}
+
+/* remove possible spacer blocks */
+.header-spacer,
+.nav-spacer,
+.top-spacer {
+  display: none !important;
+}
