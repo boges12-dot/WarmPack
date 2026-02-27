@@ -108,10 +108,10 @@ table.skill-table th, table.skill-table td{
   align-items:center;
   justify-content:space-between;
   gap:10px;
-  border-bottom:1px dashed rgba(255,255,255,.10);
+  /* removed header underline */
   padding-bottom:8px;
 }
-.home-list li:last-child{ border-bottom:0; padding-bottom:0; }
+.home-list li:last-child{ /* removed header underline */ padding-bottom:0; }
 .home-list a{
   text-decoration:none;
   overflow:hidden;
