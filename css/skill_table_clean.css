@@ -1,0 +1,35 @@
+/* Skill pages: table structure & spacing cleanup (no font-size changes) */
+
+.skill-page .skill-table{
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto;
+}
+
+.skill-page .skill-table + .skill-table{
+  margin-top: 40px;
+}
+
+.skill-page .skill-table thead th{
+  text-align: left;
+  vertical-align: middle;
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+
+.skill-page .skill-table tbody td{
+  vertical-align: top;
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.skill-page .skill-table tbody tr:last-child td{
+  border-bottom: none;
+}
+
+/* First column (image) alignment */
+.skill-page .skill-table td:nth-child(1),
+.skill-page .skill-table th:nth-child(1){
+  text-align: center;
+  vertical-align: middle;
+}
