@@ -1,0 +1,18 @@
+/* Elf skill table column balance */
+/* Make description wider, shrink other columns slightly */
+
+table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+th:nth-child(1), td:nth-child(1) { width: 70px; }   /* 이미지 */
+th:nth-child(2), td:nth-child(2) { width: 160px; }  /* 스킬명 */
+th:nth-child(3), td:nth-child(3) { width: 90px; }   /* 속성 */
+th:nth-child(4), td:nth-child(4) { width: 90px; }   /* 소모 */
+
+/* 설명 크게 */
+th:nth-child(5), td:nth-child(5) { width: auto; }
+
+/* 획득방법 조금 축소 */
+th:nth-child(6), td:nth-child(6) { width: 160px; }
