@@ -557,7 +557,7 @@ html{ scroll-behavior: smooth; }
   width:100%;
   border-collapse:collapse;
   margin:28px 0 44px;
-  table-layout:fixed;
+  table-layout: auto;
 }
 .hunt-table th,
 .hunt-table td{
@@ -601,7 +601,7 @@ body.page-darkelf-skill .skill-acc-icon img{
 .accessory-table{
   width:100%;
   border-collapse:collapse;
-  table-layout:fixed; /* 중요: 컬럼 폭 고정 */
+  table-layout: auto; /* 중요: 컬럼 폭 고정 */
 }
 .accessory-table th,
 .accessory-table td{

@@ -254,25 +254,26 @@ table.skill-table td{
 table + table {
   margin-top: 40px;
 }
-</style><style>/* Column width adjustment ONLY (no font changes) */
-table {
-  table-layout: auto;
-  width: 100%;
+</style><style>/* Mage + Elf: auto column sizing by text length (NO font-size changes) */
+table{
+  table-layout:auto !important;
+  width:100%;
 }
 
-th, td {
-  white-space: normal;
+/* 작은 칸은 글자 길이만큼(줄바꿈 X) */
+th:nth-child(1), td:nth-child(1),
+th:nth-child(2), td:nth-child(2),
+th:nth-child(3), td:nth-child(3),
+th:nth-child(4), td:nth-child(4),
+th:nth-child(6), td:nth-child(6){
+  white-space:nowrap;
 }
 
-/* 설명 칼럼 넓힘 */
+/* 설명은 넓게 + 줄바꿈 허용 */
 th:nth-child(5), td:nth-child(5){
-  min-width: 420px;
-}
-
-/* 나머지 칼럼은 내용 크기만큼 */
-th:not(:nth-child(5)), td:not(:nth-child(5)){
-  width: auto;
-}</style></head>
+  white-space:normal;
+  min-width:420px;
+}</style><link href="../../css/table_auto_override.css" rel="stylesheet"/></head>
 <body><div class="top-banner"><a class="top-banner-link" href="../../index.html"><img alt="HOT PACK SERVER 배너" class="top-banner-img" src="../../assets/images/banner_main.webp"/></a></div>
 <nav aria-label="메인 메뉴" class="main-nav-bar">
 <ul class="nav" id="main-nav">
