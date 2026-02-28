@@ -14,11 +14,12 @@
   vertical-align: top;
 }
 
-/* Last column (획득 방법): keep to content */
+/* Last column (획득 방법): allow wrapping */
 .pages-skill th:last-child,
 .pages-skill td:last-child{
-  white-space: nowrap;
-  width: 1%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 /* Allow wrapping elsewhere */
