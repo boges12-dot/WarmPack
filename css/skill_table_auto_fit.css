@@ -1,35 +1,46 @@
-/* Skill tables: auto-fit (no fixed column rules)
-   - '획득 방법' column: grows only as much as its text (no wrapping)
-   - other columns: may wrap (description can be long)
+/* Skill tables: uniform layout, NO horizontal scroll
+   - tables stay within page width
+   - long text wraps inside cells (especially 설명/획득 방법)
+   - no hard pixel column rules
 */
+
+.pages-skill{
+  overflow-x: hidden; /* prevent accidental horizontal scrolling */
+}
 
 .pages-skill table{
   width: 100%;
+  max-width: 100%;
   border-collapse: collapse;
-  table-layout: auto;
+  table-layout: fixed; /* keep table inside screen */
 }
 
+/* Default cell behavior: wrap instead of widening table */
 .pages-skill th,
 .pages-skill td{
   vertical-align: top;
-}
-
-/* Last column (획득 방법): allow wrapping */
-.pages-skill th:last-child,
-.pages-skill td:last-child{
   white-space: normal;
   overflow-wrap: anywhere;
   word-break: break-word;
 }
 
-/* Allow wrapping elsewhere */
-.pages-skill td:not(:last-child){
+/* 이미지 칸은 가운데 정렬 */
+.pages-skill td:first-child,
+.pages-skill th:first-child{
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* 설명 칸은 특히 잘 감기게 */
+.pages-skill td:nth-last-child(2){
   overflow-wrap: anywhere;
   word-break: break-word;
 }
 
-/* Skill name column can shrink/wrap */
-.pages-skill td:nth-child(2){
+/* 획득 방법도 길면 줄바꿈 */
+.pages-skill th:last-child,
+.pages-skill td:last-child{
+  white-space: normal;
   overflow-wrap: anywhere;
   word-break: break-word;
 }
