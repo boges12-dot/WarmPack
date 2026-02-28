@@ -178,8 +178,8 @@ table.skill-table th, table.skill-table td{
 table.skill-table img{
   display:block;
   margin:0 auto;
-  max-width:80px;
-  max-height:80px;
+  max-width:90px;
+  max-height:90px;
   object-fit:contain;
 }
 
@@ -591,7 +591,7 @@ html{ scroll-behavior: smooth; }
 
 /* PATCH: 다크엘프 스킬 아이콘 사이즈 */
 body.page-darkelf-skill .skill-acc-icon img{
-  width:80px;
+  width:90px;
   height:90px;
   object-fit:cover;
 }
@@ -631,7 +631,7 @@ body.page-darkelf-skill .skill-acc-icon img{
 table img{
   display:block;
   margin:0 auto;
-  width:80px;
+  width:90px;
   height:90px;
   object-fit:contain;
 }
@@ -1032,7 +1032,7 @@ main{min-height:auto !important;}
 
 /* 상단 배너 공간 추가 축소 */
 
-.hero-main .hero-banner{max-height: 80px;}
+.hero-main .hero-banner{max-height: 90px;}
 
 
 /* ===== 강제 배너 높이 축소 (최종 오버라이드) ===== */

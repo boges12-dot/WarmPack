@@ -1,0 +1,16 @@
+/* Skill pages: unify skill icon size to 90x90 */
+.pages-skill table td:first-child img,
+.pages-skill table th:first-child img,
+.pages-skill table td:nth-child(1) img {
+  width: 90px !important;
+  height: 90px !important;
+  object-fit: contain;
+  display: block;
+}
+
+/* In case images are inside links/divs */
+.pages-skill table td:nth-child(1) a img,
+.pages-skill table td:nth-child(1) div img {
+  width: 90px !important;
+  height: 90px !important;
+}
