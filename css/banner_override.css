@@ -3,13 +3,10 @@
   --hero-collapse: 0px;  /* 스크롤로 줄어드는 값 */
 }
 
-
 /* 배너(배경) */
-
 
 /* 메뉴는 배너 아래에 위치(스크롤 시 배너 높이가 줄어들면 메뉴도 같이 올라옴) */
 /* 배너 위 전체 클릭(홈) */
-
 
 /* 배너 안 텍스트 숨김(필요시 해제) */
 .hero-content,
@@ -17,7 +14,6 @@
 .hero-subtitle,
 .banner-text,
 .banner-content{ display:none !important; }
-
 
 /* FIX: 클래스 상세 이미지 + 설명을 나란히, 텍스트 끊김 방지 */
 .class-item{
@@ -55,7 +51,6 @@ table.skill-table{
 table.skill-table th, table.skill-table td{
   padding:10px !important;
 }
-
 
 /* HOME: 소식/바로가기/서버보스 */
 .home-widgets{ padding:18px 0 6px; }
@@ -167,12 +162,10 @@ table.skill-table th, table.skill-table td{
   font-weight:700;
 }
 
-
 @media (max-width: 980px){
   .home-widgets-grid{ grid-template-columns: 1fr; }
   .home-boss-grid{ grid-template-columns: repeat(2, 1fr); }
 }
-
 
 /* AUDIT FIX: 깨진 이미지가 레이아웃을 망치지 않도록 */
 table.skill-table img{
@@ -182,8 +175,6 @@ table.skill-table img{
   max-height:90px;
   object-fit:contain;
 }
-
-
 
 /* ===== 홈 레이아웃 수정(2026-01-25): [소식] 아래에 [서버 안내][바로가기] 2열 ===== */
 .home-widgets .container.home-widgets-grid{
@@ -213,8 +204,6 @@ table.skill-table img{
       "shortcuts" !important;
   }
 }
-
-
 
 /* ===== Server status toggle (admin-only clickable) ===== */
 .server-status{
@@ -253,7 +242,6 @@ table.skill-table img{
   font-weight:700;
   letter-spacing:.2px;
 }
-
 
 /* 서버규정 페이지 */
 .rules h2{ margin-bottom:14px; }
@@ -308,11 +296,7 @@ table.skill-table img{
   .rules-steps{ flex-direction: column; }
 }
 
-
-
-
 /* HOME BOSS: full width below shortcuts */
-
 
 /* SHORTCUTS: boss list inside shortcuts card */
 .shortcut-divider{
@@ -367,7 +351,6 @@ table.skill-table img{
 .shortcut-boss-list .boss-name{ font-weight:700; }
 .shortcut-boss-list .boss-time{ opacity:.85; font-size:13px; }
 
-
 /* NEXT BOSS highlight */
 .shortcut-boss-list li.next-boss{
   border-color: rgba(255,255,255,.18);
@@ -383,9 +366,6 @@ table.skill-table img{
   font-weight:800;
 }
 
-
-
-
 /* 고정 메뉴에 가려지지 않게 상단 여백 확보 */
 body{
   padding-top: var(--nav-fixed-h);
@@ -393,8 +373,6 @@ body{
 
 /* 메뉴 높이가 변해도 안정적으로 */
   min-height: var(--nav-fixed-h);
-
-
 
 /* CLEAN NAV (B): 배너 아래에서 시작 → 스크롤 시 최상단 고정(사라지지 않음) */
 
@@ -404,24 +382,16 @@ body{
 
 /* 배너 높이 (JS로 조작하지 않음) */
 
-
 /* 메인 메뉴: 배너 아래에 위치, 스크롤하면 화면 최상단에 고정 */
-
 
 /* 스크롤이 막히지 않도록 기본값 보정 (강제 hidden 방지) */
 html, body{
   overflow-y: auto;
 }
 
-
-
-
 /* HERO+NAV TOP: 배너 바로 아래에 메뉴가 붙도록 */
 
-
-
 html{ scroll-behavior: smooth; }
-
 
 /* === SKILL ICON CONTAINER FIX (FORCE) === */
 .skill-icon {
@@ -438,7 +408,6 @@ html{ scroll-behavior: smooth; }
   object-fit: contain !important;
   display: block !important;
 }
-
 
 /* === FIX: Skill cards/accordion text must stay horizontal === */
 .skill-acc-title,
@@ -458,8 +427,6 @@ html{ scroll-behavior: smooth; }
 .skill-acc-summary{ display:flex; align-items:center; gap:14px; }
 .skill-acc-head{ flex:1 1 auto; min-width:0; }
 .skill-acc-title{ display:block; }
-
-
 
 /* === Skill accordion: icon top-center layout === */
 .skill-acc-summary{
@@ -506,12 +473,8 @@ html{ scroll-behavior: smooth; }
   display:block;
 }
 
-
-
 .skill-acc-summary > *{width:100%;}
 .skill-acc-summary .skill-acc-icon{width:auto;}
-
-
 
 /* === Skill: 4-column grid (desktop) === */
 .skill-page .grid,
@@ -539,8 +502,6 @@ html{ scroll-behavior: smooth; }
   gap: 12px;
 }
 
-
-
 /* === Skill page title center fix === */
 .skill-page .page-head .page-title,
 .pages-skill .page-head .page-title,
@@ -549,8 +510,6 @@ html{ scroll-behavior: smooth; }
   margin-left: auto;
   margin-right: auto;
 }
-
-
 
 /* === 사냥터 표 공통 스타일 === */
 .hunt-table{
@@ -574,9 +533,6 @@ html{ scroll-behavior: smooth; }
 }
 .hunt-boss{font-weight:800;color:#ff6b6b;}
 
-
-
-
 /* PATCH: 사냥터 페이지 폭 조절 */
 .pages-hunt-wrapper{
   max-width:1200px;
@@ -588,44 +544,12 @@ html{ scroll-behavior: smooth; }
   width:100%;
 }
 
-
 /* PATCH: 다크엘프 스킬 아이콘 사이즈 */
 body.page-darkelf-skill .skill-acc-icon img{
   width:90px;
   height:90px;
   object-fit:cover;
 }
-
-
-/* PATCH: 악세사리 표 대칭 정렬 */
-.accessory-table{
-  width:100%;
-  border-collapse:collapse;
-  table-layout: auto; /* 중요: 컬럼 폭 고정 */
-}
-.accessory-table th,
-.accessory-table td{
-  border:1px solid rgba(255,255,255,0.15);
-  padding:14px;
-  vertical-align:top;
-}
-.accessory-table th{
-  text-align:center;
-  font-weight:700;
-  background:rgba(42,52,66,0.95);
-}
-/* 컬럼 폭 */
-.accessory-table th:nth-child(1),
-.accessory-table td:nth-child(1){ width:90px; text-align:center; }
-.accessory-table th:nth-child(2),
-.accessory-table td:nth-child(2){ width:240px; }
-.accessory-table th:nth-child(3),
-.accessory-table td:nth-child(3){ width:130px; text-align:center; }
-.accessory-table th:nth-child(4),
-.accessory-table td:nth-child(4){ width:auto; }
-.accessory-table th:nth-child(5),
-.accessory-table td:nth-child(5){ width:160px; text-align:center; }
-
 
 /* PATCH: 표 안 이미지 중앙 + 80x90 고정 */
 table img{
@@ -639,7 +563,6 @@ table td{
   overflow:hidden; /* 표 밖 튀어나옴 방지 */
 }
 
-
 /* PATCH: 무기/방어구/스킬 화면 폭 조절 (꽉참 방지) */
 .site-main .skill-page{
   max-width:1200px;
@@ -652,8 +575,6 @@ table td{
 
 /* Ensure nav layers never clip */
 
-
-
 @media (min-width: 901px){
     opacity:0 !important;
     visibility:hidden !important;
@@ -661,17 +582,9 @@ table td{
     transform:none;!important;
   }
 
-
-
-
-
 /* Prevent click-open mobile state */
 
-
 /* Desktop hover only */
-
-
-
 
 /* Force desktop layout even on small screens */
 @media (max-width: 900px) {
@@ -682,8 +595,6 @@ table td{
   }
     position: absolute !important;
   }
-
-
 
 /* === DESKTOP NAV: prevent vertical stacking/wrapping === */
   flex-wrap: nowrap !important;
@@ -697,12 +608,9 @@ table td{
     -webkit-overflow-scrolling: touch;
   }
 
-
 .main-menu{flex-wrap:nowrap !important; white-space:nowrap !important; overflow-x:auto !important;}
 
-
 /* Show on hover/focus */
-
 
 /* Kill any click-open / vertical menu states */
 .menu-item.is-open > .sub{
@@ -711,34 +619,25 @@ table td{
   pointer-events:none !important;
 }
 
-
 /* Prevent main nav wrapping into vertical stacks */
   flex-wrap: nowrap !important;
   white-space: nowrap !important;
   overflow-x: auto !important;
   overflow-y: visible !important;
 
-
-
-
 /* hidden by default */
 
   /* keep dropdown layer above content */
 
-
 /* Show on hover/focus */
 
-
 /* Never allow vertical/mobile click-open states */
-
 
 /* Keep main nav from stacking vertically */
   flex-wrap: nowrap !important;
   white-space: nowrap !important;
   overflow-x: auto !important;
   overflow-y: visible !important;
-
-
 
 /* =====================================================================
    NAV: Single authoritative ruleset (no conflicts)
@@ -818,7 +717,6 @@ nav.main-nav-bar ul#main-nav.nav li.has-sub.is-open > ul.submenu,
   overflow: visible !important;
 }
 
-
 /* Put header/nav above all page content */
 header, .header, .header-inner, .main-nav-bar, nav.main-nav-bar{
   position: relative !important;
@@ -843,7 +741,6 @@ nav.main-nav-bar ul#main-nav.nav > li.has-sub > ul.submenu{
   overflow: visible !important;
 }
 
-
 /* Keep dropdown above page content inside nav layer */
 nav.main-nav-bar ul#main-nav.nav > li.has-sub > ul.submenu{
   z-index: 1001 !important;
@@ -854,7 +751,6 @@ main, .site-main, .content, .page-content,
 .section, .container, .wrap, .wrapper{
   overflow: visible !important;
 }
-
 
 /* =====================================================================
    NAV LAYER: Sticky + Isolated (stable, not "brute force")
@@ -922,7 +818,6 @@ main, .site-main, .content, .page-content{
   overflow: visible !important;
 }
 
-
 /* === Root-cause fix: nav dropdown behind content (targeted) ===
    Removed malformed patch that broke CSS parsing.
    Keep nav layer above content with minimal, stable stacking.
@@ -938,9 +833,6 @@ nav.main-nav-bar{
 #main-nav.nav .submenu{ z-index: 300; }
 .site-main, main{ position: relative; z-index: 1; }
 
-
-
-
 /* delay hiding visibility */
 }
 
@@ -948,7 +840,6 @@ nav.main-nav-bar ul#main-nav.nav > li.has-sub:hover > ul.submenu,
 nav.main-nav-bar ul#main-nav.nav > li.has-sub:focus-within > ul.submenu{
   transition:none; /* show instantly */
 }
-
 
 /* === Dropdown UX: close delay (grace period) v2 ===
    Behavior:
@@ -966,9 +857,6 @@ nav.main-nav-bar ul#main-nav.nav > li.has-sub:focus-within > ul.submenu{
   transition:none;
 }
 
-
-
-
 /* === Submenu click fix: ensure links are clickable === */
 nav.main-nav-bar ul#main-nav.nav > li.has-sub > a[data-no-nav="1"]{
   position: relative;
@@ -980,9 +868,6 @@ nav.main-nav-bar ul#main-nav.nav > li.has-sub > ul.submenu{
 nav.main-nav-bar ul#main-nav.nav > li.has-sub > ul.submenu a{
   pointer-events: auto !important;
 }
-
-
-
 
 /* === Layout: push page content down so dropdown is not covered by "소식" and other boxes ===
    Dropdown 위치는 유지하고, 네비 아래에 바로 붙는 컨텐츠(홈 소식/공지 박스 등)를 내려준다.
@@ -1003,14 +888,10 @@ header.site-header + .site-main{
   padding-top: 0 !important;
 }
 
-
-
 /* Early item tables */
 .item-table{width:100%;border-collapse:collapse;}
 .item-table th,.item-table td{border:1px solid rgba(255,255,255,.12);padding:10px;vertical-align:top;}
 .item-icon{width:42px;height:42px;object-fit:contain;}
-
-
 
 /* SUBPAGE: slim banner (keep banner, reduce empty space) */
 .hero-subpage{
@@ -1019,21 +900,17 @@ header.site-header + .site-main{
   background-position: center top !important; /* crop from bottom */
 }
 
-
 /* SUBPAGE: keep banner but shrink height */
 .hero-subpage{
   background-position: center top !important;
 }
 
-
 /* FIX: remove forced main min-height that creates blank space */
 main{min-height:auto !important;}
-
 
 /* 상단 배너 공간 추가 축소 */
 
 .hero-main .hero-banner{max-height: 90px;}
-
 
 /* ===== 강제 배너 높이 축소 (최종 오버라이드) ===== */
 /* 배너 영역 자체가 상단 공간을 과도하게 잡는 문제를 강제로 제어 */
@@ -1042,7 +919,6 @@ main{min-height:auto !important;}
 }
 
 /* hero 컨테이너 높이/여백 강제 축소 */
-
 
 /* 배너 이미지 자체 크기 강제 */
 .hero-main .hero-banner,
@@ -1065,14 +941,11 @@ main{
   padding-top: 0 !important;
 }
 
-
 /* ===== banner.gif 최종 고정 (320x32) ===== */
-
 
 /* ===== Top Banner (Hero 제거 버전) ===== */
 .top-banner{width:100%;}
 .top-banner-img{width:100%;height:auto;display:block;}
-
 
 /* ===== 하위메뉴-소식 간격 추가 축소 ===== */
 /* nav(하위 드롭다운) 아래 첫 섹션/소식박스 상단 여백을 더 줄임 */

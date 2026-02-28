@@ -198,36 +198,7 @@ table.skill-table td{
   border:1px solid rgba(255,255,255,.10);
 }
 </style>
-<style id="skill-ui-polish">
-/* SKILL UI POLISH v2: 아이콘 표시 강제 */
-.skill-page{ max-width:1100px; margin:0 auto; padding:18px 14px 60px; }
-.skill-page h1{ font-size:26px; font-weight:900; text-align:center; margin: 6px 0 10px; }
-.skill-note{ text-align:center; opacity:.85; margin:0 0 18px; font-size:13px; line-height:1.6; }
-.skill-table{ width:100%; border-collapse:separate; border-spacing:0; border:1px solid rgba(255,255,255,.10); border-radius:18px; background:rgba(255,255,255,.04); overflow:hidden; }
-.skill-table th{ background:rgba(255,255,255,.06); font-weight:900; padding:14px 16px; text-align:center; border-bottom:1px solid rgba(255,255,255,.10); }
-.skill-table td{ padding:18px 16px; vertical-align:middle; border-bottom:1px solid rgba(255,255,255,.07); }
-.skill-table tr:last-child td{ border-bottom:0; }
-.skill-table td:nth-child(2){ width:90px; text-align:center; }
-.skill-table td:nth-child(3){ width:140px; text-align:center; white-space:nowrap; }
-.skill-table td:nth-child(5){ width:160px; text-align:center; font-weight:800; white-space:nowrap; }
 
-/* 아이콘 강제 표시 */
-.skill-table td:nth-child(2) img,
-.skill-icon{
-  display:block !important;
-  width:48px !important;
-  height:48px !important;
-  object-fit:contain !important;
-  margin:0 auto !important;
-  border-radius:12px !important;
-  background:rgba(255,255,255,.04) !important;
-  border:1px solid rgba(255,255,255,.10) !important;
-}
-
-@media (max-width: 860px){
-  .skill-table{ display:block; overflow:auto; min-width: 980px; }
-}
-</style>
 <style id="stage-badge-style">.stage-badge{
           display:inline-block;
           margin-left:10px;
@@ -239,7 +210,7 @@ table.skill-table td{
           border:1px solid rgba(255,255,255,0.2);
           vertical-align:middle;
           white-space:nowrap;
-        }</style><link href="../../css/table_auto_override.css" rel="stylesheet"/><style>/* Per-page skill name column width (no font-size changes) */
+        }</style><style>/* Per-page skill name column width (no font-size changes) */
 th:nth-child(2), td:nth-child(2){
   width:15ch;
   white-space:nowrap;
