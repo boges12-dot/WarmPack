@@ -111,12 +111,14 @@
 .pages-item-eye table.maahn-table th:nth-child(1),
 .pages-item-eye table.maahn-table td:nth-child(1){ width: 100px; text-align:center; }
 .pages-item-eye table.maahn-table th:nth-child(2),
-.pages-item-eye table.maahn-table td:nth-child(2){ width: 160px; white-space: nowrap; }
+.pages-item-eye table.maahn-table td:nth-child(2){ width: 120px; white-space: nowrap; }
 .pages-item-eye table.maahn-table th:nth-child(3),
-.pages-item-eye table.maahn-table td:nth-child(3){ /* 옵션: 남는 공간 */ }
+.pages-item-eye table.maahn-table td:nth-child(3){  /* 옵션: 남는 공간 */
+/* 옵션: 남는 공간 */
+}
 .pages-item-eye table.maahn-table th:nth-child(4),
 .pages-item-eye table.maahn-table td:nth-child(4){
-  width: 220px;
+  width: 180px;
   white-space: normal;
   overflow-wrap: anywhere;
   word-break: break-word;
