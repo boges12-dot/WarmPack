@@ -74,3 +74,12 @@
   object-fit: cover;
   display: inline-block;
 }
+/* Skill subtitles */
+.pages-skill .skill-subtitle{
+  margin: 18px 0 10px;
+  font-size: 22px;
+  font-weight: 800;
+}
+.pages-skill .skill-subtitle.left{
+  text-align: left;
+}
