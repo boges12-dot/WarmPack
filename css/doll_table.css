@@ -42,7 +42,8 @@
 
 .pages-doll table.doll-table th:nth-child(2),
 .pages-doll table.doll-table td:nth-child(2){
-  width: 18%;
+  width: 1%;
+  white-space: nowrap;
 }
 
 .pages-doll table.doll-table th:nth-child(3),
@@ -54,14 +55,17 @@
 
 .pages-doll table.doll-table th:nth-child(5),
 .pages-doll table.doll-table td:nth-child(5){
-  width: 12ch;
-  text-align: center;
+  width: 22ch;
+  text-align: left;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 /* 옵션(4번째): 남는 공간 */
 .pages-doll table.doll-table th:nth-child(4),
 .pages-doll table.doll-table td:nth-child(4){
-  width: auto;
+  /* 옵션(설명): 남는 공간 */
 }
 
 /* images: unify size */
