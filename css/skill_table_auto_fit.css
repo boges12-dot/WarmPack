@@ -9,6 +9,15 @@
   overflow-x: hidden;
 }
 
+
+/* skill-page container: keep subtitle and table aligned */
+.pages-skill .skill-page{
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 16px;
+}
+
 .pages-skill table.skill-table,
 .pages-skill table{
   width: 100%;
