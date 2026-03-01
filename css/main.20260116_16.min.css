@@ -754,3 +754,20 @@ header, .site-header, #header, #main-header, #main-nav, nav, .nav, .navbar {
 
 /* ============================================================= */
 
+
+/* Hunting tables: match beginner layout (left image column wider) */
+.hunt-table{
+  width:100%;
+  table-layout: fixed;
+}
+.hunt-table th:first-child,
+.hunt-table td:first-child{
+  width:40%;
+}
+.hunt-table img.hunt-thumb{
+  width:100% !important;
+  height:320px !important;
+  object-fit:cover !important;
+  display:block !important;
+  border-radius:14px;
+}
