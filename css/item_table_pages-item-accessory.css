@@ -1,0 +1,80 @@
+/* Item tables styled like skill tables (no scroll, clear grid, fixed layout)
+   Columns: 이미지 | 아이템명 | 착용 클래스 | 옵션 | 획득 방법
+   Per-page scope via body class to avoid affecting other pages.
+*/
+
+.pages-item-accessory {
+  overflow-x: hidden;
+}
+
+.pages-item-accessory main.item-page {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pages-item-accessory table.item-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.pages-item-accessory table.item-table th,
+.pages-item-accessory table.item-table td {
+  border: 1px solid rgba(255,255,255,0.10);
+  padding: 14px 14px;
+  vertical-align: middle;
+}
+
+.pages-item-accessory table.item-table th {
+  background: rgba(255,255,255,0.08);
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.pages-item-accessory table.item-table td {
+  background: rgba(0,0,0,0.15);
+}
+
+.pages-item-accessory table.item-table td:nth-child(1),
+.pages-item-accessory table.item-table th:nth-child(1) {
+  width: 100px;
+  text-align: center;
+}
+
+.pages-item-accessory table.item-table td:nth-child(1) img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+
+.pages-item-accessory table.item-table td:nth-child(2),
+.pages-item-accessory table.item-table th:nth-child(2) {
+  width: 180px;
+  white-space: nowrap;
+}
+
+.pages-item-accessory table.item-table td:nth-child(3),
+.pages-item-accessory table.item-table th:nth-child(3) {
+  width: 140px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.pages-item-accessory table.item-table td:nth-child(4),
+.pages-item-accessory table.item-table th:nth-child(4) {
+  /* 옵션: 남는 공간 */
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.pages-item-accessory table.item-table td:nth-child(5),
+.pages-item-accessory table.item-table th:nth-child(5) {
+  width: 240px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}

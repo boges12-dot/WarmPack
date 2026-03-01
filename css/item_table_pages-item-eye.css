@@ -1,0 +1,124 @@
+/* Item tables styled like skill tables (no scroll, clear grid, fixed layout)
+   Columns: 이미지 | 아이템명 | 착용 클래스 | 옵션 | 획득 방법
+   Per-page scope via body class to avoid affecting other pages.
+*/
+
+.pages-item-eye {
+  overflow-x: hidden;
+}
+
+.pages-item-eye main.item-page {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pages-item-eye table.item-table,
+.pages-item-eye table.maahn-table{
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.pages-item-eye table.item-table,
+.pages-item-eye table.maahn-table th,
+.pages-item-eye table.item-table,
+.pages-item-eye table.maahn-table td {
+  border: 1px solid rgba(255,255,255,0.10);
+  padding: 14px 14px;
+  vertical-align: middle;
+}
+
+.pages-item-eye table.item-table,
+.pages-item-eye table.maahn-table th {
+  background: rgba(255,255,255,0.08);
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.pages-item-eye table.item-table,
+.pages-item-eye table.maahn-table td {
+  background: rgba(0,0,0,0.15);
+}
+
+.pages-item-eye table.item-table,
+.pages-item-eye table.maahn-table td:nth-child(1),
+.pages-item-eye table.item-table,
+.pages-item-eye table.maahn-table th:nth-child(1) {
+  width: 100px;
+  text-align: center;
+}
+
+.pages-item-eye table.item-table,
+.pages-item-eye table.maahn-table td:nth-child(1) img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+
+.pages-item-eye table.item-table,
+.pages-item-eye table.maahn-table td:nth-child(2),
+.pages-item-eye table.item-table,
+.pages-item-eye table.maahn-table th:nth-child(2) {
+  width: 180px;
+  white-space: nowrap;
+}
+
+.pages-item-eye table.item-table,
+.pages-item-eye table.maahn-table td:nth-child(3),
+.pages-item-eye table.item-table,
+.pages-item-eye table.maahn-table th:nth-child(3) {
+  width: 140px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.pages-item-eye table.item-table,
+.pages-item-eye table.maahn-table td:nth-child(4),
+.pages-item-eye table.item-table,
+.pages-item-eye table.maahn-table th:nth-child(4) {
+  /* 옵션: 남는 공간 */
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.pages-item-eye table.item-table,
+.pages-item-eye table.maahn-table td:nth-child(5),
+.pages-item-eye table.item-table,
+.pages-item-eye table.maahn-table th:nth-child(5) {
+  width: 160px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+
+/* 마안 페이지: 획득 방법은 자동 줄바꿈 (슬래시 대신 줄바꿈 처리) */
+.pages-item-eye table.maahn-table{
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+.pages-item-eye table.maahn-table th,
+.pages-item-eye table.maahn-table td{
+  border: 1px solid rgba(255,255,255,0.10);
+  padding: 14px 14px;
+  vertical-align: middle;
+}
+.pages-item-eye table.maahn-table th:nth-child(1),
+.pages-item-eye table.maahn-table td:nth-child(1){ width: 100px; text-align:center; }
+.pages-item-eye table.maahn-table th:nth-child(2),
+.pages-item-eye table.maahn-table td:nth-child(2){ width: 160px; white-space: nowrap; }
+.pages-item-eye table.maahn-table th:nth-child(3),
+.pages-item-eye table.maahn-table td:nth-child(3){ /* 옵션: 남는 공간 */ }
+.pages-item-eye table.maahn-table th:nth-child(4),
+.pages-item-eye table.maahn-table td:nth-child(4){
+  width: 220px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  text-align: left;
+}
