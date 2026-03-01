@@ -1,0 +1,75 @@
+/* Doll tables: match skill table look & symmetry (no horizontal scroll) */
+
+.pages-doll{
+  overflow-x: hidden;
+}
+
+.pages-doll .doll-page{
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 16px;
+}
+
+.pages-doll table.doll-table,
+.pages-doll table.doll-table{
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.pages-doll table.doll-table th,
+.pages-doll table.doll-table td{
+  border: 1px solid rgba(255,255,255,0.10);
+  vertical-align: top;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.pages-doll table.doll-table th{
+  font-weight: 700;
+}
+
+/* Column sizing: keep small columns tight; 옵션 takes remaining space */
+.pages-doll table.doll-table th:nth-child(1),
+.pages-doll table.doll-table td:nth-child(1){
+  width: 100px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.pages-doll table.doll-table th:nth-child(2),
+.pages-doll table.doll-table td:nth-child(2){
+  width: 18%;
+}
+
+.pages-doll table.doll-table th:nth-child(3),
+.pages-doll table.doll-table td:nth-child(3){
+  width: 10ch;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.pages-doll table.doll-table th:nth-child(5),
+.pages-doll table.doll-table td:nth-child(5){
+  width: 12ch;
+  text-align: center;
+}
+
+/* 옵션(4번째): 남는 공간 */
+.pages-doll table.doll-table th:nth-child(4),
+.pages-doll table.doll-table td:nth-child(4){
+  width: auto;
+}
+
+/* images: unify size */
+.pages-doll table.doll-table td:nth-child(1) img{
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  display: inline-block;
+}
+
+.pages-doll img.doll-icon{width:90px;height:90px;object-fit:cover;display:inline-block;}
