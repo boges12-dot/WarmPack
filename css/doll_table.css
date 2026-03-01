@@ -39,35 +39,30 @@
   text-align: center;
   vertical-align: middle;
 }
-
 .pages-doll table.doll-table th:nth-child(2),
 .pages-doll table.doll-table td:nth-child(2){
-  width: 1%;
+  width: 160px;
   white-space: nowrap;
 }
-
 .pages-doll table.doll-table th:nth-child(3),
 .pages-doll table.doll-table td:nth-child(3){
-  width: 10ch;
+  width: 90px;
   text-align: center;
   white-space: nowrap;
 }
-
 .pages-doll table.doll-table th:nth-child(5),
 .pages-doll table.doll-table td:nth-child(5){
-  width: 22ch;
+  width: 220px;
   text-align: left;
   white-space: normal;
   overflow-wrap: anywhere;
   word-break: break-word;
 }
-
 /* 옵션(4번째): 남는 공간 */
 .pages-doll table.doll-table th:nth-child(4),
 .pages-doll table.doll-table td:nth-child(4){
   /* 옵션(설명): 남는 공간 */
 }
-
 /* images: unify size */
 .pages-doll table.doll-table td:nth-child(1) img{
   width: 90px;
