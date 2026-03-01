@@ -1,8 +1,8 @@
-/* Skill tables: uniform layout, visible grid lines, and tighter columns.
-   Goal:
-   - 이미지/스킬명/소모/획득 방법: 가능한 만큼만 차지 (짧게)
-   - 설명: 남는 공간 최대 사용 + 줄바꿈
-   - 가로 스크롤 방지
+/* Skill tables: mage-like uniform 5-column layout
+   Columns: 이미지 | 스킬명 | 소모 | 설명 | 획득 방법
+   - visible grid lines
+   - tight columns except 설명 which takes remaining space
+   - long text wraps inside cells (no horizontal scroll)
 */
 
 .pages-skill{
@@ -14,10 +14,10 @@
   width: 100%;
   max-width: 100%;
   border-collapse: collapse;
-  table-layout: fixed; /* keep inside screen */
+  table-layout: fixed;
 }
 
-/* grid lines */
+/* grid lines + wrap */
 .pages-skill th,
 .pages-skill td{
   border: 1px solid rgba(255,255,255,0.10);
@@ -27,12 +27,11 @@
   word-break: break-word;
 }
 
-/* header look */
 .pages-skill th{
   font-weight: 700;
 }
 
-/* Column sizing (minimal, practical) */
+/* Column sizing */
 .pages-skill th:nth-child(1),
 .pages-skill td:nth-child(1){
   width: 100px;               /* 이미지(90x90)+패딩 */
@@ -42,30 +41,29 @@
 
 .pages-skill th:nth-child(2),
 .pages-skill td:nth-child(2){
-  width: 18%;                 /* 스킬명: 너무 넓게 먹지 않게 */
+  width: 18%;                 /* 스킬명 */
 }
 
 .pages-skill th:nth-child(3),
 .pages-skill td:nth-child(3){
-  width: 12ch;                /* 소모: "소모 MP 48" 정도 */
-  white-space: nowrap;        /* 짧게 유지 */
+  width: 12ch;                /* 소모 */
+  white-space: nowrap;
   text-align: center;
 }
 
 .pages-skill th:nth-child(5),
 .pages-skill td:nth-child(5){
-  width: 12ch;                /* 획득 방법: 짧게 유지 */
+  width: 12ch;                /* 획득 방법 */
   text-align: center;
 }
 
-/* 설명 칸: 남는 공간 최대 + 줄바꿈 */
+/* 설명: 남는 공간 */
 .pages-skill th:nth-child(4),
 .pages-skill td:nth-child(4){
   width: auto;
-  white-space: normal;
 }
 
-/* images stay 90x90 */
+/* images */
 .pages-skill .skill-icon,
 .pages-skill img.skill-icon,
 .pages-skill td:nth-child(1) img{
@@ -74,7 +72,8 @@
   object-fit: cover;
   display: inline-block;
 }
-/* Skill subtitles */
+
+/* subtitles */
 .pages-skill .skill-subtitle{
   margin: 18px 0 10px;
   font-size: 22px;
