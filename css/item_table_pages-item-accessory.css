@@ -94,3 +94,48 @@
   overflow-wrap: anywhere;
   word-break: break-word;
 }
+
+
+/* ===== 악세사리 표 칼럼 폭 강제(요청 반영) ===== */
+.pages-item-accessory table.accessory-table{
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; /* 칼럼 폭 적용되게 */
+}
+
+.pages-item-accessory table.accessory-table th,
+.pages-item-accessory table.accessory-table td{
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.pages-item-accessory table.accessory-table th:nth-child(1),
+.pages-item-accessory table.accessory-table td:nth-child(1){
+  width: 110px !important;
+}
+
+.pages-item-accessory table.accessory-table th:nth-child(2),
+.pages-item-accessory table.accessory-table td:nth-child(2){
+  width: 320px !important; /* 아이템 이름(차수) 넓힘 */
+  white-space: nowrap;
+}
+
+.pages-item-accessory table.accessory-table th:nth-child(3),
+.pages-item-accessory table.accessory-table td:nth-child(3){
+  width: 120px !important;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.pages-item-accessory table.accessory-table th:nth-child(4),
+.pages-item-accessory table.accessory-table td:nth-child(4){
+  /* 옵션: 남는 영역 */
+}
+
+.pages-item-accessory table.accessory-table th:nth-child(5),
+.pages-item-accessory table.accessory-table td:nth-child(5){
+  width: 140px !important; /* 획득 방법 줄임 */
+  text-align: center;
+  white-space: normal;
+}
+
