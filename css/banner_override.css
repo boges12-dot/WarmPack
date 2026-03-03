@@ -968,3 +968,11 @@ main{
 
 .top-banner-link{display:block;}
 .top-banner-link:hover{opacity:0.98;}
+
+
+/* PATCH 10 - 소식 박스 0.5px 하단 이동 (드롭다운 겹침 보정) */
+.home-news-top,
+.home-news {
+    position: relative;
+    top: 0.5px;
+}
