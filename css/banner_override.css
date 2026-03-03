@@ -6,8 +6,8 @@
 
 
 /* ===== HOME WIDGETS LAYOUT (clean) =====
-   - 한 곳에서만 홈 2열 비율을 제어
-   - 필요 시 아래 변수 값만 바꾸면 됨
+/* STRAY_REMOVED:    - 한 곳에서만 홈 2열 비율을 제어 */
+/* STRAY_REMOVED:    - 필요 시 아래 변수 값만 바꾸면 됨 */
 */
 :root{
   --home-widgets-col-left: 1fr;   /* 소식/공지 영역 */
@@ -382,7 +382,7 @@ body{
 }
 
 /* 메뉴 높이가 변해도 안정적으로 */
-  min-height: var(--nav-fixed-h);
+/* STRAY_REMOVED:   min-height: var(--nav-fixed-h); */
 
 /* CLEAN NAV (B): 배너 아래에서 시작 → 스크롤 시 최상단 고정(사라지지 않음) */
 
@@ -607,8 +607,8 @@ table td{
   }
 
 /* === DESKTOP NAV: prevent vertical stacking/wrapping === */
-  flex-wrap: nowrap !important;
-  white-space: nowrap !important;
+/* STRAY_REMOVED:   flex-wrap: nowrap !important; */
+/* STRAY_REMOVED:   white-space: nowrap !important; */
 
 @media (max-width: 980px){
     flex-wrap: nowrap !important;
@@ -630,10 +630,10 @@ table td{
 }
 
 /* Prevent main nav wrapping into vertical stacks */
-  flex-wrap: nowrap !important;
-  white-space: nowrap !important;
-  overflow-x: auto !important;
-  overflow-y: visible !important;
+/* STRAY_REMOVED:   flex-wrap: nowrap !important; */
+/* STRAY_REMOVED:   white-space: nowrap !important; */
+/* STRAY_REMOVED:   overflow-x: auto !important; */
+/* STRAY_REMOVED:   overflow-y: visible !important; */
 
 /* hidden by default */
 
@@ -644,17 +644,17 @@ table td{
 /* Never allow vertical/mobile click-open states */
 
 /* Keep main nav from stacking vertically */
-  flex-wrap: nowrap !important;
-  white-space: nowrap !important;
-  overflow-x: auto !important;
-  overflow-y: visible !important;
+/* STRAY_REMOVED:   flex-wrap: nowrap !important; */
+/* STRAY_REMOVED:   white-space: nowrap !important; */
+/* STRAY_REMOVED:   overflow-x: auto !important; */
+/* STRAY_REMOVED:   overflow-y: visible !important; */
 
 /* =====================================================================
-   NAV: Single authoritative ruleset (no conflicts)
-   Goal: dropdown labels always show correctly on ANY page.
-   - Desktop hover/focus only
-   - Horizontal dropdown (flex row)
-   - No click-open / no vertical dropdown states
+/* STRAY_REMOVED:    NAV: Single authoritative ruleset (no conflicts) */
+/* STRAY_REMOVED:    Goal: dropdown labels always show correctly on ANY page. */
+/* STRAY_REMOVED:    - Desktop hover/focus only */
+/* STRAY_REMOVED:    - Horizontal dropdown (flex row) */
+/* STRAY_REMOVED:    - No click-open / no vertical dropdown states */
    ===================================================================== */
 
 nav.main-nav-bar ul#main-nav.nav{
@@ -763,10 +763,10 @@ main, .site-main, .content, .page-content,
 }
 
 /* =====================================================================
-   NAV LAYER: Sticky + Isolated (stable, not "brute force")
-   - nav is its own stacking context (isolation:isolate)
-   - dropdown always renders in front of page content
-   - horizontal dropdown only (flex row)
+/* STRAY_REMOVED:    NAV LAYER: Sticky + Isolated (stable, not "brute force") */
+/* STRAY_REMOVED:    - nav is its own stacking context (isolation:isolate) */
+/* STRAY_REMOVED:    - dropdown always renders in front of page content */
+/* STRAY_REMOVED:    - horizontal dropdown only (flex row) */
    ===================================================================== */
 
 nav.main-nav-bar{
@@ -844,8 +844,6 @@ nav.main-nav-bar{
 .site-main, main{ position: relative; z-index: 1; }
 
 /* delay hiding visibility */
-}
-
 nav.main-nav-bar ul#main-nav.nav > li.has-sub:hover > ul.submenu,
 nav.main-nav-bar ul#main-nav.nav > li.has-sub:focus-within > ul.submenu{
   transition:none; /* show instantly */
@@ -864,19 +862,19 @@ nav.main-nav-bar ul#main-nav.nav > li.has-sub > ul.submenu{
 /* On open: show immediately */
 nav.main-nav-bar ul#main-nav.nav > li.has-sub:hover > ul.submenu,
 nav.main-nav-bar ul#main-nav.nav > li.has-sub:focus-within > ul.submenu{
-  transition:none;
+/* STRAY_REMOVED:   transition:none; */
 }
 
 /* === Submenu click fix: ensure links are clickable === */
 nav.main-nav-bar ul#main-nav.nav > li.has-sub > a[data-no-nav="1"]{
-  position: relative;
+/* STRAY_REMOVED:   position: relative; */
   z-index: 1; /* keep label above background, but below submenu */
 }
 nav.main-nav-bar ul#main-nav.nav > li.has-sub > ul.submenu{
   z-index: 10; /* above the top-level anchor */
 }
 nav.main-nav-bar ul#main-nav.nav > li.has-sub > ul.submenu a{
-  pointer-events: auto !important;
+/* STRAY_REMOVED:   pointer-events: auto !important; */
 }
 
 /* === Layout: push page content down so dropdown is not covered by "소식" and other boxes ===
@@ -885,17 +883,17 @@ nav.main-nav-bar ul#main-nav.nav > li.has-sub > ul.submenu a{
    2) 기타 페이지: .site-main/main에도 동일한 상단 여백 적용
 */
 header.site-header{
-  margin-top: 40px !important;
+/* STRAY_REMOVED:   margin-top: 40px !important; */
 }
 
 main.site-main, .site-main, main, .page-content, .content{
-  padding-top: 90px !important;
+/* STRAY_REMOVED:   padding-top: 90px !important; */
 }
 
 /* Avoid double spacing if a page uses both header.site-header + site-main */
 header.site-header + main.site-main,
 header.site-header + .site-main{
-  padding-top: 0 !important;
+/* STRAY_REMOVED:   padding-top: 0 !important; */
 }
 
 /* Early item tables */
@@ -905,14 +903,14 @@ header.site-header + .site-main{
 
 /* SUBPAGE: slim banner (keep banner, reduce empty space) */
 .hero-subpage{
-  height: calc(var(--hero-h-base) - var(--hero-collapse)) !important;
-  min-height: calc(var(--hero-h-base) - var(--hero-collapse)) !important;
+/* STRAY_REMOVED:   height: calc(var(--hero-h-base) - var(--hero-collapse)) !important; */
+/* STRAY_REMOVED:   min-height: calc(var(--hero-h-base) - var(--hero-collapse)) !important; */
   background-position: center top !important; /* crop from bottom */
 }
 
 /* SUBPAGE: keep banner but shrink height */
 .hero-subpage{
-  background-position: center top !important;
+/* STRAY_REMOVED:   background-position: center top !important; */
 }
 
 /* FIX: remove forced main min-height that creates blank space */
@@ -925,7 +923,7 @@ main{min-height:auto !important;}
 /* ===== 강제 배너 높이 축소 (최종 오버라이드) ===== */
 /* 배너 영역 자체가 상단 공간을 과도하게 잡는 문제를 강제로 제어 */
 :root{
-  --hero-h-base: 32px !important;
+/* STRAY_REMOVED:   --hero-h-base: 32px !important; */
 }
 
 /* hero 컨테이너 높이/여백 강제 축소 */
@@ -933,22 +931,22 @@ main{min-height:auto !important;}
 /* 배너 이미지 자체 크기 강제 */
 .hero-main .hero-banner,
 .hero-banner{
-  max-height: 32px !important;
-  height: auto !important;
-  width: auto !important;
-  object-fit: contain !important;
-  display: block !important;
-  margin: 0 auto !important;
+/* STRAY_REMOVED:   max-height: 32px !important; */
+/* STRAY_REMOVED:   height: auto !important; */
+/* STRAY_REMOVED:   width: auto !important; */
+/* STRAY_REMOVED:   object-fit: contain !important; */
+/* STRAY_REMOVED:   display: block !important; */
+/* STRAY_REMOVED:   margin: 0 auto !important; */
 }
 
 /* 혹시 wrapper가 높이를 잡는 경우 대비 */
 .hero-main > *{
-  max-height: 32px !important;
+/* STRAY_REMOVED:   max-height: 32px !important; */
 }
 
 /* 헤더 아래 여백이 남는 경우 축소 */
 main{
-  padding-top: 0 !important;
+/* STRAY_REMOVED:   padding-top: 0 !important; */
 }
 
 /* ===== banner.gif 최종 고정 (320x32) ===== */
@@ -964,8 +962,8 @@ main{
 .main-nav-bar + section,
 .main-nav-bar + .news-section,
 .main-nav-bar + .news-box{
-  margin-top: 8px !important;
-  padding-top: 0 !important;
+/* STRAY_REMOVED:   margin-top: 8px !important; */
+/* STRAY_REMOVED:   padding-top: 0 !important; */
 }
 
 /* 소식 박스 자체 상단 여백이 큰 경우 대비 */
@@ -973,7 +971,7 @@ main{
 .news-section,
 .home-news,
 .news-container{
-  margin-top: 8px !important;
+/* STRAY_REMOVED:   margin-top: 8px !important; */
 }
 
 .top-banner-link{display:block;}
@@ -983,8 +981,8 @@ main{
 /* PATCH 10 - 소식 박스 0.5px 하단 이동 (드롭다운 겹침 보정) */
 .home-news-top,
 .home-news {
-    position: relative;
-    top: 1px;
+/* STRAY_REMOVED:     position: relative; */
+/* STRAY_REMOVED:     top: 1px; */
 }
 
 
