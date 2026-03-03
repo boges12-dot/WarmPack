@@ -3,6 +3,16 @@
   --hero-collapse: 0px;  /* 스크롤로 줄어드는 값 */
 }
 
+
+
+/* ===== HOME WIDGETS LAYOUT (clean) =====
+   - 한 곳에서만 홈 2열 비율을 제어
+   - 필요 시 아래 변수 값만 바꾸면 됨
+*/
+:root{
+  --home-widgets-col-left: 1fr;   /* 소식/공지 영역 */
+  --home-widgets-col-right: 1fr;  /* 바로가기/보스 영역 */
+}
 /* 배너(배경) */
 
 /* 메뉴는 배너 아래에 위치(스크롤 시 배너 높이가 줄어들면 메뉴도 같이 올라옴) */
@@ -179,7 +189,7 @@ table.skill-table img{
 /* ===== 홈 레이아웃 수정(2026-01-25): [소식] 아래에 [서버 안내][바로가기] 2열 ===== */
 .home-widgets .container.home-widgets-grid{
   display: grid !important;
-  grid-template-columns: 1.35fr 1fr !important;
+  grid-template-columns: var(--home-widgets-col-left) var(--home-widgets-col-right);
   grid-template-areas: "notice shortcuts" !important;
   gap: 16px !important;
   align-items: start !important;
@@ -975,4 +985,12 @@ main{
 .home-news {
     position: relative;
     top: 1px;
+}
+
+
+/* PATCH 12 - 홈 소식 박스 1px 하단 이동 (겹침 보정: margin-top 기준) */
+.home-news-top,
+.home-news{
+  margin-top: 9px !important; /* 기존 8px 대비 +1px */
+  top: auto !important;       /* 이전 top 이동 무력화 */
 }
