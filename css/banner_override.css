@@ -974,5 +974,5 @@ main{
 .home-news-top,
 .home-news {
     position: relative;
-    top: 0.5px;
+    top: 1px;
 }
