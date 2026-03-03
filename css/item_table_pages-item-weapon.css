@@ -80,7 +80,7 @@
 }
 
 
-/* PATCH 05 - 착용 클래스 자동 줄맞춤 */
+/* PATCH 09 - 착용 클래스 자동 줄맞춤 */
 .weapon-table td:nth-child(3),
 .armor-table td:nth-child(3) {
     white-space: normal !important;
