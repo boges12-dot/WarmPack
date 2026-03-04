@@ -66,9 +66,16 @@
   white-space: nowrap;
 }
 
-.pages-item-accessory table.item-table td:nth-child(3),
+..pages-item-accessory table.item-table td:nth-child(3),
+.pages-item-accessory table.accessory-table td:nth-child(3) {
+  width: 140px;
+  text-align: center;
+  white-space: normal;
+  word-break: keep-all;
+  line-height: 1.4;
+}
+
 .pages-item-accessory table.item-table th:nth-child(3),
-.pages-item-accessory table.accessory-table td:nth-child(3),
 .pages-item-accessory table.accessory-table th:nth-child(3) {
   width: 140px;
   text-align: center;
