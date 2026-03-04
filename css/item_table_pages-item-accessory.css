@@ -146,3 +146,11 @@
   white-space: normal;
 }
 
+
+
+/* PATCH 30 - 악세사리 착용클래스 '/' 제거 + 줄바꿈(<br>) 표시 */
+.pages-item-accessory table.item-table td:nth-child(3),
+.pages-item-accessory table.accessory-table td:nth-child(3){
+  white-space: normal !important;
+  line-height: 1.35;
+}
