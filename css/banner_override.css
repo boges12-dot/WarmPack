@@ -382,7 +382,7 @@ body{
 }
 
 /* 메뉴 높이가 변해도 안정적으로 */
-  min-height: var(--nav-fixed-h);
+/* STRAY_REMOVED: min-height: var(--nav-fixed-h); */
 
 /* CLEAN NAV (B): 배너 아래에서 시작 → 스크롤 시 최상단 고정(사라지지 않음) */
 
@@ -607,8 +607,8 @@ table td{
   }
 
 /* === DESKTOP NAV: prevent vertical stacking/wrapping === */
-  flex-wrap: nowrap !important;
-  white-space: nowrap !important;
+/* STRAY_REMOVED: flex-wrap: nowrap !important; */
+/* STRAY_REMOVED: white-space: nowrap !important; */
 
 @media (max-width: 980px){
     flex-wrap: nowrap !important;
@@ -630,10 +630,10 @@ table td{
 }
 
 /* Prevent main nav wrapping into vertical stacks */
-  flex-wrap: nowrap !important;
-  white-space: nowrap !important;
-  overflow-x: auto !important;
-  overflow-y: visible !important;
+/* STRAY_REMOVED: flex-wrap: nowrap !important; */
+/* STRAY_REMOVED: white-space: nowrap !important; */
+/* STRAY_REMOVED: overflow-x: auto !important; */
+/* STRAY_REMOVED: overflow-y: visible !important; */
 
 /* hidden by default */
 
@@ -644,14 +644,14 @@ table td{
 /* Never allow vertical/mobile click-open states */
 
 /* Keep main nav from stacking vertically */
-  flex-wrap: nowrap !important;
-  white-space: nowrap !important;
-  overflow-x: auto !important;
-  overflow-y: visible !important;
+/* STRAY_REMOVED: flex-wrap: nowrap !important; */
+/* STRAY_REMOVED: white-space: nowrap !important; */
+/* STRAY_REMOVED: overflow-x: auto !important; */
+/* STRAY_REMOVED: overflow-y: visible !important; */
 
 /* =====================================================================
-   NAV: Single authoritative ruleset (no conflicts)
-   Goal: dropdown labels always show correctly on ANY page.
+/* STRAY_REMOVED: NAV: Single authoritative ruleset (no conflicts) */
+/* STRAY_REMOVED: Goal: dropdown labels always show correctly on ANY page. */
    - Desktop hover/focus only
    - Horizontal dropdown (flex row)
    - No click-open / no vertical dropdown states
@@ -844,8 +844,6 @@ nav.main-nav-bar{
 .site-main, main{ position: relative; z-index: 1; }
 
 /* delay hiding visibility */
-}
-
 nav.main-nav-bar ul#main-nav.nav > li.has-sub:hover > ul.submenu,
 nav.main-nav-bar ul#main-nav.nav > li.has-sub:focus-within > ul.submenu{
   transition:none; /* show instantly */

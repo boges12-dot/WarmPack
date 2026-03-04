@@ -402,7 +402,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var nav = document.getElementById('main-nav');
     if (!nav) return;
     var items = nav.querySelectorAll('.has-sub');
-    for (var i = 0; i < items.length; i++) {
+    for (var i = 0; i <items.length; i++) {
       items[i].classList.remove('is-open','open','active','hovering');
       var a = items[i].querySelector(':scope > a');
       if (a) a.setAttribute('aria-expanded','false');
