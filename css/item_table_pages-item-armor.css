@@ -56,7 +56,15 @@
   white-space: nowrap;
 }
 
-.pages-item-armor table.item-table td:nth-child(3),
+.pages-item-armor table.item-table td:nth-child(3) {
+  width: 140px;
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  line-height: 1.35;
+}
+
 .pages-item-armor table.item-table th:nth-child(3) {
   width: 140px;
   text-align: center;
