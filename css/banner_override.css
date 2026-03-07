@@ -992,3 +992,26 @@ main{
   margin-top: 9px !important; /* 기존 8px 대비 +1px */
   top: auto !important;       /* 이전 top 이동 무력화 */
 }
+
+/* PATCH COPY PROTECT PLUS */
+body:not(.page-promo),
+body:not(.page-promo) *{
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none !important;
+}
+
+body:not(.page-promo) img{
+  -webkit-user-drag: none !important;
+  user-drag: none !important;
+  pointer-events: none !important;
+}
+
+html.devtools-opened body:not(.page-promo){
+  visibility: hidden !important;
+}
+
+html.devtools-opened body.page-promo{
+  visibility: visible !important;
+}

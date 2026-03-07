@@ -1,5 +1,12 @@
 <!DOCTYPE html> <html lang="ko">
 <head>
+
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=()">
+
 <meta content="strict-origin-when-cross-origin" name="referrer"/>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -119,5 +126,6 @@ table.skill-table td{ font-size:14px !important; line-height:1.55 !important;
 document.addEventListener('DOMContentLoaded', function(){ try{ var nav = document.getElementById('main-nav'); if(!nav) return; function openLi(li){ if(!li) return; var a = li.querySelector(':scope > a'); li.classList.add('is-open','hovering','sticky-open'); if(a) a.setAttribute('aria-expanded','true'); } / Prefer active link var active = nav.querySelector('a.active'); if(active){ openLi(active.closest('li.has-sub')); return; } / Fallback: match by pathname var path = (location.pathname || '').replace(/\/index\.html$/, ''); var links = nav.querySelectorAll('a[href]'); var best = null; links.forEach(function(a){ var href = a.getAttribute('href') || ''; if(!href || href === '#') return; / normalize relative href by stripping ../ var clean = href.replace(/^(\.\.\/)+/, '/').replace(/^\./,''); if(path.endsWith(clean.replace(/^\ / ,'')) || path.indexOf(clean.replace(/^\ / ,'')) !== -1){ best = a; } }); if(best){ openLi(best.closest('li.has-sub')); } }catch(e){}
 });
 </script>
+<script src="/js/copy-protect.js"></script>
 </body>
 </html>
