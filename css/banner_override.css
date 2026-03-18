@@ -226,7 +226,7 @@ table.skill-table img{
   font-size:12px;
   line-height:1.6;
   border:1px solid rgba(255,255,255,.20);
-  user-select:none;
+/* removed during editing: user-select:none; */
 }
 .server-status .dot{
   width:8px;
@@ -996,9 +996,9 @@ main{
 /* PATCH COPY PROTECT PLUS */
 body:not(.page-promo),
 body:not(.page-promo) *{
-  -webkit-user-select: none !important;
-  -moz-user-select: none !important;
-  user-select: none !important;
+/* removed during editing: -webkit-user-select: none !important; */
+/* removed during editing: -moz-user-select: none !important; */
+/* removed during editing: user-select: none !important; */
   -webkit-touch-callout: none !important;
 }
 
@@ -1008,10 +1008,6 @@ body:not(.page-promo) img{
   pointer-events: none !important;
 }
 
-html.devtools-opened body:not(.page-promo){
-  visibility: hidden !important;
-}
 
-html.devtools-opened body.page-promo{
-  visibility: visible !important;
-}
+
+
