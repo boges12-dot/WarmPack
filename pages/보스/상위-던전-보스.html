@@ -32,7 +32,7 @@
 <meta content="https://boges12-dot.github.io/WarmPack/assets/images/og_v3.jpg" property="og:image:secure_url"/>
 <meta content="https://boges12-dot.github.io/WarmPack/assets/images/og_v3.jpg" name="twitter:image"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<link href="../../css/banner_override.css?v=20260126_B2" rel="stylesheet"/><link href="../../css/header_position_fix.css?v=6" rel="stylesheet"/><link href="../../css/content_offset.css?v=6" rel="stylesheet"/>
+<link href="../../css/banner_override.css?v=20260126_B2" rel="stylesheet"/><link href="../../css/header_position_fix.css?v=6" rel="stylesheet"/><link href="../../css/content_offset.css?v=6" rel="stylesheet"/><link href="../../css/item_table_pages-item-weapon.css?v=1" rel="stylesheet"/>
 <style>
 /* FIX: 스크롤 시 메뉴 떨림 방지 */
 header, nav, .header, .navbar {
@@ -50,6 +50,127 @@ table.skill-table td{
   font-size:14px !important;
   line-height:1.55 !important;
 }
+</style>
+<style id="item-table-force">
+/* ITEM TABLE FORCE: 공통 CSS가 table을 block으로 깨는 문제 방지 */
+.item-page table{ display: table !important; width:100% !important; border-collapse: collapse !important; }
+.item-page thead{ display: table-header-group !important; }
+.item-page tbody{ display: table-row-group !important; }
+.item-page tr{ display: table-row !important; }
+.item-page th, .item-page td{ display: table-cell !important; vertical-align: middle !important; }
+.item-page .item-table-wrap{ overflow:auto; }
+</style>
+<style id="item-table-skin">
+/* ITEM TABLE SKIN: 스샷처럼 카드형 표 스타일 */
+.item-page{ max-width: 1100px; margin: 0 auto; padding: 18px 14px 60px; }
+.item-page h2{ font-size: 22px; font-weight: 900; margin: 8px 0 18px; }
+.item-class-title{ font-size: 18px; font-weight: 900; margin: 18px 0 10px; }
+
+.item-table-wrap{
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.04);
+  overflow: hidden;
+}
+
+.item-table{
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 860px;
+}
+
+.item-table thead th{
+  background: rgba(255,255,255,.06);
+  font-weight: 900;
+  padding: 14px 16px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,.10);
+}
+
+.item-table tbody td{
+  padding: 18px 16px;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  text-align: center;
+  vertical-align: middle;
+}
+
+.item-table tbody tr:last-child td{ border-bottom: 0; }
+
+.item-table td.item-name{ text-align: left; font-weight: 800; }
+.item-table td.item-opt{ opacity: .9; }
+.item-table td.item-method{ font-weight: 800; }
+
+.item-table td.item-img{ width: 84px; }
+.item-table td.item-img .img-ph{
+  width: 52px; height: 52px;
+  border-radius: 14px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.10);
+}
+
+.item-table tbody tr:hover{
+  background: rgba(255,255,255,.03);
+}
+
+/* 모바일: 표는 가로 스크롤로 */
+.item-table-wrap{ overflow:auto; }
+</style>
+<style id="item-toc-style">
+/* TOC CENTER: 제목/바로가기 버튼을 가운데 정렬 (무기/방어구/악세 공통) */
+.item-page-head{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+  margin-bottom: 14px;
+  text-align:center;
+}
+.item-page-head > h2{
+  width:100%;
+}
+.item-toc{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  align-items:center;
+  width: 100%;
+}
+.item-toc-title{ font-weight:900; opacity:.9; }
+.item-toc-group{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+  justify-content:center;
+  width:100%;
+}
+.item-toc-stage{
+  font-size:12px;
+  font-weight:900;
+  padding:4px 8px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.04);
+  opacity:.9;
+}
+.item-toc-links{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+.item-toc-link{
+  display:inline-flex;
+  align-items:center;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.04);
+  font-size: 13px;
+  text-decoration:none;
+  color: inherit;
+}
+.item-toc-link:hover{ background: rgba(255,255,255,.07); }
 </style>
 </head>
 <body><div class="top-banner"><a class="top-banner-link" href="../../index.html"><img alt="HOT PACK SERVER 배너" class="top-banner-img" src="../../assets/images/banner_main.webp"/></a></div>
@@ -113,21 +234,38 @@ table.skill-table td{
 <header class="site-header">
 </header>
 
-<main class="subpage">
-  <section class="sub-hero">
-    <div class="sub-hero__inner">
-      <h1>상위 던전 보스</h1>
-      <p>상위 던전 보스 페이지</p>
-    </div>
-  </section>
 
-  <section class="section">
-    <div class="section__inner" style="max-width:1100px;margin:0 auto;padding:40px 16px 80px;">
-      <h2 style="text-align:center;margin:0 0 12px;">상위 던전 보스</h2>
-      <p style="text-align:center;opacity:.85;">상위 던전 보스 페이지 준비중입니다.</p>
-    </div>
-  </section>
+
+
+<main class="site-main item-page">
+<h2 style="text-align:center;margin:34px 0 14px;">상위 던전 보스</h2>
+<div class="item-table-wrap">
+<table aria-label="상위 던전 보스" class="item-table">
+<thead>
+<tr>
+<th>이미지</th>
+<th>보스 이름</th>
+<th>출현 위치</th>
+<th>출현 시간</th>
+<th>드랍 아이템</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="col-img">-</td>
+<td class="col-name">준비중</td>
+<td class="col-class">-</td>
+<td class="col-opt">-</td>
+<td class="col-acq">페이지 준비중입니다.</td>
+</tr>
+</tbody>
+
+</table>
+</div>
 </main>
+
+
 <script defer="" src="../../js/main.20260116_16.min.js"></script>
 <script src="../../js/banner_home.js"></script>
 <script src="../../js/top_button.js"></script>
