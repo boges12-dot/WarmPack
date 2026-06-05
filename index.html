@@ -17,11 +17,10 @@
     <nav class="nav">
       <a class="active" href="index.html">HOME</a>
       <a href="pages/about.html">서버소개</a>
-      <a href="pages/download.html">다운로드</a>
-      <a href="pages/items.html">아이템정보</a>
-      <a href="pages/boss.html">보스정보</a>
-      <a href="pages/hunting.html">사냥터</a>
       <a href="pages/guide.html">가이드</a>
+      <a href="pages/items.html">아이템정보</a>
+      <a href="pages/hunting.html">사냥터</a>
+      <a href="pages/boss.html">보스정보</a>
       <a href="pages/community.html">커뮤니티</a>
     </nav>
     <a class="download-btn" href="pages/download.html">⌄ 게임 다운로드</a>
@@ -29,7 +28,9 @@
 
   <main>
     <section class="hero" aria-label="광어 서버 메인 배너">
-      <img src="assets/images/gwangeo-hero.png" alt="광어 서버 메인 배너" />
+      <div class="container hero-inner">
+        <img src="assets/images/gwangeo-hero.png" alt="광어 서버 메인 배너" />
+      </div>
     </section>
 
     <section class="dashboard container">
@@ -75,30 +76,18 @@
       <article class="panel quick-panel">
         <h2>빠른 이동</h2>
         <div class="quick-grid">
-          <a href="pages/items.html"><span>⚔</span>아이템 정보</a>
-          <a href="pages/boss.html"><span>☠</span>보스 정보</a>
-          <a href="pages/hunting.html"><span>⌖</span>사냥터 정보</a>
           <a href="pages/guide.html"><span>▣</span>가이드</a>
+          <a href="pages/items.html"><span>⚔</span>아이템 정보</a>
+          <a href="pages/hunting.html"><span>⌖</span>사냥터 정보</a>
+          <a href="pages/boss.html"><span>☠</span>보스 정보</a>
         </div>
       </article>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="container footer-inner">
-      <div>
-        <strong>광어 서버</strong>
-        <p>치열한 전투와 짜릿한 성장</p>
-      </div>
-      <div class="footer-links">
-        <a href="pages/terms.html">이용약관</a>
-        <a href="pages/privacy.html">개인정보처리방침</a>
-        <a href="pages/community.html">문의하기</a>
-      </div>
-      <div class="footer-actions">
-        <a class="download-btn" href="pages/download.html">⌄ 게임 다운로드</a>
-        <a class="discord-btn" href="pages/community.html">디스코드 참여</a>
-      </div>
+    <div class="container footer-inner footer-simple">
+      Copyright © 2026 광어 서버
     </div>
   </footer>
   <script src="js/main.js"></script>
