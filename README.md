@@ -1,16 +1,6 @@
-# 광어 서버 V2 홈페이지
+# 광어 서버 홈페이지 V2
 
-GitHub Pages 업로드용 정적 홈페이지입니다.
-
-## 구조
-- index.html: 메인 페이지
-- css/style.css: 전체 디자인
-- js/main.js: 모바일 메뉴
-- assets/images/gwangeo-hero.png: 메인 배너
-- pages/: 하위 페이지
-
-## 작업 상태
-- 기존 WarmPack 데이터 제거
-- 광어 서버 밝은 바다 컨셉 적용
-- 선택한 배너 적용
-- 아이템/보스/사냥터 등은 새 등록 대기 상태
+- 메인 배너: 1920x600 홈페이지 전용 비율 적용
+- CSS에서 `cover`로 자르지 않고 `<img width:100%; height:auto>` 방식 적용
+- 노트북/브라우저 100%에서도 배너 위아래가 잘리지 않도록 수정
+- GitHub Pages 업로드 가능 구조
