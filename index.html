@@ -4,17 +4,18 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>광어 서버</title>
-  <meta name="description" content="치열한 전투와 짜릿한 성장, 광어 서버 공식 홈페이지" />
+  <meta name="description" content="광어 서버 공식 홈페이지" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="index.html" aria-label="광어 서버 홈">
-      <span class="brand-wave">〰</span>
-      <span><strong>광어 서버</strong><small>치열한 전투와 짜릿한 성장</small></span>
+  <header class="topbar">
+    <a class="logo" href="index.html">
+      <span class="logo-title">광어 서버</span>
+      <span class="logo-sub">치열한 전투와 짜릿한 성장</span>
+      <span class="logo-wave">〰</span>
     </a>
-    <button class="menu-toggle" aria-label="메뉴 열기">☰</button>
-    <nav class="nav">
+    <button class="mobile-btn" aria-label="메뉴 열기">☰</button>
+    <nav class="menu">
       <a class="active" href="index.html">HOME</a>
       <a href="pages/about.html">서버소개</a>
       <a href="pages/download.html">다운로드</a>
@@ -24,73 +25,76 @@
       <a href="pages/guide.html">가이드</a>
       <a href="pages/community.html">커뮤니티</a>
     </nav>
-    <a class="download-top" href="pages/download.html">⇩ 게임 다운로드</a>
+    <a class="top-download" href="pages/download.html">⇩ 게임 다운로드</a>
   </header>
 
   <main>
-    <section class="hero">
-      <img src="assets/images/gwangeo-banner.gif" alt="광어 서버 메인 배너" class="hero-img" />
+    <section class="hero" aria-label="광어 서버 메인 배너">
+      <img src="assets/images/hero-gwangeo.png" alt="광어 서버 배너" />
     </section>
 
-    <section class="feature-row container" aria-label="서버 특징">
-      <article><span>⚔️</span><b>1배율 서버</b><em>쾌적한 플레이</em></article>
-      <article><span>🛡️</span><b>장기 운영</b><em>안정적인 서버</em></article>
-      <article><span>👥</span><b>활발한 커뮤니티</b><em>함께하는 즐거움</em></article>
-      <article><span>⚖️</span><b>공정한 경쟁</b><em>정정당당한 게임</em></article>
-      <article><span>🎁</span><b>다양한 이벤트</b><em>풍성한 보상</em></article>
+    <section class="feature-wrap shell" aria-label="서버 특징">
+      <article><i>⚔</i><strong>1배율 서버</strong><span>쾌적한 플레이</span></article>
+      <article><i>🛡</i><strong>장기 운영</strong><span>안정적인 서버</span></article>
+      <article><i>👥</i><strong>활발한 커뮤니티</strong><span>함께하는 즐거움</span></article>
+      <article><i>⚖</i><strong>공정한 경쟁</strong><span>정정당당한 게임</span></article>
+      <article><i>🎁</i><strong>다양한 이벤트</strong><span>풍성한 보상</span></article>
     </section>
 
-    <section class="dashboard container">
-      <article class="panel notice">
-        <div class="panel-head"><h2>공지사항</h2><a href="pages/notice.html">더보기 +</a></div>
+    <section class="content-grid shell">
+      <article class="card notice-card">
+        <div class="card-head"><h2>공지사항</h2><a href="pages/notice.html">더보기 +</a></div>
         <ul>
-          <li><span class="new">NEW</span><b>6월 5일 업데이트 안내</b><time>2026.06.05</time></li>
-          <li><span class="new">NEW</span><b>홈페이지 리뉴얼 오픈!</b><time>2026.06.05</time></li>
-          <li><b>점검 완료 안내</b><time>2026.06.03</time></li>
-          <li><b>6월 이벤트 안내</b><time>2026.06.01</time></li>
-          <li><b>서버 점검 안내</b><time>2026.05.30</time></li>
+          <li><em>NEW</em><b>6월 5일 업데이트 안내</b><time>2026.06.05</time></li>
+          <li><em>NEW</em><b>홈페이지 리뉴얼 오픈!</b><time>2026.06.05</time></li>
+          <li><span></span><b>점검 완료 안내</b><time>2026.06.03</time></li>
+          <li><span></span><b>6월 이벤트 안내</b><time>2026.06.01</time></li>
+          <li><span></span><b>서버 점검 안내</b><time>2026.05.30</time></li>
         </ul>
       </article>
 
-      <article class="panel boss-preview">
-        <div class="panel-head"><h2>보스 정보</h2><a href="pages/boss.html">더보기 +</a></div>
-        <div class="boss-grid">
-          <a href="pages/boss.html"><span>필드 보스</span></a>
-          <a href="pages/boss.html"><span>던전 보스</span></a>
-          <a href="pages/boss.html"><span>레이드 보스</span></a>
-          <a href="pages/boss.html"><span>최상위 보스</span></a>
+      <article class="card boss-card">
+        <div class="card-head"><h2>보스 정보</h2><a href="pages/boss.html">더보기 +</a></div>
+        <div class="boss-list">
+          <a href="pages/boss.html"><strong>거대여왕개미</strong></a>
+          <a href="pages/boss.html"><strong>에르자베</strong></a>
+          <a href="pages/boss.html"><strong>얼음여왕</strong></a>
+          <a href="pages/boss.html"><strong>그림리퍼</strong></a>
         </div>
       </article>
 
-      <article class="panel connect">
-        <div class="panel-head"><h2>접속 방법</h2><a href="pages/download.html">자세히 보기 +</a></div>
+      <article class="card connect-card">
+        <div class="card-head"><h2>접속 방법</h2><a href="pages/download.html">자세히 보기 +</a></div>
         <ol>
-          <li><i>01</i><div><b>클라이언트 다운로드</b><p>광어 서버 전용 클라이언트를 다운로드</p></div></li>
-          <li><i>02</i><div><b>압축 해제 후 실행</b><p>다운로드한 파일을 압축 해제 후 실행</p></div></li>
-          <li><i>03</i><div><b>게임 접속 후 즐기기</b><p>계정 생성 후 광어 서버를 즐겨보세요!</p></div></li>
+          <li><mark>01</mark><p><b>클라이언트 다운로드</b><span>광어 서버 전용 클라이언트를 다운로드</span></p></li>
+          <li><mark>02</mark><p><b>압축 해제 후 실행</b><span>다운로드한 파일을 압축 해제 후 실행</span></p></li>
+          <li><mark>03</mark><p><b>게임 접속 후 즐기기</b><span>계정 생성 후 광어 서버를 즐겨보세요!</span></p></li>
         </ol>
       </article>
 
-      <article class="panel quick">
+      <article class="card quick-card">
         <h2>빠른 이동</h2>
-        <div class="quick-grid">
-          <a href="pages/items.html">🗡️<b>아이템 정보</b></a>
-          <a href="pages/boss.html">💀<b>보스 정보</b></a>
-          <a href="pages/hunting.html">📍<b>사냥터 정보</b></a>
-          <a href="pages/guide.html">📘<b>가이드</b></a>
+        <div class="quick-list">
+          <a href="pages/items.html"><i>🗡</i><b>아이템 정보</b></a>
+          <a href="pages/boss.html"><i>💀</i><b>보스 정보</b></a>
+          <a href="pages/hunting.html"><i>📍</i><b>사냥터 정보</b></a>
+          <a href="pages/guide.html"><i>📖</i><b>가이드</b></a>
         </div>
       </article>
     </section>
 
-    <section class="bottom-cta">
-      <div class="container cta-inner">
+    <section class="bottom-banner">
+      <div class="shell bottom-inner">
         <p>지금, <strong>광어 서버</strong>에서 새로운 전설을 시작하세요!</p>
-        <div><a class="btn primary" href="pages/download.html">⇩ 게임 다운로드</a><a class="btn" href="pages/community.html">💬 디스코드 참여</a></div>
+        <div>
+          <a class="btn dark" href="pages/download.html">⇩ 게임 다운로드</a>
+          <a class="btn light" href="pages/community.html">💬 디스코드 참여</a>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer>© 광어 서버. All rights reserved.</footer>
+  <footer>© 2026 광어 서버. All Rights Reserved.</footer>
   <script src="js/main.js"></script>
 </body>
 </html>
