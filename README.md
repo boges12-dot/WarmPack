@@ -1,22 +1,16 @@
-# hybrid_site_v2_2 (GitHub Pages friendly)
+# 광어 서버 V2 - STEP 1
 
-- 모든 경로를 **상대경로**로 구성해서 GitHub Pages(프로젝트 페이지)에서도 CSS/이미지 경로가 깨지지 않게 했습니다.
-- `assets/images/` 에 `banner.gif`, `logo.png` 를 넣어 사용합니다. (WebP가 있으면 자동으로 WebP 우선)
+밝은 화이트 + 블루 컨셉의 GitHub Pages용 새 홈페이지 기본 구조입니다.
+기존 WarmPack 데이터는 이관하지 않고, 새로 등록할 수 있도록 빈 페이지 중심으로 구성했습니다.
 
-## 도메인 설정 (중요)
-`sitemap.xml`, `canonical`, `OG/Twitter` 메타 태그에는 `https://YOUR_DOMAIN_HERE` placeholder가 들어 있습니다.
-배포 도메인이 정해지면 아래 스크립트로 **한 번에 치환**하세요.
+## 구조
+- index.html: 메인 페이지
+- css/style.css: 전체 디자인
+- js/main.js: 모바일 메뉴 및 기본 동작
+- pages/: 하위 페이지
+- assets/banner/: 메인 배너
+- assets/images/: 일반 이미지
+- assets/icons/: 아이콘
 
-```bash
-# site 폴더에서 실행
-python tools/set_domain.py https://example.com
-```
-
-- 입력은 `example.com` 처럼 스킴 없이 넣어도 되고, 자동으로 `https://`가 붙습니다.
-- 마지막 `/`는 자동으로 제거됩니다.
-
-## Deploy quick start
-1) Set domain: `python tools/set_domain.py https://example.com`
-2) Run checks: `python tools/preflight_check.py`
-3) See: `docs/PRE_DEPLOY_CHECKLIST.md`
-
+## 다음 작업
+STEP 2: 메인 페이지 디자인 완성 및 섹션 세부 조정
