@@ -73,3 +73,73 @@
 
 .set-section-title{margin-top:34px}
 .set-section-title:first-of-type{margin-top:0}
+
+/* Clickable item detail cards */
+.item-info-card,
+.set-item-card{
+  cursor:pointer;
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  position:relative;
+}
+.item-info-card:hover,
+.set-item-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 16px 34px rgba(5,72,142,.14);
+  border-color:#9fd2ff;
+}
+.item-info-card:focus-visible,
+.set-item-card:focus-visible{
+  outline:3px solid rgba(8,119,242,.25);
+  outline-offset:3px;
+}
+.item-info-card::after,
+.set-item-card::after{
+  content:'클릭해서 상세보기';
+  display:block;
+  margin:0 16px 16px;
+  padding:8px 10px;
+  border-radius:999px;
+  background:#e8f5ff;
+  color:#0877f2;
+  font-size:12px;
+  font-weight:900;
+  text-align:center;
+}
+.item-info-card.is-open::after,
+.set-item-card.is-open::after{
+  content:'클릭해서 닫기';
+  background:#0877f2;
+  color:#fff;
+}
+.item-info-body p,
+.set-item-card ul,
+.set-item-card .set-note{
+  display:none;
+}
+.item-info-card.is-open .item-info-body p,
+.set-item-card.is-open ul,
+.set-item-card.is-open .set-note{
+  display:block;
+}
+.set-item-card.is-open ul{
+  display:grid;
+}
+.item-info-card.is-open{
+  border-color:#0877f2;
+}
+.set-item-card.is-open{
+  border-color:#0877f2;
+}
+.item-info-card.is-open .item-info-body{
+  text-align:left;
+}
+.item-info-card.is-open .item-info-body h3{
+  text-align:center;
+  margin-bottom:6px;
+}
+.item-info-card.is-open .item-info-body p{
+  padding:8px 10px;
+  border-radius:10px;
+  background:#f6fbff;
+  border:1px solid #e3f1ff;
+}
