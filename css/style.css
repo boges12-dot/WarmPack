@@ -70,3 +70,6 @@
 .set-note{margin:16px 0 0;color:#607087;font-weight:800;font-size:14px;text-align:center}
 @media(max-width:1100px){.item-info-grid{grid-template-columns:repeat(2,1fr)}.set-item-grid{grid-template-columns:1fr}}
 @media(max-width:760px){.item-info-grid{grid-template-columns:1fr}.set-item-card ul{grid-template-columns:1fr}}
+
+.set-section-title{margin-top:34px}
+.set-section-title:first-of-type{margin-top:0}
