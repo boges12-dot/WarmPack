@@ -153,3 +153,21 @@
 .boss-card small{display:block;margin-top:4px;font-size:12px;font-weight:800;color:rgba(255,255,255,.84);}
 
 .drop-list{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}.drop-list li{display:inline-flex;align-items:center;padding:5px 9px;border-radius:999px;background:#f0f8ff;border:1px solid #d7ecff;color:#315a82;font-size:13px;font-weight:800;line-height:1.25}
+
+
+/* Boss drop details */
+.boss-drop-grid{align-items:start}
+.boss-drop-card{padding-bottom:18px}
+.boss-drop-details{margin-top:14px;border-top:1px solid #edf5ff;padding-top:12px}
+.boss-drop-details summary{cursor:pointer;list-style:none;font-size:14px;font-weight:900;color:#0877f2;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.boss-drop-details summary::-webkit-details-marker{display:none}
+.boss-drop-details summary:after{content:"＋";width:24px;height:24px;border-radius:999px;background:#edf7ff;color:#0877f2;display:inline-flex;align-items:center;justify-content:center;font-weight:900}
+.boss-drop-details[open] summary:after{content:"－"}
+.boss-drop-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.boss-drop-tags span{display:inline-flex;align-items:center;min-height:30px;padding:6px 10px;border-radius:999px;background:#f3f9ff;border:1px solid #d9edff;color:#25415f;font-size:13px;font-weight:800;line-height:1.25}
+@media(max-width:760px){.boss-drop-tags span{font-size:12px;padding:6px 9px}}
+
+.boss-badge-list{display:flex;flex-wrap:wrap;gap:6px}
+.boss-badge{display:inline-flex;align-items:center;padding:6px 10px;border-radius:999px;background:linear-gradient(135deg,#e8f5ff,#f7fbff);border:1px solid #cfe8ff;color:#0877f2;text-decoration:none;font-size:13px;font-weight:900;line-height:1.25;transition:transform .18s ease,box-shadow .18s ease}
+.boss-badge:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(8,119,242,.13)}
+.boss-badge-muted{color:#607087;background:#f6f8fb;border-color:#e5edf5}
