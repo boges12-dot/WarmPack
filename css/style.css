@@ -171,3 +171,10 @@
 .boss-badge{display:inline-flex;align-items:center;padding:6px 10px;border-radius:999px;background:linear-gradient(135deg,#e8f5ff,#f7fbff);border:1px solid #cfe8ff;color:#0877f2;text-decoration:none;font-size:13px;font-weight:900;line-height:1.25;transition:transform .18s ease,box-shadow .18s ease}
 .boss-badge:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(8,119,242,.13)}
 .boss-badge-muted{color:#607087;background:#f6f8fb;border-color:#e5edf5}
+
+
+/* Server info / promotion pages */
+.text-card{background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:34px;line-height:1.85;color:#243a55}
+.text-card h2{margin:0 0 20px;font-size:32px;color:#0f1f3a;letter-spacing:-1px}
+.text-card h3{margin:30px 0 12px;font-size:23px;color:#0f1f3a}
+.text-card p{margin:0 0 14px;font-weight:650}.hl-blue{color:#0877f2}.hl-gold{color:#f2a900}.hl-green{color:#13a56b}.hl-red{color:#ff3b3b}.info-badges{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 8px}.info-badges span{padding:9px 13px;border-radius:999px;background:#e8f5ff;border:1px solid #cfe8ff;color:#0877f2;font-weight:900}.clean-list{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:10px}.clean-list li{position:relative;padding-left:22px;font-weight:700;color:#405772}.clean-list li:before{content:'•';position:absolute;left:0;color:#0877f2;font-weight:900}.closing-text{margin-top:24px!important;padding:18px;border-radius:16px;background:linear-gradient(135deg,#eef9ff,#fff);border:1px solid #d8e8fb;color:#0f57b7;font-weight:900!important}.promo-banner{width:100%;display:block;border-radius:18px;border:1px solid var(--line);box-shadow:0 12px 26px rgba(5,72,142,.12);margin-bottom:26px}.promo-lead{font-size:22px;font-weight:900!important}.promo-copy{margin-top:24px;padding:22px;border-radius:18px;background:#f4fbff;border:1px solid #d8e8fb}.promo-copy p{margin:0 0 8px;font-weight:900;color:#0f1f3a}@media(max-width:760px){.text-card{padding:22px}.text-card h2{font-size:27px}.promo-lead{font-size:18px}}
