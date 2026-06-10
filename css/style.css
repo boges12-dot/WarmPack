@@ -151,3 +151,5 @@
 .dashboard{margin-top:0;gap:14px;}
 @media(max-width:760px){.container{width:min(100%,94vw);} .hero{margin-bottom:10px;}}
 .boss-card small{display:block;margin-top:4px;font-size:12px;font-weight:800;color:rgba(255,255,255,.84);}
+
+.drop-list{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}.drop-list li{display:inline-flex;align-items:center;padding:5px 9px;border-radius:999px;background:#f0f8ff;border:1px solid #d7ecff;color:#315a82;font-size:13px;font-weight:800;line-height:1.25}
