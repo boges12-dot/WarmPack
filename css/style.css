@@ -178,3 +178,16 @@
 .text-card h2{margin:0 0 20px;font-size:32px;color:#0f1f3a;letter-spacing:-1px}
 .text-card h3{margin:30px 0 12px;font-size:23px;color:#0f1f3a}
 .text-card p{margin:0 0 14px;font-weight:650}.hl-blue{color:#0877f2}.hl-gold{color:#f2a900}.hl-green{color:#13a56b}.hl-red{color:#ff3b3b}.info-badges{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 8px}.info-badges span{padding:9px 13px;border-radius:999px;background:#e8f5ff;border:1px solid #cfe8ff;color:#0877f2;font-weight:900}.clean-list{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:10px}.clean-list li{position:relative;padding-left:22px;font-weight:700;color:#405772}.clean-list li:before{content:'•';position:absolute;left:0;color:#0877f2;font-weight:900}.closing-text{margin-top:24px!important;padding:18px;border-radius:16px;background:linear-gradient(135deg,#eef9ff,#fff);border:1px solid #d8e8fb;color:#0f57b7;font-weight:900!important}.promo-banner{width:100%;display:block;border-radius:18px;border:1px solid var(--line);box-shadow:0 12px 26px rgba(5,72,142,.12);margin-bottom:26px}.promo-lead{font-size:22px;font-weight:900!important}.promo-copy{margin-top:24px;padding:22px;border-radius:18px;background:#f4fbff;border:1px solid #d8e8fb}.promo-copy p{margin:0 0 8px;font-weight:900;color:#0f1f3a}@media(max-width:760px){.text-card{padding:22px}.text-card h2{font-size:27px}.promo-lead{font-size:18px}}
+
+
+/* Set item image slots and detailed item database layout */
+.set-detail-card .set-image-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:8px 0 14px}
+.set-image-slot{min-height:92px;border:1px dashed #9cc9f6;border-radius:12px;background:linear-gradient(135deg,#e8f6ff,#f8fcff);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;padding:10px;color:#7aa0c6;font-weight:900}
+.set-image-slot span{font-size:12px;color:#7aa0c6}
+.set-image-slot b{font-size:12px;color:#31506e;line-height:1.3}
+.set-detail-card .set-note{text-align:left;display:none}
+.set-detail-card.is-open .set-note{display:block}
+.set-detail-card .set-note p{margin:8px 0;padding:8px 10px;border-radius:10px;background:#f6fbff;border:1px solid #e3f1ff;color:#607087;font-size:13px;font-weight:800}
+.set-detail-card .set-note b{color:#0877f2;margin-right:4px}
+@media(max-width:900px){.set-detail-card .set-image-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.set-detail-card .set-image-grid{grid-template-columns:1fr}}
