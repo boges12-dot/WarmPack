@@ -191,3 +191,17 @@
 .set-detail-card .set-note b{color:#0877f2;margin-right:4px}
 @media(max-width:900px){.set-detail-card .set-image-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:520px){.set-detail-card .set-image-grid{grid-template-columns:1fr}}
+
+/* Item image sizing */
+.item-img-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 96px;
+}
+.item-img-placeholder .item-img {
+  width: 90px;
+  height: 80px;
+  object-fit: contain;
+  image-rendering: auto;
+}
