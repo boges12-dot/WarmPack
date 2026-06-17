@@ -205,3 +205,11 @@
   object-fit: contain;
   image-rendering: auto;
 }
+
+.item-card-img{
+  width:90px;
+  height:80px;
+  object-fit:contain;
+  display:block;
+  margin:0 auto;
+}
