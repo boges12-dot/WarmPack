@@ -213,3 +213,5 @@
   display:block;
   margin:0 auto;
 }
+
+.set-image-slot img{width:90px;height:80px;object-fit:contain;display:block;margin-bottom:4px}
