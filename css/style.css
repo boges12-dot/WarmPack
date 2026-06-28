@@ -230,3 +230,26 @@
   height: 100%;
   object-fit: cover;
 }
+
+
+/* Boss badge alignment fix */
+.boss-badge-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.boss-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 132px;
+  height: 38px;
+  padding: 0 14px;
+  box-sizing: border-box;
+  white-space: nowrap;
+  text-align: center;
+  line-height: 1;
+  flex: 0 0 auto;
+}
