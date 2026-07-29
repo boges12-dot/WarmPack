@@ -253,9 +253,3 @@
   line-height: 1;
   flex: 0 0 auto;
 }
-
-/* 통합 보스정보 페이지 */
-.boss-info-section{scroll-margin-top:96px}
-.boss-info-section+.boss-section-divider{margin-top:38px}
-.boss-section-divider{height:1px;margin:42px 0;background:linear-gradient(90deg,transparent,#cbdced 14%,#cbdced 86%,transparent)}
-@media(max-width:760px){.boss-section-divider{margin:30px 0}.boss-info-section{scroll-margin-top:78px}}
