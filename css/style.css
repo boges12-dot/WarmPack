@@ -253,3 +253,15 @@
   line-height: 1;
   flex: 0 0 auto;
 }
+
+
+/* Page hero removed layout fix */
+.site-header + main .page-content {
+  padding-top: 36px;
+}
+
+@media (max-width: 768px) {
+  .site-header + main .page-content {
+    padding-top: 24px;
+  }
+}
