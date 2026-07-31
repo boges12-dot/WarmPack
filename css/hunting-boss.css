@@ -134,3 +134,7 @@
 .boss-info-section+.boss-section-divider{margin-top:38px}
 
 .boss-section-divider{height:1px;margin:42px 0;background:linear-gradient(90deg,transparent,#cbdced 14%,#cbdced 86%,transparent)}
+
+/* Field boss representative image */
+.field-boss-image{height:220px;margin:-20px -20px 16px;overflow:hidden;background:#eaf5ff;border-bottom:1px solid #dcecff}
+.field-boss-image img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
