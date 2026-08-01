@@ -358,3 +358,40 @@
   .field-boss-card .field-boss-image img{max-height:140px}
   .field-boss-body .field-boss-name{font-size:20px;padding-bottom:12px}
 }
+
+/* Field boss representative drops preview */
+.field-boss-body .boss-drop-preview{
+  margin-top:14px;
+  padding:14px 0 12px;
+}
+.field-boss-body .boss-drop-preview-title{
+  margin-bottom:9px;
+  color:#0877f2;
+  font-size:14px;
+  font-weight:900;
+}
+.field-boss-body .boss-drop-preview-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.field-boss-body .boss-drop-preview-tags span{
+  display:inline-flex;
+  align-items:center;
+  min-height:30px;
+  padding:6px 10px;
+  border:1px solid #d9edff;
+  border-radius:999px;
+  background:#f3f9ff;
+  color:#25415f;
+  font-size:13px;
+  font-weight:800;
+  line-height:1.25;
+}
+.field-boss-body .boss-drop-details{
+  margin-top:auto;
+}
+@media(max-width:560px){
+  .field-boss-body .boss-drop-preview{margin-top:10px;padding:10px 0 8px}
+  .field-boss-body .boss-drop-preview-tags span{font-size:12px;padding:5px 8px;min-height:28px}
+}
