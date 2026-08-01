@@ -265,3 +265,96 @@
     padding-top: 24px;
   }
 }
+
+/* Field boss cards: hunting-card style layout, boss name + collapsible drops */
+.field-boss-grid.boss-drop-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
+  align-items:start;
+}
+.field-boss-card.boss-drop-card{
+  display:grid;
+  grid-template-columns:170px minmax(0,1fr);
+  gap:18px;
+  align-items:stretch;
+  min-height:220px;
+  padding:18px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:18px;
+  box-shadow:var(--shadow);
+  position:relative;
+  overflow:hidden;
+}
+.field-boss-card.boss-drop-card:before{
+  content:'';
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:5px;
+  background:linear-gradient(180deg,#0877f2,#0aa7ff);
+}
+.field-boss-card .field-boss-image{
+  width:170px;
+  min-height:184px;
+  height:auto;
+  margin:0;
+  padding:10px;
+  overflow:hidden;
+  border:1px solid #d8e8fb;
+  border-radius:14px;
+  background:linear-gradient(135deg,#dff3ff,#f8fcff);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#6c8cad;
+  font-size:14px;
+  font-weight:900;
+}
+.field-boss-card .field-boss-image img{
+  display:block;
+  width:auto;
+  height:auto;
+  max-width:100%;
+  max-height:184px;
+  object-fit:contain;
+  object-position:center;
+  border-radius:8px;
+}
+.field-boss-body{
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+}
+.field-boss-body .field-boss-name{
+  margin:4px 0 0;
+  padding:0 0 16px;
+  border-bottom:1px solid #edf5ff;
+  font-size:24px;
+  font-weight:900;
+  color:#0f1f3a;
+  line-height:1.35;
+}
+.field-boss-body .boss-drop-details{
+  margin-top:auto;
+  padding-top:14px;
+  border-top:0;
+}
+.field-boss-body .boss-drop-details summary{
+  min-height:40px;
+  font-size:15px;
+}
+.field-boss-body .boss-drop-tags{
+  padding-top:4px;
+}
+@media(max-width:900px){
+  .field-boss-grid.boss-drop-grid{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .field-boss-card.boss-drop-card{grid-template-columns:110px minmax(0,1fr);gap:12px;padding:14px;min-height:170px}
+  .field-boss-card .field-boss-image{width:110px;min-height:140px;padding:6px}
+  .field-boss-card .field-boss-image img{max-height:140px}
+  .field-boss-body .field-boss-name{font-size:20px;padding-bottom:12px}
+}
