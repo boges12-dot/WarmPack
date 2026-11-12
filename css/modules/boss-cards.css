@@ -1,0 +1,166 @@
+/* Field boss cards: hunting-card style layout, boss name + collapsible drops */
+.field-boss-grid.boss-drop-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
+  align-items:start;
+}
+.field-boss-card.boss-drop-card{
+  display:grid;
+  grid-template-columns:170px minmax(0,1fr);
+  gap:18px;
+  align-items:stretch;
+  min-height:220px;
+  padding:18px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:18px;
+  box-shadow:var(--shadow);
+  position:relative;
+  overflow:hidden;
+}
+.field-boss-card.boss-drop-card:before{
+  content:'';
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:5px;
+  background:linear-gradient(180deg,#0877f2,#0aa7ff);
+}
+.field-boss-card .field-boss-image{
+  width:170px;
+  min-height:184px;
+  height:auto;
+  margin:0;
+  padding:10px;
+  overflow:hidden;
+  border:1px solid #d8e8fb;
+  border-radius:14px;
+  background:linear-gradient(135deg,#dff3ff,#f8fcff);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#6c8cad;
+  font-size:14px;
+  font-weight:900;
+}
+.field-boss-card .field-boss-image img{
+  display:block;
+  width:auto;
+  height:auto;
+  max-width:100%;
+  max-height:184px;
+  object-fit:contain;
+  object-position:center;
+  border-radius:8px;
+}
+.field-boss-body{
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+}
+.field-boss-body .field-boss-name{
+  margin:4px 0 0;
+  padding:0 0 16px;
+  border-bottom:1px solid #edf5ff;
+  font-size:24px;
+  font-weight:900;
+  color:#0f1f3a;
+  line-height:1.35;
+}
+.field-boss-body .boss-drop-details{
+  margin-top:auto;
+  padding-top:14px;
+  border-top:0;
+}
+.field-boss-body .boss-drop-details summary{
+  min-height:40px;
+  font-size:15px;
+}
+.field-boss-body .boss-drop-tags{
+  padding-top:4px;
+}
+@media(max-width:900px){
+  .field-boss-grid.boss-drop-grid{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .field-boss-card.boss-drop-card{grid-template-columns:110px minmax(0,1fr);gap:12px;padding:14px;min-height:170px}
+  .field-boss-card .field-boss-image{width:110px;min-height:140px;padding:6px}
+  .field-boss-card .field-boss-image img{max-height:140px}
+  .field-boss-body .field-boss-name{font-size:20px;padding-bottom:12px}
+}
+
+/* Field boss representative drops preview */
+.field-boss-body .boss-drop-preview{
+  margin-top:14px;
+  padding:14px 0 12px;
+}
+.field-boss-body .boss-drop-preview-title{
+  margin-bottom:9px;
+  color:#0877f2;
+  font-size:14px;
+  font-weight:900;
+}
+.field-boss-body .boss-drop-preview-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.field-boss-body .boss-drop-preview-tags span{
+  display:inline-flex;
+  align-items:center;
+  min-height:30px;
+  padding:6px 10px;
+  border:1px solid #d9edff;
+  border-radius:999px;
+  background:#f3f9ff;
+  color:#25415f;
+  font-size:13px;
+  font-weight:800;
+  line-height:1.25;
+}
+.field-boss-body .boss-drop-details{
+  margin-top:auto;
+}
+@media(max-width:560px){
+  .field-boss-body .boss-drop-preview{margin-top:10px;padding:10px 0 8px}
+  .field-boss-body .boss-drop-preview-tags span{font-size:12px;padding:5px 8px;min-height:28px}
+}
+
+/* Field boss card symmetry: keep preview and action positions aligned */
+.field-boss-body .boss-drop-preview{
+  height:116px;
+  min-height:116px;
+  box-sizing:border-box;
+  overflow:hidden;
+}
+.field-boss-body .boss-drop-preview-tags{
+  max-height:68px;
+  overflow:hidden;
+  align-content:flex-start;
+}
+.field-boss-card.boss-drop-card{
+  min-height:292px;
+}
+@media(max-width:560px){
+  .field-boss-body .boss-drop-preview{
+    height:104px;
+    min-height:104px;
+  }
+  .field-boss-body .boss-drop-preview-tags{
+    max-height:62px;
+  }
+  .field-boss-card.boss-drop-card{
+    min-height:250px;
+  }
+}
+
+
+/* 4-dragon raid cards: fields intentionally left blank until data is provided */
+.raid-boss-card{min-height:220px!important;}
+.raid-empty-info{margin-top:14px;border-top:1px solid #edf5ff;}
+.raid-empty-info>div{display:grid;grid-template-columns:100px minmax(0,1fr);align-items:center;min-height:58px;border-bottom:1px solid #edf5ff;}
+.raid-empty-info strong{color:#0877f2;font-size:14px;font-weight:900;}
+.raid-empty-info span{min-height:1em;}
+@media(max-width:560px){.raid-boss-card{min-height:190px!important}.raid-empty-info>div{grid-template-columns:78px minmax(0,1fr);min-height:48px}.raid-empty-info strong{font-size:13px}}

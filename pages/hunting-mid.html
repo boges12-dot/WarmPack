@@ -7,7 +7,7 @@
 <title>중급 사냥터 | 광어 서버</title>
 <meta content="광어 서버 중급 사냥터" name="description"/>
 <link href="../css/style.css" rel="stylesheet"/>
-</head>
+<link href="../css/hunting-navigation.css" rel="stylesheet"/></head>
 <body>
 <header class="site-header">
 <a aria-label="광어 서버 홈" class="brand" href="../index.html">
@@ -37,46 +37,7 @@
 </div>
 <div class="nav-item has-dropdown">
 <a class="nav-link" href="../pages/items.html">아이템정보</a>
-<div class="dropdown-menu item-dropdown">
-<a href="../pages/item-weapon.html">무기</a>
-<div class="dropdown-subitem">
-<a class="submenu-trigger" href="../pages/item-armor.html">방어구 <span>›</span></a>
-<div class="submenu">
-<a href="../pages/item-armor-helmet.html">투구</a>
-<a href="../pages/item-armor-shirt.html">티셔츠</a>
-<a href="../pages/item-armor-armor.html">갑옷</a>
-<a href="../pages/item-armor-cloak.html">망토</a>
-<a href="../pages/item-armor-glove.html">장갑</a>
-<a href="../pages/item-armor-boots.html">부츠</a>
-<a href="../pages/item-armor-shield.html">방패</a>
-</div>
-</div>
-<div class="dropdown-subitem">
-<a class="submenu-trigger" href="../pages/item-accessory.html">악세서리 <span>›</span></a>
-<div class="submenu">
-<a href="../pages/item-accessory-ring.html">반지</a>
-<a href="../pages/item-accessory-necklace.html">목걸이</a>
-<a href="../pages/item-accessory-earring.html">귀걸이</a>
-<a href="../pages/item-accessory-belt.html">벨트</a>
-</div>
-</div>
-<a href="../pages/item-set.html">세트아이템</a>
-<div class="dropdown-subitem">
-<a class="submenu-trigger" href="../pages/item-doll.html">인형 <span>›</span></a>
-<div class="submenu">
-<a href="../pages/item-doll-stage1.html">1단계</a>
-<a href="../pages/item-doll-stage2.html">2단계</a>
-<a href="../pages/item-doll-stage3.html">3단계</a>
-<a href="../pages/item-doll-stage4.html">4단계</a>
-<a href="../pages/item-doll-stage5.html">5단계</a>
-<a href="../pages/item-doll-dragon.html">용 인형</a>
-<a href="../pages/item-doll-awakening.html">각성</a>
-<a href="../pages/item-doll-class.html">클래스 인형</a>
-<a href="../pages/item-doll-evolution.html">진화</a>
-</div>
-</div>
-<a href="../pages/item-skill.html">스킬</a>
-</div>
+<div class="dropdown-menu item-dropdown"><a href="../pages/item-class-prince.html">군주</a><a href="../pages/item-class-knight.html">기사</a><a href="../pages/item-class-darkelf.html">다크엘프</a><a href="../pages/item-class-mage.html">법사</a><a href="../pages/item-class-elf.html">요정</a><a href="../pages/item-doll.html">인형</a><a href="../pages/item-skill.html">스킬</a><a href="../pages/item-legacy.html">기존 아이템 자료</a></div>
 </div>
 <div class="nav-item has-dropdown">
 <a class="nav-link active" href="../pages/hunting.html">사냥터</a>
@@ -98,9 +59,9 @@
 <a class="download-btn" href="../pages/download.html">게임 다운로드</a>
 </header>
 <main>
-<section class="page-content container">
+<section class="page-content container"><nav aria-label="사냥터 빠른 이동" class="hunt-quicknav" id="hunt-top"><strong>사냥터 바로가기</strong><div class="hunt-quicknav-links"><a href="#hunting-mid-1">사막 던전 (사던 4층)</a><a href="#hunting-mid-2">용의 계곡 던전</a><a href="#hunting-mid-3">본토 던전</a><a href="#hunting-mid-4">개미굴</a></div></nav>
 <div class="hunt-grid">
-<article class="hunt-card">
+<article class="hunt-card" id="hunting-mid-1">
 <div class="hunt-thumb"><img alt="사막 던전 (사던 4층)" src="../assets/images/hunting/mid/desert-dungeon-4f.png"/></div>
 <div class="hunt-body">
 <h2>사막 던전 (사던 4층)</h2>
@@ -108,19 +69,18 @@
 <div><dt>등장 보스</dt><dd><div class="boss-badge-list"><a class="boss-badge" href="boss-field.html#boss-beres">👑 베레스</a></div></dd></div>
 <div><dt>드랍 정보</dt><dd><ul class="drop-list"><li>무기마법주문서</li><li>갑옷마법주문서</li><li>4~6마법서</li><li>저주받은 무기마법주문서</li><li>저주받은 갑옷마법주문서</li><li>쇼크스턴</li><li>리덕션아머</li></ul></dd></div>
 </dl>
-</div>
+<a aria-label="사막 던전 (사던 4층)에서 사냥터 바로가기 메뉴로 이동" class="hunt-backtop" href="#hunt-top">↑ 사냥터 목록으로</a></div>
 </article>
-<article class="hunt-card">
+<article class="hunt-card" id="hunting-mid-2">
 <div class="hunt-thumb"><img alt="용의 계곡 던전" src="../assets/images/hunting/mid/dragon-valley-dungeon.png"/></div>
 <div class="hunt-body">
 <h2>용의 계곡 던전</h2>
 <dl>
-
 <div><dt>드랍 정보</dt><dd><ul class="drop-list"><li>무기마법주문서</li><li>갑옷마법주문서</li><li>축복받은 무기마법주문서</li><li>축복받은 갑옷마법주문서</li><li>4~8단계 마법</li><li>순간이동조종반지</li><li>변신조종반지</li><li>트리플 에로우</li></ul></dd></div>
 </dl>
-</div>
+<a aria-label="용의 계곡 던전에서 사냥터 바로가기 메뉴로 이동" class="hunt-backtop" href="#hunt-top">↑ 사냥터 목록으로</a></div>
 </article>
-<article class="hunt-card">
+<article class="hunt-card" id="hunting-mid-3">
 <div class="hunt-thumb"><img alt="본토 던전" src="../assets/images/hunting/mid/bonto-dungeon.png"/></div>
 <div class="hunt-body">
 <h2>본토 던전</h2>
@@ -128,9 +88,9 @@
 <div><dt>등장 보스</dt><dd><div class="boss-badge-list"><a class="boss-badge" href="boss-field.html#boss-death-knight">👑 데스나이트</a><a class="boss-badge" href="boss-field.html#boss-caspa">👑 카스파</a><a class="boss-badge" href="boss-field.html#boss-sema">👑 세마</a><a class="boss-badge" href="boss-field.html#boss-merkior">👑 메르키오르</a><a class="boss-badge" href="boss-field.html#boss-baltazar">👑 발터자르</a></div></dd></div>
 <div><dt>드랍 정보</dt><dd><ul class="drop-list"><li>무기마법주문서</li><li>갑옷마법주문서</li><li>4~5단계 마법서</li><li>이뮨투함</li><li>힐올</li></ul></dd></div>
 </dl>
-</div>
+<a aria-label="본토 던전에서 사냥터 바로가기 메뉴로 이동" class="hunt-backtop" href="#hunt-top">↑ 사냥터 목록으로</a></div>
 </article>
-<article class="hunt-card">
+<article class="hunt-card" id="hunting-mid-4">
 <div class="hunt-thumb"><img alt="개미굴" src="../assets/images/hunting/mid/ant-cave.png"/></div>
 <div class="hunt-body">
 <h2>개미굴</h2>
@@ -138,7 +98,7 @@
 <div><dt>등장 보스</dt><dd><div class="boss-badge-list"><a class="boss-badge" href="boss-field.html#boss-giant-queen-ant">👑 거대여왕개미</a></div></dd></div>
 <div><dt>드랍 정보</dt><dd><ul class="drop-list"><li>다이아몬드</li><li>사파이어</li><li>루비</li><li>에메랄드</li><li>고급 다이아몬드</li><li>고급 사파이어</li><li>고급 루비</li><li>고급 에메랄드</li><li>최고급 다이아몬드</li><li>최고급 사파이어</li><li>최고급 루비</li><li>최고급 에메랄드</li></ul></dd></div>
 </dl>
-</div>
+<a aria-label="개미굴에서 사냥터 바로가기 메뉴로 이동" class="hunt-backtop" href="#hunt-top">↑ 사냥터 목록으로</a></div>
 </article>
 </div>
 </section>

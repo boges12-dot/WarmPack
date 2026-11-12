@@ -1,0 +1,25 @@
+/* 클래스별 아이템 카드: 기존 CSS와 독립적으로 관리 */
+.class-items-page,.class-items-landing{padding-top:30px;padding-bottom:50px}
+.class-items-page h1,.class-items-landing h1{margin:0 0 10px;color:var(--primary,#145da0)}
+.class-intro{margin:0 0 24px;color:#516176;line-height:1.7}
+.class-tier-nav{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px}
+.class-tier-nav a{padding:10px 22px;border:1px solid #bdd5ec;background:#eef6ff;border-radius:10px;color:#13528c;text-decoration:none;font-weight:700}
+.class-tier-nav a:hover,.class-tier-nav a:focus-visible{background:#dcefff}
+.class-tier-section{margin:0 0 42px;scroll-margin-top:110px}
+.class-tier-section h2{padding:12px 16px;background:#e9f4ff;border-left:5px solid #2783cb;border-radius:8px;margin:0 0 18px}
+.class-tier-section h3{margin:24px 0 12px;font-size:1.13rem}
+.class-item-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(245px,1fr));gap:13px}
+.class-item-card{border:1px solid #cbdcec;border-radius:13px;background:#fff;overflow:hidden;box-shadow:0 4px 15px rgba(24,66,112,.06)}
+.class-item-card summary{cursor:pointer;display:flex;align-items:center;gap:10px;padding:16px;min-height:70px;list-style:none;font-weight:700;color:#173d63}
+.class-item-card summary::-webkit-details-marker{display:none}
+.class-item-card summary:focus-visible{outline:3px solid #2277bb;outline-offset:-3px}
+.class-item-icon{display:grid;place-items:center;flex:0 0 36px;height:36px;background:#e9f4ff;border-radius:9px;color:#267fc5;font-size:23px}
+.class-item-name{flex:1;line-height:1.5;overflow-wrap:anywhere}
+.class-item-chevron{font-size:20px;transition:transform .2s}
+.class-item-card[open] .class-item-chevron{transform:rotate(180deg)}
+.class-item-detail{padding:0 15px 16px;border-top:1px solid #edf1f5}
+.class-item-image-empty{min-height:130px;border:2px dashed #c4d3e2;background:#f7fafc;border-radius:10px;display:grid;place-items:center;color:#667a8c;margin:16px 0}
+.class-item-option-empty{border-radius:10px;background:#f1f6fb;padding:12px 14px;color:#324d68}
+.class-item-option-empty p{margin:7px 0 0;color:#697b8d}
+.class-empty{color:#697b8d;padding:12px 16px;border:1px dashed #cad9e7;border-radius:10px}
+@media(max-width:640px){.class-item-grid{grid-template-columns:1fr}.class-items-page,.class-items-landing{padding-top:20px}.class-tier-nav a{flex:1;text-align:center}}

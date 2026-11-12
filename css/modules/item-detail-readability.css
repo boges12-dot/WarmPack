@@ -1,0 +1,8 @@
+/* 아이템 상세 카드 가독성 개선. 기존 게임 데이터 및 HTML 구조 변경 없음. */
+.item-info-card .item-info-body {text-align:left;align-content:start;gap:10px}
+.item-info-card .item-info-body h3 {text-align:center;padding-bottom:10px;border-bottom:1px solid #e4edf6;overflow-wrap:anywhere}
+.item-info-card .item-info-body p {display:grid;grid-template-columns:58px minmax(0,1fr);gap:8px;align-items:start;line-height:1.65;font-weight:600;overflow-wrap:anywhere}
+.item-info-card .item-info-body p b {display:block;margin:0;color:#0877f2;font-weight:800;white-space:nowrap}
+.item-info-card .item-info-body p:nth-of-type(even) {background:#f5f9ff;border-radius:7px;padding:5px 7px}
+.item-info-card .item-info-body p:nth-of-type(odd) {padding:5px 7px}
+@media(max-width:420px) {.item-info-card .item-info-body p {grid-template-columns:52px minmax(0,1fr);gap:6px}}
