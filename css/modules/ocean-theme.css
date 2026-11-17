@@ -1,0 +1,21 @@
+/* 광어 서버 배너 기반 해양 테마 개선. 기존 콘텐츠/메뉴/동작은 유지합니다. */
+:root{--blue:#086bd6;--blue2:#20a5ef;--navy:#102f5a;--text:#19344f;--muted:#58738d;--bg:#edf7fd;--line:#cfe4f3;--shadow:0 10px 28px rgba(15,83,140,.10);--radius:16px}
+html{scroll-behavior:smooth}body{background:linear-gradient(180deg,#e7f5ff 0,#f6fbff 430px,#eef7fc 100%);color:var(--text);line-height:1.65}
+.site-header{background:rgba(250,253,255,.97);border-bottom:1px solid #d9ebf7;box-shadow:0 3px 18px rgba(14,70,124,.08)}
+.brand-title{color:#103c78}.brand-title:after{color:#1495e3}.brand-sub{color:#4d7495}
+.nav a.active,.nav a:hover{color:#086bd6;border-bottom-color:#168be2}
+.dropdown-menu{background:#fff;border-color:#d2e6f5;box-shadow:0 14px 30px rgba(12,66,112,.14)}
+.download-btn{background:linear-gradient(135deg,#0755ae,#168fe4);box-shadow:0 8px 20px rgba(6,91,177,.19)}
+.hero img{box-shadow:0 12px 28px rgba(16,87,145,.12)}
+.panel,.category-card,.hunt-card,.boss-card,.field-boss-card,.class-item-card{background:#fff;border-color:#d4e7f4;box-shadow:0 5px 18px rgba(13,83,140,.07)}
+.panel h2,.section-title,.page-hero h1{color:#123e72}.panel-head{border-bottom:1px solid #e7f1f8;padding-bottom:10px}
+.page-hero{background:linear-gradient(120deg,#e0f2ff,#f7fcff);border-bottom:1px solid #d7eaf7}
+.class-tier-section h2{background:#e4f3ff;color:#164c82;border-left-color:#168de2}
+.class-tier-nav a{background:#edf8ff;border-color:#c4e3f7;color:#145a94}
+.class-item-card summary:hover,.quick-grid a:hover{background:#f0f9ff}
+.quick-grid a{border-color:#d4e7f4;background:#f9fdff}
+.notice-list li{border-bottom:1px solid #eef3f8;padding-bottom:7px}.notice-list li:last-child{border-bottom:0}
+.footer{background:#e6f3fc;border-top-color:#cfe3f2;color:#526f89}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #168fe4;outline-offset:3px}
+@media(max-width:768px){.container{width:min(100% - 28px,1440px)}.panel{padding:16px}.page-hero{padding:38px 0 26px}.page-hero h1{font-size:clamp(26px,6vw,38px)}.class-item-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}.class-tier-nav a{padding:9px 14px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
