@@ -41,3 +41,14 @@
 .class-items-page .class-item-selection-detail .class-item-image-restored,.class-items-page .class-item-selection-detail .class-item-image-empty{max-width:320px;margin:10px auto 16px;text-align:center}
 .class-items-page .class-item-selection-detail .class-item-option-empty{width:100%;box-sizing:border-box}
 @media(min-width:900px){.class-items-page .class-item-category-layout{display:grid;grid-template-columns:minmax(260px,36%) minmax(0,1fr);gap:18px;align-items:start}.class-items-page .class-item-selection-detail{margin-top:0;position:sticky;top:90px}}
+
+/* Collapsible item selection: no panel until an item is clicked. */
+.class-items-page .class-item-category-layout{display:block!important;max-width:100%;}
+.class-items-page .class-item-category-layout:not(.has-selection)>.class-item-grid{max-width:760px!important;margin:0 auto!important;}
+.class-items-page .class-item-category-layout .class-item-selection-detail[hidden]{display:none!important;}
+.class-items-page .class-item-card.is-selected summary{background:#eaf4fb!important;color:#135b8e!important;}
+.class-items-page .class-item-card:not(.is-selected) summary{background:#fff!important;}
+@media(min-width:900px){
+.class-items-page .class-item-category-layout.has-selection{display:grid!important;grid-template-columns:minmax(260px,36%) minmax(0,1fr)!important;gap:18px;align-items:start;}
+.class-items-page .class-item-category-layout.has-selection>.class-item-grid{max-width:none!important;}
+}
