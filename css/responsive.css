@@ -35,3 +35,6 @@
 @media(max-width:520px){.set-detail-card .set-image-grid{grid-template-columns:1fr}}
 
 @media(max-width:760px){.boss-section-divider{margin:30px 0}.boss-info-section{scroll-margin-top:78px}}
+
+/* Centered layout: overrides legacy responsive dashboard rules */
+@media(max-width:760px){.dashboard{grid-template-columns:1fr}.container{width:calc(100% - 28px)}}
