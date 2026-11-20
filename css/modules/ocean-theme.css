@@ -19,3 +19,25 @@ html{scroll-behavior:smooth}body{background:linear-gradient(180deg,#e7f5ff 0,#f6
 a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #168fe4;outline-offset:3px}
 @media(max-width:768px){.container{width:min(100% - 28px,1440px)}.panel{padding:16px}.page-hero{padding:38px 0 26px}.page-hero h1{font-size:clamp(26px,6vw,38px)}.class-item-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}.class-tier-nav a{padding:9px 14px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* Consistent centered page shell; preserve existing item data and theme. */
+html,body{width:100%;max-width:100%;overflow-x:clip}
+body{min-width:0}
+.container,main.container,section.container,div.container,
+.page-content.container,.hero.container,.dashboard.container{
+  width:calc(100% - 48px)!important;
+  max-width:1320px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+  box-sizing:border-box;
+}
+.page-content,.class-items-page{min-width:0}
+.class-tier-section,.class-item-grid,.dashboard,.hero{min-width:0}
+.class-item-grid{width:100%;margin-left:auto;margin-right:auto}
+.site-header{width:100%;box-sizing:border-box}
+@media(max-width:768px){
+  .container,main.container,section.container,div.container,
+  .page-content.container,.hero.container,.dashboard.container{
+    width:calc(100% - 28px)!important;
+  }
+}

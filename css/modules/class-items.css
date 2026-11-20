@@ -23,3 +23,21 @@
 .class-item-option-empty p{margin:7px 0 0;color:#697b8d}
 .class-empty{color:#697b8d;padding:12px 16px;border:1px dashed #cad9e7;border-radius:10px}
 @media(max-width:640px){.class-item-grid{grid-template-columns:1fr}.class-items-page,.class-items-landing{padding-top:20px}.class-tier-nav a{flex:1;text-align:center}}
+
+
+/* Item selection: compact list + one detail panel per category */
+.class-items-page .class-item-grid{display:flex!important;flex-direction:column!important;gap:0!important;width:100%;max-width:100%;margin:0!important;border:1px solid #d5e2ee;border-radius:12px;background:#fff;overflow:hidden}
+.class-items-page .class-item-card{display:block!important;width:100%!important;min-width:0!important;margin:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;background:#fff!important}
+.class-items-page .class-item-card + .class-item-card{border-top:1px solid #e8eef4!important}
+.class-items-page .class-item-card summary{min-height:46px!important;padding:10px 15px!important;font-size:14px!important;font-weight:600!important;gap:10px!important}
+.class-items-page .class-item-icon{flex:0 0 24px!important;width:24px!important;height:24px!important;font-size:14px!important}
+.class-items-page .class-item-chevron{font-size:16px!important}
+.class-items-page .class-item-card[open] summary{background:#eaf4fb!important;color:#135b8e!important}
+.class-items-page .class-item-card summary:hover{background:#f3f8fc}
+.class-items-page .class-item-card .class-item-detail{display:none!important}
+.class-items-page .class-item-selection-detail{margin-top:12px;padding:20px;border:1px solid #cbdcec;border-radius:12px;background:#fff;box-shadow:0 4px 16px rgba(24,66,112,.05);min-width:0}
+.class-items-page .class-item-selection-detail h4{margin:0 0 12px;color:#17496d;font-size:1.05rem}
+.class-items-page .class-item-selection-detail .class-item-detail{display:block!important;padding:0!important;border:0!important}
+.class-items-page .class-item-selection-detail .class-item-image-restored,.class-items-page .class-item-selection-detail .class-item-image-empty{max-width:320px;margin:10px auto 16px;text-align:center}
+.class-items-page .class-item-selection-detail .class-item-option-empty{width:100%;box-sizing:border-box}
+@media(min-width:900px){.class-items-page .class-item-category-layout{display:grid;grid-template-columns:minmax(260px,36%) minmax(0,1fr);gap:18px;align-items:start}.class-items-page .class-item-selection-detail{margin-top:0;position:sticky;top:90px}}
