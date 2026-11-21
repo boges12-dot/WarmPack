@@ -52,3 +52,14 @@
 .class-items-page .class-item-category-layout.has-selection{display:grid!important;grid-template-columns:minmax(260px,36%) minmax(0,1fr)!important;gap:18px;align-items:start;}
 .class-items-page .class-item-category-layout.has-selection>.class-item-grid{max-width:none!important;}
 }
+
+/* Inline accordion: keep each item centered, expand its own details below. */
+.class-items-page .class-item-grid{display:flex!important;flex-direction:column!important;width:100%!important;max-width:900px!important;margin:0 auto 22px!important;gap:0!important;overflow:hidden}
+.class-items-page .class-item-card{width:100%!important;box-sizing:border-box!important}
+.class-items-page .class-item-card .class-item-detail{display:none!important;padding:18px 20px!important;background:#fff!important;border-top:1px solid #e4edf5!important}
+.class-items-page .class-item-card[open]>.class-item-detail{display:block!important}
+.class-items-page .class-item-card[open]>summary{background:#eaf4fb!important;color:#135b8e!important}
+.class-items-page .class-item-card .class-item-image-restored,.class-items-page .class-item-card .class-item-image-empty{text-align:center;margin:8px auto 18px}
+.class-items-page .class-item-card .class-item-option-empty{box-sizing:border-box;width:100%}
+.class-items-page .class-item-card summary{cursor:pointer!important}
+@media(max-width:768px){.class-items-page .class-item-grid{max-width:100%!important}.class-items-page .class-item-card .class-item-detail{padding:14px!important}}
