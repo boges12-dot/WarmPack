@@ -10,3 +10,6 @@
 /* Giran gallery: compact centered layout */
 .gh-floor-gallery{box-sizing:border-box;width:75%;margin-inline:auto}
 @media(max-width:600px){.gh-floor-gallery{width:90%}}
+
+/* 악마왕의 영토 단일 이미지 */
+.gh-floor-gallery.gh-single-gallery{grid-template-columns:minmax(0,1fr);max-width:600px}
