@@ -55,10 +55,19 @@
 </nav>
 <a class="download-btn" href="../pages/download.html">게임 다운로드</a>
 </header>
-<main><section class="gh-hunting"><a class="gh-back" href="hunting.html">← 사냥터 전체 목록</a><h1>신규 던전</h1><p class="gh-intro">등장 몬스터 · 보스 · 사냥터 드롭 아이템 정보</p><nav aria-label="던전 바로가기" class="gh-jump"><a href="#dungeon-1">기란감옥 1층~4층</a></nav><div class="gh-dungeon-grid"><article class="gh-dungeon" id="dungeon-1"><h2>기란감옥 1층~4층</h2><div class="gh-floor-gallery" aria-label="기란 던전 층별 이미지"><figure><img src="../assets/images/hunting/low/giran-dungeon-1f.png" alt="기란 던전 1층" loading="lazy"><figcaption>기란 던전 1층</figcaption></figure><figure><img src="../assets/images/hunting/low/giran-dungeon-2f.png" alt="기란 던전 2층" loading="lazy"><figcaption>기란 던전 2층</figcaption></figure><figure><img src="../assets/images/hunting/low/giran-dungeon-3f.png" alt="기란 던전 3층" loading="lazy"><figcaption>기란 던전 3층</figcaption></figure><figure><img src="../assets/images/hunting/low/giran-dungeon-4f.png" alt="기란 던전 4층" loading="lazy"><figcaption>기란 던전 4층</figcaption></figure></div><div class="gh-dungeon-body"><section><h3>등장 몬스터</h3><ul class="gh-monsters"><li>굶주린 죄수</li><li>탐욕스런 간수(창)</li><li>탐욕스런 간수(활)</li><li>탐욕스런 간수(검)</li><li>탐욕스런 간수(마법)</li><li>파우스트의 악령(악랄)</li><li>파우스트의 악령(잔인)</li><li>파우스트의 악령(악독)</li><li>파우스트의 악령(포악)</li></ul></section><section class="gh-boss"><h3>등장 보스</h3><ul><li>폭주한 클라인</li></ul></section><section class="gh-drop"><h3>드롭 아이템</h3><ul class="gh-drop-items"><li>1차악세류</li><li>1차 무기류</li><li>1차 방어구류</li><li>마법인형주머니</li><li>갑옷마법주문서</li><li>무기마법주문서</li></ul></section></div></article></div></section></main>
+<main><section class="gh-hunting"><a class="gh-back" href="hunting.html">← 사냥터 전체 목록</a><h1>신규 던전</h1><p class="gh-intro">등장 몬스터 · 보스 · 사냥터 드롭 아이템 정보</p><nav aria-label="던전 바로가기" class="gh-jump"><a href="#dungeon-1">기란감옥 1층~4층</a></nav><div class="gh-dungeon-grid"><details class="gh-dungeon" id="dungeon-1">
+<summary>기란감옥 1층~4층</summary><div class="gh-floor-gallery" aria-label="기란 던전 층별 이미지"><figure><img src="../assets/images/hunting/low/giran-dungeon-1f.png" alt="기란 던전 1층" loading="lazy"><figcaption>기란 던전 1층</figcaption></figure><figure><img src="../assets/images/hunting/low/giran-dungeon-2f.png" alt="기란 던전 2층" loading="lazy"><figcaption>기란 던전 2층</figcaption></figure><figure><img src="../assets/images/hunting/low/giran-dungeon-3f.png" alt="기란 던전 3층" loading="lazy"><figcaption>기란 던전 3층</figcaption></figure><figure><img src="../assets/images/hunting/low/giran-dungeon-4f.png" alt="기란 던전 4층" loading="lazy"><figcaption>기란 던전 4층</figcaption></figure></div><div class="gh-dungeon-body"><section><h3>등장 몬스터</h3><ul class="gh-monsters"><li>탐욕스런 간수(창)</li><li>탐욕스런 간수(활)</li><li>탐욕스런 간수(검)</li><li>탐욕스런 간수(마법)</li><li>파우스트의 악령(악랄)</li><li>파우스트의 악령(잔인)</li><li>파우스트의 악령(악독)</li><li>파우스트의 악령(포악)</li></ul></section><section class="gh-boss"><h3>등장 보스</h3><ul><li style="display:flex;align-items:center;gap:8px"><img src="../assets/images/boss/berserk-kline.png" alt="폭주한 클라인" loading="lazy" style="width:20px;height:26px;object-fit:contain;flex:0 0 20px"><span>폭주한 클라인</span></li></ul></section><section class="gh-drop"><h3>드롭 아이템</h3><ul class="gh-drop-items"><li>1차악세류</li><li>1차 무기류</li><li>1차 방어구류</li><li>마법인형주머니</li><li>갑옷마법주문서</li><li>무기마법주문서</li></ul></section></div></details></div></section></main>
 <footer class="footer">
 <div class="container footer-inner footer-simple">Copyright © 2026 광어 서버</div>
 </footer>
+<script>
+document.querySelectorAll('.gh-jump a[href^="#dungeon-"]').forEach(link => {
+  link.addEventListener('click', () => {
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target && target.tagName.toLowerCase() === 'details') target.open = true;
+  });
+});
+</script>
 <script src="../js/main.js"></script>
 </body>
 </html>

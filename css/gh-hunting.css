@@ -13,3 +13,31 @@
 
 /* 악마왕의 영토 단일 이미지 */
 .gh-floor-gallery.gh-single-gallery{grid-template-columns:minmax(0,1fr);max-width:600px}
+
+
+/* 2026-11-25: clickable hunting navigation and compact inline monster rows */
+.gh-category-grid { display:block; }
+.gh-category-links { display:flex; flex-direction:column; border-top:1px solid #d7e5f4; }
+.gh-category-links a { display:flex; align-items:center; gap:14px; min-height:54px; padding:12px 8px; border-bottom:1px solid #d7e5f4; color:#153f6b; text-decoration:none; background:transparent; }
+.gh-category-links a:hover,.gh-category-links a:focus-visible { background:#f1f7fd; color:#0877c9; outline-offset:2px; }
+.gh-category-links a span { font-weight:800; }
+.gh-category-links a small { margin-left:auto; color:#71859a; }
+.gh-category-links a b { font-size:1.5rem; line-height:1; color:#6b88a4; }
+.gh-dungeon-grid { display:block; }
+.gh-dungeon { margin:0 0 12px; border:0; border-bottom:1px solid #d9e6f3; border-radius:0; box-shadow:none; overflow:visible; background:transparent; }
+.gh-dungeon > summary { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:15px 8px; cursor:pointer; list-style:none; color:#153f6b; font-size:1.12rem; font-weight:800; border-top:1px solid #d9e6f3; }
+.gh-dungeon > summary::-webkit-details-marker { display:none; }
+.gh-dungeon > summary::after { content:'＋'; color:#2878b8; font-size:1.2rem; font-weight:500; }
+.gh-dungeon[open] > summary::after { content:'−'; }
+.gh-dungeon > summary:hover,.gh-dungeon > summary:focus-visible { color:#0877c9; background:#f3f8fd; outline-offset:2px; }
+.gh-dungeon .gh-floor-gallery { padding-top:12px; }
+.gh-dungeon .gh-dungeon-body { padding:18px 8px 22px; }
+.gh-monsters { display:flex; flex-wrap:wrap; align-items:center; gap:4px 0; list-style:none; margin:0; padding:0 !important; line-height:1.8 !important; }
+.gh-monsters li { display:inline; margin:0; padding:0; color:#183b59; white-space:normal; }
+.gh-monsters li:not(:last-child)::after { content:' · '; color:#8ba0b4; padding:0 5px; }
+@media(max-width:600px) {
+  .gh-category-links a { min-height:50px; }
+  .gh-dungeon > summary { padding:14px 5px; }
+  .gh-dungeon .gh-dungeon-body { padding:14px 5px 18px; }
+  .gh-monsters { line-height:1.75 !important; }
+}
