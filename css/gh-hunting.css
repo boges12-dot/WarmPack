@@ -41,3 +41,13 @@
   .gh-dungeon .gh-dungeon-body { padding:14px 5px 18px; }
   .gh-monsters { line-height:1.75 !important; }
 }
+
+
+/* 2026-11-25: always-visible hunting information (no accordion/click-to-open) */
+.gh-dungeon { display:block; margin:0 0 28px; padding:0 0 26px; border:0; border-bottom:2px solid #d9e6f3; border-radius:0; box-shadow:none; overflow:visible; background:transparent; scroll-margin-top:20px; }
+.gh-dungeon-title { display:block; margin:0; padding:15px 18px; border-left:5px solid #2878b8; background:#e9f4ff; color:#153f6b; font-size:1.2rem; font-weight:800; }
+.gh-dungeon .gh-floor-gallery { padding-top:16px; }
+.gh-dungeon .gh-dungeon-body { padding:18px 8px 8px; }
+.gh-dungeon .gh-dungeon-body > section { margin-bottom:20px; }
+.gh-dungeon .gh-dungeon-body > section:last-child { margin-bottom:0; }
+@media(max-width:600px) { .gh-dungeon { margin-bottom:22px; padding-bottom:20px; } .gh-dungeon-title { padding:13px 12px; } .gh-dungeon .gh-dungeon-body { padding:15px 5px 5px; } }
