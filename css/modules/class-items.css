@@ -86,3 +86,14 @@
  .class-items-page .class-item-card .class-item-image-restored img,.class-items-page .class-item-card .class-item-image-empty img{max-height:98px!important}
  .class-items-page .class-item-card .class-item-option-empty{padding:10px!important;font-size:13px!important}
 }
+
+/* Fixed horizontal item layout, including narrow screens. */
+.class-items-page .class-item-card > .class-item-detail.variant-detail {display:block!important;}
+.class-items-page .class-item-card > .class-item-detail.variant-detail > .class-item-variants {width:100%!important;max-width:100%!important;}
+.class-items-page .class-item-card > .class-item-detail {
+ display:grid!important; grid-template-columns:clamp(70px,22%,170px) minmax(0,1fr)!important;
+ align-items:start!important; gap:12px!important; width:100%!important; box-sizing:border-box!important;
+}
+.class-items-page .class-item-card > .class-item-detail > :first-child {grid-column:1!important;grid-row:1!important;width:100%!important;max-width:100%!important;min-width:0!important;margin:0!important;}
+.class-items-page .class-item-card > .class-item-detail > .class-item-option-empty {grid-column:2!important;grid-row:1!important;width:100%!important;min-width:0!important;margin:0!important;overflow-wrap:anywhere!important;}
+.class-items-page .class-item-card > .class-item-heading {padding:11px 16px;background:#f4f8fc;color:#17496d;font-size:15px;font-weight:700;}
